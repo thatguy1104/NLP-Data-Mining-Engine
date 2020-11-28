@@ -3,7 +3,7 @@ from RPS.rps_scraper import RPS
 
 
 
-discovery = UCL_Discovery()
-rps = RPS()
+discovery = UCL_Discovery().run()
+# rps = RPS()
 
 

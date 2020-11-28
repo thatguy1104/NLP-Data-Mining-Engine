@@ -7,29 +7,34 @@ import datetime
 
 class UCL_Discovery:
     def __init__(self):
-        print("Discovery")
+        self.link = 'https://discovery.ucl.ac.uk/view/year/'
+        self.all_links = []
+        
 
-    def checkTableExists(self, dbcon, tablename):
-        dbcur = dbcon.cursor()
-        dbcur.execute("""
-            SELECT COUNT(*)
-            FROM information_schema.tables
-            WHERE table_name = '{0}'
-            """.format(tablename.replace('\'', '\'\'')))
-        if dbcur.fetchone()[0] == 1:
-            dbcur.close()
-            return True
+    def get_all_years(self):
+        response = requests.get(self.link)
+        soup = BeautifulSoup(response.text, 'lxml')
+        columns = soup.findAll('td')
 
-        dbcur.close()
-        return False
+        for col in columns:
+            row = col.findAll('a')
+            for val in row:
+                data_link = val['href']
+                self.all_links.append(self.link + data_link)
 
-    def push_to_DB(self):
-        pass
+    def get_page_data(self, link):
+        response = requests.get(link)
+        soup = BeautifulSoup(response.text, 'lxml')
+        div = soup.find('div', class_='ep_view_page ep_view_page_view_year')
+        print(div)
+        
 
-    # TODO
-    def get_data(self):
-        pass
+    def total_links(self):
+        for i in self.all_links:
+            self.get_page_data(i)
+            break
+            
 
-    # TODO
     def run(self):
-        pass
+        self.get_all_years()
+        self.total_links()
