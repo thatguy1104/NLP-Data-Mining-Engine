@@ -30,9 +30,12 @@ class UCL_Discovery:
         
 
     def total_links(self):
-        for i in self.all_links:
-            self.get_page_data(i)
-            break
+        temp_limit = 1
+        for i in range(len(self.all_links)):
+            if i != temp_limit:
+                self.get_page_data(self.all_links[i])
+            else:
+                break
             
 
     def run(self):
