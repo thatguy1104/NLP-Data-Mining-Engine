@@ -26,6 +26,7 @@ class UCL_Discovery:
         response = requests.get(link)
         soup = BeautifulSoup(response.text, 'lxml')
         div = soup.find('div', class_='ep_view_page ep_view_page_view_year')
+        
         print(div)
         
 
