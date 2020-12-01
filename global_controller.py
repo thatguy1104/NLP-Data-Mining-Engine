@@ -1,9 +1,9 @@
 from UCL_DISCOVERY.discovery_scraper import UCL_Discovery
-from RPS.rps_scraper import RPS
+from UCL_DISCOVERY.individual_scrape import IndividualPaper
 
 
 
-discovery = UCL_Discovery().run()
-# rps = RPS()
+# discovery = UCL_Discovery().run()
+individual = IndividualPaper().run()
 
 

@@ -9,13 +9,12 @@ class UCL_Discovery:
     def __init__(self):
         self.link = 'https://discovery.ucl.ac.uk/view/year/'
         self.all_links = []
-        
-
+    
     def get_all_years(self):
         response = requests.get(self.link)
         soup = BeautifulSoup(response.text, 'lxml')
         columns = soup.findAll('td')
-
+        
         for col in columns:
             row = col.findAll('a')
             for val in row:
@@ -26,7 +25,7 @@ class UCL_Discovery:
         response = requests.get(link)
         soup = BeautifulSoup(response.text, 'lxml')
         div = soup.find('div', class_='ep_view_page ep_view_page_view_year')
-        
+
         print(div)
         
 
