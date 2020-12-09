@@ -51,10 +51,12 @@ class UCL_Module_Catalogue():
         soup = BeautifulSoup(response.text, 'lxml')
         
         if soup.find('h1', class_="heading") is not None:
+
+            # PARSE: MODULE TITLE
             title = soup.find('h1', class_="heading").text
 
+            # PARSE: faculty, department, credit value
             key_info_left = soup.find('dl', class_="dl-inline")
-            
             inf_t = []
             info_titles = key_info_left.findAll('dt')
             inf_v = []
@@ -65,22 +67,33 @@ class UCL_Module_Catalogue():
             for v in info_values:
                 inf_v.append(v.text)
 
-            description = soup.find('div', class_="module-description").find('p').text.replace('\n', '')
+            # PARSE: DESCRIPTION SECTION
+            result_description = ""
+            description = soup.find('div', class_="module-description")
+            description_1 = description.findAll('p')
+            description_2 = description.findAll('li')
 
+            for d in description_1:
+                result_description += d.text.replace('\n', '').replace('\t', '')
+            for d2 in description_2:
+                result_description += d2.text.replace('\n', '').replace('\t', '')
+
+            # PARSE: MODULE LEAD NAME
             module_lead = soup.findAll('dl', class_="dl-inline")[3]
             name_lead = module_lead.findAll('dd')[1].text.replace('\n', '').split(' ')
             name_lead = list(filter(None, name_lead))
             name_lead = ' '.join(map(str, name_lead))
 
-            return (title, module_id, inf_v, name_lead, description)
+            return (title, module_id, inf_v, name_lead, result_description)
         else:
             return (None, None, None, None, None)
         
     def writeData(self, all_data):
         data = {}
+        count = 0
         for title, module_id, info, name_lead, description in all_data:
             if (title and module_id and info and name_lead and description) is not None:
-                
+                count += 1
                 data[module_id] = {}
                 data[module_id]['Title'] = title
                 data[module_id]['Faculty'] = info[0]
@@ -99,5 +112,3 @@ class UCL_Module_Catalogue():
         # self.get_CS_modules() # run once
         data = self.scrape_module()
         self.writeData(data)
-
-        
