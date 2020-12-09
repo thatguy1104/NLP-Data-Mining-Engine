@@ -1,9 +1,6 @@
-from UCL_DISCOVERY.discovery_scraper import UCL_Discovery
-from UCL_DISCOVERY.individual_scrape import IndividualPaper
+from MODULE_CATALOGUE.scrape import UCL_Module_Catalogue
 
 
-
-# discovery = UCL_Discovery().run()
-individual = IndividualPaper().run()
-
+modules = UCL_Module_Catalogue()
+modules.run()
 

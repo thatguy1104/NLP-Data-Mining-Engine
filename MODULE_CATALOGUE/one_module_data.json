@@ -1,0 +1,12 @@
+{
+    "COMP0088": [
+        {
+            "Title": "Intelligent Systems (COMP0014)",
+            "Faculty": "Faculty of Engineering Sciences",
+            "Teaching Department": "Computer Science",
+            "Credit Value": "15",
+            "Module Leader": "Dr John Dowell",
+            "Description": "Aims:To introduce primary theoretical constructs in the field of intelligent systems and to examine significant methods illustrating those constructs, together with examples of their application.Learning outcomes:On successful completion of the module, a student will be able to:1.understand foundational theories in artificial intelligence including: the structural dimensions of intelligent agents in relation to the capabilities they achieve in different environments, and; the differences between symbolic and sub-symbolic agent architectures.2.understand established and emerging methods for providing the primary capabilities of intelligent agents such as their decision-making, problem solving and learning.3.understand the technical challenges involved in modelling and building intelligent systems for different application settings.Content:-Systems and intelligence;-Agents;-Agent architectures;-Problem solving;-Knowledge representation;-Decision-making;-Learning;-Sensing, acting and communicating.Requisites:In order to be eligible to select this module, a student must \u200bbe registered on a programme for which it is a formally-approved option or elective choice AND must have:-A level Maths (or equivalent);-English Language at the UCL Standard level."
+        }
+    ]
+}
