@@ -11,63 +11,12 @@ class UCL_Module_Catalogue():
 
     def __init__(self):
         self.initial_link = "https://www.ucl.ac.uk/module-catalogue/modules/"
-        self.module_link = "https://www.ucl.ac.uk/module-catalogue/modules/algorithms-COMP0005"
-        self.token = "uclapi-1e6c06cea59cf57-a6c4f5e96678dc2-4548665203179d6-765442292e213d7"
-
         self.server = 'miemie.database.windows.net'
         self.database = 'MainDB'
         self.username = 'miemie_login'
         self.password = 'e_Paswrd?!'
         self.driver = '{ODBC Driver 17 for SQL Server}'
     
-    def get_AllDepartments_and_Modules(self):
-        params = {"token": self.token}
-        r = requests.get("https://uclapi.com/timetable/data/departments", params=params).json()
-        
-        with open('MODULE_CATALOGUE/departments.json', 'w') as outfile:
-            json.dump(r, outfile)
-        
-    def get_department(self):
-        module_data = {}
-
-        with open('MODULE_CATALOGUE/departments.json') as json_file:
-            data = json.load(json_file)['departments']
-
-            for i in range(len(data)):
-                print(i, "/", len(data))
-                data_to_pass = []
-                # Construct a list for each department
-                depID = data[i]['department_id']
-                depName = data[i]['name']
-
-                params = {"token": self.token, "department": depID}
-                resp = requests.get("https://uclapi.com/timetable/data/modules", params=params)
-
-                valid = True
-                try:
-                    resp = resp.json()
-                except:
-                    valid = False
-
-                if valid and resp is not None:
-                    resp = resp['modules']
-                    for j in resp:
-                        moduleID = resp[j]['module_id']
-                        moduleName_temp = resp[j]['name']
-                        moduleName = resp[j]['name'].lower().split(' ')
-                        module_name_joined = "-".join(moduleName)
-                        link = self.initial_link + module_name_joined + "-" + moduleID
-
-                        module_data[moduleID] = {}
-                        module_data[moduleID]['Department_ID'] = depID
-                        module_data[moduleID]['Department_Name'] = depName
-                        module_data[moduleID]['Module_ID'] = moduleID
-                        module_data[moduleID]['Module_Name'] = moduleName_temp
-                        module_data[moduleID]['Link'] = link
-
-                        with open('MODULE_CATALOGUE/all_module_links.json', 'w') as outfile:
-                            json.dump(module_data, outfile)
-
     def scrape_module(self, data):
         module_data = []
         with open('MODULE_CATALOGUE/CS_courses.json') as json_file:
@@ -134,26 +83,6 @@ class UCL_Module_Catalogue():
             return (title, module_id, inf_v[0], inf_v[1], int(inf_v[2]), name_lead, result_description)
         else:
             return (None, None, None, None, None, None, None)
-        
-    def writeData_JSON(self, all_data):
-        pass
-        # data = {}
-        # count = 0
-        # for title, mod_id, faculty, dep, cred_val, name_lead, description, curr_date in all_data:
-        #     if (title and mod_id and info and name_lead and description) is not None:
-        #         count += 1
-        #         data[module_id] = {}
-        #         data[module_id]['Title'] = title
-        #         data[module_id]['Faculty'] = faculty
-        #         data[module_id]['Teaching Department'] = dep
-        #         data[module_id]['Credit Value'] = cred_val
-        #         data[module_id]['Module Leader'] = name_lead
-        #         data[module_id]['Description'] = description
-
-        # with open('MODULE_CATALOGUE/one_module_data.json', 'a', encoding='utf8') as outfile:
-        #     json.dump(data, outfile, ensure_ascii=False)
-
-        # print("written to one_module_data.json")
 
     def checkTableExists(self, dbcon, tablename):
         dbcur = dbcon.cursor()
@@ -206,7 +135,7 @@ class UCL_Module_Catalogue():
 
         myConnection.commit()
         myConnection.close()
-    
+
     def run(self):
         """
             Gets all departments and their modules
