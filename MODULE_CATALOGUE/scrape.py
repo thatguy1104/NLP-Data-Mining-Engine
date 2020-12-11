@@ -75,26 +75,33 @@ class UCL_Module_Catalogue():
             # PARSE: description section
             result_description = ""
             description = soup.find('div', class_="module-description")
-            description_1 = description.findAll('p')
-            description_2 = description.findAll('li')
+            if description is not None:
+                description_1 = description.findAll('p')
+                description_2 = description.findAll('li')
+                for d in description_1:
+                    result_description += d.text.replace('\n', '').replace('\t', '')
+                for d2 in description_2:
+                    result_description += d2.text.replace('\n', '').replace('\t', '')
 
-            for d in description_1:
-                result_description += d.text.replace('\n', '').replace('\t', '')
-            for d2 in description_2:
-                result_description += d2.text.replace('\n', '').replace('\t', '')
+                # Clean up the description string
+                result_description = re.sub("[^a-zA-Z]", " ", result_description).split(' ')
+                result_description = list(filter(None, result_description))
+                result_description = ' '.join(map(str, result_description))
 
-            # Clean up the description string
-            result_description = re.sub("[^a-zA-Z]", " ", result_description).split(' ')
-            result_description = list(filter(None, result_description))
-            result_description = ' '.join(map(str, result_description))
+            else:
+                result_description = None
 
+            
             # PARSE: module lead name
-            module_lead = soup.findAll('dl', class_="dl-inline")[3]
-            name_lead = module_lead.findAll('dd')[1].text.replace('\n', '').split(' ')
-            name_lead = list(filter(None, name_lead))
-            name_lead = ' '.join(map(str, name_lead))
+            module_lead = soup.findAll('dl', class_="dl-inline")
+            if module_lead is not None:
+                name_lead = module_lead[3].findAll('dd')[1].text.replace('\n', '').split(' ')
+                name_lead = list(filter(None, name_lead))
+                name_lead = ' '.join(map(str, name_lead))
+            else:
+                module_lead = None
 
-            return (title, module_id, inf_v[0], inf_v[1], int(inf_v[2]), name_lead, result_description)
+            return (title, module_id, inf_v[0], inf_v[1], float(inf_v[2]), name_lead, result_description)
         else:
             return (None, None, None, None, None, None, None)
 
@@ -128,7 +135,7 @@ class UCL_Module_Catalogue():
                 Module_Name          VARCHAR(150),
                 Module_ID            VARCHAR(150),
                 Faculty              VARCHAR(100),
-                Credit_Value         INT,
+                Credit_Value         FLOAT,
                 Module_Lead          VARCHAR(100),
                 Catalogue_Link       VARCHAR(150),
                 Description          VARCHAR(MAX),
@@ -153,6 +160,9 @@ class UCL_Module_Catalogue():
         myConnection.close()
 
     def run(self):
+        # l = "https://www.ucl.ac.uk/module-catalogue/modules/mres-library,-archive-and-information-studies-dissertation-INST0061"
+        # module_id = "INST0061"
+        # print(self.get_module_data(l, module_id))
+
         self.scrape_modules()
         print("Successully written to table <ModuleData> (db: {0})".format(self.database))
-        # self.writeData_DB(data)
