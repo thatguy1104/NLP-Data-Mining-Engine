@@ -1,4 +1,5 @@
 import re
+import sys
 import requests
 import json
 from bs4 import BeautifulSoup
@@ -10,32 +11,45 @@ import datetime
 class UCL_Module_Catalogue():
 
     def __init__(self):
-        self.initial_link = "https://www.ucl.ac.uk/module-catalogue/modules/"
         self.server = 'miemie.database.windows.net'
         self.database = 'MainDB'
         self.username = 'miemie_login'
         self.password = 'e_Paswrd?!'
         self.driver = '{ODBC Driver 17 for SQL Server}'
     
-    def scrape_module(self, data):
+    def progress(self, count, total, custom_text, suffix=''):
+        bar_len = 60
+        filled_len = int(round(bar_len * count / float(total)))
+
+        percents = round(100.0 * count / float(total), 1)
+        bar = '*' * filled_len + '-' * (bar_len - filled_len)
+
+        sys.stdout.write('[%s] %s%s %s %s\r' % (bar, percents, '%', custom_text, suffix))
+        sys.stdout.flush()
+
+    def scrape_modules(self):
         module_data = []
-        with open('MODULE_CATALOGUE/CS_courses.json') as json_file:
+        curr_time = datetime.datetime.now()
+        with open('MODULE_CATALOGUE/INITIALISER/all_module_links.json') as json_file:
             data = json.load(json_file)
-            counter = 0
-            size_data = len(data['modules'])
-            for i in data['modules']:
-                print("scraping", counter, "/", size_data)
-                counter += 1
-                module_id = data['modules'][i]['module_id']
-                module_name = data['modules'][i]['name'].lower().split(' ')
-                module_name_joined = "-".join(module_name)
-                link = self.initial_link + module_name_joined + "-" + module_id
+            lim = 0
+            l = len(data)
+            for i in data:
+                self.progress(lim, l, "Scraping for ModuleData")
+                module_data = []
+                # if lim < 40:
+                depName = data[i]['Department_Name']
+                depID = data[i]['Department_ID']
+                moduleName = data[i]['Module_Name']
+                moduleID = data[i]['Module_ID']
+                catalogueLink = data[i]['Link']
+                
+                title, mod_id, fac, dep, cred_val, name_lead, description = self.get_module_data(catalogueLink, moduleID)
+                if title is not None:
+                    module_data.append((depName, depID, moduleName, moduleID, fac, cred_val, name_lead, catalogueLink, description, curr_time))
+                    self.writeData_DB(module_data)
 
-                data_mod = self.get_module_data(link, module_id)
-                title, mod_id, inf_v, name_lead, description = data_mod[0], data_mod[1], data_mod[2], data_mod[3], data_mod[4]
-                module_data.append((title, mod_id, inf_v, name_lead, description))
-
-        return module_data
+                lim += 1
 
     def get_module_data(self, link, module_id):
         response = requests.get(link)
@@ -105,22 +119,24 @@ class UCL_Module_Catalogue():
         myConnection = pyodbc.connect('DRIVER=' + self.driver + ';SERVER=' + self.server + ';PORT=1433;DATABASE=' + self.database + ';UID=' + self.username + ';PWD=' + self.password)
         cur = myConnection.cursor()
 
-        # if not self.checkTableExists(myConnection, "ModuleData"):
-        # EXECUTE SQL COMMANDS
-        cur.execute("DROP TABLE IF EXISTS ModuleData;")
-        create = """CREATE TABLE ModuleData(
-            Module_ID            VARCHAR(150),
-            Module_Title         VARCHAR(150),
-            Faculty              VARCHAR(100),
-            Department           VARCHAR(100),
-            Credit_Value         INT,
-            Module_Lead          VARCHAR(100),
-            Description          VARCHAR(MAX),
-            Last_Updated         DATETIME DEFAULT CURRENT_TIMESTAMP
-        );"""
-        cur.execute(create)
-        myConnection.commit()
-        print("Successully created table <ModuleData>")
+        if not self.checkTableExists(myConnection, "ModuleData"):
+            # EXECUTE SQL COMMANDS
+            cur.execute("DROP TABLE IF EXISTS ModuleData;")
+            create = """CREATE TABLE ModuleData(
+                Department_Name      VARCHAR(150),
+                Department_ID        VARCHAR(150),
+                Module_Name          VARCHAR(150),
+                Module_ID            VARCHAR(150),
+                Faculty              VARCHAR(100),
+                Credit_Value         INT,
+                Module_Lead          VARCHAR(100),
+                Catalogue_Link       VARCHAR(150),
+                Description          VARCHAR(MAX),
+                Last_Updated         DATETIME DEFAULT CURRENT_TIMESTAMP
+            );"""
+            cur.execute(create)
+            myConnection.commit()
+            print("Successully created table <ModuleData>")
 
         # DO NOT WRITE IF LIST IS EMPTY DUE TO TOO MANY REQUESTS
         if not all_data:
@@ -128,20 +144,15 @@ class UCL_Module_Catalogue():
         else:
             # EXECUTE INSERTION INTO DB
             cur.fast_executemany = False
-            insertion = "INSERT INTO ModuleData(Module_ID, Module_Title, Faculty, Department, Credit_Value, Module_Lead, Description, Last_Updated) VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
+            insertion = "INSERT INTO ModuleData(Department_Name, Department_ID, Module_Name, Module_ID, Faculty, Credit_Value, Module_Lead, Catalogue_Link, Description, Last_Updated) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
             cur.executemany(insertion, all_data)
 
-            print("Successully written to table <ModuleData> (db: {0})".format(self.database))
+            # print("Successully written to table <ModuleData> (db: {0})".format(self.database))
 
         myConnection.commit()
         myConnection.close()
 
     def run(self):
-        """
-            Gets all departments and their modules
-            Stores in all_module_links.json
-            self.get_department()
-        """
-
-        # data = self.scrape_module('SOCSC_IOE')
+        self.scrape_modules()
+        print("Successully written to table <ModuleData> (db: {0})".format(self.database))
         # self.writeData_DB(data)
