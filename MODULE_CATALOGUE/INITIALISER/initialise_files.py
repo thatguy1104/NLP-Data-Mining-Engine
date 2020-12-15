@@ -16,7 +16,7 @@ class Initialiser():
 
     def init_All_Module_Links(self):
         module_data = {}
-
+        
         with open('MODULE_CATALOGUE/INITIALISER/departments.json') as json_file:
             data = json.load(json_file)['departments']
 

@@ -7,15 +7,21 @@ import lxml
 import time
 import pyodbc
 import datetime
+import smtplib
 
 class UCL_Module_Catalogue():
 
     def __init__(self):
+
+        # SERVER LOGIN DETAILS
         self.server = 'miemie.database.windows.net'
         self.database = 'MainDB'
         self.username = 'miemie_login'
         self.password = 'e_Paswrd?!'
         self.driver = '{ODBC Driver 17 for SQL Server}'
+
+        # CONNECT TO DATABASE
+        self.myConnection = pyodbc.connect('DRIVER=' + self.driver + ';SERVER=' + self.server + ';PORT=1433;DATABASE=' + self.database + ';UID=' + self.username + ';PWD=' + self.password)
     
     def progress(self, count, total, custom_text, suffix=''):
         bar_len = 60
@@ -37,7 +43,6 @@ class UCL_Module_Catalogue():
             for i in data:
                 self.progress(lim, l, "Scraping for ModuleData")
                 module_data = []
-                # if lim < 40:
                 depName = data[i]['Department_Name']
                 depID = data[i]['Department_ID']
                 moduleName = data[i]['Module_Name']
@@ -91,15 +96,14 @@ class UCL_Module_Catalogue():
             else:
                 result_description = None
 
-            
             # PARSE: module lead name
             module_lead = soup.findAll('dl', class_="dl-inline")
-            if module_lead is not None:
+            if module_lead is not None and len(module_lead) > 3:
                 name_lead = module_lead[3].findAll('dd')[1].text.replace('\n', '').split(' ')
                 name_lead = list(filter(None, name_lead))
                 name_lead = ' '.join(map(str, name_lead))
             else:
-                module_lead = None
+                name_lead = None
 
             return (title, module_id, inf_v[0], inf_v[1], float(inf_v[2]), name_lead, result_description)
         else:
@@ -120,49 +124,21 @@ class UCL_Module_Catalogue():
         return False
 
     def writeData_DB(self, all_data):
-        # all_data = [(...), (...), (...)]
-
-        # CONNECT TO DATABASE
-        myConnection = pyodbc.connect('DRIVER=' + self.driver + ';SERVER=' + self.server + ';PORT=1433;DATABASE=' + self.database + ';UID=' + self.username + ';PWD=' + self.password)
-        cur = myConnection.cursor()
-
-        if not self.checkTableExists(myConnection, "ModuleData"):
-            # EXECUTE SQL COMMANDS
-            cur.execute("DROP TABLE IF EXISTS ModuleData;")
-            create = """CREATE TABLE ModuleData(
-                Department_Name      VARCHAR(150),
-                Department_ID        VARCHAR(150),
-                Module_Name          VARCHAR(150),
-                Module_ID            VARCHAR(150),
-                Faculty              VARCHAR(100),
-                Credit_Value         FLOAT,
-                Module_Lead          VARCHAR(100),
-                Catalogue_Link       VARCHAR(150),
-                Description          VARCHAR(MAX),
-                Last_Updated         DATETIME DEFAULT CURRENT_TIMESTAMP
-            );"""
-            cur.execute(create)
-            myConnection.commit()
-            print("Successully created table <ModuleData>")
+        cur = self.myConnection.cursor()
 
         # DO NOT WRITE IF LIST IS EMPTY DUE TO TOO MANY REQUESTS
         if not all_data:
             print("Not written --> too many requests")
         else:
             # EXECUTE INSERTION INTO DB
-            cur.fast_executemany = False
+            # cur.fast_executemany = False
             insertion = "INSERT INTO ModuleData(Department_Name, Department_ID, Module_Name, Module_ID, Faculty, Credit_Value, Module_Lead, Catalogue_Link, Description, Last_Updated) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
             cur.executemany(insertion, all_data)
 
-            # print("Successully written to table <ModuleData> (db: {0})".format(self.database))
-
-        myConnection.commit()
-        myConnection.close()
-
+        self.myConnection.commit()
+        
     def run(self):
-        # l = "https://www.ucl.ac.uk/module-catalogue/modules/mres-library,-archive-and-information-studies-dissertation-INST0061"
-        # module_id = "INST0061"
-        # print(self.get_module_data(l, module_id))
-
         self.scrape_modules()
         print("Successully written to table <ModuleData> (db: {0})".format(self.database))
+        
+        self.myConnection.close()

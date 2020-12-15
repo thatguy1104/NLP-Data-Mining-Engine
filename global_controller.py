@@ -1,5 +1,5 @@
 from MODULE_CATALOGUE.scrape import UCL_Module_Catalogue
-from MODULE_CATALOGUE.initialise_files import Initialiser
+from MODULE_CATALOGUE.INITIALISER.initialise_files import Initialiser
 
 
 def initialise():
