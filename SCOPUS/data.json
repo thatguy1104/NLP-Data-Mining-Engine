@@ -1,0 +1,2180 @@
+{
+    "SCOPUS_ID:85079767316": {
+        "affiliation": {
+            "affiliation-city": "London",
+            "affilname": "University College London",
+            "affiliation-country": "United Kingdom"
+        },
+        "coredata": {
+            "srctype": "b",
+            "eid": "2-s2.0-85079767316",
+            "prism:coverDate": "2018-01-01",
+            "prism:aggregationType": "Book",
+            "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/85079767316",
+            "subtypeDescription": "Chapter",
+            "dc:creator": {
+                "author": [
+                    {
+                        "ce:given-name": "Natalie L.",
+                        "preferred-name": {
+                            "ce:given-name": "Natalie L.",
+                            "ce:initials": "N.L.",
+                            "ce:surname": "Dawson",
+                            "ce:indexed-name": "Dawson N.L."
+                        },
+                        "@seq": "1",
+                        "ce:initials": "N.L.",
+                        "@_fa": "true",
+                        "affiliation": {
+                            "@id": "60022148",
+                            "@href": "https://api.elsevier.com/content/affiliation/affiliation_id/60022148"
+                        },
+                        "ce:surname": "Dawson",
+                        "@auid": "55638031200",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/55638031200",
+                        "ce:indexed-name": "Dawson N.L."
+                    }
+                ]
+            },
+            "link": [
+                {
+                    "@_fa": "true",
+                    "@rel": "self",
+                    "@href": "https://api.elsevier.com/content/abstract/scopus_id/85079767316"
+                },
+                {
+                    "@_fa": "true",
+                    "@rel": "scopus",
+                    "@href": "https://www.scopus.com/inward/record.uri?partnerID=HzOxMe3b&scp=85079767316&origin=inward"
+                },
+                {
+                    "@_fa": "true",
+                    "@rel": "scopus-citedby",
+                    "@href": "https://www.scopus.com/inward/citedby.uri?partnerID=HzOxMe3b&scp=85079767316&origin=inward"
+                }
+            ],
+            "prism:isbn": [
+                {
+                    "$": "9780128114322"
+                },
+                {
+                    "$": "9780128114148"
+                }
+            ],
+            "prism:publicationName": "Encyclopedia of Bioinformatics and Computational Biology: ABC of Bioinformatics",
+            "source-id": "21100945803",
+            "citedby-count": "0",
+            "prism:volume": "1-3",
+            "subtype": "ch",
+            "prism:pageRange": "472-487",
+            "dc:title": "Protein Structure Classification",
+            "prism:endingPage": "487",
+            "openaccess": "0",
+            "openaccessFlag": "false",
+            "prism:doi": "10.1016/B978-0-12-809633-8.20281-1",
+            "prism:startingPage": "472",
+            "dc:identifier": "SCOPUS_ID:85079767316",
+            "dc:publisher": "Elsevier"
+        }
+    }
+}{
+    "SCOPUS_ID:85079767316": {
+        "affiliation": {
+            "affiliation-city": "London",
+            "affilname": "University College London",
+            "affiliation-country": "United Kingdom"
+        },
+        "coredata": {
+            "srctype": "b",
+            "eid": "2-s2.0-85079767316",
+            "prism:coverDate": "2018-01-01",
+            "prism:aggregationType": "Book",
+            "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/85079767316",
+            "subtypeDescription": "Chapter",
+            "dc:creator": {
+                "author": [
+                    {
+                        "ce:given-name": "Natalie L.",
+                        "preferred-name": {
+                            "ce:given-name": "Natalie L.",
+                            "ce:initials": "N.L.",
+                            "ce:surname": "Dawson",
+                            "ce:indexed-name": "Dawson N.L."
+                        },
+                        "@seq": "1",
+                        "ce:initials": "N.L.",
+                        "@_fa": "true",
+                        "affiliation": {
+                            "@id": "60022148",
+                            "@href": "https://api.elsevier.com/content/affiliation/affiliation_id/60022148"
+                        },
+                        "ce:surname": "Dawson",
+                        "@auid": "55638031200",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/55638031200",
+                        "ce:indexed-name": "Dawson N.L."
+                    }
+                ]
+            },
+            "link": [
+                {
+                    "@_fa": "true",
+                    "@rel": "self",
+                    "@href": "https://api.elsevier.com/content/abstract/scopus_id/85079767316"
+                },
+                {
+                    "@_fa": "true",
+                    "@rel": "scopus",
+                    "@href": "https://www.scopus.com/inward/record.uri?partnerID=HzOxMe3b&scp=85079767316&origin=inward"
+                },
+                {
+                    "@_fa": "true",
+                    "@rel": "scopus-citedby",
+                    "@href": "https://www.scopus.com/inward/citedby.uri?partnerID=HzOxMe3b&scp=85079767316&origin=inward"
+                }
+            ],
+            "prism:isbn": [
+                {
+                    "$": "9780128114322"
+                },
+                {
+                    "$": "9780128114148"
+                }
+            ],
+            "prism:publicationName": "Encyclopedia of Bioinformatics and Computational Biology: ABC of Bioinformatics",
+            "source-id": "21100945803",
+            "citedby-count": "0",
+            "prism:volume": "1-3",
+            "subtype": "ch",
+            "prism:pageRange": "472-487",
+            "dc:title": "Protein Structure Classification",
+            "prism:endingPage": "487",
+            "openaccess": "0",
+            "openaccessFlag": "false",
+            "prism:doi": "10.1016/B978-0-12-809633-8.20281-1",
+            "prism:startingPage": "472",
+            "dc:identifier": "SCOPUS_ID:85079767316",
+            "dc:publisher": "Elsevier"
+        }
+    }
+}{
+    "SCOPUS_ID:85079767316": {
+        "affiliation": {
+            "affiliation-city": "London",
+            "affilname": "University College London",
+            "affiliation-country": "United Kingdom"
+        },
+        "coredata": {
+            "srctype": "b",
+            "eid": "2-s2.0-85079767316",
+            "prism:coverDate": "2018-01-01",
+            "prism:aggregationType": "Book",
+            "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/85079767316",
+            "subtypeDescription": "Chapter",
+            "dc:creator": {
+                "author": [
+                    {
+                        "ce:given-name": "Natalie L.",
+                        "preferred-name": {
+                            "ce:given-name": "Natalie L.",
+                            "ce:initials": "N.L.",
+                            "ce:surname": "Dawson",
+                            "ce:indexed-name": "Dawson N.L."
+                        },
+                        "@seq": "1",
+                        "ce:initials": "N.L.",
+                        "@_fa": "true",
+                        "affiliation": {
+                            "@id": "60022148",
+                            "@href": "https://api.elsevier.com/content/affiliation/affiliation_id/60022148"
+                        },
+                        "ce:surname": "Dawson",
+                        "@auid": "55638031200",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/55638031200",
+                        "ce:indexed-name": "Dawson N.L."
+                    }
+                ]
+            },
+            "link": [
+                {
+                    "@_fa": "true",
+                    "@rel": "self",
+                    "@href": "https://api.elsevier.com/content/abstract/scopus_id/85079767316"
+                },
+                {
+                    "@_fa": "true",
+                    "@rel": "scopus",
+                    "@href": "https://www.scopus.com/inward/record.uri?partnerID=HzOxMe3b&scp=85079767316&origin=inward"
+                },
+                {
+                    "@_fa": "true",
+                    "@rel": "scopus-citedby",
+                    "@href": "https://www.scopus.com/inward/citedby.uri?partnerID=HzOxMe3b&scp=85079767316&origin=inward"
+                }
+            ],
+            "prism:isbn": [
+                {
+                    "$": "9780128114322"
+                },
+                {
+                    "$": "9780128114148"
+                }
+            ],
+            "prism:publicationName": "Encyclopedia of Bioinformatics and Computational Biology: ABC of Bioinformatics",
+            "source-id": "21100945803",
+            "citedby-count": "0",
+            "prism:volume": "1-3",
+            "subtype": "ch",
+            "prism:pageRange": "472-487",
+            "dc:title": "Protein Structure Classification",
+            "prism:endingPage": "487",
+            "openaccess": "0",
+            "openaccessFlag": "false",
+            "prism:doi": "10.1016/B978-0-12-809633-8.20281-1",
+            "prism:startingPage": "472",
+            "dc:identifier": "SCOPUS_ID:85079767316",
+            "dc:publisher": "Elsevier"
+        }
+    },
+    "SCOPUS_ID:84960193973": {
+        "affiliation": [
+            {
+                "affiliation-city": "Funchal",
+                "affilname": "Madeira Interactive Technologies Institute",
+                "affiliation-country": "Portugal"
+            },
+            {
+                "affiliation-city": "Brighton",
+                "affilname": "University of Sussex",
+                "affiliation-country": "United Kingdom"
+            },
+            {
+                "affiliation-city": "Lugano",
+                "affilname": "Universit\u00e0 della Svizzera italiana",
+                "affiliation-country": "Switzerland"
+            },
+            {
+                "affiliation-city": "Salzburg",
+                "affilname": "Universitat Salzburg",
+                "affiliation-country": "Austria"
+            }
+        ],
+        "coredata": {
+            "srctype": "p",
+            "eid": "2-s2.0-84960193973",
+            "prism:coverDate": "2015-09-01",
+            "prism:aggregationType": "Conference Proceeding",
+            "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/84960193973",
+            "subtypeDescription": "Conference Paper",
+            "dc:creator": {
+                "author": [
+                    {
+                        "ce:given-name": "Evangelos",
+                        "preferred-name": {
+                            "ce:given-name": "Evangelos",
+                            "ce:initials": "E.",
+                            "ce:surname": "Niforatos",
+                            "ce:indexed-name": "Niforatos E."
+                        },
+                        "@seq": "1",
+                        "ce:initials": "E.",
+                        "@_fa": "true",
+                        "affiliation": {
+                            "@id": "60006824",
+                            "@href": "https://api.elsevier.com/content/affiliation/affiliation_id/60006824"
+                        },
+                        "ce:surname": "Niforatos",
+                        "@auid": "55221816500",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/55221816500",
+                        "ce:indexed-name": "Niforatos E."
+                    }
+                ]
+            },
+            "link": [
+                {
+                    "@_fa": "true",
+                    "@rel": "self",
+                    "@href": "https://api.elsevier.com/content/abstract/scopus_id/84960193973"
+                },
+                {
+                    "@_fa": "true",
+                    "@rel": "scopus",
+                    "@href": "https://www.scopus.com/inward/record.uri?partnerID=HzOxMe3b&scp=84960193973&origin=inward"
+                },
+                {
+                    "@_fa": "true",
+                    "@rel": "scopus-citedby",
+                    "@href": "https://www.scopus.com/inward/citedby.uri?partnerID=HzOxMe3b&scp=84960193973&origin=inward"
+                }
+            ],
+            "prism:isbn": "9781450337366",
+            "prism:publicationName": "Adjunct Proceedings of the 7th International Conference on Automotive User Interfaces and Interactive VehicularApplications, AutomotiveUI 2015",
+            "source-id": "21100449125",
+            "citedby-count": "3",
+            "subtype": "cp",
+            "prism:pageRange": "118-123",
+            "dc:title": "EMotion: Retrospective in-car user experience evaluation",
+            "prism:endingPage": "123",
+            "openaccess": "0",
+            "openaccessFlag": "false",
+            "prism:doi": "10.1145/2809730.2809740",
+            "prism:startingPage": "118",
+            "dc:identifier": "SCOPUS_ID:84960193973",
+            "dc:publisher": "Association for Computing Machinery, Incacmhelp@acm.org"
+        }
+    }
+}{
+    "SCOPUS_ID:85079767316": {
+        "affiliation": {
+            "affiliation-city": "London",
+            "affilname": "University College London",
+            "affiliation-country": "United Kingdom"
+        },
+        "coredata": {
+            "srctype": "b",
+            "eid": "2-s2.0-85079767316",
+            "prism:coverDate": "2018-01-01",
+            "prism:aggregationType": "Book",
+            "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/85079767316",
+            "subtypeDescription": "Chapter",
+            "dc:creator": {
+                "author": [
+                    {
+                        "ce:given-name": "Natalie L.",
+                        "preferred-name": {
+                            "ce:given-name": "Natalie L.",
+                            "ce:initials": "N.L.",
+                            "ce:surname": "Dawson",
+                            "ce:indexed-name": "Dawson N.L."
+                        },
+                        "@seq": "1",
+                        "ce:initials": "N.L.",
+                        "@_fa": "true",
+                        "affiliation": {
+                            "@id": "60022148",
+                            "@href": "https://api.elsevier.com/content/affiliation/affiliation_id/60022148"
+                        },
+                        "ce:surname": "Dawson",
+                        "@auid": "55638031200",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/55638031200",
+                        "ce:indexed-name": "Dawson N.L."
+                    }
+                ]
+            },
+            "link": [
+                {
+                    "@_fa": "true",
+                    "@rel": "self",
+                    "@href": "https://api.elsevier.com/content/abstract/scopus_id/85079767316"
+                },
+                {
+                    "@_fa": "true",
+                    "@rel": "scopus",
+                    "@href": "https://www.scopus.com/inward/record.uri?partnerID=HzOxMe3b&scp=85079767316&origin=inward"
+                },
+                {
+                    "@_fa": "true",
+                    "@rel": "scopus-citedby",
+                    "@href": "https://www.scopus.com/inward/citedby.uri?partnerID=HzOxMe3b&scp=85079767316&origin=inward"
+                }
+            ],
+            "prism:isbn": [
+                {
+                    "$": "9780128114322"
+                },
+                {
+                    "$": "9780128114148"
+                }
+            ],
+            "prism:publicationName": "Encyclopedia of Bioinformatics and Computational Biology: ABC of Bioinformatics",
+            "source-id": "21100945803",
+            "citedby-count": "0",
+            "prism:volume": "1-3",
+            "subtype": "ch",
+            "prism:pageRange": "472-487",
+            "dc:title": "Protein Structure Classification",
+            "prism:endingPage": "487",
+            "openaccess": "0",
+            "openaccessFlag": "false",
+            "prism:doi": "10.1016/B978-0-12-809633-8.20281-1",
+            "prism:startingPage": "472",
+            "dc:identifier": "SCOPUS_ID:85079767316",
+            "dc:publisher": "Elsevier"
+        }
+    },
+    "SCOPUS_ID:84960193973": {
+        "affiliation": [
+            {
+                "affiliation-city": "Funchal",
+                "affilname": "Madeira Interactive Technologies Institute",
+                "affiliation-country": "Portugal"
+            },
+            {
+                "affiliation-city": "Brighton",
+                "affilname": "University of Sussex",
+                "affiliation-country": "United Kingdom"
+            },
+            {
+                "affiliation-city": "Lugano",
+                "affilname": "Universit\u00e0 della Svizzera italiana",
+                "affiliation-country": "Switzerland"
+            },
+            {
+                "affiliation-city": "Salzburg",
+                "affilname": "Universitat Salzburg",
+                "affiliation-country": "Austria"
+            }
+        ],
+        "coredata": {
+            "srctype": "p",
+            "eid": "2-s2.0-84960193973",
+            "prism:coverDate": "2015-09-01",
+            "prism:aggregationType": "Conference Proceeding",
+            "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/84960193973",
+            "subtypeDescription": "Conference Paper",
+            "dc:creator": {
+                "author": [
+                    {
+                        "ce:given-name": "Evangelos",
+                        "preferred-name": {
+                            "ce:given-name": "Evangelos",
+                            "ce:initials": "E.",
+                            "ce:surname": "Niforatos",
+                            "ce:indexed-name": "Niforatos E."
+                        },
+                        "@seq": "1",
+                        "ce:initials": "E.",
+                        "@_fa": "true",
+                        "affiliation": {
+                            "@id": "60006824",
+                            "@href": "https://api.elsevier.com/content/affiliation/affiliation_id/60006824"
+                        },
+                        "ce:surname": "Niforatos",
+                        "@auid": "55221816500",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/55221816500",
+                        "ce:indexed-name": "Niforatos E."
+                    }
+                ]
+            },
+            "link": [
+                {
+                    "@_fa": "true",
+                    "@rel": "self",
+                    "@href": "https://api.elsevier.com/content/abstract/scopus_id/84960193973"
+                },
+                {
+                    "@_fa": "true",
+                    "@rel": "scopus",
+                    "@href": "https://www.scopus.com/inward/record.uri?partnerID=HzOxMe3b&scp=84960193973&origin=inward"
+                },
+                {
+                    "@_fa": "true",
+                    "@rel": "scopus-citedby",
+                    "@href": "https://www.scopus.com/inward/citedby.uri?partnerID=HzOxMe3b&scp=84960193973&origin=inward"
+                }
+            ],
+            "prism:isbn": "9781450337366",
+            "prism:publicationName": "Adjunct Proceedings of the 7th International Conference on Automotive User Interfaces and Interactive VehicularApplications, AutomotiveUI 2015",
+            "source-id": "21100449125",
+            "citedby-count": "3",
+            "subtype": "cp",
+            "prism:pageRange": "118-123",
+            "dc:title": "EMotion: Retrospective in-car user experience evaluation",
+            "prism:endingPage": "123",
+            "openaccess": "0",
+            "openaccessFlag": "false",
+            "prism:doi": "10.1145/2809730.2809740",
+            "prism:startingPage": "118",
+            "dc:identifier": "SCOPUS_ID:84960193973",
+            "dc:publisher": "Association for Computing Machinery, Incacmhelp@acm.org"
+        }
+    }
+}{
+    "SCOPUS_ID:85079767316": {
+        "affiliation": {
+            "affiliation-city": "London",
+            "affilname": "University College London",
+            "affiliation-country": "United Kingdom"
+        },
+        "coredata": {
+            "srctype": "b",
+            "eid": "2-s2.0-85079767316",
+            "prism:coverDate": "2018-01-01",
+            "prism:aggregationType": "Book",
+            "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/85079767316",
+            "subtypeDescription": "Chapter",
+            "dc:creator": {
+                "author": [
+                    {
+                        "ce:given-name": "Natalie L.",
+                        "preferred-name": {
+                            "ce:given-name": "Natalie L.",
+                            "ce:initials": "N.L.",
+                            "ce:surname": "Dawson",
+                            "ce:indexed-name": "Dawson N.L."
+                        },
+                        "@seq": "1",
+                        "ce:initials": "N.L.",
+                        "@_fa": "true",
+                        "affiliation": {
+                            "@id": "60022148",
+                            "@href": "https://api.elsevier.com/content/affiliation/affiliation_id/60022148"
+                        },
+                        "ce:surname": "Dawson",
+                        "@auid": "55638031200",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/55638031200",
+                        "ce:indexed-name": "Dawson N.L."
+                    }
+                ]
+            },
+            "link": [
+                {
+                    "@_fa": "true",
+                    "@rel": "self",
+                    "@href": "https://api.elsevier.com/content/abstract/scopus_id/85079767316"
+                },
+                {
+                    "@_fa": "true",
+                    "@rel": "scopus",
+                    "@href": "https://www.scopus.com/inward/record.uri?partnerID=HzOxMe3b&scp=85079767316&origin=inward"
+                },
+                {
+                    "@_fa": "true",
+                    "@rel": "scopus-citedby",
+                    "@href": "https://www.scopus.com/inward/citedby.uri?partnerID=HzOxMe3b&scp=85079767316&origin=inward"
+                }
+            ],
+            "prism:isbn": [
+                {
+                    "$": "9780128114322"
+                },
+                {
+                    "$": "9780128114148"
+                }
+            ],
+            "prism:publicationName": "Encyclopedia of Bioinformatics and Computational Biology: ABC of Bioinformatics",
+            "source-id": "21100945803",
+            "citedby-count": "0",
+            "prism:volume": "1-3",
+            "subtype": "ch",
+            "prism:pageRange": "472-487",
+            "dc:title": "Protein Structure Classification",
+            "prism:endingPage": "487",
+            "openaccess": "0",
+            "openaccessFlag": "false",
+            "prism:doi": "10.1016/B978-0-12-809633-8.20281-1",
+            "prism:startingPage": "472",
+            "dc:identifier": "SCOPUS_ID:85079767316",
+            "dc:publisher": "Elsevier"
+        }
+    },
+    "SCOPUS_ID:84960193973": {
+        "affiliation": [
+            {
+                "affiliation-city": "Funchal",
+                "affilname": "Madeira Interactive Technologies Institute",
+                "affiliation-country": "Portugal"
+            },
+            {
+                "affiliation-city": "Brighton",
+                "affilname": "University of Sussex",
+                "affiliation-country": "United Kingdom"
+            },
+            {
+                "affiliation-city": "Lugano",
+                "affilname": "Universit\u00e0 della Svizzera italiana",
+                "affiliation-country": "Switzerland"
+            },
+            {
+                "affiliation-city": "Salzburg",
+                "affilname": "Universitat Salzburg",
+                "affiliation-country": "Austria"
+            }
+        ],
+        "coredata": {
+            "srctype": "p",
+            "eid": "2-s2.0-84960193973",
+            "prism:coverDate": "2015-09-01",
+            "prism:aggregationType": "Conference Proceeding",
+            "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/84960193973",
+            "subtypeDescription": "Conference Paper",
+            "dc:creator": {
+                "author": [
+                    {
+                        "ce:given-name": "Evangelos",
+                        "preferred-name": {
+                            "ce:given-name": "Evangelos",
+                            "ce:initials": "E.",
+                            "ce:surname": "Niforatos",
+                            "ce:indexed-name": "Niforatos E."
+                        },
+                        "@seq": "1",
+                        "ce:initials": "E.",
+                        "@_fa": "true",
+                        "affiliation": {
+                            "@id": "60006824",
+                            "@href": "https://api.elsevier.com/content/affiliation/affiliation_id/60006824"
+                        },
+                        "ce:surname": "Niforatos",
+                        "@auid": "55221816500",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/55221816500",
+                        "ce:indexed-name": "Niforatos E."
+                    }
+                ]
+            },
+            "link": [
+                {
+                    "@_fa": "true",
+                    "@rel": "self",
+                    "@href": "https://api.elsevier.com/content/abstract/scopus_id/84960193973"
+                },
+                {
+                    "@_fa": "true",
+                    "@rel": "scopus",
+                    "@href": "https://www.scopus.com/inward/record.uri?partnerID=HzOxMe3b&scp=84960193973&origin=inward"
+                },
+                {
+                    "@_fa": "true",
+                    "@rel": "scopus-citedby",
+                    "@href": "https://www.scopus.com/inward/citedby.uri?partnerID=HzOxMe3b&scp=84960193973&origin=inward"
+                }
+            ],
+            "prism:isbn": "9781450337366",
+            "prism:publicationName": "Adjunct Proceedings of the 7th International Conference on Automotive User Interfaces and Interactive VehicularApplications, AutomotiveUI 2015",
+            "source-id": "21100449125",
+            "citedby-count": "3",
+            "subtype": "cp",
+            "prism:pageRange": "118-123",
+            "dc:title": "EMotion: Retrospective in-car user experience evaluation",
+            "prism:endingPage": "123",
+            "openaccess": "0",
+            "openaccessFlag": "false",
+            "prism:doi": "10.1145/2809730.2809740",
+            "prism:startingPage": "118",
+            "dc:identifier": "SCOPUS_ID:84960193973",
+            "dc:publisher": "Association for Computing Machinery, Incacmhelp@acm.org"
+        }
+    },
+    "SCOPUS_ID:84924248804": {
+        "affiliation": {
+            "affiliation-city": "London",
+            "affilname": "University College London",
+            "affiliation-country": "United Kingdom"
+        },
+        "coredata": {
+            "srctype": "j",
+            "prism:issueIdentifier": "3",
+            "eid": "2-s2.0-84924248804",
+            "prism:coverDate": "2015-01-01",
+            "prism:aggregationType": "Journal",
+            "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/84924248804",
+            "subtypeDescription": "Review",
+            "dc:creator": {
+                "author": [
+                    {
+                        "ce:given-name": "Jo",
+                        "preferred-name": {
+                            "ce:given-name": "Jo",
+                            "ce:initials": "J.",
+                            "ce:surname": "Evans",
+                            "ce:indexed-name": "Evans J."
+                        },
+                        "@seq": "1",
+                        "ce:initials": "J.",
+                        "@_fa": "true",
+                        "affiliation": {
+                            "@id": "60022148",
+                            "@href": "https://api.elsevier.com/content/affiliation/affiliation_id/60022148"
+                        },
+                        "ce:surname": "Evans",
+                        "@auid": "56540392300",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/56540392300",
+                        "ce:indexed-name": "Evans J."
+                    }
+                ]
+            },
+            "link": [
+                {
+                    "@_fa": "true",
+                    "@rel": "self",
+                    "@href": "https://api.elsevier.com/content/abstract/scopus_id/84924248804"
+                },
+                {
+                    "@_fa": "true",
+                    "@rel": "scopus",
+                    "@href": "https://www.scopus.com/inward/record.uri?partnerID=HzOxMe3b&scp=84924248804&origin=inward"
+                },
+                {
+                    "@_fa": "true",
+                    "@rel": "scopus-citedby",
+                    "@href": "https://www.scopus.com/inward/citedby.uri?partnerID=HzOxMe3b&scp=84924248804&origin=inward"
+                }
+            ],
+            "prism:publicationName": "Bulletin of Spanish Studies",
+            "source-id": "5800208080",
+            "citedby-count": "0",
+            "prism:volume": "92",
+            "subtype": "re",
+            "prism:pageRange": "325-330",
+            "dc:title": "Introduction",
+            "prism:endingPage": "330",
+            "openaccess": "1",
+            "openaccessFlag": "true",
+            "prism:doi": "10.1080/14753820.2015.1003756",
+            "prism:issn": "14783428 14753820",
+            "prism:startingPage": "325",
+            "dc:identifier": "SCOPUS_ID:84924248804",
+            "dc:publisher": "Routledgeinfo@tandf.co.uk"
+        }
+    }
+}{
+    "SCOPUS_ID:85079767316": {
+        "affiliation": {
+            "affiliation-city": "London",
+            "affilname": "University College London",
+            "affiliation-country": "United Kingdom"
+        },
+        "coredata": {
+            "srctype": "b",
+            "eid": "2-s2.0-85079767316",
+            "prism:coverDate": "2018-01-01",
+            "prism:aggregationType": "Book",
+            "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/85079767316",
+            "subtypeDescription": "Chapter",
+            "dc:creator": {
+                "author": [
+                    {
+                        "ce:given-name": "Natalie L.",
+                        "preferred-name": {
+                            "ce:given-name": "Natalie L.",
+                            "ce:initials": "N.L.",
+                            "ce:surname": "Dawson",
+                            "ce:indexed-name": "Dawson N.L."
+                        },
+                        "@seq": "1",
+                        "ce:initials": "N.L.",
+                        "@_fa": "true",
+                        "affiliation": {
+                            "@id": "60022148",
+                            "@href": "https://api.elsevier.com/content/affiliation/affiliation_id/60022148"
+                        },
+                        "ce:surname": "Dawson",
+                        "@auid": "55638031200",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/55638031200",
+                        "ce:indexed-name": "Dawson N.L."
+                    }
+                ]
+            },
+            "link": [
+                {
+                    "@_fa": "true",
+                    "@rel": "self",
+                    "@href": "https://api.elsevier.com/content/abstract/scopus_id/85079767316"
+                },
+                {
+                    "@_fa": "true",
+                    "@rel": "scopus",
+                    "@href": "https://www.scopus.com/inward/record.uri?partnerID=HzOxMe3b&scp=85079767316&origin=inward"
+                },
+                {
+                    "@_fa": "true",
+                    "@rel": "scopus-citedby",
+                    "@href": "https://www.scopus.com/inward/citedby.uri?partnerID=HzOxMe3b&scp=85079767316&origin=inward"
+                }
+            ],
+            "prism:isbn": [
+                {
+                    "$": "9780128114322"
+                },
+                {
+                    "$": "9780128114148"
+                }
+            ],
+            "prism:publicationName": "Encyclopedia of Bioinformatics and Computational Biology: ABC of Bioinformatics",
+            "source-id": "21100945803",
+            "citedby-count": "0",
+            "prism:volume": "1-3",
+            "subtype": "ch",
+            "prism:pageRange": "472-487",
+            "dc:title": "Protein Structure Classification",
+            "prism:endingPage": "487",
+            "openaccess": "0",
+            "openaccessFlag": "false",
+            "prism:doi": "10.1016/B978-0-12-809633-8.20281-1",
+            "prism:startingPage": "472",
+            "dc:identifier": "SCOPUS_ID:85079767316",
+            "dc:publisher": "Elsevier"
+        }
+    },
+    "SCOPUS_ID:84960193973": {
+        "affiliation": [
+            {
+                "affiliation-city": "Funchal",
+                "affilname": "Madeira Interactive Technologies Institute",
+                "affiliation-country": "Portugal"
+            },
+            {
+                "affiliation-city": "Brighton",
+                "affilname": "University of Sussex",
+                "affiliation-country": "United Kingdom"
+            },
+            {
+                "affiliation-city": "Lugano",
+                "affilname": "Universit\u00e0 della Svizzera italiana",
+                "affiliation-country": "Switzerland"
+            },
+            {
+                "affiliation-city": "Salzburg",
+                "affilname": "Universitat Salzburg",
+                "affiliation-country": "Austria"
+            }
+        ],
+        "coredata": {
+            "srctype": "p",
+            "eid": "2-s2.0-84960193973",
+            "prism:coverDate": "2015-09-01",
+            "prism:aggregationType": "Conference Proceeding",
+            "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/84960193973",
+            "subtypeDescription": "Conference Paper",
+            "dc:creator": {
+                "author": [
+                    {
+                        "ce:given-name": "Evangelos",
+                        "preferred-name": {
+                            "ce:given-name": "Evangelos",
+                            "ce:initials": "E.",
+                            "ce:surname": "Niforatos",
+                            "ce:indexed-name": "Niforatos E."
+                        },
+                        "@seq": "1",
+                        "ce:initials": "E.",
+                        "@_fa": "true",
+                        "affiliation": {
+                            "@id": "60006824",
+                            "@href": "https://api.elsevier.com/content/affiliation/affiliation_id/60006824"
+                        },
+                        "ce:surname": "Niforatos",
+                        "@auid": "55221816500",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/55221816500",
+                        "ce:indexed-name": "Niforatos E."
+                    }
+                ]
+            },
+            "link": [
+                {
+                    "@_fa": "true",
+                    "@rel": "self",
+                    "@href": "https://api.elsevier.com/content/abstract/scopus_id/84960193973"
+                },
+                {
+                    "@_fa": "true",
+                    "@rel": "scopus",
+                    "@href": "https://www.scopus.com/inward/record.uri?partnerID=HzOxMe3b&scp=84960193973&origin=inward"
+                },
+                {
+                    "@_fa": "true",
+                    "@rel": "scopus-citedby",
+                    "@href": "https://www.scopus.com/inward/citedby.uri?partnerID=HzOxMe3b&scp=84960193973&origin=inward"
+                }
+            ],
+            "prism:isbn": "9781450337366",
+            "prism:publicationName": "Adjunct Proceedings of the 7th International Conference on Automotive User Interfaces and Interactive VehicularApplications, AutomotiveUI 2015",
+            "source-id": "21100449125",
+            "citedby-count": "3",
+            "subtype": "cp",
+            "prism:pageRange": "118-123",
+            "dc:title": "EMotion: Retrospective in-car user experience evaluation",
+            "prism:endingPage": "123",
+            "openaccess": "0",
+            "openaccessFlag": "false",
+            "prism:doi": "10.1145/2809730.2809740",
+            "prism:startingPage": "118",
+            "dc:identifier": "SCOPUS_ID:84960193973",
+            "dc:publisher": "Association for Computing Machinery, Incacmhelp@acm.org"
+        }
+    },
+    "SCOPUS_ID:84924248804": {
+        "affiliation": {
+            "affiliation-city": "London",
+            "affilname": "University College London",
+            "affiliation-country": "United Kingdom"
+        },
+        "coredata": {
+            "srctype": "j",
+            "prism:issueIdentifier": "3",
+            "eid": "2-s2.0-84924248804",
+            "prism:coverDate": "2015-01-01",
+            "prism:aggregationType": "Journal",
+            "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/84924248804",
+            "subtypeDescription": "Review",
+            "dc:creator": {
+                "author": [
+                    {
+                        "ce:given-name": "Jo",
+                        "preferred-name": {
+                            "ce:given-name": "Jo",
+                            "ce:initials": "J.",
+                            "ce:surname": "Evans",
+                            "ce:indexed-name": "Evans J."
+                        },
+                        "@seq": "1",
+                        "ce:initials": "J.",
+                        "@_fa": "true",
+                        "affiliation": {
+                            "@id": "60022148",
+                            "@href": "https://api.elsevier.com/content/affiliation/affiliation_id/60022148"
+                        },
+                        "ce:surname": "Evans",
+                        "@auid": "56540392300",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/56540392300",
+                        "ce:indexed-name": "Evans J."
+                    }
+                ]
+            },
+            "link": [
+                {
+                    "@_fa": "true",
+                    "@rel": "self",
+                    "@href": "https://api.elsevier.com/content/abstract/scopus_id/84924248804"
+                },
+                {
+                    "@_fa": "true",
+                    "@rel": "scopus",
+                    "@href": "https://www.scopus.com/inward/record.uri?partnerID=HzOxMe3b&scp=84924248804&origin=inward"
+                },
+                {
+                    "@_fa": "true",
+                    "@rel": "scopus-citedby",
+                    "@href": "https://www.scopus.com/inward/citedby.uri?partnerID=HzOxMe3b&scp=84924248804&origin=inward"
+                }
+            ],
+            "prism:publicationName": "Bulletin of Spanish Studies",
+            "source-id": "5800208080",
+            "citedby-count": "0",
+            "prism:volume": "92",
+            "subtype": "re",
+            "prism:pageRange": "325-330",
+            "dc:title": "Introduction",
+            "prism:endingPage": "330",
+            "openaccess": "1",
+            "openaccessFlag": "true",
+            "prism:doi": "10.1080/14753820.2015.1003756",
+            "prism:issn": "14783428 14753820",
+            "prism:startingPage": "325",
+            "dc:identifier": "SCOPUS_ID:84924248804",
+            "dc:publisher": "Routledgeinfo@tandf.co.uk"
+        }
+    }
+}{
+    "SCOPUS_ID:85079767316": {
+        "affiliation": {
+            "affiliation-city": "London",
+            "affilname": "University College London",
+            "affiliation-country": "United Kingdom"
+        },
+        "coredata": {
+            "srctype": "b",
+            "eid": "2-s2.0-85079767316",
+            "prism:coverDate": "2018-01-01",
+            "prism:aggregationType": "Book",
+            "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/85079767316",
+            "subtypeDescription": "Chapter",
+            "dc:creator": {
+                "author": [
+                    {
+                        "ce:given-name": "Natalie L.",
+                        "preferred-name": {
+                            "ce:given-name": "Natalie L.",
+                            "ce:initials": "N.L.",
+                            "ce:surname": "Dawson",
+                            "ce:indexed-name": "Dawson N.L."
+                        },
+                        "@seq": "1",
+                        "ce:initials": "N.L.",
+                        "@_fa": "true",
+                        "affiliation": {
+                            "@id": "60022148",
+                            "@href": "https://api.elsevier.com/content/affiliation/affiliation_id/60022148"
+                        },
+                        "ce:surname": "Dawson",
+                        "@auid": "55638031200",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/55638031200",
+                        "ce:indexed-name": "Dawson N.L."
+                    }
+                ]
+            },
+            "link": [
+                {
+                    "@_fa": "true",
+                    "@rel": "self",
+                    "@href": "https://api.elsevier.com/content/abstract/scopus_id/85079767316"
+                },
+                {
+                    "@_fa": "true",
+                    "@rel": "scopus",
+                    "@href": "https://www.scopus.com/inward/record.uri?partnerID=HzOxMe3b&scp=85079767316&origin=inward"
+                },
+                {
+                    "@_fa": "true",
+                    "@rel": "scopus-citedby",
+                    "@href": "https://www.scopus.com/inward/citedby.uri?partnerID=HzOxMe3b&scp=85079767316&origin=inward"
+                }
+            ],
+            "prism:isbn": [
+                {
+                    "$": "9780128114322"
+                },
+                {
+                    "$": "9780128114148"
+                }
+            ],
+            "prism:publicationName": "Encyclopedia of Bioinformatics and Computational Biology: ABC of Bioinformatics",
+            "source-id": "21100945803",
+            "citedby-count": "0",
+            "prism:volume": "1-3",
+            "subtype": "ch",
+            "prism:pageRange": "472-487",
+            "dc:title": "Protein Structure Classification",
+            "prism:endingPage": "487",
+            "openaccess": "0",
+            "openaccessFlag": "false",
+            "prism:doi": "10.1016/B978-0-12-809633-8.20281-1",
+            "prism:startingPage": "472",
+            "dc:identifier": "SCOPUS_ID:85079767316",
+            "dc:publisher": "Elsevier"
+        }
+    },
+    "SCOPUS_ID:84960193973": {
+        "affiliation": [
+            {
+                "affiliation-city": "Funchal",
+                "affilname": "Madeira Interactive Technologies Institute",
+                "affiliation-country": "Portugal"
+            },
+            {
+                "affiliation-city": "Brighton",
+                "affilname": "University of Sussex",
+                "affiliation-country": "United Kingdom"
+            },
+            {
+                "affiliation-city": "Lugano",
+                "affilname": "Universit\u00e0 della Svizzera italiana",
+                "affiliation-country": "Switzerland"
+            },
+            {
+                "affiliation-city": "Salzburg",
+                "affilname": "Universitat Salzburg",
+                "affiliation-country": "Austria"
+            }
+        ],
+        "coredata": {
+            "srctype": "p",
+            "eid": "2-s2.0-84960193973",
+            "prism:coverDate": "2015-09-01",
+            "prism:aggregationType": "Conference Proceeding",
+            "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/84960193973",
+            "subtypeDescription": "Conference Paper",
+            "dc:creator": {
+                "author": [
+                    {
+                        "ce:given-name": "Evangelos",
+                        "preferred-name": {
+                            "ce:given-name": "Evangelos",
+                            "ce:initials": "E.",
+                            "ce:surname": "Niforatos",
+                            "ce:indexed-name": "Niforatos E."
+                        },
+                        "@seq": "1",
+                        "ce:initials": "E.",
+                        "@_fa": "true",
+                        "affiliation": {
+                            "@id": "60006824",
+                            "@href": "https://api.elsevier.com/content/affiliation/affiliation_id/60006824"
+                        },
+                        "ce:surname": "Niforatos",
+                        "@auid": "55221816500",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/55221816500",
+                        "ce:indexed-name": "Niforatos E."
+                    }
+                ]
+            },
+            "link": [
+                {
+                    "@_fa": "true",
+                    "@rel": "self",
+                    "@href": "https://api.elsevier.com/content/abstract/scopus_id/84960193973"
+                },
+                {
+                    "@_fa": "true",
+                    "@rel": "scopus",
+                    "@href": "https://www.scopus.com/inward/record.uri?partnerID=HzOxMe3b&scp=84960193973&origin=inward"
+                },
+                {
+                    "@_fa": "true",
+                    "@rel": "scopus-citedby",
+                    "@href": "https://www.scopus.com/inward/citedby.uri?partnerID=HzOxMe3b&scp=84960193973&origin=inward"
+                }
+            ],
+            "prism:isbn": "9781450337366",
+            "prism:publicationName": "Adjunct Proceedings of the 7th International Conference on Automotive User Interfaces and Interactive VehicularApplications, AutomotiveUI 2015",
+            "source-id": "21100449125",
+            "citedby-count": "3",
+            "subtype": "cp",
+            "prism:pageRange": "118-123",
+            "dc:title": "EMotion: Retrospective in-car user experience evaluation",
+            "prism:endingPage": "123",
+            "openaccess": "0",
+            "openaccessFlag": "false",
+            "prism:doi": "10.1145/2809730.2809740",
+            "prism:startingPage": "118",
+            "dc:identifier": "SCOPUS_ID:84960193973",
+            "dc:publisher": "Association for Computing Machinery, Incacmhelp@acm.org"
+        }
+    },
+    "SCOPUS_ID:84924248804": {
+        "affiliation": {
+            "affiliation-city": "London",
+            "affilname": "University College London",
+            "affiliation-country": "United Kingdom"
+        },
+        "coredata": {
+            "srctype": "j",
+            "prism:issueIdentifier": "3",
+            "eid": "2-s2.0-84924248804",
+            "prism:coverDate": "2015-01-01",
+            "prism:aggregationType": "Journal",
+            "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/84924248804",
+            "subtypeDescription": "Review",
+            "dc:creator": {
+                "author": [
+                    {
+                        "ce:given-name": "Jo",
+                        "preferred-name": {
+                            "ce:given-name": "Jo",
+                            "ce:initials": "J.",
+                            "ce:surname": "Evans",
+                            "ce:indexed-name": "Evans J."
+                        },
+                        "@seq": "1",
+                        "ce:initials": "J.",
+                        "@_fa": "true",
+                        "affiliation": {
+                            "@id": "60022148",
+                            "@href": "https://api.elsevier.com/content/affiliation/affiliation_id/60022148"
+                        },
+                        "ce:surname": "Evans",
+                        "@auid": "56540392300",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/56540392300",
+                        "ce:indexed-name": "Evans J."
+                    }
+                ]
+            },
+            "link": [
+                {
+                    "@_fa": "true",
+                    "@rel": "self",
+                    "@href": "https://api.elsevier.com/content/abstract/scopus_id/84924248804"
+                },
+                {
+                    "@_fa": "true",
+                    "@rel": "scopus",
+                    "@href": "https://www.scopus.com/inward/record.uri?partnerID=HzOxMe3b&scp=84924248804&origin=inward"
+                },
+                {
+                    "@_fa": "true",
+                    "@rel": "scopus-citedby",
+                    "@href": "https://www.scopus.com/inward/citedby.uri?partnerID=HzOxMe3b&scp=84924248804&origin=inward"
+                }
+            ],
+            "prism:publicationName": "Bulletin of Spanish Studies",
+            "source-id": "5800208080",
+            "citedby-count": "0",
+            "prism:volume": "92",
+            "subtype": "re",
+            "prism:pageRange": "325-330",
+            "dc:title": "Introduction",
+            "prism:endingPage": "330",
+            "openaccess": "1",
+            "openaccessFlag": "true",
+            "prism:doi": "10.1080/14753820.2015.1003756",
+            "prism:issn": "14783428 14753820",
+            "prism:startingPage": "325",
+            "dc:identifier": "SCOPUS_ID:84924248804",
+            "dc:publisher": "Routledgeinfo@tandf.co.uk"
+        }
+    }
+}{
+    "SCOPUS_ID:85079767316": {
+        "affiliation": {
+            "affiliation-city": "London",
+            "affilname": "University College London",
+            "affiliation-country": "United Kingdom"
+        },
+        "coredata": {
+            "srctype": "b",
+            "eid": "2-s2.0-85079767316",
+            "prism:coverDate": "2018-01-01",
+            "prism:aggregationType": "Book",
+            "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/85079767316",
+            "subtypeDescription": "Chapter",
+            "dc:creator": {
+                "author": [
+                    {
+                        "ce:given-name": "Natalie L.",
+                        "preferred-name": {
+                            "ce:given-name": "Natalie L.",
+                            "ce:initials": "N.L.",
+                            "ce:surname": "Dawson",
+                            "ce:indexed-name": "Dawson N.L."
+                        },
+                        "@seq": "1",
+                        "ce:initials": "N.L.",
+                        "@_fa": "true",
+                        "affiliation": {
+                            "@id": "60022148",
+                            "@href": "https://api.elsevier.com/content/affiliation/affiliation_id/60022148"
+                        },
+                        "ce:surname": "Dawson",
+                        "@auid": "55638031200",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/55638031200",
+                        "ce:indexed-name": "Dawson N.L."
+                    }
+                ]
+            },
+            "link": [
+                {
+                    "@_fa": "true",
+                    "@rel": "self",
+                    "@href": "https://api.elsevier.com/content/abstract/scopus_id/85079767316"
+                },
+                {
+                    "@_fa": "true",
+                    "@rel": "scopus",
+                    "@href": "https://www.scopus.com/inward/record.uri?partnerID=HzOxMe3b&scp=85079767316&origin=inward"
+                },
+                {
+                    "@_fa": "true",
+                    "@rel": "scopus-citedby",
+                    "@href": "https://www.scopus.com/inward/citedby.uri?partnerID=HzOxMe3b&scp=85079767316&origin=inward"
+                }
+            ],
+            "prism:isbn": [
+                {
+                    "$": "9780128114322"
+                },
+                {
+                    "$": "9780128114148"
+                }
+            ],
+            "prism:publicationName": "Encyclopedia of Bioinformatics and Computational Biology: ABC of Bioinformatics",
+            "source-id": "21100945803",
+            "citedby-count": "0",
+            "prism:volume": "1-3",
+            "subtype": "ch",
+            "prism:pageRange": "472-487",
+            "dc:title": "Protein Structure Classification",
+            "prism:endingPage": "487",
+            "openaccess": "0",
+            "openaccessFlag": "false",
+            "prism:doi": "10.1016/B978-0-12-809633-8.20281-1",
+            "prism:startingPage": "472",
+            "dc:identifier": "SCOPUS_ID:85079767316",
+            "dc:publisher": "Elsevier"
+        }
+    },
+    "SCOPUS_ID:84960193973": {
+        "affiliation": [
+            {
+                "affiliation-city": "Funchal",
+                "affilname": "Madeira Interactive Technologies Institute",
+                "affiliation-country": "Portugal"
+            },
+            {
+                "affiliation-city": "Brighton",
+                "affilname": "University of Sussex",
+                "affiliation-country": "United Kingdom"
+            },
+            {
+                "affiliation-city": "Lugano",
+                "affilname": "Universit\u00e0 della Svizzera italiana",
+                "affiliation-country": "Switzerland"
+            },
+            {
+                "affiliation-city": "Salzburg",
+                "affilname": "Universitat Salzburg",
+                "affiliation-country": "Austria"
+            }
+        ],
+        "coredata": {
+            "srctype": "p",
+            "eid": "2-s2.0-84960193973",
+            "prism:coverDate": "2015-09-01",
+            "prism:aggregationType": "Conference Proceeding",
+            "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/84960193973",
+            "subtypeDescription": "Conference Paper",
+            "dc:creator": {
+                "author": [
+                    {
+                        "ce:given-name": "Evangelos",
+                        "preferred-name": {
+                            "ce:given-name": "Evangelos",
+                            "ce:initials": "E.",
+                            "ce:surname": "Niforatos",
+                            "ce:indexed-name": "Niforatos E."
+                        },
+                        "@seq": "1",
+                        "ce:initials": "E.",
+                        "@_fa": "true",
+                        "affiliation": {
+                            "@id": "60006824",
+                            "@href": "https://api.elsevier.com/content/affiliation/affiliation_id/60006824"
+                        },
+                        "ce:surname": "Niforatos",
+                        "@auid": "55221816500",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/55221816500",
+                        "ce:indexed-name": "Niforatos E."
+                    }
+                ]
+            },
+            "link": [
+                {
+                    "@_fa": "true",
+                    "@rel": "self",
+                    "@href": "https://api.elsevier.com/content/abstract/scopus_id/84960193973"
+                },
+                {
+                    "@_fa": "true",
+                    "@rel": "scopus",
+                    "@href": "https://www.scopus.com/inward/record.uri?partnerID=HzOxMe3b&scp=84960193973&origin=inward"
+                },
+                {
+                    "@_fa": "true",
+                    "@rel": "scopus-citedby",
+                    "@href": "https://www.scopus.com/inward/citedby.uri?partnerID=HzOxMe3b&scp=84960193973&origin=inward"
+                }
+            ],
+            "prism:isbn": "9781450337366",
+            "prism:publicationName": "Adjunct Proceedings of the 7th International Conference on Automotive User Interfaces and Interactive VehicularApplications, AutomotiveUI 2015",
+            "source-id": "21100449125",
+            "citedby-count": "3",
+            "subtype": "cp",
+            "prism:pageRange": "118-123",
+            "dc:title": "EMotion: Retrospective in-car user experience evaluation",
+            "prism:endingPage": "123",
+            "openaccess": "0",
+            "openaccessFlag": "false",
+            "prism:doi": "10.1145/2809730.2809740",
+            "prism:startingPage": "118",
+            "dc:identifier": "SCOPUS_ID:84960193973",
+            "dc:publisher": "Association for Computing Machinery, Incacmhelp@acm.org"
+        }
+    },
+    "SCOPUS_ID:84924248804": {
+        "affiliation": {
+            "affiliation-city": "London",
+            "affilname": "University College London",
+            "affiliation-country": "United Kingdom"
+        },
+        "coredata": {
+            "srctype": "j",
+            "prism:issueIdentifier": "3",
+            "eid": "2-s2.0-84924248804",
+            "prism:coverDate": "2015-01-01",
+            "prism:aggregationType": "Journal",
+            "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/84924248804",
+            "subtypeDescription": "Review",
+            "dc:creator": {
+                "author": [
+                    {
+                        "ce:given-name": "Jo",
+                        "preferred-name": {
+                            "ce:given-name": "Jo",
+                            "ce:initials": "J.",
+                            "ce:surname": "Evans",
+                            "ce:indexed-name": "Evans J."
+                        },
+                        "@seq": "1",
+                        "ce:initials": "J.",
+                        "@_fa": "true",
+                        "affiliation": {
+                            "@id": "60022148",
+                            "@href": "https://api.elsevier.com/content/affiliation/affiliation_id/60022148"
+                        },
+                        "ce:surname": "Evans",
+                        "@auid": "56540392300",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/56540392300",
+                        "ce:indexed-name": "Evans J."
+                    }
+                ]
+            },
+            "link": [
+                {
+                    "@_fa": "true",
+                    "@rel": "self",
+                    "@href": "https://api.elsevier.com/content/abstract/scopus_id/84924248804"
+                },
+                {
+                    "@_fa": "true",
+                    "@rel": "scopus",
+                    "@href": "https://www.scopus.com/inward/record.uri?partnerID=HzOxMe3b&scp=84924248804&origin=inward"
+                },
+                {
+                    "@_fa": "true",
+                    "@rel": "scopus-citedby",
+                    "@href": "https://www.scopus.com/inward/citedby.uri?partnerID=HzOxMe3b&scp=84924248804&origin=inward"
+                }
+            ],
+            "prism:publicationName": "Bulletin of Spanish Studies",
+            "source-id": "5800208080",
+            "citedby-count": "0",
+            "prism:volume": "92",
+            "subtype": "re",
+            "prism:pageRange": "325-330",
+            "dc:title": "Introduction",
+            "prism:endingPage": "330",
+            "openaccess": "1",
+            "openaccessFlag": "true",
+            "prism:doi": "10.1080/14753820.2015.1003756",
+            "prism:issn": "14783428 14753820",
+            "prism:startingPage": "325",
+            "dc:identifier": "SCOPUS_ID:84924248804",
+            "dc:publisher": "Routledgeinfo@tandf.co.uk"
+        }
+    },
+    "SCOPUS_ID:84947319183": {
+        "affiliation": [
+            {
+                "affiliation-city": "London",
+                "affilname": "University College London",
+                "affiliation-country": "United Kingdom"
+            },
+            {
+                "affiliation-city": "Toledo",
+                "affilname": "The University of Toledo",
+                "affiliation-country": "United States"
+            }
+        ],
+        "coredata": {
+            "srctype": "b",
+            "eid": "2-s2.0-84947319183",
+            "prism:coverDate": "2005-01-28",
+            "prism:aggregationType": "Book",
+            "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/84947319183",
+            "subtypeDescription": "Book",
+            "dc:creator": {
+                "author": [
+                    {
+                        "ce:given-name": "Chris",
+                        "preferred-name": {
+                            "ce:given-name": "Chris",
+                            "ce:initials": "C.",
+                            "ce:surname": "Barker",
+                            "ce:indexed-name": "Barker C."
+                        },
+                        "@seq": "1",
+                        "ce:initials": "C.",
+                        "@_fa": "true",
+                        "affiliation": {
+                            "@id": "60022148",
+                            "@href": "https://api.elsevier.com/content/affiliation/affiliation_id/60022148"
+                        },
+                        "ce:surname": "Barker",
+                        "@auid": "7201818552",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/7201818552",
+                        "ce:indexed-name": "Barker C."
+                    }
+                ]
+            },
+            "link": [
+                {
+                    "@_fa": "true",
+                    "@rel": "self",
+                    "@href": "https://api.elsevier.com/content/abstract/scopus_id/84947319183"
+                },
+                {
+                    "@_fa": "true",
+                    "@rel": "scopus",
+                    "@href": "https://www.scopus.com/inward/record.uri?partnerID=HzOxMe3b&scp=84947319183&origin=inward"
+                },
+                {
+                    "@_fa": "true",
+                    "@rel": "scopus-citedby",
+                    "@href": "https://www.scopus.com/inward/citedby.uri?partnerID=HzOxMe3b&scp=84947319183&origin=inward"
+                }
+            ],
+            "prism:isbn": [
+                {
+                    "$": "9780470013434"
+                },
+                {
+                    "$": "0471490873"
+                },
+                {
+                    "$": "9780471490876"
+                }
+            ],
+            "prism:publicationName": "Research Methods in Clinical Psychology: An Introduction for Students and Practitioners: Second Edition",
+            "source-id": "21100425454",
+            "citedby-count": "19",
+            "subtype": "bk",
+            "prism:pageRange": "1-284",
+            "dc:title": "Research Methods in Clinical Psychology: An Introduction for Students and Practitioners: Second Edition",
+            "prism:endingPage": "284",
+            "openaccess": "0",
+            "openaccessFlag": "false",
+            "prism:doi": "10.1002/0470013435",
+            "prism:startingPage": "1",
+            "dc:identifier": "SCOPUS_ID:84947319183",
+            "dc:publisher": "Wiley Blackwell"
+        }
+    }
+}{
+    "SCOPUS_ID:85079767316": {
+        "affiliation": {
+            "affiliation-city": "London",
+            "affilname": "University College London",
+            "affiliation-country": "United Kingdom"
+        },
+        "coredata": {
+            "srctype": "b",
+            "eid": "2-s2.0-85079767316",
+            "prism:coverDate": "2018-01-01",
+            "prism:aggregationType": "Book",
+            "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/85079767316",
+            "subtypeDescription": "Chapter",
+            "dc:creator": {
+                "author": [
+                    {
+                        "ce:given-name": "Natalie L.",
+                        "preferred-name": {
+                            "ce:given-name": "Natalie L.",
+                            "ce:initials": "N.L.",
+                            "ce:surname": "Dawson",
+                            "ce:indexed-name": "Dawson N.L."
+                        },
+                        "@seq": "1",
+                        "ce:initials": "N.L.",
+                        "@_fa": "true",
+                        "affiliation": {
+                            "@id": "60022148",
+                            "@href": "https://api.elsevier.com/content/affiliation/affiliation_id/60022148"
+                        },
+                        "ce:surname": "Dawson",
+                        "@auid": "55638031200",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/55638031200",
+                        "ce:indexed-name": "Dawson N.L."
+                    }
+                ]
+            },
+            "link": [
+                {
+                    "@_fa": "true",
+                    "@rel": "self",
+                    "@href": "https://api.elsevier.com/content/abstract/scopus_id/85079767316"
+                },
+                {
+                    "@_fa": "true",
+                    "@rel": "scopus",
+                    "@href": "https://www.scopus.com/inward/record.uri?partnerID=HzOxMe3b&scp=85079767316&origin=inward"
+                },
+                {
+                    "@_fa": "true",
+                    "@rel": "scopus-citedby",
+                    "@href": "https://www.scopus.com/inward/citedby.uri?partnerID=HzOxMe3b&scp=85079767316&origin=inward"
+                }
+            ],
+            "prism:isbn": [
+                {
+                    "$": "9780128114322"
+                },
+                {
+                    "$": "9780128114148"
+                }
+            ],
+            "prism:publicationName": "Encyclopedia of Bioinformatics and Computational Biology: ABC of Bioinformatics",
+            "source-id": "21100945803",
+            "citedby-count": "0",
+            "prism:volume": "1-3",
+            "subtype": "ch",
+            "prism:pageRange": "472-487",
+            "dc:title": "Protein Structure Classification",
+            "prism:endingPage": "487",
+            "openaccess": "0",
+            "openaccessFlag": "false",
+            "prism:doi": "10.1016/B978-0-12-809633-8.20281-1",
+            "prism:startingPage": "472",
+            "dc:identifier": "SCOPUS_ID:85079767316",
+            "dc:publisher": "Elsevier"
+        }
+    },
+    "SCOPUS_ID:84960193973": {
+        "affiliation": [
+            {
+                "affiliation-city": "Funchal",
+                "affilname": "Madeira Interactive Technologies Institute",
+                "affiliation-country": "Portugal"
+            },
+            {
+                "affiliation-city": "Brighton",
+                "affilname": "University of Sussex",
+                "affiliation-country": "United Kingdom"
+            },
+            {
+                "affiliation-city": "Lugano",
+                "affilname": "Universit\u00e0 della Svizzera italiana",
+                "affiliation-country": "Switzerland"
+            },
+            {
+                "affiliation-city": "Salzburg",
+                "affilname": "Universitat Salzburg",
+                "affiliation-country": "Austria"
+            }
+        ],
+        "coredata": {
+            "srctype": "p",
+            "eid": "2-s2.0-84960193973",
+            "prism:coverDate": "2015-09-01",
+            "prism:aggregationType": "Conference Proceeding",
+            "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/84960193973",
+            "subtypeDescription": "Conference Paper",
+            "dc:creator": {
+                "author": [
+                    {
+                        "ce:given-name": "Evangelos",
+                        "preferred-name": {
+                            "ce:given-name": "Evangelos",
+                            "ce:initials": "E.",
+                            "ce:surname": "Niforatos",
+                            "ce:indexed-name": "Niforatos E."
+                        },
+                        "@seq": "1",
+                        "ce:initials": "E.",
+                        "@_fa": "true",
+                        "affiliation": {
+                            "@id": "60006824",
+                            "@href": "https://api.elsevier.com/content/affiliation/affiliation_id/60006824"
+                        },
+                        "ce:surname": "Niforatos",
+                        "@auid": "55221816500",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/55221816500",
+                        "ce:indexed-name": "Niforatos E."
+                    }
+                ]
+            },
+            "link": [
+                {
+                    "@_fa": "true",
+                    "@rel": "self",
+                    "@href": "https://api.elsevier.com/content/abstract/scopus_id/84960193973"
+                },
+                {
+                    "@_fa": "true",
+                    "@rel": "scopus",
+                    "@href": "https://www.scopus.com/inward/record.uri?partnerID=HzOxMe3b&scp=84960193973&origin=inward"
+                },
+                {
+                    "@_fa": "true",
+                    "@rel": "scopus-citedby",
+                    "@href": "https://www.scopus.com/inward/citedby.uri?partnerID=HzOxMe3b&scp=84960193973&origin=inward"
+                }
+            ],
+            "prism:isbn": "9781450337366",
+            "prism:publicationName": "Adjunct Proceedings of the 7th International Conference on Automotive User Interfaces and Interactive VehicularApplications, AutomotiveUI 2015",
+            "source-id": "21100449125",
+            "citedby-count": "3",
+            "subtype": "cp",
+            "prism:pageRange": "118-123",
+            "dc:title": "EMotion: Retrospective in-car user experience evaluation",
+            "prism:endingPage": "123",
+            "openaccess": "0",
+            "openaccessFlag": "false",
+            "prism:doi": "10.1145/2809730.2809740",
+            "prism:startingPage": "118",
+            "dc:identifier": "SCOPUS_ID:84960193973",
+            "dc:publisher": "Association for Computing Machinery, Incacmhelp@acm.org"
+        }
+    },
+    "SCOPUS_ID:84924248804": {
+        "affiliation": {
+            "affiliation-city": "London",
+            "affilname": "University College London",
+            "affiliation-country": "United Kingdom"
+        },
+        "coredata": {
+            "srctype": "j",
+            "prism:issueIdentifier": "3",
+            "eid": "2-s2.0-84924248804",
+            "prism:coverDate": "2015-01-01",
+            "prism:aggregationType": "Journal",
+            "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/84924248804",
+            "subtypeDescription": "Review",
+            "dc:creator": {
+                "author": [
+                    {
+                        "ce:given-name": "Jo",
+                        "preferred-name": {
+                            "ce:given-name": "Jo",
+                            "ce:initials": "J.",
+                            "ce:surname": "Evans",
+                            "ce:indexed-name": "Evans J."
+                        },
+                        "@seq": "1",
+                        "ce:initials": "J.",
+                        "@_fa": "true",
+                        "affiliation": {
+                            "@id": "60022148",
+                            "@href": "https://api.elsevier.com/content/affiliation/affiliation_id/60022148"
+                        },
+                        "ce:surname": "Evans",
+                        "@auid": "56540392300",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/56540392300",
+                        "ce:indexed-name": "Evans J."
+                    }
+                ]
+            },
+            "link": [
+                {
+                    "@_fa": "true",
+                    "@rel": "self",
+                    "@href": "https://api.elsevier.com/content/abstract/scopus_id/84924248804"
+                },
+                {
+                    "@_fa": "true",
+                    "@rel": "scopus",
+                    "@href": "https://www.scopus.com/inward/record.uri?partnerID=HzOxMe3b&scp=84924248804&origin=inward"
+                },
+                {
+                    "@_fa": "true",
+                    "@rel": "scopus-citedby",
+                    "@href": "https://www.scopus.com/inward/citedby.uri?partnerID=HzOxMe3b&scp=84924248804&origin=inward"
+                }
+            ],
+            "prism:publicationName": "Bulletin of Spanish Studies",
+            "source-id": "5800208080",
+            "citedby-count": "0",
+            "prism:volume": "92",
+            "subtype": "re",
+            "prism:pageRange": "325-330",
+            "dc:title": "Introduction",
+            "prism:endingPage": "330",
+            "openaccess": "1",
+            "openaccessFlag": "true",
+            "prism:doi": "10.1080/14753820.2015.1003756",
+            "prism:issn": "14783428 14753820",
+            "prism:startingPage": "325",
+            "dc:identifier": "SCOPUS_ID:84924248804",
+            "dc:publisher": "Routledgeinfo@tandf.co.uk"
+        }
+    },
+    "SCOPUS_ID:84947319183": {
+        "affiliation": [
+            {
+                "affiliation-city": "London",
+                "affilname": "University College London",
+                "affiliation-country": "United Kingdom"
+            },
+            {
+                "affiliation-city": "Toledo",
+                "affilname": "The University of Toledo",
+                "affiliation-country": "United States"
+            }
+        ],
+        "coredata": {
+            "srctype": "b",
+            "eid": "2-s2.0-84947319183",
+            "prism:coverDate": "2005-01-28",
+            "prism:aggregationType": "Book",
+            "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/84947319183",
+            "subtypeDescription": "Book",
+            "dc:creator": {
+                "author": [
+                    {
+                        "ce:given-name": "Chris",
+                        "preferred-name": {
+                            "ce:given-name": "Chris",
+                            "ce:initials": "C.",
+                            "ce:surname": "Barker",
+                            "ce:indexed-name": "Barker C."
+                        },
+                        "@seq": "1",
+                        "ce:initials": "C.",
+                        "@_fa": "true",
+                        "affiliation": {
+                            "@id": "60022148",
+                            "@href": "https://api.elsevier.com/content/affiliation/affiliation_id/60022148"
+                        },
+                        "ce:surname": "Barker",
+                        "@auid": "7201818552",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/7201818552",
+                        "ce:indexed-name": "Barker C."
+                    }
+                ]
+            },
+            "link": [
+                {
+                    "@_fa": "true",
+                    "@rel": "self",
+                    "@href": "https://api.elsevier.com/content/abstract/scopus_id/84947319183"
+                },
+                {
+                    "@_fa": "true",
+                    "@rel": "scopus",
+                    "@href": "https://www.scopus.com/inward/record.uri?partnerID=HzOxMe3b&scp=84947319183&origin=inward"
+                },
+                {
+                    "@_fa": "true",
+                    "@rel": "scopus-citedby",
+                    "@href": "https://www.scopus.com/inward/citedby.uri?partnerID=HzOxMe3b&scp=84947319183&origin=inward"
+                }
+            ],
+            "prism:isbn": [
+                {
+                    "$": "9780470013434"
+                },
+                {
+                    "$": "0471490873"
+                },
+                {
+                    "$": "9780471490876"
+                }
+            ],
+            "prism:publicationName": "Research Methods in Clinical Psychology: An Introduction for Students and Practitioners: Second Edition",
+            "source-id": "21100425454",
+            "citedby-count": "19",
+            "subtype": "bk",
+            "prism:pageRange": "1-284",
+            "dc:title": "Research Methods in Clinical Psychology: An Introduction for Students and Practitioners: Second Edition",
+            "prism:endingPage": "284",
+            "openaccess": "0",
+            "openaccessFlag": "false",
+            "prism:doi": "10.1002/0470013435",
+            "prism:startingPage": "1",
+            "dc:identifier": "SCOPUS_ID:84947319183",
+            "dc:publisher": "Wiley Blackwell"
+        }
+    }
+}{
+    "SCOPUS_ID:85079767316": {
+        "affiliation": {
+            "affiliation-city": "London",
+            "affilname": "University College London",
+            "affiliation-country": "United Kingdom"
+        },
+        "coredata": {
+            "srctype": "b",
+            "eid": "2-s2.0-85079767316",
+            "prism:coverDate": "2018-01-01",
+            "prism:aggregationType": "Book",
+            "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/85079767316",
+            "subtypeDescription": "Chapter",
+            "dc:creator": {
+                "author": [
+                    {
+                        "ce:given-name": "Natalie L.",
+                        "preferred-name": {
+                            "ce:given-name": "Natalie L.",
+                            "ce:initials": "N.L.",
+                            "ce:surname": "Dawson",
+                            "ce:indexed-name": "Dawson N.L."
+                        },
+                        "@seq": "1",
+                        "ce:initials": "N.L.",
+                        "@_fa": "true",
+                        "affiliation": {
+                            "@id": "60022148",
+                            "@href": "https://api.elsevier.com/content/affiliation/affiliation_id/60022148"
+                        },
+                        "ce:surname": "Dawson",
+                        "@auid": "55638031200",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/55638031200",
+                        "ce:indexed-name": "Dawson N.L."
+                    }
+                ]
+            },
+            "link": [
+                {
+                    "@_fa": "true",
+                    "@rel": "self",
+                    "@href": "https://api.elsevier.com/content/abstract/scopus_id/85079767316"
+                },
+                {
+                    "@_fa": "true",
+                    "@rel": "scopus",
+                    "@href": "https://www.scopus.com/inward/record.uri?partnerID=HzOxMe3b&scp=85079767316&origin=inward"
+                },
+                {
+                    "@_fa": "true",
+                    "@rel": "scopus-citedby",
+                    "@href": "https://www.scopus.com/inward/citedby.uri?partnerID=HzOxMe3b&scp=85079767316&origin=inward"
+                }
+            ],
+            "prism:isbn": [
+                {
+                    "$": "9780128114322"
+                },
+                {
+                    "$": "9780128114148"
+                }
+            ],
+            "prism:publicationName": "Encyclopedia of Bioinformatics and Computational Biology: ABC of Bioinformatics",
+            "source-id": "21100945803",
+            "citedby-count": "0",
+            "prism:volume": "1-3",
+            "subtype": "ch",
+            "prism:pageRange": "472-487",
+            "dc:title": "Protein Structure Classification",
+            "prism:endingPage": "487",
+            "openaccess": "0",
+            "openaccessFlag": "false",
+            "prism:doi": "10.1016/B978-0-12-809633-8.20281-1",
+            "prism:startingPage": "472",
+            "dc:identifier": "SCOPUS_ID:85079767316",
+            "dc:publisher": "Elsevier"
+        }
+    },
+    "SCOPUS_ID:84960193973": {
+        "affiliation": [
+            {
+                "affiliation-city": "Funchal",
+                "affilname": "Madeira Interactive Technologies Institute",
+                "affiliation-country": "Portugal"
+            },
+            {
+                "affiliation-city": "Brighton",
+                "affilname": "University of Sussex",
+                "affiliation-country": "United Kingdom"
+            },
+            {
+                "affiliation-city": "Lugano",
+                "affilname": "Universit\u00e0 della Svizzera italiana",
+                "affiliation-country": "Switzerland"
+            },
+            {
+                "affiliation-city": "Salzburg",
+                "affilname": "Universitat Salzburg",
+                "affiliation-country": "Austria"
+            }
+        ],
+        "coredata": {
+            "srctype": "p",
+            "eid": "2-s2.0-84960193973",
+            "prism:coverDate": "2015-09-01",
+            "prism:aggregationType": "Conference Proceeding",
+            "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/84960193973",
+            "subtypeDescription": "Conference Paper",
+            "dc:creator": {
+                "author": [
+                    {
+                        "ce:given-name": "Evangelos",
+                        "preferred-name": {
+                            "ce:given-name": "Evangelos",
+                            "ce:initials": "E.",
+                            "ce:surname": "Niforatos",
+                            "ce:indexed-name": "Niforatos E."
+                        },
+                        "@seq": "1",
+                        "ce:initials": "E.",
+                        "@_fa": "true",
+                        "affiliation": {
+                            "@id": "60006824",
+                            "@href": "https://api.elsevier.com/content/affiliation/affiliation_id/60006824"
+                        },
+                        "ce:surname": "Niforatos",
+                        "@auid": "55221816500",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/55221816500",
+                        "ce:indexed-name": "Niforatos E."
+                    }
+                ]
+            },
+            "link": [
+                {
+                    "@_fa": "true",
+                    "@rel": "self",
+                    "@href": "https://api.elsevier.com/content/abstract/scopus_id/84960193973"
+                },
+                {
+                    "@_fa": "true",
+                    "@rel": "scopus",
+                    "@href": "https://www.scopus.com/inward/record.uri?partnerID=HzOxMe3b&scp=84960193973&origin=inward"
+                },
+                {
+                    "@_fa": "true",
+                    "@rel": "scopus-citedby",
+                    "@href": "https://www.scopus.com/inward/citedby.uri?partnerID=HzOxMe3b&scp=84960193973&origin=inward"
+                }
+            ],
+            "prism:isbn": "9781450337366",
+            "prism:publicationName": "Adjunct Proceedings of the 7th International Conference on Automotive User Interfaces and Interactive VehicularApplications, AutomotiveUI 2015",
+            "source-id": "21100449125",
+            "citedby-count": "3",
+            "subtype": "cp",
+            "prism:pageRange": "118-123",
+            "dc:title": "EMotion: Retrospective in-car user experience evaluation",
+            "prism:endingPage": "123",
+            "openaccess": "0",
+            "openaccessFlag": "false",
+            "prism:doi": "10.1145/2809730.2809740",
+            "prism:startingPage": "118",
+            "dc:identifier": "SCOPUS_ID:84960193973",
+            "dc:publisher": "Association for Computing Machinery, Incacmhelp@acm.org"
+        }
+    },
+    "SCOPUS_ID:84924248804": {
+        "affiliation": {
+            "affiliation-city": "London",
+            "affilname": "University College London",
+            "affiliation-country": "United Kingdom"
+        },
+        "coredata": {
+            "srctype": "j",
+            "prism:issueIdentifier": "3",
+            "eid": "2-s2.0-84924248804",
+            "prism:coverDate": "2015-01-01",
+            "prism:aggregationType": "Journal",
+            "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/84924248804",
+            "subtypeDescription": "Review",
+            "dc:creator": {
+                "author": [
+                    {
+                        "ce:given-name": "Jo",
+                        "preferred-name": {
+                            "ce:given-name": "Jo",
+                            "ce:initials": "J.",
+                            "ce:surname": "Evans",
+                            "ce:indexed-name": "Evans J."
+                        },
+                        "@seq": "1",
+                        "ce:initials": "J.",
+                        "@_fa": "true",
+                        "affiliation": {
+                            "@id": "60022148",
+                            "@href": "https://api.elsevier.com/content/affiliation/affiliation_id/60022148"
+                        },
+                        "ce:surname": "Evans",
+                        "@auid": "56540392300",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/56540392300",
+                        "ce:indexed-name": "Evans J."
+                    }
+                ]
+            },
+            "link": [
+                {
+                    "@_fa": "true",
+                    "@rel": "self",
+                    "@href": "https://api.elsevier.com/content/abstract/scopus_id/84924248804"
+                },
+                {
+                    "@_fa": "true",
+                    "@rel": "scopus",
+                    "@href": "https://www.scopus.com/inward/record.uri?partnerID=HzOxMe3b&scp=84924248804&origin=inward"
+                },
+                {
+                    "@_fa": "true",
+                    "@rel": "scopus-citedby",
+                    "@href": "https://www.scopus.com/inward/citedby.uri?partnerID=HzOxMe3b&scp=84924248804&origin=inward"
+                }
+            ],
+            "prism:publicationName": "Bulletin of Spanish Studies",
+            "source-id": "5800208080",
+            "citedby-count": "0",
+            "prism:volume": "92",
+            "subtype": "re",
+            "prism:pageRange": "325-330",
+            "dc:title": "Introduction",
+            "prism:endingPage": "330",
+            "openaccess": "1",
+            "openaccessFlag": "true",
+            "prism:doi": "10.1080/14753820.2015.1003756",
+            "prism:issn": "14783428 14753820",
+            "prism:startingPage": "325",
+            "dc:identifier": "SCOPUS_ID:84924248804",
+            "dc:publisher": "Routledgeinfo@tandf.co.uk"
+        }
+    },
+    "SCOPUS_ID:84947319183": {
+        "affiliation": [
+            {
+                "affiliation-city": "London",
+                "affilname": "University College London",
+                "affiliation-country": "United Kingdom"
+            },
+            {
+                "affiliation-city": "Toledo",
+                "affilname": "The University of Toledo",
+                "affiliation-country": "United States"
+            }
+        ],
+        "coredata": {
+            "srctype": "b",
+            "eid": "2-s2.0-84947319183",
+            "prism:coverDate": "2005-01-28",
+            "prism:aggregationType": "Book",
+            "prism:url": "https://api.elsevier.com/content/abstract/scopus_id/84947319183",
+            "subtypeDescription": "Book",
+            "dc:creator": {
+                "author": [
+                    {
+                        "ce:given-name": "Chris",
+                        "preferred-name": {
+                            "ce:given-name": "Chris",
+                            "ce:initials": "C.",
+                            "ce:surname": "Barker",
+                            "ce:indexed-name": "Barker C."
+                        },
+                        "@seq": "1",
+                        "ce:initials": "C.",
+                        "@_fa": "true",
+                        "affiliation": {
+                            "@id": "60022148",
+                            "@href": "https://api.elsevier.com/content/affiliation/affiliation_id/60022148"
+                        },
+                        "ce:surname": "Barker",
+                        "@auid": "7201818552",
+                        "author-url": "https://api.elsevier.com/content/author/author_id/7201818552",
+                        "ce:indexed-name": "Barker C."
+                    }
+                ]
+            },
+            "link": [
+                {
+                    "@_fa": "true",
+                    "@rel": "self",
+                    "@href": "https://api.elsevier.com/content/abstract/scopus_id/84947319183"
+                },
+                {
+                    "@_fa": "true",
+                    "@rel": "scopus",
+                    "@href": "https://www.scopus.com/inward/record.uri?partnerID=HzOxMe3b&scp=84947319183&origin=inward"
+                },
+                {
+                    "@_fa": "true",
+                    "@rel": "scopus-citedby",
+                    "@href": "https://www.scopus.com/inward/citedby.uri?partnerID=HzOxMe3b&scp=84947319183&origin=inward"
+                }
+            ],
+            "prism:isbn": [
+                {
+                    "$": "9780470013434"
+                },
+                {
+                    "$": "0471490873"
+                },
+                {
+                    "$": "9780471490876"
+                }
+            ],
+            "prism:publicationName": "Research Methods in Clinical Psychology: An Introduction for Students and Practitioners: Second Edition",
+            "source-id": "21100425454",
+            "citedby-count": "19",
+            "subtype": "bk",
+            "prism:pageRange": "1-284",
+            "dc:title": "Research Methods in Clinical Psychology: An Introduction for Students and Practitioners: Second Edition",
+            "prism:endingPage": "284",
+            "openaccess": "0",
+            "openaccessFlag": "false",
+            "prism:doi": "10.1002/0470013435",
+            "prism:startingPage": "1",
+            "dc:identifier": "SCOPUS_ID:84947319183",
+            "dc:publisher": "Wiley Blackwell"
+        }
+    }
+}
