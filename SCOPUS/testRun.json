@@ -1,0 +1,124 @@
+{
+    "full-text-retrieval-response": {
+        "coredata": {
+            "prism:url": "https://api.elsevier.com/content/article/pii/B9780128096338202811",
+            "dc:identifier": "doi:10.1016/B978-0-12-809633-8.20281-1",
+            "eid": "3-s2.0-B9780128096338202811",
+            "prism:doi": "10.1016/B978-0-12-809633-8.20281-1",
+            "pii": "B978-0-12-809633-8.20281-1",
+            "dc:title": "Protein Structure Classification ",
+            "prism:publicationName": "Encyclopedia of Bioinformatics and Computational Biology",
+            "prism:aggregationType": "Reference Work",
+            "pubType": "chp",
+            "prism:isbn": "9780128114322",
+            "prism:startingPage": "472",
+            "prism:endingPage": "487",
+            "prism:pageRange": "472-487",
+            "dcterms:isPartOf": "urn:isbn:978-0-12-811432-2",
+            "dc:format": "application/json",
+            "prism:coverDate": "2019-12-31",
+            "prism:coverDisplayDate": "2019",
+            "prism:copyright": "Copyright \u00a9 2019 Elsevier Inc. All rights reserved.",
+            "prism:publisher": "Elsevier Inc.",
+            "prism:issueName": "Volume 2",
+            "dc:creator": [
+                {
+                    "@_fa": "true",
+                    "$": "Dawson, Natalie L."
+                },
+                {
+                    "@_fa": "true",
+                    "$": "Das, Sayoni"
+                },
+                {
+                    "@_fa": "true",
+                    "$": "Lees, Jonathan G."
+                },
+                {
+                    "@_fa": "true",
+                    "$": "Orengo, Christine"
+                }
+            ],
+            "dc:description": "\n               This article provides an insight into protein structure classifications and how they can be used to analyse protein structure and sequence data. Different classifications are compared and discussed, together with the methods used to develop them. We give an overview of the current status of the protein structural universe using information from these classifications, considering both structural relatives and uncharacterised sequences predicted to belong to the structural families. We discuss how these classifications inform analyses into the evolution of protein structure, sequence, and function.\n            ",
+            "openaccess": "0",
+            "openaccessArticle": false,
+            "openaccessType": null,
+            "openArchiveArticle": false,
+            "openaccessSponsorName": null,
+            "openaccessSponsorType": null,
+            "openaccessUserLicense": null,
+            "dcterms:subject": [
+                {
+                    "@_fa": "true",
+                    "$": "Annotation"
+                },
+                {
+                    "@_fa": "true",
+                    "$": "Classification"
+                },
+                {
+                    "@_fa": "true",
+                    "$": "Database"
+                },
+                {
+                    "@_fa": "true",
+                    "$": "Domain"
+                },
+                {
+                    "@_fa": "true",
+                    "$": "Evolution"
+                },
+                {
+                    "@_fa": "true",
+                    "$": "Function"
+                },
+                {
+                    "@_fa": "true",
+                    "$": "Protein"
+                },
+                {
+                    "@_fa": "true",
+                    "$": "Sequence"
+                },
+                {
+                    "@_fa": "true",
+                    "$": "Structure"
+                }
+            ],
+            "link": [
+                {
+                    "@href": "https://api.elsevier.com/content/article/pii/B9780128096338202811",
+                    "@rel": "self",
+                    "@_fa": "true"
+                },
+                {
+                    "@href": "https://www.sciencedirect.com/science/article/pii/B9780128096338202811",
+                    "@rel": "scidir",
+                    "@_fa": "true"
+                }
+            ]
+        },
+        "scopus-id": "85079767316",
+        "scopus-eid": "2-s2.0-85079767316",
+        "link": {
+            "@href": "https://api.elsevier.com/content/abstract/scopus_id/85079767316",
+            "@rel": "abstract"
+        },
+        "originalText": {
+            "xocs:doc": {
+                "xocs:meta": {
+                    "xocs:open-access": {
+                        "xocs:oa-article-status": {
+                            "@is-open-access": "0",
+                            "@is-open-archive": "0"
+                        }
+                    },
+                    "xocs:available-online-date": {
+                        "@yyyymmdd": "20180906",
+                        "$": "2018-09-06"
+                    }
+                }
+            }
+        }
+    }
+}
