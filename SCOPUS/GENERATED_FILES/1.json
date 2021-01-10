@@ -1,0 +1,73 @@
+{
+    "Title": "Beyond clustering: mean-field dynamics on networks with arbitrary subgraph composition",
+    "Year": 2016,
+    "Source": "J. Math. Biol.",
+    "Volume": "72",
+    "Issue": null,
+    "Art.No": null,
+    "PageStart": 255,
+    "PageEnd": 281,
+    "CitedBy": 8,
+    "DOI": "10.1007/s00285-015-0884-1",
+    "Link": "https://www.scopus.com/inward/record.uri?partnerID=HzOxMe3b&scp=84952987411&origin=inward",
+    "Abstract": "\u00a9 2015, The Author(s).Clustering is the propensity of nodes that share a common neighbour to be connected. It is ubiquitous in many networks but poses many modelling challenges. Clustering typically manifests itself by a higher than expected frequency of triangles, and this has led to the principle of constructing networks from such building blocks. This approach has been generalised to networks being constructed from a set of more exotic subgraphs. As long as these are fully connected, it is then possible to derive mean-field models that approximate epidemic dynamics well. However, there are virtually no results for non-fully connected subgraphs. In this paper, we provide a general and automated approach to deriving a set of ordinary differential equations, or mean-field model, that describes, to a high degree of accuracy, the expected values of system-level quantities, such as the prevalence of infection. Our approach offers a previously unattainable degree of control over the arrangement of subgraphs and network characteristics such as classical node degree, variance and clustering. The combination of these features makes it possible to generate families of networks with different subgraph compositions while keeping classical network metrics constant. Using our approach, we show that higher-order structure realised either through the introduction of loops of different sizes or by generating networks based on different subgraphs but with identical degree distribution and clustering, leads to non-negligible differences in epidemic dynamics.",
+    "AuthorKeywords": [
+        "Epidemic",
+        "High-order structure",
+        "Motif",
+        "Network",
+        "Subgraph"
+    ],
+    "IndexKeywords": [
+        "Algorithms",
+        "Cluster Analysis",
+        "Communicable Diseases",
+        "Computer Simulation",
+        "Epidemics",
+        "Humans",
+        "Mathematical Concepts",
+        "Models, Theoretical",
+        "Neural Networks (Computer)"
+    ],
+    "DocumentType": "Journal",
+    "PublicationStage": null,
+    "OpenAccess": 1,
+    "EID": "2-s2.0-84952987411",
+    "SubjectAreas": [
+        [
+            "Modeling and Simulation",
+            "MATH",
+            "2611"
+        ],
+        [
+            "Agricultural and Biological Sciences (miscellaneous)",
+            "AGRI",
+            "1101"
+        ],
+        [
+            "Applied Mathematics",
+            "MATH",
+            "2604"
+        ]
+    ],
+    "AuthorData": {
+        "56071345800": {
+            "Name": "Ritchie M.",
+            "AuthorID": "56071345800",
+            "AffiliationID": "60017317",
+            "AffiliationName": "Department of Mathematics, School of Mathematical and Physical Sciences, University of Sussex"
+        },
+        "35746359000": {
+            "Name": "Kiss I.",
+            "AuthorID": "35746359000",
+            "AffiliationID": "60017317",
+            "AffiliationName": "Department of Mathematics, School of Mathematical and Physical Sciences, University of Sussex"
+        },
+        "55884445900": {
+            "Name": "Berthouze L.",
+            "AuthorID": "55884445900",
+            "AffiliationID": "60017317",
+            "AffiliationName": "Centre for Computational Neuroscience and Robotics, University of Sussex"
+        }
+    }
+}
