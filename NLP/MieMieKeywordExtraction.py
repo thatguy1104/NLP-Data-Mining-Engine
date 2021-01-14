@@ -43,7 +43,7 @@ dataset = [
 #print(list(trigrams(tokens)))
 
 cleaned_dataset = preprocessDataset(dataset)
-
+print(cleaned_dataset)
 
 vectorizer = TfidfVectorizer(use_idf=True)
 tfidf = vectorizer.fit_transform(cleaned_dataset)

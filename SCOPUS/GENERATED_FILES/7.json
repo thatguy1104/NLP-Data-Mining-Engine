@@ -1,1 +1,64 @@
-{"Title": "The Effect of Prior Gestational Diabetes on the Shape of the Glucose Response Curve during an Oral Glucose Tolerance Test 3 Years after Delivery", "Year": 2020, "Source": "J. Dia. Res", "Volume": "2020", "Issue": null, "Art.No": null, "PageStart": null, "PageEnd": null, "CitedBy": 1, "DOI": "10.1155/2020/4315806", "Link": "https://www.scopus.com/inward/record.uri?partnerID=HzOxMe3b&scp=85082426142&origin=inward", "Abstract": "\u00a9 2020 Timea T\u00e4nczer et al.Objective. Monophasic glucose response (MGR) during an oral glucose tolerance test (OGTT) and gestational diabetes mellitus (GDM) are predictors of type 2 diabetes mellitus (T2DM). We investigated the association between current MGR and (1) glucose tolerance during a pregnancy 3 years before and (2) current glucose tolerance status. We also sought (3) other determinants of MGR. Research Design and Methods. We conducted a nested case-control study of GDM (n=47 early GDM, diagnosed between 16 and 20 weeks of gestation; n=40 late GDM, diagnosed between 24 and 28 weeks of gestation) and matched healthy controls (n=37, normal glucose tolerance during pregnancy) all free from diabetes at follow-up 3.4\u00b10.6 years after delivery. Glucose tolerance was determined by 2-hour 75 g OGTT. Monophasic and biphasic groups were defined based on serum glucose measurements during OGTT. Results. The biphasic group was younger, had lower triglyceride levels and area under the OGTT glucose curve, and was less frequently diagnosed with early GDM (25 vs. 45%, all p<0.05). Women with a biphasic response also tended to have lower systolic blood pressure (p<0.1). No differences were found in fasting and 2-hour glucose and insulin levels, or BMI. According to multiple logistic regression, MGR was associated with prior early GDM (OR 2.14, 95% CI 0.92-4.99) and elevated triglyceride levels (OR 2.28, 95% CI 1.03-5.03/log (mmol/l)). Conclusions. We found that more severe, early-onset GDM was an independent predictor of monophasic glucose response suggesting that monophasic response may represent an intermediate state between GDM and manifest type 2 diabetes.", "AuthorKeywords": null, "IndexKeywords": null, "DocumentType": "Journal", "PublicationStage": null, "OpenAccess": 1, "EID": "2-s2.0-85082426142", "SubjectAreas": [["Endocrinology, Diabetes and Metabolism", "MEDI", "2712"], ["Endocrinology", "BIOC", "1310"]], "AuthorData": {"56545617700": {"Name": "T\u00e4nczer T.", "AuthorID": "56545617700", "AffiliationID": "100617437", "AffiliationName": "National Centre for Diabetes Care"}, "57215932675": {"Name": "Sv\u00e9bis M.M.", "AuthorID": "57215932675", "AffiliationID": "60024812", "AffiliationName": "School of Ph.D. Studies, Semmelweis University"}, "57039969600": {"Name": "Domj\u00e1n B.", "AuthorID": "57039969600", "AffiliationID": "100617437", "AffiliationName": "National Centre for Diabetes Care"}, "7005106413": {"Name": "Horv\u00e1th V.J.", "AuthorID": "7005106413", "AffiliationID": "60024812", "AffiliationName": "Department of Internal Medicine and Oncology, Semmelweis University, Faculty of Medicine"}, "7003480687": {"Name": "Tab\u00e1k A.G.", "AuthorID": "7003480687", "AffiliationID": "60022148", "AffiliationName": "Department of Epidemiology and Public Health, University College London"}}}
+{
+    "Title": "The Effect of Prior Gestational Diabetes on the Shape of the Glucose Response Curve during an Oral Glucose Tolerance Test 3 Years after Delivery",
+    "Year": 2020,
+    "Source": "J. Dia. Res",
+    "Volume": "2020",
+    "Issue": null,
+    "Art.No": null,
+    "PageStart": null,
+    "PageEnd": null,
+    "CitedBy": 1,
+    "DOI": "10.1155/2020/4315806",
+    "Link": "https://www.scopus.com/inward/record.uri?partnerID=HzOxMe3b&scp=85082426142&origin=inward",
+    "Abstract": "\u00a9 2020 Timea T\u00e4nczer et al.Objective. Monophasic glucose response (MGR) during an oral glucose tolerance test (OGTT) and gestational diabetes mellitus (GDM) are predictors of type 2 diabetes mellitus (T2DM). We investigated the association between current MGR and (1) glucose tolerance during a pregnancy 3 years before and (2) current glucose tolerance status. We also sought (3) other determinants of MGR. Research Design and Methods. We conducted a nested case-control study of GDM (n=47 early GDM, diagnosed between 16 and 20 weeks of gestation; n=40 late GDM, diagnosed between 24 and 28 weeks of gestation) and matched healthy controls (n=37, normal glucose tolerance during pregnancy) all free from diabetes at follow-up 3.4\u00b10.6 years after delivery. Glucose tolerance was determined by 2-hour 75 g OGTT. Monophasic and biphasic groups were defined based on serum glucose measurements during OGTT. Results. The biphasic group was younger, had lower triglyceride levels and area under the OGTT glucose curve, and was less frequently diagnosed with early GDM (25 vs. 45%, all p<0.05). Women with a biphasic response also tended to have lower systolic blood pressure (p<0.1). No differences were found in fasting and 2-hour glucose and insulin levels, or BMI. According to multiple logistic regression, MGR was associated with prior early GDM (OR 2.14, 95% CI 0.92-4.99) and elevated triglyceride levels (OR 2.28, 95% CI 1.03-5.03/log (mmol/l)). Conclusions. We found that more severe, early-onset GDM was an independent predictor of monophasic glucose response suggesting that monophasic response may represent an intermediate state between GDM and manifest type 2 diabetes.",
+    "AuthorKeywords": null,
+    "IndexKeywords": null,
+    "DocumentType": "Journal",
+    "PublicationStage": null,
+    "OpenAccess": 1,
+    "EID": "2-s2.0-85082426142",
+    "SubjectAreas": [
+        [
+            "Endocrinology, Diabetes and Metabolism",
+            "MEDI",
+            "2712"
+        ],
+        [
+            "Endocrinology",
+            "BIOC",
+            "1310"
+        ]
+    ],
+    "AuthorData": {
+        "56545617700": {
+            "Name": "T\u00e4nczer T.",
+            "AuthorID": "56545617700",
+            "AffiliationID": "100617437",
+            "AffiliationName": "National Centre for Diabetes Care"
+        },
+        "57215932675": {
+            "Name": "Sv\u00e9bis M.M.",
+            "AuthorID": "57215932675",
+            "AffiliationID": "60024812",
+            "AffiliationName": "School of Ph.D. Studies, Semmelweis University"
+        },
+        "57039969600": {
+            "Name": "Domj\u00e1n B.",
+            "AuthorID": "57039969600",
+            "AffiliationID": "100617437",
+            "AffiliationName": "National Centre for Diabetes Care"
+        },
+        "7005106413": {
+            "Name": "Horv\u00e1th V.J.",
+            "AuthorID": "7005106413",
+            "AffiliationID": "60024812",
+            "AffiliationName": "Department of Internal Medicine and Oncology, Semmelweis University, Faculty of Medicine"
+        },
+        "7003480687": {
+            "Name": "Tab\u00e1k A.G.",
+            "AuthorID": "7003480687",
+            "AffiliationID": "60022148",
+            "AffiliationName": "Department of Epidemiology and Public Health, University College London"
+        }
+    }
+}

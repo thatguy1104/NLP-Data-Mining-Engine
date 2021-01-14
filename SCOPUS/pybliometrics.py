@@ -128,7 +128,7 @@ def deleteAllFiles():
 def createAllFiles():
     data = cleanerFileReadings(limit=3000)
     l = len(data)
-
+    
     counter = 1
     for i in data:
         data_dict = getInfo(i)
@@ -140,7 +140,7 @@ def createAllFiles():
                 json.dump(reformatted_data, outfile)
             counter += 1
 
-    f.write("\nDONE\n")
+    f.write("\nDONE")
     f.close()
 
 createAllFiles()
