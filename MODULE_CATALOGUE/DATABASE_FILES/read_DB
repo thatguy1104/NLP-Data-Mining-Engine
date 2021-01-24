@@ -1,4 +1,4 @@
-SELECT TOP (5) [Department_Name]
+SELECT [Department_Name]
       , [Department_ID]
       , [Module_Name]
       , [Module_ID]

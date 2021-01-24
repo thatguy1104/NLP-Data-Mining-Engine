@@ -1,1 +1,120 @@
-{"Title": "Psychological morbidity and return to work after injury: Multicentre cohort study", "Year": 2017, "Source": "Br. J. Gen. Pract.", "Volume": "67", "Issue": 661, "Art.No": null, "PageStart": null, "PageEnd": null, "CitedBy": 5, "DOI": "10.3399/bjgp17X691673", "Link": "https://www.scopus.com/inward/record.uri?partnerID=HzOxMe3b&scp=85026733587&origin=inward", "Abstract": "\u00a9 British Journal of General Practice.Background The benefits of work for physical, psychological, and financial wellbeing are well documented. Return to work (RTW) after unintentional injury is often delayed, and psychological morbidity may contribute to this delay. The impact of psychological morbidity on RTW after a wide range of unintentional injuries in the UK has not been adequately quantified. Aim To quantify the role of psychological factors, including anxiety, depression, and post-Traumatic distress, on RTW following unintentional injuries. Design and setting A longitudinal multicentre prospective study was undertaken in Nottingham, Bristol, Leicester, and Guildford, UK. Method Participants (n = 273) were 16-69-year-olds admitted to hospital following unintentional injury, who were in paid employment prior to injury. They were surveyed at baseline, then at 1, 2, 4, and 12 months following injury; demographic data were collected along with injury characteristics, psychological morbidity, and RTW status. Associations between demographic, injury and psychological factors, and RTW between 2 and 12 months after injury were quantified using random effects logistic regression. Results The odds of RTW between 2 and 12 months after injury reduced as depression scores early in the recovery period (1 month after injury) increased (odds ratio [OR] 0.87, 95% confidence interval [CI] = 0.79 to 0.95) and as length of hospital stay increased (OR 0.91, 95% CI] = 0.86 to 0.96). For those experiencing threatening life events following injury (OR 0.27, 95% CI = 0.10 to 0.72) and with higher scores on the Crisis Support Scale (OR 0.93, 95% CI] = 0.88 to 0.99), the odds of RTW between 2 and 12 months after injury were lower. Multiple imputation analysis found similar results, but those relating to crisis support did not remain statistically significant. Conclusion Primary care professionals can identify patients at risk of delayed RTW who may benefit from management of psychological morbidity and support to RTW.", "AuthorKeywords": ["Cohort study", "Injuries", "Mental health", "Psychological factors", "Work"], "IndexKeywords": ["Adolescent", "Adult", "Aged", "Anxiety", "Depression", "Female", "Humans", "Logistic Models", "Longitudinal Studies", "Male", "Middle Aged", "Prospective Studies", "Return to Work", "Sick Leave", "Stress Disorders, Post-Traumatic", "United Kingdom", "Wounds and Injuries", "Young Adult"], "DocumentType": "Journal", "PublicationStage": null, "OpenAccess": 1, "EID": "2-s2.0-85026733587", "SubjectAreas": [["Family Practice", "MEDI", "2714"]], "AuthorData": {"7006870304": {"Name": "Kendrick D.", "AuthorID": "7006870304", "AffiliationID": "60015138", "AffiliationName": "School of Medicine, Division of Primary Care, University of Nottingham"}, "7003598940": {"Name": "Coupland C.", "AuthorID": "7003598940", "AffiliationID": "60015138", "AffiliationName": "School of Medicine, Division of Primary Care, University of Nottingham"}, "57192688231": {"Name": "Whitehead J.", "AuthorID": "57192688231", "AffiliationID": "60015138", "AffiliationName": "School of Medicine, Division of Primary Care, University of Nottingham"}, "34770520100": {"Name": "Joseph S.", "AuthorID": "34770520100", "AffiliationID": "100318278", "AffiliationName": "School of Education"}, "7004056331": {"Name": "Morriss R.", "AuthorID": "7004056331", "AffiliationID": "60015138", "AffiliationName": "Division of Psychiatry and Applied Psychology, University of Nottingham"}, "49863105900": {"Name": "Dhiman P.", "AuthorID": "49863105900", "AffiliationID": "60030816", "AffiliationName": "Research Design Service East Midlands, Queen's Medical Centre"}, "25931569700": {"Name": "Kellezi B.", "AuthorID": "25931569700", "AffiliationID": "60006029", "AffiliationName": "Department of Psychology, Nottingham Trent University"}, "55928549900": {"Name": "Beckett K.", "AuthorID": "55928549900", "AffiliationID": "60019611", "AffiliationName": "University of the West of England"}, "57210406972": {"Name": "Christie N.", "AuthorID": "57210406972", "AffiliationID": "60022148", "AffiliationName": "Centre for Transport Studies, University College London"}, "23111755700": {"Name": "Sleney J.", "AuthorID": "23111755700", "AffiliationID": "60021097", "AffiliationName": "Department of Sociology, University of Surrey"}, "55415843900": {"Name": "Barnes J.", "AuthorID": "55415843900", "AffiliationID": "60000891", "AffiliationName": "Loughborough Design School, Loughborough University"}}}
+{
+    "Title": "Psychological morbidity and return to work after injury: Multicentre cohort study",
+    "Year": 2017,
+    "Source": "Br. J. Gen. Pract.",
+    "Volume": "67",
+    "Issue": 661,
+    "Art.No": null,
+    "PageStart": null,
+    "PageEnd": null,
+    "CitedBy": 5,
+    "DOI": "10.3399/bjgp17X691673",
+    "Link": "https://www.scopus.com/inward/record.uri?partnerID=HzOxMe3b&scp=85026733587&origin=inward",
+    "Abstract": "\u00a9 British Journal of General Practice.Background The benefits of work for physical, psychological, and financial wellbeing are well documented. Return to work (RTW) after unintentional injury is often delayed, and psychological morbidity may contribute to this delay. The impact of psychological morbidity on RTW after a wide range of unintentional injuries in the UK has not been adequately quantified. Aim To quantify the role of psychological factors, including anxiety, depression, and post-Traumatic distress, on RTW following unintentional injuries. Design and setting A longitudinal multicentre prospective study was undertaken in Nottingham, Bristol, Leicester, and Guildford, UK. Method Participants (n = 273) were 16-69-year-olds admitted to hospital following unintentional injury, who were in paid employment prior to injury. They were surveyed at baseline, then at 1, 2, 4, and 12 months following injury; demographic data were collected along with injury characteristics, psychological morbidity, and RTW status. Associations between demographic, injury and psychological factors, and RTW between 2 and 12 months after injury were quantified using random effects logistic regression. Results The odds of RTW between 2 and 12 months after injury reduced as depression scores early in the recovery period (1 month after injury) increased (odds ratio [OR] 0.87, 95% confidence interval [CI] = 0.79 to 0.95) and as length of hospital stay increased (OR 0.91, 95% CI] = 0.86 to 0.96). For those experiencing threatening life events following injury (OR 0.27, 95% CI = 0.10 to 0.72) and with higher scores on the Crisis Support Scale (OR 0.93, 95% CI] = 0.88 to 0.99), the odds of RTW between 2 and 12 months after injury were lower. Multiple imputation analysis found similar results, but those relating to crisis support did not remain statistically significant. Conclusion Primary care professionals can identify patients at risk of delayed RTW who may benefit from management of psychological morbidity and support to RTW.",
+    "AuthorKeywords": [
+        "Cohort study",
+        "Injuries",
+        "Mental health",
+        "Psychological factors",
+        "Work"
+    ],
+    "IndexKeywords": [
+        "Adolescent",
+        "Adult",
+        "Aged",
+        "Anxiety",
+        "Depression",
+        "Female",
+        "Humans",
+        "Logistic Models",
+        "Longitudinal Studies",
+        "Male",
+        "Middle Aged",
+        "Prospective Studies",
+        "Return to Work",
+        "Sick Leave",
+        "Stress Disorders, Post-Traumatic",
+        "United Kingdom",
+        "Wounds and Injuries",
+        "Young Adult"
+    ],
+    "DocumentType": "Journal",
+    "PublicationStage": null,
+    "OpenAccess": 1,
+    "EID": "2-s2.0-85026733587",
+    "SubjectAreas": [
+        [
+            "Family Practice",
+            "MEDI",
+            "2714"
+        ]
+    ],
+    "AuthorData": {
+        "7006870304": {
+            "Name": "Kendrick D.",
+            "AuthorID": "7006870304",
+            "AffiliationID": "60015138",
+            "AffiliationName": "School of Medicine, Division of Primary Care, University of Nottingham"
+        },
+        "7003598940": {
+            "Name": "Coupland C.",
+            "AuthorID": "7003598940",
+            "AffiliationID": "60015138",
+            "AffiliationName": "School of Medicine, Division of Primary Care, University of Nottingham"
+        },
+        "57192688231": {
+            "Name": "Whitehead J.",
+            "AuthorID": "57192688231",
+            "AffiliationID": "60015138",
+            "AffiliationName": "School of Medicine, Division of Primary Care, University of Nottingham"
+        },
+        "34770520100": {
+            "Name": "Joseph S.",
+            "AuthorID": "34770520100",
+            "AffiliationID": "100318278",
+            "AffiliationName": "School of Education"
+        },
+        "7004056331": {
+            "Name": "Morriss R.",
+            "AuthorID": "7004056331",
+            "AffiliationID": "60015138",
+            "AffiliationName": "Division of Psychiatry and Applied Psychology, University of Nottingham"
+        },
+        "49863105900": {
+            "Name": "Dhiman P.",
+            "AuthorID": "49863105900",
+            "AffiliationID": "60030816",
+            "AffiliationName": "Research Design Service East Midlands, Queen's Medical Centre"
+        },
+        "25931569700": {
+            "Name": "Kellezi B.",
+            "AuthorID": "25931569700",
+            "AffiliationID": "60006029",
+            "AffiliationName": "Department of Psychology, Nottingham Trent University"
+        },
+        "55928549900": {
+            "Name": "Beckett K.",
+            "AuthorID": "55928549900",
+            "AffiliationID": "60019611",
+            "AffiliationName": "University of the West of England"
+        },
+        "57210406972": {
+            "Name": "Christie N.",
+            "AuthorID": "57210406972",
+            "AffiliationID": "60022148",
+            "AffiliationName": "Centre for Transport Studies, University College London"
+        },
+        "23111755700": {
+            "Name": "Sleney J.",
+            "AuthorID": "23111755700",
+            "AffiliationID": "60021097",
+            "AffiliationName": "Department of Sociology, University of Surrey"
+        },
+        "55415843900": {
+            "Name": "Barnes J.",
+            "AuthorID": "55415843900",
+            "AffiliationID": "60000891",
+            "AffiliationName": "Loughborough Design School, Loughborough University"
+        }
+    }
+}
