@@ -1,10 +1,24 @@
 import os, sys, re
 import json
+import pyodbc
+import datetime
 import pandas as pd
 from nltk import word_tokenize
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 
+numberOfModulesAnalysed = "MAX"
+
+# SERVER LOGIN DETAILS
+server = 'miemie.database.windows.net'
+database = 'MainDB'
+username = 'miemie_login'
+password = 'e_Paswrd?!'
+driver = '{ODBC Driver 17 for SQL Server}'
+curr_time = datetime.datetime.now()
+
+# CONNECT TO DATABASE
+myConnection = pyodbc.connect('DRIVER=' + driver + ';SERVER=' + server +';PORT=1433;DATABASE=' + database + ';UID=' + username + ';PWD=' + password)
 
 def progress(count, total, custom_text, suffix=''):
     bar_len = 60
@@ -41,28 +55,18 @@ def preprocessText(text):
     return " ".join(tokens)
 
 def getFileData():
-    files_directory = "GENERATED_FILES/"
-    DIR = 'GENERATED_FILES'
-    num_of_files = len([name for name in os.listdir(DIR) if os.path.isfile(os.path.join(DIR, name))])
-
-    resulting_data = {}
-    for i in range(1, num_of_files):
-        with open(files_directory + str(i) + ".json") as json_file:
-            data = json.load(json_file)
-            if data and data["Abstract"] and data["DOI"]:
-                abstract = data["Abstract"]
-                title = data["Title"]
-                doi = data["DOI"]
-                if data["AuthorKeywords"]:
-                    authorKeywords = data["AuthorKeywords"]
-                else:
-                    authorKeywords = None
-                if data["IndexKeywords"]:
-                    indexKeywords = data["IndexKeywords"]
-                else:
-                    indexKeywords = None
-                resulting_data[doi] = {"Title" : title, "DOI" : doi, "Abstract" : abstract, "AuthorKeywords" : authorKeywords, "IndexKeywords" : indexKeywords}
-    return resulting_data
+    cur = myConnection.cursor()
+    numberModules = 1
+    if numberOfModulesAnalysed == "MAX":
+        # Query into dataframe
+        df = pd.read_sql_query("SELECT * FROM [dbo].[ModuleData]", myConnection)
+        myConnection.commit()
+        return df
+    else:
+        # Query into dataframe
+        df = pd.read_sql_query("SELECT TOP (%d) * FROM [dbo].[ModuleData]" % int(numberOfModulesAnalysed), myConnection)
+        myConnection.commit()
+        return df
 
 def readKeywords(data):
     fileName = "SDG_Keywords.csv"
@@ -73,22 +77,20 @@ def readKeywords(data):
     counter = 0
     length = len(data)
 
-    # Reset the data file
-    if os.path.exists("matchedScopusSDG.json"):
-        os.remove("matchedScopusSDG.json")
+    # # Reset the data file
+    if os.path.exists("matchedModulesSDG.json"):
+        os.remove("matchedModulesSDG.json")
 
-    for i in data: # iterate through the paper descriptions
-        progress(counter, length, "processing matchedScopusSDG.json")
+    for i in range(length):  # iterate through the paper descriptions
+        progress(counter, length, "processing matchedModulesSDG.json")
         counter += 1
-        textData = data[i]["Title"] + " " + data[i]["Abstract"]
-        if data[i]["AuthorKeywords"]:
-            for j in data[i]["AuthorKeywords"]:
-                textData += " " + j
-        if data[i]["IndexKeywords"]:
-            for j in data[i]["IndexKeywords"]:
-                textData += " " + j
-        
-        sdg_occurences = {}
+        moduleName = data["Module_Name"][i]
+        if data["Description"][i]:
+            description = data["Description"][i]
+        else:
+            description = ""
+        textData = moduleName + " " + description
+
         sdg_occurences = {}
         for p in df:  # iterate through SDGs
             sdg_occurences[p] = {"Word_Found": []}
@@ -99,9 +101,9 @@ def readKeywords(data):
                     sdg_occurences[p]["Word_Found"].append(j)
             if len(sdg_occurences[p]["Word_Found"]) == 0:
                 del sdg_occurences[p]
-            resulting_data[data[i]["DOI"]] = {"PublicationInfo" : data[i], "Related_SDG" : sdg_occurences}
+            resulting_data[data["Module_ID"][i]] = {"Module_Name": data["Module_Name"][i], "Related_SDG": sdg_occurences}
     print()
-    with open('matchedScopusSDG.json', 'a') as outfile:
+    with open('matchedModulesSDG.json', 'a') as outfile:
         json.dump(resulting_data, outfile)
 
 
