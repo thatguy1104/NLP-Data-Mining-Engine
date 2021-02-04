@@ -13,7 +13,7 @@ create = """CREATE TABLE ModuleData(
                 Department_Name      VARCHAR(150),
                 Department_ID        VARCHAR(150),
                 Module_Name          VARCHAR(150),
-                Module_ID            VARCHAR(150),
+                Module_ID            VARCHAR(150) PRIMARY KEY,
                 Faculty              VARCHAR(100),
                 Credit_Value         FLOAT,
                 Module_Lead          VARCHAR(100),
