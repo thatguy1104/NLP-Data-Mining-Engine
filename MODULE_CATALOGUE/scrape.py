@@ -33,6 +33,14 @@ class UCL_Module_Catalogue():
         sys.stdout.write('[%s] %s%s %s %s\r' % (bar, percents, '%', custom_text, suffix))
         sys.stdout.flush()
 
+    def checkIfExists(self, primaryKey):
+        cur = self.myConnection.cursor()
+        cur.execute("SELECT * FROM ModuleData WHERE Module_ID = (?)", (primaryKey))
+        data = cur.fetchall()
+        if len(data) == 0:
+            return False
+        return True
+
     def scrape_modules(self):
         module_data = []
         curr_time = datetime.datetime.now()
@@ -48,11 +56,12 @@ class UCL_Module_Catalogue():
                 moduleName = data[i]['Module_Name']
                 moduleID = data[i]['Module_ID']
                 catalogueLink = data[i]['Link']
-                
-                title, mod_id, fac, dep, cred_val, name_lead, description = self.get_module_data(catalogueLink, moduleID)
-                if title is not None:
-                    module_data.append((depName, depID, moduleName, moduleID, fac, cred_val, name_lead, catalogueLink, description, curr_time))
-                    self.writeData_DB(module_data)
+
+                if not self.checkIfExists(moduleID):
+                    title, mod_id, fac, dep, cred_val, name_lead, description = self.get_module_data(catalogueLink, moduleID)
+                    if title is not None:
+                        module_data.append((depName, depID, moduleName, moduleID, fac, cred_val, name_lead, catalogueLink, description, curr_time))
+                        self.writeData_DB(module_data)
 
                 lim += 1
 
