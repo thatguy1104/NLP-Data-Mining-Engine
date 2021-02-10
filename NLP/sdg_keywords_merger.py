@@ -1,9 +1,6 @@
 import os
 import pandas as pd
-
-import os
 import glob
-import pandas as pd
 
 class SDGKeywordsMerger():
     @staticmethod

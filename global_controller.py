@@ -1,6 +1,7 @@
 from MODULE_CATALOGUE.scrape import UCL_Module_Catalogue
 from MODULE_CATALOGUE.INITIALISER.initialise_files import Initialiser
-
+from MODULE_CATALOGUE.map import ModuleMap
+from SCOPUS.map import ScopusMap
 
 def initialise():
     """
@@ -15,5 +16,21 @@ def scrapeAllModules():
     """
     UCL_Module_Catalogue().run()
 
+def moduleMap():
+    """
+        Assigns an SDG/SDGs to each module
+        Produces matchedModulesSDG.json + sdgCount.json
+    """
+    ModuleMap().run()
 
-scrapeAllModules()
+def scopusMap():
+    """
+        Assigns an SDG/SDGs to each research publication
+        Produces matchedModulesSDG.json + sdgCount.json
+    """
+    ScopusMap().run()
+
+
+# scrapeAllModules()
+moduleMap()
+scopusMap()

@@ -1,1 +1,89 @@
-{"Title": "Losing control under ketamine: Suppressed cortico-hippocampal drive following acute ketamine in rats", "Year": 2015, "Source": "Neuropsychopharmacology", "Volume": "40", "Issue": 2, "Art.No": null, "PageStart": 268, "PageEnd": 277, "CitedBy": 48, "DOI": "10.1038/npp.2014.184", "Link": "https://www.scopus.com/inward/record.uri?partnerID=HzOxMe3b&scp=84917682336&origin=inward", "Abstract": "\u00a9 2015 American College of Neuropsychopharmacology. All rights reserved.Systemic doses of the psychotomimetic ketamine alter the spectral characteristics of hippocampal and prefrontal cortical network activity. Using dynamic causal modeling (DCM) of cross-spectral densities, we quantify the putative synaptic mechanisms underlying ketamine effects in terms of changes in directed, effective connectivity between dorsal hippocampus and medial prefrontal (dCA1-mPFC) cortex of freely moving rats. We parameterize dose-dependent changes in spectral signatures of dCA1-mPFC local field potential recordings, using neural mass models of glutamatergic and GABAergic circuits. Optimizing DCMs of theta and gamma frequency range responses, model comparisons suggest that both enhanced gamma and depressed theta power result from a reduction in top-down connectivity from mPFC to the hippocampus, mediated by postsynaptic NMDA receptors (NMDARs). This is accompanied by an alteration in the bottom-up pathway from dCA1 to mPFC, which exhibits a distinct asymmetry: here, feed-forward drive at AMPA receptors increases in the presence of decreased NMDAR-mediated inputs. Setting these findings in the context of predictive coding suggests that NMDAR antagonism by ketamine in recurrent hierarchical networks may result in the failure of top-down connections from higher cortical regions to signal predictions to lower regions in the hierarchy, which consequently fail to respond consistently to errors. Given that NMDAR dysfunction has a central role in pathophysiological theories of schizophrenia and that theta and gamma rhythm abnormalities are evident in schizophrenic patients, the approach followed here may furnish a framework for the study of aberrant hierarchical message passing (of prediction errors) in schizophrenia - and the false perceptual inferences that ensue.", "AuthorKeywords": null, "IndexKeywords": ["Animals", "Bayes Theorem", "CA1 Region, Hippocampal", "Catheters, Indwelling", "Dose-Response Relationship, Drug", "Electrodes, Implanted", "Excitatory Amino Acid Antagonists", "Gamma Rhythm", "gamma-Aminobutyric Acid", "Glutamic Acid", "Ketamine", "Male", "Models, Neurological", "Neural Pathways", "Prefrontal Cortex", "Rats, Long-Evans", "Receptors, N-Methyl-D-Aspartate", "Theta Rhythm"], "DocumentType": "Journal", "PublicationStage": null, "OpenAccess": 1, "EID": "2-s2.0-84917682336", "SubjectAreas": [["Pharmacology", "PHAR", "3004"], ["Psychiatry and Mental Health", "MEDI", "2738"]], "AuthorData": {"12345357400": {"Name": "Moran R.J.", "AuthorID": "12345357400", "AffiliationID": "60019953, 60084279, 60022148", "AffiliationName": "Wellcome Trust Centre for Neuroimaging, Institute of Neurology, University College London"}, "7403935120": {"Name": "Adams R.A.", "AuthorID": "7403935120", "AffiliationID": "60019953, 60084279, 60022148", "AffiliationName": "Wellcome Trust Centre for Neuroimaging, Institute of Neurology, University College London"}, "7102375486": {"Name": "Stephan K.E.", "AuthorID": "7102375486", "AffiliationID": "60012614", "AffiliationName": "Laboratory for Social and Neural Systems Research (SNS), University of Zurich"}, "36080215500": {"Name": "Friston K.J.", "AuthorID": "36080215500", "AffiliationID": "60019953, 60084279, 60022148", "AffiliationName": "Wellcome Trust Centre for Neuroimaging, Institute of Neurology, University College London"}, "7501845312": {"Name": "Jones M.W.", "AuthorID": "7501845312", "AffiliationID": "60020650", "AffiliationName": "School of Physiology and Pharmacology, University of Bristol, University Walk"}, "57195358511": {"Name": "Blockeel A.J.", "AuthorID": "57195358511", "AffiliationID": "60020650", "AffiliationName": "School of Physiology and Pharmacology, University of Bristol, University Walk"}}}
+{
+    "Title": "Losing control under ketamine: Suppressed cortico-hippocampal drive following acute ketamine in rats",
+    "Year": 2015,
+    "Source": "Neuropsychopharmacology",
+    "Volume": "40",
+    "Issue": 2,
+    "Art.No": null,
+    "PageStart": 268,
+    "PageEnd": 277,
+    "CitedBy": 48,
+    "DOI": "10.1038/npp.2014.184",
+    "Link": "https://www.scopus.com/inward/record.uri?partnerID=HzOxMe3b&scp=84917682336&origin=inward",
+    "Abstract": "\u00a9 2015 American College of Neuropsychopharmacology. All rights reserved.Systemic doses of the psychotomimetic ketamine alter the spectral characteristics of hippocampal and prefrontal cortical network activity. Using dynamic causal modeling (DCM) of cross-spectral densities, we quantify the putative synaptic mechanisms underlying ketamine effects in terms of changes in directed, effective connectivity between dorsal hippocampus and medial prefrontal (dCA1-mPFC) cortex of freely moving rats. We parameterize dose-dependent changes in spectral signatures of dCA1-mPFC local field potential recordings, using neural mass models of glutamatergic and GABAergic circuits. Optimizing DCMs of theta and gamma frequency range responses, model comparisons suggest that both enhanced gamma and depressed theta power result from a reduction in top-down connectivity from mPFC to the hippocampus, mediated by postsynaptic NMDA receptors (NMDARs). This is accompanied by an alteration in the bottom-up pathway from dCA1 to mPFC, which exhibits a distinct asymmetry: here, feed-forward drive at AMPA receptors increases in the presence of decreased NMDAR-mediated inputs. Setting these findings in the context of predictive coding suggests that NMDAR antagonism by ketamine in recurrent hierarchical networks may result in the failure of top-down connections from higher cortical regions to signal predictions to lower regions in the hierarchy, which consequently fail to respond consistently to errors. Given that NMDAR dysfunction has a central role in pathophysiological theories of schizophrenia and that theta and gamma rhythm abnormalities are evident in schizophrenic patients, the approach followed here may furnish a framework for the study of aberrant hierarchical message passing (of prediction errors) in schizophrenia - and the false perceptual inferences that ensue.",
+    "AuthorKeywords": null,
+    "IndexKeywords": [
+        "Animals",
+        "Bayes Theorem",
+        "CA1 Region, Hippocampal",
+        "Catheters, Indwelling",
+        "Dose-Response Relationship, Drug",
+        "Electrodes, Implanted",
+        "Excitatory Amino Acid Antagonists",
+        "Gamma Rhythm",
+        "gamma-Aminobutyric Acid",
+        "Glutamic Acid",
+        "Ketamine",
+        "Male",
+        "Models, Neurological",
+        "Neural Pathways",
+        "Prefrontal Cortex",
+        "Rats, Long-Evans",
+        "Receptors, N-Methyl-D-Aspartate",
+        "Theta Rhythm"
+    ],
+    "DocumentType": "Journal",
+    "PublicationStage": null,
+    "OpenAccess": 1,
+    "EID": "2-s2.0-84917682336",
+    "SubjectAreas": [
+        [
+            "Pharmacology",
+            "PHAR",
+            "3004"
+        ],
+        [
+            "Psychiatry and Mental Health",
+            "MEDI",
+            "2738"
+        ]
+    ],
+    "AuthorData": {
+        "12345357400": {
+            "Name": "Moran R.J.",
+            "AuthorID": "12345357400",
+            "AffiliationID": "60019953, 60084279, 60022148",
+            "AffiliationName": "Wellcome Trust Centre for Neuroimaging, Institute of Neurology, University College London"
+        },
+        "7403935120": {
+            "Name": "Adams R.A.",
+            "AuthorID": "7403935120",
+            "AffiliationID": "60019953, 60084279, 60022148",
+            "AffiliationName": "Wellcome Trust Centre for Neuroimaging, Institute of Neurology, University College London"
+        },
+        "7102375486": {
+            "Name": "Stephan K.E.",
+            "AuthorID": "7102375486",
+            "AffiliationID": "60012614",
+            "AffiliationName": "Laboratory for Social and Neural Systems Research (SNS), University of Zurich"
+        },
+        "36080215500": {
+            "Name": "Friston K.J.",
+            "AuthorID": "36080215500",
+            "AffiliationID": "60019953, 60084279, 60022148",
+            "AffiliationName": "Wellcome Trust Centre for Neuroimaging, Institute of Neurology, University College London"
+        },
+        "7501845312": {
+            "Name": "Jones M.W.",
+            "AuthorID": "7501845312",
+            "AffiliationID": "60020650",
+            "AffiliationName": "School of Physiology and Pharmacology, University of Bristol, University Walk"
+        },
+        "57195358511": {
+            "Name": "Blockeel A.J.",
+            "AuthorID": "57195358511",
+            "AffiliationID": "60020650",
+            "AffiliationName": "School of Physiology and Pharmacology, University of Bristol, University Walk"
+        }
+    }
+}

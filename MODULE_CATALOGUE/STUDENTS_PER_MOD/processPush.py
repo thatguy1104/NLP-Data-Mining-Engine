@@ -26,9 +26,9 @@ def preProcess(text):
     text.remove(lastElem)
     assert(len(text) == 1)  # validate the text data
 
-    moduleID = re.search("\((.*?)\)", text[0]).group()
+    moduleID = re.search("\((.*?)\)", text[0]).group().replace("(", "").replace(")", "")
     tempText = text[0].split(" ")
-    assert(tempText[0] == moduleID)  # validate the moduleID data
+    assert(tempText[0].replace("(", "").replace(")", "") == moduleID)  # validate the moduleID data
 
     return text[0], numOfStudents, moduleID
 

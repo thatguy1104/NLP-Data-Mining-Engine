@@ -6,104 +6,116 @@ from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 
 
-def progress(count, total, custom_text, suffix=''):
-    bar_len = 60
-    filled_len = int(round(bar_len * count / float(total)))
+class ScopusMap():
 
-    percents = round(100.0 * count / float(total), 1)
-    bar = '*' * filled_len + '-' * (bar_len - filled_len)
+    def progress(self, count, total, custom_text, suffix=''):
+        bar_len = 60
+        filled_len = int(round(bar_len * count / float(total)))
 
-    sys.stdout.write('[%s] %s%s %s %s\r' %
-                     (bar, percents, '%', custom_text, suffix))
-    sys.stdout.flush()
+        percents = round(100.0 * count / float(total), 1)
+        bar = '*' * filled_len + '-' * (bar_len - filled_len)
 
-def preprocessText(text):
-    # Normalisation
-    # replace UCL module codes.
-    normalized = re.sub(r'[A-Z]{4}\d{4}', 'modulecode', text)
-    normalized = re.sub(r'[/]', " ", normalized)  # separate forward slashes
-    # replace numbers.
-    normalized = re.sub(r'[\s]\d+(\.\d+)?[\s]', ' numbr ', normalized)
-    normalized = re.sub("[^\w]", " ", normalized)  # remove punctuation.
+        sys.stdout.write('[%s] %s%s %s %s\r' %
+                        (bar, percents, '%', custom_text, suffix))
+        sys.stdout.flush()
 
-    # Tokenisation
-    tokens = word_tokenize(normalized.lower())
-    n = len(tokens)
+    def preprocessText(self, text):
+        # Normalisation
+        # replace UCL module codes.
+        normalized = re.sub(r'[A-Z]{4}\d{4}', 'modulecode', text)
+        normalized = re.sub(r'[/]', " ", normalized)  # separate forward slashes
+        # replace numbers.
+        normalized = re.sub(r'[\s]\d+(\.\d+)?[\s]', ' numbr ', normalized)
+        normalized = re.sub("[^\w]", " ", normalized)  # remove punctuation.
 
-    # Stopword Removal
-    stops = set(stopwords.words('english'))
-    tokens = [word for word in tokens if not word in stops]
+        # Tokenisation
+        tokens = word_tokenize(normalized.lower())
+        n = len(tokens)
 
-    # Lemmatising and Stemming
-    lemmatizer = WordNetLemmatizer()
-    tokens = [lemmatizer.lemmatize(word) for word in tokens]
+        # Stopword Removal
+        stops = set(stopwords.words('english'))
+        tokens = [word for word in tokens if not word in stops]
 
-    return " ".join(tokens)
+        # Lemmatising and Stemming
+        lemmatizer = WordNetLemmatizer()
+        tokens = [lemmatizer.lemmatize(word) for word in tokens]
 
-def getFileData():
-    files_directory = "GENERATED_FILES/"
-    DIR = 'GENERATED_FILES'
-    num_of_files = len([name for name in os.listdir(DIR) if os.path.isfile(os.path.join(DIR, name))])
+        return " ".join(tokens)
 
-    resulting_data = {}
-    for i in range(1, num_of_files):
-        with open(files_directory + str(i) + ".json") as json_file:
-            data = json.load(json_file)
-            if data and data["Abstract"] and data["DOI"]:
-                abstract = data["Abstract"]
-                title = data["Title"]
-                doi = data["DOI"]
-                if data["AuthorKeywords"]:
-                    authorKeywords = data["AuthorKeywords"]
-                else:
-                    authorKeywords = None
-                if data["IndexKeywords"]:
-                    indexKeywords = data["IndexKeywords"]
-                else:
-                    indexKeywords = None
-                resulting_data[doi] = {"Title" : title, "DOI" : doi, "Abstract" : abstract, "AuthorKeywords" : authorKeywords, "IndexKeywords" : indexKeywords}
-    return resulting_data
+    def getFileData(self):
+        files_directory = "SCOPUS/GENERATED_FILES/"
+        DIR = 'SCOPUS/GENERATED_FILES'
+        num_of_files = len([name for name in os.listdir(DIR) if os.path.isfile(os.path.join(DIR, name))])
 
-def readKeywords(data):
-    fileName = "SDG_Keywords.csv"
-    # SDG keyword data
-    df = pd.read_csv(fileName)
-    df = df.dropna()
-    resulting_data = {}
-    counter = 0
-    length = len(data)
+        resulting_data = {}
+        for i in range(1, num_of_files):
+        # for i in range(1, 10):
+            with open(files_directory + str(i) + ".json") as json_file:
+                data = json.load(json_file)
+                if data and data["Abstract"] and data["DOI"]:
+                    abstract = data["Abstract"]
+                    title = data["Title"]
+                    doi = data["DOI"]
+                    if data["AuthorKeywords"]:
+                        authorKeywords = data["AuthorKeywords"]
+                    else:
+                        authorKeywords = None
+                    if data["IndexKeywords"]:
+                        indexKeywords = data["IndexKeywords"]
+                    else:
+                        indexKeywords = None
+                    resulting_data[doi] = {"Title" : title, "DOI" : doi, "Abstract" : abstract, "AuthorKeywords" : authorKeywords, "IndexKeywords" : indexKeywords}
+        return resulting_data
 
-    # Reset the data file
-    if os.path.exists("matchedScopusSDG.json"):
-        os.remove("matchedScopusSDG.json")
+    def readKeywords(self,data):
+        fileName = "SDG_Keywords.csv"
+        # SDG keyword data
+        df = pd.read_csv(fileName)
+        df = df.dropna()
+        resulting_data = {}
+        counter = 0
+        length = len(data)
 
-    for i in data: # iterate through the paper descriptions
-        progress(counter, length, "processing matchedScopusSDG.json")
-        counter += 1
-        textData = data[i]["Title"] + " " + data[i]["Abstract"]
-        if data[i]["AuthorKeywords"]:
-            for j in data[i]["AuthorKeywords"]:
-                textData += " " + j
-        if data[i]["IndexKeywords"]:
-            for j in data[i]["IndexKeywords"]:
-                textData += " " + j
-        
-        sdg_occurences = {}
-        sdg_occurences = {}
+        # Reset the data file
+        if os.path.exists("SCOPUS/matchedScopusSDG.json"):
+            os.remove("SCOPUS/matchedScopusSDG.json")
+
+        occuringWordCount = {}
         for p in df:  # iterate through SDGs
-            sdg_occurences[p] = {"Word_Found": []}
+            occuringWordCount[p] = {}
             for j in df[p]:
-                text = preprocessText(textData)
-                word = preprocessText(j)
-                if word in text:
-                    sdg_occurences[p]["Word_Found"].append(j)
-            if len(sdg_occurences[p]["Word_Found"]) == 0:
-                del sdg_occurences[p]
-            resulting_data[data[i]["DOI"]] = {"PublicationInfo" : data[i], "Related_SDG" : sdg_occurences}
-    print()
-    with open('matchedScopusSDG.json', 'a') as outfile:
-        json.dump(resulting_data, outfile)
+                occuringWordCount[p][j] = 0
 
+        for i in data: # iterate through the paper descriptions
+            self.progress(counter, length, "processing SCOPUS/matchedScopusSDG.json")
+            counter += 1
+            textData = data[i]["Title"] + " " + data[i]["Abstract"]
+            if data[i]["AuthorKeywords"]:
+                for j in data[i]["AuthorKeywords"]:
+                    textData += " " + j
+            if data[i]["IndexKeywords"]:
+                for j in data[i]["IndexKeywords"]:
+                    textData += " " + j
+            
+            sdg_occurences = {}
+            sdg_occurences = {}
+            for p in df:  # iterate through SDGs
+                sdg_occurences[p] = {"Word_Found": []}
+                for j in df[p]:
+                    text = self.preprocessText(textData)
+                    word = self.preprocessText(j)
+                    if word in text:
+                        occuringWordCount[p][j] += 1
+                        sdg_occurences[p]["Word_Found"].append(j)
+                if len(sdg_occurences[p]["Word_Found"]) == 0:
+                    del sdg_occurences[p]
+                resulting_data[data[i]["DOI"]] = {"PublicationInfo" : data[i], "Related_SDG" : sdg_occurences}
+        print()
+        with open('SCOPUS/matchedScopusSDG.json', 'a') as outfile:
+            json.dump(resulting_data, outfile)
+        with open('SCOPUS/sdgCount.json', 'w') as outfile:
+            json.dump(occuringWordCount, outfile)
 
-data = getFileData()
-readKeywords(data)
+    def run(self):
+        data = self.getFileData()
+        self.readKeywords(data)

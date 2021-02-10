@@ -10,8 +10,6 @@ driver = '{ODBC Driver 17 for SQL Server}'
 myConnection = pyodbc.connect('DRIVER=' + driver + ';SERVER=' + server + ';PORT=1433;DATABASE=' + database + ';UID=' + username + ';PWD=' + password)
 cur = myConnection.cursor()
 
-
-# cur.execute("DROP TABLE IF EXISTS ModuleData;")
-cur.execute("DROP TABLE IF EXISTS table_name;")
+cur.execute("DROP TABLE IF EXISTS StudentsPerModule;")
 myConnection.commit()
 myConnection.close()
