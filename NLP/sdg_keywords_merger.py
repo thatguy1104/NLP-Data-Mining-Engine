@@ -29,10 +29,9 @@ class SDGKeywordsMerger():
             frame[column] = pd.Series(merged_keywords)
 
         output = pd.DataFrame(frame)
-        output.dropna()
         current_dir = os.getcwd()
         output_path = os.path.join(current_dir, output_file)
-        output.to_csv(output_path)
+        output.to_csv(output_path, index=False)
 
 # Merge SDG keywords.
 SDGKeywordsMerger().merge("SDG_Keywords.csv")
