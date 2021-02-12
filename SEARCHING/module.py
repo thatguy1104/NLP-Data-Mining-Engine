@@ -16,8 +16,7 @@ class ScopusSearch():
         self.driver = '{ODBC Driver 17 for SQL Server}'
 
         # CONNECT TO DATABASE
-        self.myConnection = pyodbc.connect(
-            'DRIVER=' + self.driver + ';SERVER=' + self.server + ';PORT=1433;DATABASE=' + self.database + ';UID=' + self.username + ';PWD=' + self.password)
+        self.myConnection = pyodbc.connect('DRIVER=' + self.driver + ';SERVER=' + self.server + ';PORT=1433;DATABASE=' + self.database + ';UID=' + self.username + ';PWD=' + self.password)
 
     def getFileData(self):
         cur = self.myConnection.cursor()

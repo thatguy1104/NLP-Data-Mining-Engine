@@ -58,7 +58,7 @@ class GuidedLDA():
         X = self.vectorizer.fit_transform(self.data.Description) # maps description column to matrix of documents as the rows and counts as the columns.
         print(X.shape)
         seed_topics = self.create_topic_seeds()
-        self.model.fit(X, seed_topics=seed_topics, seed_confidence=0.15)
+        self.model.fit(X, seed_topics=seed_topics, seed_confidence=0.4)
 
     def display_topic_words(self, num_top_words):
         tf_feature_names = self.vectorizer.get_feature_names()

@@ -1,6 +1,7 @@
 import os
 import pandas as pd
 import numpy as np
+import pyodbc
 from itertools import zip_longest
 
 from guided_LDA import GuidedLDA
@@ -23,6 +24,20 @@ for i, topic_dist in enumerate(topic_word):
     topic_words = np.array(vocab)[np.argsort(topic_dist)][:-(n_top_words + 1):-1]
     print('Topic {}: {}'.format(i, ' '.join(topic_words)))
 '''
+def getDBTable(numOfModules):
+    # SERVER LOGIN DETAILS
+    server = 'miemie.database.windows.net'
+    database = 'MainDB'
+    username = 'miemie_login'
+    password = 'e_Paswrd?!'
+    driver = '{ODBC Driver 17 for SQL Server}'
+    # CONNECT TO DATABASE
+    myConnection = pyodbc.connect('DRIVER=' + driver + ';SERVER=' + server + ';PORT=1433;DATABASE=' + database + ';UID=' + username + ';PWD=' + password)
+
+    # Query into dataframe
+    df = pd.read_sql_query("SELECT TOP (%d) Module_ID, Description FROM [dbo].[ModuleData]" % int(numOfModules), myConnection)
+    myConnection.commit()
+    return df
 
 def preprocess_keyword(keyword):
     return ' '.join(preprocess_text(keyword))
@@ -39,8 +54,9 @@ def preprocess_keywords_example():
 
 def preprocess_keywords(file_name):
     # convert keywords csv file to dataframe.
-    os.chdir("./MODULE_CATALOGUE/SDG_KEYWORDS")
+    os.chdir("../MODULE_CATALOGUE/SDG_KEYWORDS")
     current_dir = os.getcwd()
+    
     file_path = os.path.join(current_dir, file_name)
     df = pd.read_csv(file_path)
 
@@ -62,18 +78,23 @@ def print_keywords():
         print(keywords)
         print()
 
-def load_dataset():
+def load_dataset_example():
     data = [
         "I like fruit such as banana, apple and orange.", # food
         "The football match was a great game! I like the sports football, basketball and cricket.", # sports
         "This morning I made a smoothie with banana, apple juice and kiwi.", # food
         "The ocean is warm and the fish were swimming. I want to go snorkeling tomorrow." # ocean
     ]
-    return pd.DataFrame(data=data,columns=["Description"])
+    return pd.DataFrame(data=data, columns=["Description"])
 
-#keywords = preprocess_keywords("SDG_Keywords.csv")
-keywords = preprocess_keywords_example()
-data = load_dataset()
+def load_dataset(numOfModules):
+    data = getDBTable(numOfModules)
+    data = data.dropna()
+    return pd.DataFrame(data=data, columns=["Module_ID", "Description"])
+
+keywords = preprocess_keywords("SDG_Keywords.csv")
+# keywords = preprocess_keywords_example()
+data = load_dataset(1000)
 iterations = 100
 
 lda = GuidedLDA(data, keywords, iterations)
