@@ -54,7 +54,7 @@ def preprocess_keywords_example():
 
 def preprocess_keywords(file_name):
     # convert keywords csv file to dataframe.
-    os.chdir("../MODULE_CATALOGUE/SDG_KEYWORDS")
+    os.chdir("./MODULE_CATALOGUE/INITIALISER/SDG_KEYWORDS")
     current_dir = os.getcwd()
     
     file_path = os.path.join(current_dir, file_name)
@@ -83,7 +83,7 @@ def load_dataset_example():
         "I like fruit such as banana, apple and orange.", # food
         "The football match was a great game! I like the sports football, basketball and cricket.", # sports
         "This morning I made a smoothie with banana, apple juice and kiwi.", # food
-        "The ocean is warm and the fish were swimming. I want to go snorkeling tomorrow." # ocean
+        "The ocean is warm and the fish were swimming. I want to go snorkeling tomorrow and play football on the beach" # ocean
     ]
     return pd.DataFrame(data=data, columns=["Description"])
 
@@ -92,11 +92,22 @@ def load_dataset(numOfModules):
     data = data.dropna()
     return pd.DataFrame(data=data, columns=["Module_ID", "Description"])
 
-keywords = preprocess_keywords("SDG_Keywords.csv")
-# keywords = preprocess_keywords_example()
-data = load_dataset(1000)
-iterations = 100
+def run_example():
+    keywords = preprocess_keywords_example()
+    data = load_dataset_example()
+    iterations = 100
 
-lda = GuidedLDA(data, keywords, iterations)
-lda.train()
-lda.display_topic_words(6)
+    lda = GuidedLDA(data, keywords, iterations)
+    lda.train()
+    lda.display_document_topic_words(6)
+
+def run():
+    keywords = preprocess_keywords("SDG_Keywords.csv")
+    data = load_dataset(1000)
+    iterations = 100
+
+    lda = GuidedLDA(data, keywords, iterations)
+    lda.train()
+    lda.display_document_topic_words(6)
+
+run()
