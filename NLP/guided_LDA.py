@@ -1,6 +1,7 @@
 import os
 import pandas as pd
 import numpy as np
+import joblib
 
 import guidedlda
 from sklearn.feature_extraction.text import CountVectorizer
@@ -29,23 +30,27 @@ def data_to_dataframe(self, data):
 '''
 
 class GuidedLDA():
-    '''
-        data: module-catalogue DataFrame with columns {ModuleID, Description}.
-        keywords: list of topic keywords.
-        iterations: number of iterations to perform.
-    '''
     def __init__(self, data, keywords, iterations):
+<<<<<<< HEAD
         self.data = data
         self.keywords = keywords
         self.vectorizer = CountVectorizer(tokenizer=module_catalogue_tokenizer, stop_words=get_stopwords(), ngram_range=(1,5))
+=======
+        self.data = data # module-catalogue DataFrame with columns {ModuleID, Description}.
+        self.keywords = keywords # list of topic keywords.
+        self.vectorizer = CountVectorizer(tokenizer=module_catalogue_tokenizer, stop_words=get_stopwords(), ngram_range=(1,1))
+>>>>>>> 15c41b347914947508f6a8a527508ab460b8ef1b
         self.model = guidedlda.GuidedLDA(n_topics=len(keywords), n_iter=iterations, random_state=7, refresh=20)
 
     def create_topic_seeds(self):
         tf_feature_names = self.vectorizer.get_feature_names() # list of terms: words or ngrams of words.
         word2id = dict((v, i) for i, v in enumerate(tf_feature_names)) # dictionary of word frequencies.
+<<<<<<< HEAD
         # print(word2id)
         # print()
 
+=======
+>>>>>>> 15c41b347914947508f6a8a527508ab460b8ef1b
         seed_topics = {} # dictionary: word_id to topic_id.
         for t_id, st in enumerate(self.keywords):
             for word in st:
@@ -60,6 +65,10 @@ class GuidedLDA():
         seed_topics = self.create_topic_seeds()
         self.model.fit(X, seed_topics=seed_topics, seed_confidence=1)
 
+    def serialize(self, filename):
+        filename = filename + ".pkl"
+        joblib.dump(self.model, filename)
+
     def display_topic_words(self, num_top_words):
         tf_feature_names = self.vectorizer.get_feature_names()
         topic_word = self.model.topic_word_
@@ -68,4 +77,16 @@ class GuidedLDA():
             print('Topic {}: {}'.format(i, ' '.join(topic_words)))
 
     def display_document_topics(self):
-        print()
+        tf_feature_names = self.vectorizer.get_feature_names()
+        doc_topic = self.model.doc_topic_
+        n_topics = self.model.n_topics
+        columns = ['topic {}'.format(i) for i in range(n_topics)] # column labels for all topics.
+        df = pd.DataFrame(doc_topic, columns = columns) # document-topics dataframe.
+        print(df.round(2).head(10))
+
+    def display_document_topic_words(self, num_top_words):
+        print('-----------------------------------------------------')
+        self.display_topic_words(num_top_words)
+        print('-----------------------------------------------------')
+        self.display_document_topics()
+        print('-----------------------------------------------------')
