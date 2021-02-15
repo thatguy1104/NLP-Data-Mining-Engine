@@ -96,6 +96,8 @@ def load_dataset_example():
 def load_dataset(numOfModules):
     data = getDBTable(numOfModules)
     data = data.dropna()
+
+
     return pd.DataFrame(data=data, columns=["Module_ID", "Description"])
 
 def run_example():
@@ -111,9 +113,10 @@ def run():
     keywords = preprocess_keywords("SDG_Keywords.csv")
     data = load_dataset(1000)
     iterations = 100
-
+    
     lda = GuidedLDA(data, keywords, iterations)
     lda.train()
     lda.display_document_topic_words(6)
 
 run()
+# run_example()

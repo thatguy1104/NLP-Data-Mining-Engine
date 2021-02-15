@@ -31,26 +31,14 @@ def data_to_dataframe(self, data):
 
 class GuidedLDA():
     def __init__(self, data, keywords, iterations):
-<<<<<<< HEAD
-        self.data = data
-        self.keywords = keywords
-        self.vectorizer = CountVectorizer(tokenizer=module_catalogue_tokenizer, stop_words=get_stopwords(), ngram_range=(1,5))
-=======
         self.data = data # module-catalogue DataFrame with columns {ModuleID, Description}.
         self.keywords = keywords # list of topic keywords.
         self.vectorizer = CountVectorizer(tokenizer=module_catalogue_tokenizer, stop_words=get_stopwords(), ngram_range=(1,1))
->>>>>>> 15c41b347914947508f6a8a527508ab460b8ef1b
         self.model = guidedlda.GuidedLDA(n_topics=len(keywords), n_iter=iterations, random_state=7, refresh=20)
 
     def create_topic_seeds(self):
         tf_feature_names = self.vectorizer.get_feature_names() # list of terms: words or ngrams of words.
         word2id = dict((v, i) for i, v in enumerate(tf_feature_names)) # dictionary of word frequencies.
-<<<<<<< HEAD
-        # print(word2id)
-        # print()
-
-=======
->>>>>>> 15c41b347914947508f6a8a527508ab460b8ef1b
         seed_topics = {} # dictionary: word_id to topic_id.
         for t_id, st in enumerate(self.keywords):
             for word in st:
