@@ -37,14 +37,14 @@ class GuidedLDA():
     def __init__(self, data, keywords, iterations):
         self.data = data
         self.keywords = keywords
-        self.vectorizer = CountVectorizer(tokenizer=module_catalogue_tokenizer, stop_words=get_stopwords(), ngram_range=(1,1))
+        self.vectorizer = CountVectorizer(tokenizer=module_catalogue_tokenizer, stop_words=get_stopwords(), ngram_range=(1,5))
         self.model = guidedlda.GuidedLDA(n_topics=len(keywords), n_iter=iterations, random_state=7, refresh=20)
 
     def create_topic_seeds(self):
         tf_feature_names = self.vectorizer.get_feature_names() # list of terms: words or ngrams of words.
         word2id = dict((v, i) for i, v in enumerate(tf_feature_names)) # dictionary of word frequencies.
-        print(word2id)
-        print()
+        # print(word2id)
+        # print()
 
         seed_topics = {} # dictionary: word_id to topic_id.
         for t_id, st in enumerate(self.keywords):
@@ -58,7 +58,7 @@ class GuidedLDA():
         X = self.vectorizer.fit_transform(self.data.Description) # maps description column to matrix of documents as the rows and counts as the columns.
         print(X.shape)
         seed_topics = self.create_topic_seeds()
-        self.model.fit(X, seed_topics=seed_topics, seed_confidence=0.4)
+        self.model.fit(X, seed_topics=seed_topics, seed_confidence=1)
 
     def display_topic_words(self, num_top_words):
         tf_feature_names = self.vectorizer.get_feature_names()

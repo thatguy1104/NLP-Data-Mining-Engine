@@ -34,10 +34,14 @@ def getDBTable(numOfModules):
     # CONNECT TO DATABASE
     myConnection = pyodbc.connect('DRIVER=' + driver + ';SERVER=' + server + ';PORT=1433;DATABASE=' + database + ';UID=' + username + ';PWD=' + password)
 
-    # Query into dataframe
-    df = pd.read_sql_query("SELECT TOP (%d) Module_ID, Description FROM [dbo].[ModuleData]" % int(numOfModules), myConnection)
-    myConnection.commit()
-    return df
+    if numOfModules == "MAX":
+        df = pd.read_sql_query("SELECT Module_ID, Description FROM [dbo].[ModuleData]", myConnection)
+        myConnection.commit()
+        return df
+    else:
+        df = pd.read_sql_query("SELECT TOP (%d) Module_ID, Description FROM [dbo].[ModuleData]" % int(numOfModules), myConnection)
+        myConnection.commit()
+        return df
 
 def preprocess_keyword(keyword):
     return ' '.join(preprocess_text(keyword))
@@ -54,11 +58,15 @@ def preprocess_keywords_example():
 
 def preprocess_keywords(file_name):
     # convert keywords csv file to dataframe.
+    tempDir = os.getcwd()
+
     os.chdir("../MODULE_CATALOGUE/SDG_KEYWORDS")
     current_dir = os.getcwd()
     
     file_path = os.path.join(current_dir, file_name)
     df = pd.read_csv(file_path)
+
+    os.chdir(tempDir)
 
     # convert keywords dataframe to list of keywords.
     keywords_list = []
@@ -94,9 +102,9 @@ def load_dataset(numOfModules):
 
 keywords = preprocess_keywords("SDG_Keywords.csv")
 # keywords = preprocess_keywords_example()
-data = load_dataset(1000)
-iterations = 100
+data = load_dataset("MAX")
+iterations = 1000
 
 lda = GuidedLDA(data, keywords, iterations)
 lda.train()
-lda.display_topic_words(6)
+lda.display_topic_words(20)

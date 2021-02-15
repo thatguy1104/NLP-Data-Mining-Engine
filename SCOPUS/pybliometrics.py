@@ -125,6 +125,9 @@ def deleteAllFiles():
     for f in files:
         os.remove(f)
 
+def pushToDB():
+    pass
+
 def createAllFiles():
     data = cleanerFileReadings(limit=3000)
     l = len(data)
@@ -136,6 +139,7 @@ def createAllFiles():
             progress(counter, l, "writing files")
             f.write("Written " + str(counter) + "/" +str(l) + " files " + "DOI: " + i + "\n")
             reformatted_data =formatData(data_dict)
+            pushToDB(reformatted_data)
             with open("GENERATED_FILES/" + str(counter) + '.json', 'w') as outfile:
                 json.dump(reformatted_data, outfile)
             counter += 1

@@ -45,6 +45,13 @@ def lemmatize_stem(tokens):
         result.append(stemmed)
     return result
     
+def processStopKeywords():
+    file_path = "../MODULE_CATALOGUE/module_catalogue_stopwords.csv"
+    # convert keywords csv file to dataframe.
+    df = pd.read_csv(file_path, index_col=False)['Stopwords']
+    preprocessed_stopwords = lemmatize_stem(list(df))
+    return set(preprocessed_stopwords)
+
 def module_catalogue_tokenizer(text):
     # Normalization
     text = re.sub(r'[A-Z]{4}\d{4}', 'modulecode', text) # replace UCL module codes.
@@ -54,9 +61,14 @@ def module_catalogue_tokenizer(text):
 
     # Tokenization
     stopwords = get_stopwords()
+    preprocessed_stopwords = processStopKeywords()
+
     tokens = simple_preprocess(text, min_len=3) # convert text to lowercase tokens
-    tokens = [token for token in tokens if token not in stopwords] # remove stopwords
+    # remove stopwords
+    tokens = [token for token in tokens if token not in stopwords]
     tokens = lemmatize_stem(tokens)
+    tokens = [token for token in tokens if token not in preprocessed_stopwords]
+
     return tokens
 
 def preprocess_text(text):
@@ -65,3 +77,4 @@ def preprocess_text(text):
 
 def preprocess_dataset(dataset):
     return [' '.join(preprocess_text(word)) for word in dataset]
+
