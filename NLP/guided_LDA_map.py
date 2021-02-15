@@ -24,6 +24,16 @@ for i, topic_dist in enumerate(topic_word):
     topic_words = np.array(vocab)[np.argsort(topic_dist)][:-(n_top_words + 1):-1]
     print('Topic {}: {}'.format(i, ' '.join(topic_words)))
 '''
+def progress(count, total, custom_text, suffix=''):
+    bar_len = 60
+    filled_len = int(round(bar_len * count / float(total)))
+
+    percents = round(100.0 * count / float(total), 1)
+    bar = '*' * filled_len + '-' * (bar_len - filled_len)
+
+    sys.stdout.write('[%s] %s%s %s %s\r' %(bar, percents, '%', custom_text, suffix))
+    sys.stdout.flush()
+
 def getDBTable(numOfModules):
     # SERVER LOGIN DETAILS
     server = 'miemie.database.windows.net'
@@ -35,11 +45,11 @@ def getDBTable(numOfModules):
     myConnection = pyodbc.connect('DRIVER=' + driver + ';SERVER=' + server + ';PORT=1433;DATABASE=' + database + ';UID=' + username + ';PWD=' + password)
 
     if numOfModules == "MAX":
-        df = pd.read_sql_query("SELECT Module_ID, Description FROM [dbo].[ModuleData]", myConnection)
+        df = pd.read_sql_query("SELECT Module_Name, Module_ID, Description FROM [dbo].[ModuleData]", myConnection)
         myConnection.commit()
         return df
     else:
-        df = pd.read_sql_query("SELECT TOP (%d) Module_ID, Description FROM [dbo].[ModuleData]" % int(numOfModules), myConnection)
+        df = pd.read_sql_query("SELECT TOP (%d) Module_Name, Module_ID, Description FROM [dbo].[ModuleData]" % int(numOfModules), myConnection)
         myConnection.commit()
         return df
 
@@ -58,7 +68,8 @@ def preprocess_keywords_example():
 
 def preprocess_keywords(file_name):
     # convert keywords csv file to dataframe.
-    os.chdir("./MODULE_CATALOGUE/INITIALISER/SDG_KEYWORDS")
+    tempDir = os.getcwd()
+    os.chdir("../MODULE_CATALOGUE/SDG_KEYWORDS")
     current_dir = os.getcwd()
     
     file_path = os.path.join(current_dir, file_name)
@@ -93,12 +104,45 @@ def load_dataset_example():
     ]
     return pd.DataFrame(data=data, columns=["Description"])
 
+def moduleHasKeyword(data, df):
+    indicies = []
+    counter = 1
+    length = len(data)
+
+    for i in range(length)):  # iterate through the paper descriptions
+        self.progress(counter, length, "processing for guidedLDA")
+        moduleName = data["Module_Name"][i]
+        if data["Description"][i]:
+            description = data["Description"][i]
+        else:
+            description = ""
+        textData = moduleName + " " + description
+
+        for p in df:  # iterate through SDGs
+            found = 0
+            for j in df[p]: # iterate through the keyword in p SDG
+                temp = j
+                text = preprocess_text(textData)
+                word = preprocess_text(j)
+                " ".join(text)
+                " ".join(word)
+                if word in text:
+                    found += 1
+            if found == 0:
+                indicies.append(i)
+        counter += 1
+   
+    data.drop(indicies)
+    return data
+
 def load_dataset(numOfModules):
+    df = pd.read_csv("../SDG_Keywords.csv")
+    df = df.dropna()
+
     data = getDBTable(numOfModules)
     data = data.dropna()
 
-
-    return pd.DataFrame(data=data, columns=["Module_ID", "Description"])
+    return pd.DataFrame(data=moduleHasKeyword(data, df), columns=["Module_ID", "Description"])
 
 def run_example():
     keywords = preprocess_keywords_example()
@@ -111,12 +155,14 @@ def run_example():
 
 def run():
     keywords = preprocess_keywords("SDG_Keywords.csv")
-    data = load_dataset(1000)
+    numberOfModules = "MAX"
+    data = load_dataset(numberOfModules)
     iterations = 100
-    
+
     lda = GuidedLDA(data, keywords, iterations)
     lda.train()
     lda.display_document_topic_words(6)
 
+    print("Size before/after filtering -->",  str(numberOfModules), "/", len(data))
 run()
 # run_example()

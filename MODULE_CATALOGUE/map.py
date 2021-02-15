@@ -70,7 +70,7 @@ class ModuleMap():
             self.myConnection.commit()
             return df
 
-    def readKeywords(self,data):
+    def readKeywords(self, data):
         fileName = "SDG_Keywords.csv"
         # SDG keyword data
         df = pd.read_csv(fileName)
