@@ -11,7 +11,7 @@ class GuidedLDA():
     def __init__(self, data, keywords, iterations):
         self.data = data # module-catalogue DataFrame with columns {ModuleID, Description}.
         self.keywords = keywords # list of topic keywords.
-        self.vectorizer = CountVectorizer(tokenizer=module_catalogue_tokenizer, stop_words=get_stopwords(), ngram_range=(1,4))
+        self.vectorizer = CountVectorizer(tokenizer=module_catalogue_tokenizer, stop_words=get_stopwords(), ngram_range=(1,4), strip_accents='unicode')
         #self.vectorizer = TfidfVectorizer(tokenizer=module_catalogue_tokenizer, stop_words=get_stopwords(), ngram_range=(1,4))
         self.model = guidedlda.GuidedLDA(n_topics=len(keywords), n_iter=iterations, random_state=5, refresh=20)
 

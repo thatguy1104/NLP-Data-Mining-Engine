@@ -13,7 +13,9 @@ from nltk.stem.porter import re
 
 def get_stopwords():
     nltk_stopwords_set = set(nltk_stopwords.words('english'))
-    return gensim_stopwords.union(nltk_stopwords_set) # Union stopwords from gensim and nltk packages.
+    module_catalogue_stopwords = preprocess_module_catalogue_stopwords()
+    stopwords = nltk_stopwords_set.union(module_catalogue_stopwords)
+    return gensim_stopwords.union(stopwords)
 
 def get_wordnet_pos(word):
     tag = pos_tag([word])[0][1][0].upper()
@@ -27,11 +29,10 @@ def text_lemmatizer(text):
     
 def preprocess_module_catalogue_stopwords():
     tempcwd = os.getcwd()
-    os.chdir("../COMP0016_2020_21_Team16/MODULE_CATALOGUE")    
+    os.chdir("../MODULE_CATALOGUE")    
     file_path = os.path.join(os.getcwd(), "module_catalogue_stopwords.csv")
-    df = pd.read_csv(file_path)
+    df = pd.read_csv(file_path, index_col=False)['Stopwords']
     os.chdir(tempcwd)
-    df = pd.read_csv(file_path, index_col=False)['Stopwords'] # convert keywords csv file to dataframe.
     preprocessed_stopwords = [text_lemmatizer(w) for w in list(df)] 
     return set(preprocessed_stopwords)
 
@@ -44,13 +45,11 @@ def module_catalogue_tokenizer(text):
 
     # Stopwords
     stopwords = get_stopwords()
-    module_catalogue_stopwords = preprocess_module_catalogue_stopwords()
-    stopwords = stopwords.union(module_catalogue_stopwords)
-
+    
     # Tokenization
     text = text.lower()
     tokens = [word for word in word_tokenize(text)]
-    tokens = [word for word in tokens if len(word) >= 3]
+    tokens = [word for word in tokens if len(word) >= 4]
     tokens = [text_lemmatizer(t) for t in tokens]
     tokens = [t for t in tokens if t not in stopwords]
 

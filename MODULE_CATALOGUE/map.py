@@ -100,11 +100,11 @@ class ModuleMap():
             textData = moduleName + " " + description
 
             sdg_occurences = {}
+            text = self.preprocessText(textData)
             for p in df:  # iterate through SDGs
                 sdg_occurences[p] = {"Word_Found": []}
                 for j in df[p]: # iterate through the keyword in p SDG
                     temp = j
-                    text = self.preprocessText(textData)
                     word = self.preprocessText(j)
                     if word in text:
                         occuringWordCount[p][temp] += 1

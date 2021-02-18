@@ -52,7 +52,7 @@ def preprocess_keywords_example():
 def preprocess_keywords(file_name):
     # convert keywords csv file to dataframe.
     tempCwd = os.getcwd()
-    os.chdir("../COMP0016_2020_21_Team16/MODULE_CATALOGUE/SDG_KEYWORDS")    
+    os.chdir("../MODULE_CATALOGUE/SDG_KEYWORDS")    
     file_path = os.path.join(os.getcwd(), file_name)
     df = pd.read_csv(file_path)
     os.chdir(tempCwd)
@@ -131,7 +131,7 @@ def moduleHasKeywordJSON(data):
 
 def load_dataset(numOfModules):
     tempCwd = os.getcwd()
-    os.chdir("../COMP0016_2020_21_Team16/MODULE_CATALOGUE/SDG_KEYWORDS")
+    os.chdir("../MODULE_CATALOGUE/SDG_KEYWORDS")
     file_path = os.path.join(os.getcwd(), "SDG_Keywords.csv")
     df = pd.read_csv(file_path)
     os.chdir(tempCwd)
