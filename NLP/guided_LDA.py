@@ -4,37 +4,16 @@ import numpy as np
 import joblib
 
 import guidedlda
-from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 from preprocess import module_catalogue_tokenizer, get_stopwords
-
-'''
-def get_keywords(self):
-    os.chdir("./MODULE_CATALOGUE/SDG_KEYWORDS")
-    current_dir = os.getcwd()
-    file_path = os.path.join(current_dir, self.keywords)
-    df = pd.read_csv(file_path)
-    df = df.dropna()
-
-    #seed_topic_list = df.values.tolist()
-    seed_topic_list = [['fruit', 'food', 'banana', 'apple'],
-                        ['sport' 'football', 'basketball', 'bowling'],
-                        ['ocean', 'fish']]
-    for i in range(len(seed_topic_list)):
-        for j in range(len(seed_topic_list[i])):
-            keyword = module_catalogue_tokenizer(seed_topic_list[i][j]) # pre-process keywords
-            seed_topic_list[i][j] = ''.join(keyword)
-    return seed_topic_list
-
-def data_to_dataframe(self, data):
-    return pd.DataFrame(data=data,columns=["Description"])
-'''
 
 class GuidedLDA():
     def __init__(self, data, keywords, iterations):
         self.data = data # module-catalogue DataFrame with columns {ModuleID, Description}.
         self.keywords = keywords # list of topic keywords.
-        self.vectorizer = CountVectorizer(tokenizer=module_catalogue_tokenizer, stop_words=get_stopwords(), ngram_range=(1,1))
-        self.model = guidedlda.GuidedLDA(n_topics=len(keywords), n_iter=iterations, random_state=7, refresh=20)
+        self.vectorizer = CountVectorizer(tokenizer=module_catalogue_tokenizer, stop_words=get_stopwords(), ngram_range=(1,4))
+        #self.vectorizer = TfidfVectorizer(tokenizer=module_catalogue_tokenizer, stop_words=get_stopwords(), ngram_range=(1,4))
+        self.model = guidedlda.GuidedLDA(n_topics=len(keywords), n_iter=iterations, random_state=5, refresh=20)
 
     def create_topic_seeds(self):
         tf_feature_names = self.vectorizer.get_feature_names() # list of terms: words or ngrams of words.
