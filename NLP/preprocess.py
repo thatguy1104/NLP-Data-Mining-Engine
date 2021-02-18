@@ -6,50 +6,33 @@ from gensim.utils import simple_preprocess
 from gensim.parsing.preprocessing import STOPWORDS as gensim_stopwords
 
 from nltk import bigrams, trigrams, pos_tag
+from nltk.tokenize import word_tokenize
 from nltk.corpus import wordnet, stopwords as nltk_stopwords
 from nltk.stem import WordNetLemmatizer, SnowballStemmer
 from nltk.stem.porter import re 
 
-'''
-Union of the stopwords from the gensim and nltk preprocessing packages.
-'''
 def get_stopwords():
     nltk_stopwords_set = set(nltk_stopwords.words('english'))
-    return gensim_stopwords.union(nltk_stopwords_set)
+    return gensim_stopwords.union(nltk_stopwords_set) # Union stopwords from gensim and nltk packages.
 
-'''
-Maps treebank tags to wordnet tags of the form: NN, JJ, VB, RB.
-'''
-def get_wordnet_pos(treebank_word):
-    if treebank_word.startswith('J'):
-        return wordnet.ADJ
-    elif treebank_word.startswith('V'):
-        return wordnet.VERB
-    elif treebank_word.startswith('N'):
-        return wordnet.NOUN
-    elif treebank_word.startswith('R'):
-        return wordnet.ADV
-    return None
+def get_wordnet_pos(word):
+    tag = pos_tag([word])[0][1][0].upper()
+    tag_dict = {"J": wordnet.ADJ, "N": wordnet.NOUN, "V": wordnet.VERB, "R": wordnet.ADV}
+    return tag_dict.get(tag, wordnet.NOUN)
 
-def lemmatize_stem(tokens):
-    result = []
-    stemmer = SnowballStemmer('english')
+def text_lemmatizer(text):
     lemmatizer = WordNetLemmatizer()
-    tagged = pos_tag(tokens) # part of speech tagger
-    for word, tag in tagged:
-        wordnet_tag = get_wordnet_pos(tag)
-        if wordnet_tag is None:
-            stemmed = stemmer.stem(lemmatizer.lemmatize(word))
-        else:
-            stemmed = stemmer.stem(lemmatizer.lemmatize(word, pos=wordnet_tag))
-        result.append(stemmed)
-    return result
+    text = lemmatizer.lemmatize(text, pos=get_wordnet_pos(text))
+    return text
     
-def processStopKeywords():
-    file_path = "../MODULE_CATALOGUE/module_catalogue_stopwords.csv"
-    # convert keywords csv file to dataframe.
-    df = pd.read_csv(file_path, index_col=False)['Stopwords']
-    preprocessed_stopwords = lemmatize_stem(list(df))
+def preprocess_module_catalogue_stopwords():
+    tempcwd = os.getcwd()
+    os.chdir("../COMP0016_2020_21_Team16/MODULE_CATALOGUE")    
+    file_path = os.path.join(os.getcwd(), "module_catalogue_stopwords.csv")
+    df = pd.read_csv(file_path)
+    os.chdir(tempcwd)
+    df = pd.read_csv(file_path, index_col=False)['Stopwords'] # convert keywords csv file to dataframe.
+    preprocessed_stopwords = [text_lemmatizer(w) for w in list(df)] 
     return set(preprocessed_stopwords)
 
 def module_catalogue_tokenizer(text):
@@ -59,15 +42,17 @@ def module_catalogue_tokenizer(text):
     text = re.sub(r'[\s]\d+(\.\d+)?[\s]', ' numbr ', text) # replace numbers.
     text = re.sub(r'[^\w]', " ", text) # remove punctuation.
 
-    # Tokenization
+    # Stopwords
     stopwords = get_stopwords()
-    preprocessed_stopwords = processStopKeywords()
+    module_catalogue_stopwords = preprocess_module_catalogue_stopwords()
+    stopwords = stopwords.union(module_catalogue_stopwords)
 
-    tokens = simple_preprocess(text, min_len=3) # convert text to lowercase tokens
-    # remove stopwords
-    tokens = [token for token in tokens if token not in stopwords]
-    tokens = lemmatize_stem(tokens)
-    tokens = [token for token in tokens if token not in preprocessed_stopwords]
+    # Tokenization
+    text = text.lower()
+    tokens = [word for word in word_tokenize(text)]
+    tokens = [word for word in tokens if len(word) >= 3]
+    tokens = [text_lemmatizer(t) for t in tokens]
+    tokens = [t for t in tokens if t not in stopwords]
 
     return tokens
 
@@ -77,4 +62,3 @@ def preprocess_text(text):
 
 def preprocess_dataset(dataset):
     return [' '.join(preprocess_text(word)) for word in dataset]
-

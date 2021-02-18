@@ -1,5 +1,4 @@
-import os, sys, json
-import datetime, time
+import os, sys, time, datetime
 import pandas as pd
 import numpy as np
 import pyodbc
@@ -8,23 +7,6 @@ from itertools import zip_longest
 from guided_LDA import GuidedLDA
 from preprocess import preprocess_text, preprocess_dataset
 
-'''
-X = guidedlda.datasets.load_data(guidedlda.datasets.NYT)
-vocab = guidedlda.datasets.load_vocab(guidedlda.datasets.NYT)
-word2id = dict((v, idx) for idx, v in enumerate(vocab))
-
-print(X.shape)
-print(X.sum)
-
-model = guidedlda.GuidedLDA(n_topics=5, n_iter=100, random_state=7, refresh=20)
-model.fit(X)
-
-topic_word = model.topic_word_
-n_top_words = 8
-for i, topic_dist in enumerate(topic_word):
-    topic_words = np.array(vocab)[np.argsort(topic_dist)][:-(n_top_words + 1):-1]
-    print('Topic {}: {}'.format(i, ' '.join(topic_words)))
-'''
 def progress(count, total, custom_text, suffix=''):
     bar_len = 60
     filled_len = int(round(bar_len * count / float(total)))
@@ -69,14 +51,11 @@ def preprocess_keywords_example():
 
 def preprocess_keywords(file_name):
     # convert keywords csv file to dataframe.
-    tempDir = os.getcwd()
-    os.chdir("../MODULE_CATALOGUE/SDG_KEYWORDS")
-    current_dir = os.getcwd()
-    
-    file_path = os.path.join(current_dir, file_name)
+    tempCwd = os.getcwd()
+    os.chdir("../COMP0016_2020_21_Team16/MODULE_CATALOGUE/SDG_KEYWORDS")    
+    file_path = os.path.join(os.getcwd(), file_name)
     df = pd.read_csv(file_path)
-
-    os.chdir(tempDir)
+    os.chdir(tempCwd)
 
     # convert keywords dataframe to list of keywords.
     keywords_list = []
@@ -151,14 +130,17 @@ def moduleHasKeywordJSON(data):
     return data
 
 def load_dataset(numOfModules):
-    df = pd.read_csv("../SDG_Keywords.csv")
-    df = df.dropna()
+    tempCwd = os.getcwd()
+    os.chdir("../COMP0016_2020_21_Team16/MODULE_CATALOGUE/SDG_KEYWORDS")
+    file_path = os.path.join(os.getcwd(), "SDG_Keywords.csv")
+    df = pd.read_csv(file_path)
+    os.chdir(tempCwd)
 
+    df = df.dropna()
     data = getDBTable(numOfModules)
     data = data.dropna()
 
     return pd.DataFrame(data=moduleHasKeywordJSON(data), columns=["Module_ID", "Description"])
-    # return pd.DataFrame(data=moduleHasKeyword(data, df), columns=["Module_ID", "Description"])
 
 def run_example():
     keywords = preprocess_keywords_example()
@@ -182,15 +164,7 @@ def run():
     lda.train()
     lda.display_document_topic_words(20)
 
-    print("Size after filtering -->", len(data), "/", numberOfModules)
-    lda.serialize("GuidedLDA_ModuleCatalogue")
-
-    ts = time.time()
-    endTime = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
-
-    print("Start time", startTime)
-    print("End time", endTime)
-
+    print("Size before/after filtering -->",  str(numberOfModules), "/", len(data))
 
 run()
-# run_example()
+#run_example()
