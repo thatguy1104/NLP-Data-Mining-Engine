@@ -1,4 +1,5 @@
-import os
+import os, sys, json
+import datetime, time
 import pandas as pd
 import numpy as np
 import pyodbc
@@ -109,8 +110,8 @@ def moduleHasKeyword(data, df):
     counter = 1
     length = len(data)
 
-    for i in range(length)):  # iterate through the paper descriptions
-        self.progress(counter, length, "processing for guidedLDA")
+    for i in range(length):  # iterate through the paper descriptions
+        progress(counter, length, "processing for guidedLDA")
         moduleName = data["Module_Name"][i]
         if data["Description"][i]:
             description = data["Description"][i]
@@ -118,11 +119,11 @@ def moduleHasKeyword(data, df):
             description = ""
         textData = moduleName + " " + description
 
+        text = preprocess_text(textData)
         for p in df:  # iterate through SDGs
             found = 0
             for j in df[p]: # iterate through the keyword in p SDG
                 temp = j
-                text = preprocess_text(textData)
                 word = preprocess_text(j)
                 " ".join(text)
                 " ".join(word)
@@ -131,8 +132,22 @@ def moduleHasKeyword(data, df):
             if found == 0:
                 indicies.append(i)
         counter += 1
-   
+    
+    print()
     data.drop(indicies)
+    return data
+
+def moduleHasKeywordJSON(data):
+    indicies = []
+
+    dataJSON = pd.read_json('../MODULE_CATALOGUE/matchedModulesSDG.json')
+    for p in dataJSON:
+        listSDG = dataJSON[p]['Related_SDG']
+        if len(listSDG) == 0:
+            indicies.append(p)
+
+    for i in indicies:
+        data = data[data.Module_ID != i]
     return data
 
 def load_dataset(numOfModules):
@@ -142,7 +157,8 @@ def load_dataset(numOfModules):
     data = getDBTable(numOfModules)
     data = data.dropna()
 
-    return pd.DataFrame(data=moduleHasKeyword(data, df), columns=["Module_ID", "Description"])
+    return pd.DataFrame(data=moduleHasKeywordJSON(data), columns=["Module_ID", "Description"])
+    # return pd.DataFrame(data=moduleHasKeyword(data, df), columns=["Module_ID", "Description"])
 
 def run_example():
     keywords = preprocess_keywords_example()
@@ -154,15 +170,27 @@ def run_example():
     lda.display_document_topic_words(6)
 
 def run():
+    ts = time.time()
+    startTime = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
+
     keywords = preprocess_keywords("SDG_Keywords.csv")
     numberOfModules = "MAX"
     data = load_dataset(numberOfModules)
-    iterations = 100
+    iterations = 500
 
     lda = GuidedLDA(data, keywords, iterations)
     lda.train()
-    lda.display_document_topic_words(6)
+    lda.display_document_topic_words(20)
 
-    print("Size before/after filtering -->",  str(numberOfModules), "/", len(data))
+    print("Size after filtering -->", len(data), "/", numberOfModules)
+    lda.serialize("GuidedLDA_ModuleCatalogue")
+
+    ts = time.time()
+    endTime = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
+
+    print("Start time", startTime)
+    print("End time", endTime)
+
+
 run()
 # run_example()
