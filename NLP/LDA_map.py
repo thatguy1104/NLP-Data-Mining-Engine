@@ -4,7 +4,7 @@ import numpy as np
 import pyodbc
 from itertools import zip_longest
 
-from guided_LDA import GuidedLDA
+from LDA import LDA
 from preprocess import module_catalogue_tokenizer
 
 def progress(count, total, custom_text, suffix=''):
@@ -37,7 +37,7 @@ def getDBTable(numOfModules):
         return df
 
 def preprocess_keywords_example():
-    seed_topic_list = [['fruit', 'food', 'banana', 'apple juice'],
+    seed_topic_list = [['fruit', 'food', 'banana', 'apple juice', 'apple'],
                         ['sport', 'football', 'basketball', 'bowling'],
                         ['ocean', 'fish']]
     for i in range(len(seed_topic_list)):
@@ -143,12 +143,11 @@ def load_dataset(numOfModules):
 def run_example():
     keywords = preprocess_keywords_example()
     data = load_dataset_example()
-    iterations = 100
-    seed_confidence = 1.0
+    n_passes = 100
+    n_iterations = 400
 
-    lda = GuidedLDA(data, keywords, iterations)
-    lda.train(seed_confidence)
-    lda.display_document_topic_words(6)
+    lda = LDA(data, keywords)
+    lda.train(n_passes, n_iterations, 10)
 
 def run():
     ts = time.time()
@@ -156,13 +155,15 @@ def run():
 
     keywords = preprocess_keywords("SDG_Keywords.csv")
     numberOfModules = "MAX"
+    print("Loading dataset...")
     data = load_dataset(numberOfModules)
-    iterations = 400
-    seed_confidence = 1.0
+    print("Done.")
+    n_passes = 10
+    n_iterations = 400
 
-    lda = GuidedLDA(data, keywords, iterations)
-    lda.train(seed_confidence)
-    lda.display_document_topic_words(20)
+    print("Training...")
+    lda = LDA(data, keywords)
+    lda.train(n_passes, n_iterations, 20)
 
     print("Size before/after filtering -->",  str(numberOfModules), "/", len(data))
 

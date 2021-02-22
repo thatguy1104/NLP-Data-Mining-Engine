@@ -12,7 +12,7 @@ class GuidedLDA():
     def __init__(self, data, keywords, n_iter):
         self.data = data # module-catalogue data frame with columns {ModuleID, Description}.
         self.keywords = keywords # topic keywords list.
-        self.vectorizer = self.create_vectorizer(1, 4, 1, 0.4)
+        self.vectorizer = self.create_vectorizer(1, 3, 1, 0.4)
         self.model = self.create_model(len(keywords), n_iter, 7, 20)
 
     def create_vectorizer(self, min_n_gram, max_n_gram, min_df, max_df):
@@ -21,7 +21,7 @@ class GuidedLDA():
             strip_accents='unicode', min_df=min_df, max_df=max_df)
 
     def create_model(self, n_topics, n_iter, random_state, refresh):
-        return guidedlda.GuidedLDA(n_topics=n_topics, n_iter=n_iter, random_state=random_state, refresh=refresh)
+        return guidedlda.GuidedLDA(n_topics=n_topics, n_iter=n_iter, random_state=random_state, refresh=refresh, eta=0.1)
 
     def create_topic_seeds(self):
         tf_feature_names = self.vectorizer.get_feature_names() # list of terms: words or ngrams of words.
@@ -44,6 +44,10 @@ class GuidedLDA():
         filename = filename + ".pkl"
         joblib.dump(self.model, filename)
 
+    def load_model(self, filename):
+        filename = filename + ".pkl"
+        self.model = joblib.load(filename)
+        
     '''
     def display_topic_words_with_scores(self, num_top_words):
         tf_feature_names = self.vectorizer.get_feature_names()
