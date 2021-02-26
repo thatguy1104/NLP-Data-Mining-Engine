@@ -155,17 +155,16 @@ def run():
 
     keywords = preprocess_keywords("SDG_Keywords.csv")
     numberOfModules = "MAX"
+    
     print("Loading dataset...")
     data = load_dataset(numberOfModules)
-    print("Done.")
+    print("Size before/after filtering -->",  str(numberOfModules), "/", len(data))
     n_passes = 10
     n_iterations = 400
 
     print("Training...")
     lda = LDA(data, keywords)
     lda.train(n_passes, n_iterations, 20)
-
-    print("Size before/after filtering -->",  str(numberOfModules), "/", len(data))
 
 run()
 #run_example()
