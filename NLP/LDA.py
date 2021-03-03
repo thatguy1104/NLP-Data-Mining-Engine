@@ -8,12 +8,13 @@ import pyLDAvis.gensim
 from gensim import corpora
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 from preprocess import module_catalogue_tokenizer, text_lemmatizer, get_stopwords
+from ModelResults.resultsProcessing import ProcessResults
 
 class LDA():
     def __init__(self, data, keywords):
         self.data = data # module-catalogue data frame with columns {ModuleID, Description}.
         self.keywords = keywords # topic keywords list.
-        self.vectorizer = self.create_vectorizer(1, 3, 1, 0.2)
+        self.vectorizer = self.create_vectorizer(1, 3, 1, 0.03)
         #self.vectorizer = self.create_vectorizer(1, 1, 1, 1)
         self.n_topics = len(self.keywords)
 
@@ -31,7 +32,7 @@ class LDA():
         #return gensim.models.LdaModel(corpus=corpus, num_topics=self.n_topics, id2word=id2word, random_state=42, chunksize=5000, eta=eta,
             #update_every=1, passes=n_passes, alpha='auto', minimum_probability=0, per_word_topics=True)
         return gensim.models.LdaMulticore(corpus=corpus, num_topics=self.n_topics, id2word=id2word, random_state=42, chunksize=5000, eta=eta, 
-            eval_every=1, passes = n_passes, iterations=n_iterations, workers=5, alpha='symmetric', minimum_probability=0, per_word_topics=True)
+            eval_every=None, passes = n_passes, iterations=n_iterations, workers=5, alpha='symmetric', minimum_probability=0, per_word_topics=True)
 
     def create_topic_seeds(self):
         tf_feature_names = self.vectorizer.get_feature_names() # list of words or ngrams of words.
