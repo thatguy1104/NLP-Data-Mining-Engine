@@ -8,7 +8,7 @@ import gensim
 class PredictFromLDA():
     def __init__(self):
         self.publication_files_directory = "../SCOPUS/GENERATED_FILES/"
-        self.publicationData = pd.DataFrame(columns=['DOI', 'Description'])
+        self.publicationData = pd.DataFrame(columns=['DOI', 'Title', 'Description'])
         self.modelName = "lda_model.pkl"
 
     def makePrediction(self, limit):
@@ -30,9 +30,10 @@ class PredictFromLDA():
 
                 results[papers['DOI'][i]] = {}
                 for topic, pr in td:
-                    results[papers['DOI'][i]][topic + 1] = pr
+                    results[papers['DOI'][i]]['Title'] = papers['Title'][i]
+                    results[papers['DOI'][i]][topic + 1] = str(pr)
 
-        print(results)
+        # print(results)
         with open("ModelResults/sdgAssignments.json", "w") as f:
             json.dump(results, f)
 
@@ -63,6 +64,7 @@ class PredictFromLDA():
                 data_ = json.load(json_file)
                 if data_:
                     doi = data_['DOI']
+                    title = data_['Title']
                     concatDataFields = data_['Title']
                     if data_['Abstract']:
                         concatDataFields += data_['Abstract']
@@ -73,7 +75,7 @@ class PredictFromLDA():
                     if data_['SubjectAreas']:
                         subjectName = [x[0] for x in data_['SubjectAreas']]
                         concatDataFields += " ".join(subjectName)
-                    rowDataFrame = pd.DataFrame([[doi, concatDataFields]], columns=self.publicationData.columns)
+                    rowDataFrame = pd.DataFrame([[doi, title, concatDataFields]], columns=self.publicationData.columns)
                     self.publicationData = self.publicationData.append(rowDataFrame, verify_integrity=True, ignore_index=True)
 
     def loadPaper(self, EID):
@@ -82,6 +84,7 @@ class PredictFromLDA():
             data_ = json.load(json_file)
             if data_:
                 doi = data_['DOI']
+                title = data_['Title']
                 concatDataFields = data_['Title']
                 if data_['Abstract']:
                     concatDataFields += data_['Abstract']
@@ -92,7 +95,7 @@ class PredictFromLDA():
                 if data_['SubjectAreas']:
                     subjectName = [x[0] for x in data_['SubjectAreas']]
                     concatDataFields += " ".join(subjectName)
-                rowDataFrame = pd.DataFrame([[doi, concatDataFields]], columns=self.publicationData.columns)
+                rowDataFrame = pd.DataFrame([[doi, title, concatDataFields]], columns=self.publicationData.columns)
                 self.publicationData = self.publicationData.append(rowDataFrame, verify_integrity=True, ignore_index=True)
 
     def run(self):
@@ -106,7 +109,7 @@ class PredictFromLDA():
 
         """ FOR COLLECTIVE CLASSIFICATION """
         self.loadAllData()
-        self.makePrediction(limit=3)
+        self.makePrediction(limit=10)
 
 
 obj = PredictFromLDA()
