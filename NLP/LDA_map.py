@@ -2,6 +2,7 @@ import os, sys, time, datetime
 import pandas as pd
 import numpy as np
 import pyodbc
+import pickle
 from itertools import zip_longest
 
 from LDA import LDA
@@ -50,7 +51,8 @@ def preprocess_keyword(keyword):
 def preprocess_keywords(file_name):
     # convert keywords csv file to dataframe.
     tempcwd = os.getcwd()
-    os.chdir("../COMP0016_2020_21_Team16/MODULE_CATALOGUE/SDG_KEYWORDS") #os.chdir("../MODULE_CATALOGUE/SDG_KEYWORDS")
+    # os.chdir("../COMP0016_2020_21_Team16/MODULE_CATALOGUE/SDG_KEYWORDS")
+    os.chdir("../MODULE_CATALOGUE/SDG_KEYWORDS")
     file_path = os.path.join(os.getcwd(), file_name)
     df = pd.read_csv(file_path)
     os.chdir(tempcwd)
@@ -58,14 +60,14 @@ def preprocess_keywords(file_name):
     # convert keywords dataframe to list of keywords.
     keywords_list = []
     for column in df:
-            keywords = pd.Index(df[column]).dropna()
-            keywords = keywords.map(preprocess_keyword).drop_duplicates()
-            keywords = list(keywords)
-            try:
-                keywords.remove('')
-            except ValueError:
-                pass
-            keywords_list.append(keywords)
+        keywords = pd.Index(df[column]).dropna()
+        keywords = keywords.map(preprocess_keyword).drop_duplicates()
+        keywords = list(keywords)
+        try:
+            keywords.remove('')
+        except ValueError:
+            pass
+        keywords_list.append(keywords)
     return keywords_list
 
 def print_keywords():
@@ -116,8 +118,8 @@ def moduleHasKeyword(data, df):
 
 def moduleHasKeywordJSON(data):
     indicies = []
-    #dataJSON = pd.read_json('../MODULE_CATALOGUE/matchedModulesSDG.json')
-    dataJSON = pd.read_json("../COMP0016_2020_21_Team16/MODULE_CATALOGUE/matchedModulesSDG.json")
+    dataJSON = pd.read_json('../MODULE_CATALOGUE/matchedModulesSDG.json')
+    # dataJSON = pd.read_json("../COMP0016_2020_21_Team16/MODULE_CATALOGUE/matchedModulesSDG.json")
     for p in dataJSON:
         listSDG = dataJSON[p]['Related_SDG']
         if len(listSDG) == 0:
@@ -129,7 +131,8 @@ def moduleHasKeywordJSON(data):
 
 def load_dataset(numOfModules):
     tempCwd = os.getcwd()
-    os.chdir("../COMP0016_2020_21_Team16/MODULE_CATALOGUE/SDG_KEYWORDS") #os.chdir("../MODULE_CATALOGUE/SDG_KEYWORDS")
+    # os.chdir("../COMP0016_2020_21_Team16/MODULE_CATALOGUE/SDG_KEYWORDS")
+    os.chdir("../MODULE_CATALOGUE/SDG_KEYWORDS")
     file_path = os.path.join(os.getcwd(), "SDG_Keywords.csv")
     df = pd.read_csv(file_path)
     os.chdir(tempCwd)
@@ -149,6 +152,11 @@ def run_example():
     lda = LDA(data, keywords)
     lda.train(n_passes, n_iterations, 10)
 
+def serializeLDA(filename, lda):
+    filename = filename + ".pkl"
+    with open(filename, 'wb') as f:
+        pickle.dump(lda, f)
+
 def run():
     ts = time.time()
     startTime = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
@@ -165,6 +173,8 @@ def run():
     print("Training...")
     lda = LDA(data, keywords)
     lda.train(n_passes, n_iterations, 20)
+    
+    serializeLDA("lda_model", lda)
 
 run()
 #run_example()
