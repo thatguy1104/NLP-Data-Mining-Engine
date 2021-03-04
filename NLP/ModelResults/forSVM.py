@@ -2,7 +2,7 @@ import pyodbc
 import datetime
 import pandas as pd
 import json
-import os
+import os, sys
 
 
 # SERVER LOGIN DETAILS
@@ -14,11 +14,17 @@ driver = '{ODBC Driver 17 for SQL Server}'
 curr_time = datetime.datetime.now()
 
 # CONNECT TO DATABASE
-myConnection = pyodbc.connect('DRIVER=' + driver + ';SERVER=' + server +
-                              ';PORT=1433;DATABASE=' + database + ';UID=' + username + ';PWD=' + password)
-
+myConnection = pyodbc.connect('DRIVER=' + driver + ';SERVER=' + server + ';PORT=1433;DATABASE=' + database + ';UID=' + username + ';PWD=' + password)
 threshold = 20
 
+
+def progress(count, total, custom_text, suffix=''):
+    bar_len = 60
+    filled_len = int(round(bar_len * count / float(total)))
+    percents = round(100.0 * count / float(total), 1)
+    bar = '*' * filled_len + '-' * (bar_len - filled_len)
+    sys.stdout.write('[%s] %s%s %s %s\r' %(bar, percents, '%', custom_text, suffix))
+    sys.stdout.flush()
 
 def getDescription(moduleID):
     cur = myConnection.cursor()
@@ -28,7 +34,6 @@ def getDescription(moduleID):
     if len(data) == 0:
         return ""
     return data
-
 
 def process():
     tempcwd = os.getcwd()
@@ -40,13 +45,12 @@ def process():
         finalData = {}
         counter = 0
         for module in docTopics:
-            counter += 1
+            progress(counter, len(docTopics), "Forming SVM dataset")
             if counter < 10:
                 weights = docTopics[module]
                 w = []
                 for i in range(len(weights)):
-                    weights[i] = weights[i].replace('(', '').replace(')', '').replace(
-                        '%', '').replace(' ', '').split(',')
+                    weights[i] = weights[i].replace('(', '').replace(')', '').replace('%', '').replace(' ', '').split(',')
                     sdgNum = weights[i][0]
                     weightSDG = weights[i][1]
                     try:
@@ -57,15 +61,13 @@ def process():
 
                 m = max(w)
                 if m >= threshold:
-                    rowDataFrame = pd.DataFrame(
-                        [[module, getDescription(module)[0][0], m]], columns=results.columns)
+                    rowDataFrame = pd.DataFrame([[module, getDescription(module)[0][0], m]], columns=results.columns)
                 else:
-                    rowDataFrame = pd.DataFrame(
-                        [[module, getDescription(module)[0][0], None]], columns=results.columns)
-                results = results.append(
-                    rowDataFrame, verify_integrity=True, ignore_index=True)
+                    rowDataFrame = pd.DataFrame([[module, getDescription(module)[0][0], None]], columns=results.columns)
+                results = results.append(rowDataFrame, verify_integrity=True, ignore_index=True)
+            counter += 1
+    print()
+    return results
 
-    print(results)
-
-
-process()
+data = process()
+data.to_pickle("SVM_dataset")

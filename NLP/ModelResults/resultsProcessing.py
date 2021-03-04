@@ -18,8 +18,7 @@ class ProcessResults():
                 weights = docTopics[module]
                 related = {}
                 for i in range(len(weights)):
-                    weights[i] = weights[i].replace('(', '').replace(')', '').replace(
-                        '%', '').replace(' ', '').split(',')
+                    weights[i] = weights[i].replace('(', '').replace(')', '').replace('%', '').replace(' ', '').split(',')
                     sdgNum = weights[i][0]
                     with open('SDG.json') as json_file:
                         goalNames = json.load(json_file)
