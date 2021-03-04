@@ -1,4 +1,4 @@
-import os
+import os, sys
 import json
 import pickle
 import pandas as pd
@@ -11,17 +11,35 @@ class PredictFromLDA():
         self.publicationData = pd.DataFrame(columns=['DOI', 'Title', 'Description'])
         self.modelName = "lda_model.pkl"
 
+    def progress(self, count, total, custom_text, suffix=''):
+        bar_len = 60
+        filled_len = int(round(bar_len * count / float(total)))
+
+        percents = round(100.0 * count / float(total), 1)
+        bar = '*' * filled_len + '-' * (bar_len - filled_len)
+
+        sys.stdout.write('[%s] %s%s %s %s\r' % (bar, percents, '%', custom_text, suffix))
+        sys.stdout.flush()
+
     def makePrediction(self, limit):
         results = {}
-        papers = self.publicationData.head(limit)
-        for i in range(len(papers)):
-            description = papers['Description'][i]
-            with open(self.modelName, 'rb') as f:
-                lda = pickle.load(f)
+        counter = 1
+
+        if limit:
+            papers = self.publicationData.head(limit)
+        else:
+            papers = self.publicationData
+        l = len(papers)
+
+        with open(self.modelName, 'rb') as f:
+            lda = pickle.load(f)
+
+            for i in range(l):
+                self.progress(counter, l, "Predicting...")
+                description = papers['Description'][i]    
 
                 X_predicted = lda.vectorizer.transform([description])
-                C_predicted = gensim.matutils.Sparse2Corpus(
-                    X_predicted, documents_columns=False)
+                C_predicted = gensim.matutils.Sparse2Corpus(X_predicted, documents_columns=False)
                 topic_distribution = lda.model.get_document_topics(C_predicted)
 
                 td = [x for x in topic_distribution]
@@ -32,8 +50,8 @@ class PredictFromLDA():
                 for topic, pr in td:
                     results[papers['DOI'][i]]['Title'] = papers['Title'][i]
                     results[papers['DOI'][i]][topic + 1] = str(pr)
-
-        # print(results)
+                counter += 1
+        print()
         with open("ModelResults/sdgAssignments.json", "w") as f:
             json.dump(results, f)
 
@@ -109,7 +127,7 @@ class PredictFromLDA():
 
         """ FOR COLLECTIVE CLASSIFICATION """
         self.loadAllData()
-        self.makePrediction(limit=10)
+        self.makePrediction(limit=None)
 
 
 obj = PredictFromLDA()
