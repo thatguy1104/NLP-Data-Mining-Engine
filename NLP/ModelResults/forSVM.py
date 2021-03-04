@@ -51,17 +51,18 @@ def process():
                 w = []
                 for i in range(len(weights)):
                     weights[i] = weights[i].replace('(', '').replace(')', '').replace('%', '').replace(' ', '').split(',')
-                    sdgNum = weights[i][0]
+                    sdgNum = int(weights[i][0])
                     weightSDG = weights[i][1]
                     try:
                         weightSDG = float(weightSDG)
                     except:
                         weightSDG = 0.0
-                    w.append(weightSDG)
+                    w.append((sdgNum, weightSDG))
 
-                m = max(w)
-                if m >= threshold:
-                    rowDataFrame = pd.DataFrame([[module, getDescription(module)[0][0], m]], columns=results.columns)
+                m = max(w, key=lambda x: x[1])
+
+                if m[1] >= threshold:
+                    rowDataFrame = pd.DataFrame([[module, getDescription(module)[0][0], m[0]]], columns=results.columns)
                 else:
                     rowDataFrame = pd.DataFrame([[module, getDescription(module)[0][0], None]], columns=results.columns)
                 results = results.append(rowDataFrame, verify_integrity=True, ignore_index=True)
@@ -70,4 +71,4 @@ def process():
     return results
 
 data = process()
-data.to_pickle("SVM_dataset")
+data.to_pickle("SVM_dataset.pkl")
