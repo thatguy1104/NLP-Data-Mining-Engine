@@ -38,7 +38,7 @@ def getDescription(moduleID):
 def process():
     tempcwd = os.getcwd()
     results = pd.DataFrame(columns=['ModuleID', 'Description', 'SDG'])
-    with open('../training_results.json') as json_file:
+    with open('NLP/training_results.json') as json_file:
         data = json.load(json_file)
         perplexity = data['Perplexity']
         docTopics = data['Document Topics']
@@ -46,29 +46,29 @@ def process():
         counter = 0
         for module in docTopics:
             progress(counter, len(docTopics), "Forming SVM dataset")
-            if counter < 10:
-                weights = docTopics[module]
-                w = []
-                for i in range(len(weights)):
-                    weights[i] = weights[i].replace('(', '').replace(')', '').replace('%', '').replace(' ', '').split(',')
-                    sdgNum = int(weights[i][0])
-                    weightSDG = weights[i][1]
-                    try:
-                        weightSDG = float(weightSDG)
-                    except:
-                        weightSDG = 0.0
-                    w.append((sdgNum, weightSDG))
+            weights = docTopics[module]
+            w = []
+            for i in range(len(weights)):
+                weights[i] = weights[i].replace('(', '').replace(')', '').replace('%', '').replace(' ', '').split(',')
+                sdgNum = int(weights[i][0])
+                weightSDG = weights[i][1]
+                try:
+                    weightSDG = float(weightSDG)
+                except:
+                    weightSDG = 0.0
+                w.append((sdgNum, weightSDG))
 
-                m = max(w, key=lambda x: x[1])
+            m = max(w, key=lambda x: x[1])
 
-                if m[1] >= threshold:
-                    rowDataFrame = pd.DataFrame([[module, getDescription(module)[0][0], m[0]]], columns=results.columns)
-                else:
-                    rowDataFrame = pd.DataFrame([[module, getDescription(module)[0][0], None]], columns=results.columns)
-                results = results.append(rowDataFrame, verify_integrity=True, ignore_index=True)
+            if m[1] >= threshold:
+                rowDataFrame = pd.DataFrame([[module, getDescription(module)[0][0], m[0]]], columns=results.columns)
+            else:
+                rowDataFrame = pd.DataFrame([[module, getDescription(module)[0][0], None]], columns=results.columns)
+            results = results.append(rowDataFrame, verify_integrity=True, ignore_index=True)
             counter += 1
-    print()
+    
     return results
 
 data = process()
-data.to_pickle("SVM_dataset.pkl")
+data.to_pickle("./SVM_dataset.pkl")
+print(data)
