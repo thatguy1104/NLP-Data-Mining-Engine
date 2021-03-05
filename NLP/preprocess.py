@@ -19,7 +19,8 @@ def get_stopwords():
 
 def preprocess_module_catalogue_stopwords():
     tempcwd = os.getcwd()
-    os.chdir("../COMP0016_2020_21_Team16/MODULE_CATALOGUE")    
+    # os.chdir("../COMP0016_2020_21_Team16/MODULE_CATALOGUE")    
+    os.chdir("../MODULE_CATALOGUE")
     file_path = os.path.join(os.getcwd(), "module_catalogue_stopwords.csv")
     df = pd.read_csv(file_path, index_col=False)['Stopwords']
     os.chdir(tempcwd)

@@ -44,13 +44,10 @@ class ScopusMap():
 
     def getFileData(self):
         files_directory = "SCOPUS/GENERATED_FILES/"
-        DIR = 'SCOPUS/GENERATED_FILES'
-        num_of_files = len([name for name in os.listdir(DIR) if os.path.isfile(os.path.join(DIR, name))])
-
         resulting_data = {}
-        for i in range(1, num_of_files):
-        # for i in range(1, 10):
-            with open(files_directory + str(i) + ".json") as json_file:
+        allFileNames = os.listdir(files_directory)
+        for i in allFileNames:
+            with open(files_directory + i) as json_file:
                 data = json.load(json_file)
                 if data and data["Abstract"] and data["DOI"]:
                     abstract = data["Abstract"]
