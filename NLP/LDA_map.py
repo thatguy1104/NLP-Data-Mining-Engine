@@ -167,7 +167,7 @@ def run():
     print("Loading dataset...")
     data = load_dataset(numberOfModules)
     print("Size before/after filtering -->",  str(numberOfModules), "/", len(data))
-    n_passes = 102
+    n_passes = 10
     n_iterations = 400
 
     print("Training...")
