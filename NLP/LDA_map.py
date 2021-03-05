@@ -141,7 +141,8 @@ def load_dataset(numOfModules):
     data = getDBTable(numOfModules)
     data = data.dropna()
 
-    return pd.DataFrame(data=moduleHasKeywordJSON(data), columns=["Module_ID", "Description"])
+    # return pd.DataFrame(data=moduleHasKeywordJSON(data), columns=["Module_ID", "Description"])
+    return pd.DataFrame(data=data, columns=["Module_ID", "Description"])
 
 def run_example():
     keywords = preprocess_keywords_example()
@@ -166,6 +167,12 @@ def run():
     
     print("Loading dataset...")
     data = load_dataset(numberOfModules)
+
+    # if "ANTH0176" in data.values:
+    #     print("\n\n\nSUCCESS\n\n\n")
+    # if "HIST0457" in data.values:
+    #     print("\n\n\nSUCCESS 2\n\n\n")
+
     print("Size before/after filtering -->",  str(numberOfModules), "/", len(data))
     n_passes = 10
     n_iterations = 400
@@ -174,7 +181,7 @@ def run():
     lda = LDA(data, keywords)
     lda.train(n_passes, n_iterations, 20)
     
-    serializeLDA("lda_model", lda)
+    # serializeLDA("lda_model", lda)
 
 run()
 #run_example()

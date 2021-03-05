@@ -10,7 +10,6 @@ import pyLDAvis.gensim
 from gensim import corpora
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 from preprocess import module_catalogue_tokenizer, text_lemmatizer, get_stopwords
-from ModelResults.resultsProcessing import ProcessResults
 
 import matplotlib.colors as mcolors
 from sklearn.manifold import TSNE
@@ -79,8 +78,6 @@ class LDA():
 
         self.writeResults(corpus, num_top_words) # record current results.
 
-        self.processResults(threshold=15) # process results stored in the ModelResults directory.
-
         # Visualize model using pyLDAvis.
         # self.visualize_model(corpus)
 
@@ -90,7 +87,7 @@ class LDA():
     def display_topic_words(self, num_top_words):
         for n in range(self.n_topics):
             print('SDG {}: {}'.format(n + 1, [self.model.id2word[w] for w, p in self.model.get_topic_terms(n, topn=num_top_words)]))
-
+    
     def display_document_topics(self, corpus):
         documents = self.data.Module_ID
         count = 0
@@ -108,17 +105,12 @@ class LDA():
         visualization = pyLDAvis.gensim.prepare(self.model, corpus, dictionary=d, sort_topics=False)
         pyLDAvis.save_html(visualization, 'LDA.html')
 
-    def processResults(self, threshold):
-        results = ProcessResults(threshold=threshold)
-        results.process()
-
     def writeResults(self, corpus, num_top_words):
         data = {}
         data['Perplexity'] = self.model.log_perplexity(corpus)
         data['Topic Words'] = {}
         for n in range(self.n_topics):
-            data['Topic Words'][n + 1] = [self.model.id2word[w]
-                                          for w, p in self.model.get_topic_terms(n, topn=num_top_words)]
+            data['Topic Words'][n + 1] = [self.model.id2word[w]for w, p in self.model.get_topic_terms(n, topn=num_top_words)]
 
         data['Document Topics'] = {}
         documents = self.data.Module_ID
