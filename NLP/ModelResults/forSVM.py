@@ -38,7 +38,7 @@ def getDescription(moduleID):
 def process():
     tempcwd = os.getcwd()
     results = pd.DataFrame(columns=['ModuleID', 'Description', 'SDG'])
-    with open('NLP/training_results.json') as json_file:
+    with open('NLP/ModelResults/training_results.json') as json_file:
         data = json.load(json_file)
         perplexity = data['Perplexity']
         docTopics = data['Document Topics']
