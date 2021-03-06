@@ -32,5 +32,5 @@ def scopusMap():
 
 
 # scrapeAllModules()
-# moduleMap()
+#moduleMap()
 scopusMap()
