@@ -1,17 +1,17 @@
 import pyodbc
 
 
-server = 'miemie.database.windows.net'
-database = 'MainDB'
-username = 'miemie_login'
-password = 'e_Paswrd?!'
-driver = '{ODBC Driver 17 for SQL Server}'
+class Reset_ModuleData():
+    def __init__(self):
+        self.server = 'miemie.database.windows.net'
+        self.database = 'MainDB'
+        self.username = 'miemie_login'
+        self.password = 'e_Paswrd?!'
+        self.driver = '{ODBC Driver 17 for SQL Server}'
 
-myConnection = pyodbc.connect('DRIVER=' + driver + ';SERVER=' + server + ';PORT=1433;DATABASE=' + database + ';UID=' + username + ';PWD=' + password)
-cur = myConnection.cursor()
-
-
-# cur.execute("DROP TABLE IF EXISTS ModuleData;")
-cur.execute("DROP TABLE IF EXISTS table_name;")
-myConnection.commit()
-myConnection.close()
+    def reset(self):
+        myConnection = pyodbc.connect('DRIVER=' + self.driver + ';SERVER=' + self.server +';PORT=1433;DATABASE=' + self.database + ';UID=' + self.username + ';PWD=' + self.password)
+        cur = myConnection.cursor()
+        cur.execute("DROP TABLE IF EXISTS ModuleData;")
+        myConnection.commit()
+        myConnection.close()

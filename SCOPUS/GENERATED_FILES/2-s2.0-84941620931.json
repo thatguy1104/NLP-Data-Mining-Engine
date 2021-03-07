@@ -1,1 +1,97 @@
-{"Title": "A retrospective analysis of the cost of hospitalizations for sickle cell disease with crisis in England, 2010/11", "Year": 2015, "Source": "J. Public Health", "Volume": "37", "Issue": 3, "Art.No": null, "PageStart": 529, "PageEnd": 539, "CitedBy": 13, "DOI": "10.1093/pubmed/fdu026", "Link": "https://www.scopus.com/inward/record.uri?partnerID=HzOxMe3b&scp=84941620931&origin=inward", "Abstract": "\u00a9 The Author 2014. Published by Oxford University Press on behalf of Faculty of Public Health.Background Sickle cell disease (SCD) is an inherited blood disorder which may result in a broad range of complications including recurring and severe episodes of pain - sickle 'crises' - which require frequent hospitalizations. We assessed the cost of hospitalizations associated with SCD with crisis in England. Methods Hospital Episodes Statistics data for all hospital episodes in England between 2010 and 2011 recording Sickle Cell Anaemia with Crisis as primary diagnosis were used. The total cost of admissions and exceeded length of stay due to SCD were assessed using Healthcare Resource Groups tariffs. The impact of patients' characteristics on SCD admissions costs and the likelihood of incurring extra bed days were also examined. Results In 2010-11, England had 6077 admissions associated with SCD with crisis as primary diagnosis. The total cost for these admissions for commissioners was \u00a318 798 255. The cost of admissions increases with age (children admissions costs 50% less than adults). Patients between 10 and 19 years old are more likely to stay longer in hospital compared with others. Conclusion SCD represents a significant cost for commissioners and the NHS. Further work is required to assess how best to manage patients in the community, which could potentially lead to a reduction in hospital admissions and length of stay, and their associated costs.", "AuthorKeywords": ["chronic disease", "costs", "hospitalization", "management and policy", "public health", "sickle cell"], "IndexKeywords": ["Acute Disease", "Adolescent", "Adult", "Age Factors", "Anemia, Sickle Cell", "Child", "Child, Preschool", "England", "Female", "Hospital Costs", "Hospitalization", "Humans", "Infant", "Length of Stay", "Male", "Middle Aged", "Retrospective Studies", "Young Adult"], "DocumentType": "Journal", "PublicationStage": null, "OpenAccess": 2, "EID": "2-s2.0-84941620931", "SubjectAreas": [["Public Health, Environmental and Occupational Health", "MEDI", "2739"]], "AuthorData": {"37063716300": {"Name": "Pizzo E.", "AuthorID": "37063716300", "AffiliationID": "60116484", "AffiliationName": "Business School, Imperial College"}, "38862033100": {"Name": "Laverty A.A.", "AuthorID": "38862033100", "AffiliationID": "60015150", "AffiliationName": "Department of Primary Care and Public Health, Imperial College"}, "55505112600": {"Name": "Aljuburi G.", "AuthorID": "55505112600", "AffiliationID": "60015150", "AffiliationName": "Department of Primary Care and Public Health, Imperial College"}, "7102027801": {"Name": "Majeed A.", "AuthorID": "7102027801", "AffiliationID": "60015150", "AffiliationName": "Department of Primary Care and Public Health, Imperial College"}, "6507147305": {"Name": "Phekoo K.J.", "AuthorID": "6507147305", "AffiliationID": "60015150", "AffiliationName": "NIHR CLAHRC for Northwest London, Imperial College"}, "55710072700": {"Name": "Green S.A.", "AuthorID": "55710072700", "AffiliationID": "60015150", "AffiliationName": "NIHR CLAHRC for Northwest London, Imperial College"}, "14521994200": {"Name": "Bell D.", "AuthorID": "14521994200", "AffiliationID": "60015150", "AffiliationName": "NIHR CLAHRC for Northwest London, Imperial College"}}}
+{
+    "Title": "A retrospective analysis of the cost of hospitalizations for sickle cell disease with crisis in England, 2010/11",
+    "Year": 2015,
+    "Source": "J. Public Health",
+    "Volume": "37",
+    "Issue": 3,
+    "Art.No": null,
+    "PageStart": 529,
+    "PageEnd": 539,
+    "CitedBy": 13,
+    "DOI": "10.1093/pubmed/fdu026",
+    "Link": "https://www.scopus.com/inward/record.uri?partnerID=HzOxMe3b&scp=84941620931&origin=inward",
+    "Abstract": "\u00a9 The Author 2014. Published by Oxford University Press on behalf of Faculty of Public Health.Background Sickle cell disease (SCD) is an inherited blood disorder which may result in a broad range of complications including recurring and severe episodes of pain - sickle 'crises' - which require frequent hospitalizations. We assessed the cost of hospitalizations associated with SCD with crisis in England. Methods Hospital Episodes Statistics data for all hospital episodes in England between 2010 and 2011 recording Sickle Cell Anaemia with Crisis as primary diagnosis were used. The total cost of admissions and exceeded length of stay due to SCD were assessed using Healthcare Resource Groups tariffs. The impact of patients' characteristics on SCD admissions costs and the likelihood of incurring extra bed days were also examined. Results In 2010-11, England had 6077 admissions associated with SCD with crisis as primary diagnosis. The total cost for these admissions for commissioners was \u00a318 798 255. The cost of admissions increases with age (children admissions costs 50% less than adults). Patients between 10 and 19 years old are more likely to stay longer in hospital compared with others. Conclusion SCD represents a significant cost for commissioners and the NHS. Further work is required to assess how best to manage patients in the community, which could potentially lead to a reduction in hospital admissions and length of stay, and their associated costs.",
+    "AuthorKeywords": [
+        "chronic disease",
+        "costs",
+        "hospitalization",
+        "management and policy",
+        "public health",
+        "sickle cell"
+    ],
+    "IndexKeywords": [
+        "Acute Disease",
+        "Adolescent",
+        "Adult",
+        "Age Factors",
+        "Anemia, Sickle Cell",
+        "Child",
+        "Child, Preschool",
+        "England",
+        "Female",
+        "Hospital Costs",
+        "Hospitalization",
+        "Humans",
+        "Infant",
+        "Length of Stay",
+        "Male",
+        "Middle Aged",
+        "Retrospective Studies",
+        "Young Adult"
+    ],
+    "DocumentType": "Journal",
+    "PublicationStage": null,
+    "OpenAccess": 2,
+    "EID": "2-s2.0-84941620931",
+    "SubjectAreas": [
+        [
+            "Public Health, Environmental and Occupational Health",
+            "MEDI",
+            "2739"
+        ]
+    ],
+    "AuthorData": {
+        "37063716300": {
+            "Name": "Pizzo E.",
+            "AuthorID": "37063716300",
+            "AffiliationID": "60116484",
+            "AffiliationName": "Business School, Imperial College"
+        },
+        "38862033100": {
+            "Name": "Laverty A.A.",
+            "AuthorID": "38862033100",
+            "AffiliationID": "60015150",
+            "AffiliationName": "Department of Primary Care and Public Health, Imperial College"
+        },
+        "55505112600": {
+            "Name": "Aljuburi G.",
+            "AuthorID": "55505112600",
+            "AffiliationID": "60015150",
+            "AffiliationName": "Department of Primary Care and Public Health, Imperial College"
+        },
+        "7102027801": {
+            "Name": "Majeed A.",
+            "AuthorID": "7102027801",
+            "AffiliationID": "60015150",
+            "AffiliationName": "Department of Primary Care and Public Health, Imperial College"
+        },
+        "6507147305": {
+            "Name": "Phekoo K.J.",
+            "AuthorID": "6507147305",
+            "AffiliationID": "60015150",
+            "AffiliationName": "NIHR CLAHRC for Northwest London, Imperial College"
+        },
+        "55710072700": {
+            "Name": "Green S.A.",
+            "AuthorID": "55710072700",
+            "AffiliationID": "60015150",
+            "AffiliationName": "NIHR CLAHRC for Northwest London, Imperial College"
+        },
+        "14521994200": {
+            "Name": "Bell D.",
+            "AuthorID": "14521994200",
+            "AffiliationID": "60015150",
+            "AffiliationName": "NIHR CLAHRC for Northwest London, Imperial College"
+        }
+    }
+}

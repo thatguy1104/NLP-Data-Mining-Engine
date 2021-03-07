@@ -1,1 +1,46 @@
-{"Title": "Dynamic linear panel regression models with interactive fixed effects", "Year": 2017, "Source": "Econom. Theory", "Volume": "33", "Issue": 1, "Art.No": null, "PageStart": 158, "PageEnd": 195, "CitedBy": 40, "DOI": "10.1017/S0266466615000328", "Link": "https://www.scopus.com/inward/record.uri?partnerID=HzOxMe3b&scp=84950294768&origin=inward", "Abstract": "\u00a9 Cambridge University Press 2015.We analyze linear panel regression models with interactive fixed effects and predetermined regressors, for example lagged-dependent variables. The first-order asymptotic theory of the least squares (LS) estimator of the regression coefficients is worked out in the limit where both the cross-sectional dimension and the number of time periods become large. We find two sources of asymptotic bias of the LS estimator: bias due to correlation or heteroscedasticity of the idiosyncratic error term, and bias due to predetermined (as opposed to strictly exogenous) regressors. We provide a bias-corrected LS estimator. We also present bias-corrected versions of the three classical test statistics (Wald, LR, and LM test) and show their asymptotic distribution is a \u03c72-distribution. Monte Carlo simulations show the bias correction of the LS estimator and of the test statistics also work well for finite sample sizes.", "AuthorKeywords": null, "IndexKeywords": null, "DocumentType": "Journal", "PublicationStage": null, "OpenAccess": 2, "EID": "2-s2.0-84950294768", "SubjectAreas": [["Social Sciences (miscellaneous)", "SOCI", "3301"], ["Economics and Econometrics", "ECON", "2002"]], "AuthorData": {"7402662461": {"Name": "Moon H.", "AuthorID": "7402662461", "AffiliationID": "60016912", "AffiliationName": "Yonsei University"}, "55241495000": {"Name": "Weidner M.", "AuthorID": "55241495000", "AffiliationID": "60022148", "AffiliationName": "University College London"}}}
+{
+    "Title": "Dynamic linear panel regression models with interactive fixed effects",
+    "Year": 2017,
+    "Source": "Econom. Theory",
+    "Volume": "33",
+    "Issue": 1,
+    "Art.No": null,
+    "PageStart": 158,
+    "PageEnd": 195,
+    "CitedBy": 40,
+    "DOI": "10.1017/S0266466615000328",
+    "Link": "https://www.scopus.com/inward/record.uri?partnerID=HzOxMe3b&scp=84950294768&origin=inward",
+    "Abstract": "\u00a9 Cambridge University Press 2015.We analyze linear panel regression models with interactive fixed effects and predetermined regressors, for example lagged-dependent variables. The first-order asymptotic theory of the least squares (LS) estimator of the regression coefficients is worked out in the limit where both the cross-sectional dimension and the number of time periods become large. We find two sources of asymptotic bias of the LS estimator: bias due to correlation or heteroscedasticity of the idiosyncratic error term, and bias due to predetermined (as opposed to strictly exogenous) regressors. We provide a bias-corrected LS estimator. We also present bias-corrected versions of the three classical test statistics (Wald, LR, and LM test) and show their asymptotic distribution is a \u03c72-distribution. Monte Carlo simulations show the bias correction of the LS estimator and of the test statistics also work well for finite sample sizes.",
+    "AuthorKeywords": null,
+    "IndexKeywords": null,
+    "DocumentType": "Journal",
+    "PublicationStage": null,
+    "OpenAccess": 2,
+    "EID": "2-s2.0-84950294768",
+    "SubjectAreas": [
+        [
+            "Social Sciences (miscellaneous)",
+            "SOCI",
+            "3301"
+        ],
+        [
+            "Economics and Econometrics",
+            "ECON",
+            "2002"
+        ]
+    ],
+    "AuthorData": {
+        "7402662461": {
+            "Name": "Moon H.",
+            "AuthorID": "7402662461",
+            "AffiliationID": "60016912",
+            "AffiliationName": "Yonsei University"
+        },
+        "55241495000": {
+            "Name": "Weidner M.",
+            "AuthorID": "55241495000",
+            "AffiliationID": "60022148",
+            "AffiliationName": "University College London"
+        }
+    }
+}

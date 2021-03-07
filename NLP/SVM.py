@@ -48,8 +48,10 @@ class SVM():
         print()
         self.predict(X_test, y_test)
 
-df = pd.read_pickle("NLP/ModelResults/SVM_dataset.pkl")
+df = pd.read_pickle("ModelResults/SVM_dataset.pkl")
+print(df)
 df = df.dropna()
+print(df)
 
 svm = SVM(df)
 svm.run()

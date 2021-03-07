@@ -43,7 +43,7 @@ class ScopusMap():
         return " ".join(tokens)
 
     def getFileData(self):
-        files_directory = "GENERATED_FILES/"
+        files_directory = "SCOPUS/GENERATED_FILES/"
         resulting_data = {}
         allFileNames = os.listdir(files_directory)
         for i in allFileNames:
@@ -65,7 +65,7 @@ class ScopusMap():
         return resulting_data
 
     def readKeywords(self,data):
-        fileName = "../SDG_Keywords.csv"
+        fileName = "MODULE_CATALOGUE/SDG_KEYWORDS/SDG_Keywords.csv"
         # SDG keyword data
         df = pd.read_csv(fileName)
         df = df.dropna()
@@ -74,8 +74,8 @@ class ScopusMap():
         length = len(data)
 
         # Reset the data file
-        if os.path.exists("matchedScopusSDG.json"):
-            os.remove("matchedScopusSDG.json")
+        if os.path.exists("SCOPUS/matchedScopusSDG.json"):
+            os.remove("SCOPUS/matchedScopusSDG.json")
 
         occuringWordCount = {}
         for p in df:  # iterate through SDGs
@@ -108,14 +108,11 @@ class ScopusMap():
                     del sdg_occurences[p]
                 resulting_data[data[i]["DOI"]] = {"PublicationInfo" : data[i], "Related_SDG" : sdg_occurences}
         print()
-        with open('matchedScopusSDG.json', 'a') as outfile:
+        with open('SCOPUS/matchedScopusSDG.json', 'a') as outfile:
             json.dump(resulting_data, outfile)
-        with open('sdgCount.json', 'w') as outfile:
+        with open('SCOPUS/sdgCount.json', 'w') as outfile:
             json.dump(occuringWordCount, outfile)
 
     def run(self):
         data = self.getFileData()
         self.readKeywords(data)
-
-obj = ScopusMap()
-obj.run()

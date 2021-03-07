@@ -8,6 +8,7 @@ from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 
 numberOfModulesAnalysed = "MAX"
+from NLP.preprocess import module_catalogue_tokenizer
 
 class ModuleMap():
     
@@ -33,29 +34,6 @@ class ModuleMap():
         sys.stdout.write('[%s] %s%s %s %s\r' %(bar, percents, '%', custom_text, suffix))
         sys.stdout.flush()
 
-    def preprocessText(self, text):
-        # Normalisation
-        # replace UCL module codes.
-        normalized = re.sub(r'[A-Z]{4}\d{4}', 'modulecode', text)
-        normalized = re.sub(r'[/]', " ", normalized)  # separate forward slashes
-        # replace numbers.
-        normalized = re.sub(r'[\s]\d+(\.\d+)?[\s]', ' numbr ', normalized)
-        normalized = re.sub("[^\w]", " ", normalized)  # remove punctuation.
-
-        # Tokenisation
-        tokens = word_tokenize(normalized.lower())
-        n = len(tokens)
-
-        # Stopword Removal
-        stops = set(stopwords.words('english'))
-        tokens = [word for word in tokens if not word in stops]
-
-        # Lemmatising and Stemming
-        lemmatizer = WordNetLemmatizer()
-        tokens = [lemmatizer.lemmatize(word) for word in tokens]
-
-        return " ".join(tokens)
-
     def getFileData(self):
         cur = self.myConnection.cursor()
         numberModules = 1
@@ -78,7 +56,8 @@ class ModuleMap():
         resulting_data = {}
         counter = 0
         length = len(data)
-
+        stop_words = pd.read_csv("MODULE_CATALOGUE/module_catalogue_stopwords.csv")["Stopwords"]
+        
         # # Reset the data file
         if os.path.exists("MODULE_CATALOGUE/matchedModulesSDG.json"):
             os.remove("MODULE_CATALOGUE/matchedModulesSDG.json")
@@ -100,15 +79,19 @@ class ModuleMap():
             textData = moduleName + " " + description
 
             sdg_occurences = {}
-            text = self.preprocessText(textData)
+            seen = {}
+            text = module_catalogue_tokenizer(textData)
             for p in df:  # iterate through SDGs
                 sdg_occurences[p] = {"Word_Found": []}
                 for j in df[p]: # iterate through the keyword in p SDG
                     temp = j
-                    word = self.preprocessText(j)
-                    if word in text:
-                        occuringWordCount[p][temp] += 1
-                        sdg_occurences[p]["Word_Found"].append(j)
+                    word = module_catalogue_tokenizer(j)
+                    print(word, word[0])
+                    if word not in seen:
+                        seen[word] = word
+                        if word not in stop_words and word in text:
+                            occuringWordCount[p][temp] += 1
+                            sdg_occurences[p]["Word_Found"].append(j)
                 if len(sdg_occurences[p]["Word_Found"]) == 0:
                     del sdg_occurences[p]
                 resulting_data[data["Module_ID"][i]] = {"Module_Name": data["Module_Name"][i], "Related_SDG": sdg_occurences}
