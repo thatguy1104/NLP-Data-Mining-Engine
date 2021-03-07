@@ -62,7 +62,7 @@ def organiseSDG(content):
 def push():
     timestamp = datetime.datetime.now()
     counter = 1
-    with open('processed_results.json') as json_file:
+    with open('NLP/MODEL_RESULTS/processed_results.json') as json_file:
         data = json.load(json_file)
         lenData = len(data)
         for module in data:

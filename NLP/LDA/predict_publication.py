@@ -7,9 +7,9 @@ import gensim
 
 class PredictFromLDA():
     def __init__(self):
-        self.publication_files_directory = "../SCOPUS/GENERATED_FILES/"
+        self.publication_files_directory = "SCOPUS/GENERATED_FILES/"
         self.publicationData = pd.DataFrame(columns=['DOI', 'Title', 'Description'])
-        self.modelName = "lda_model.pkl"
+        self.modelName = "SCOPUS/LDA/lda_model.pkl"
 
     def progress(self, count, total, custom_text, suffix=''):
         bar_len = 60
@@ -52,7 +52,7 @@ class PredictFromLDA():
                     results[papers['DOI'][i]][topic + 1] = str(pr)
                 counter += 1
         print()
-        with open("ModelResults/sdgAssignments.json", "w") as f:
+        with open("SCOPUS/ModelResults/sdgAssignments.json", "w") as f:
             json.dump(results, f)
 
     def makePredictionDOI(self):
@@ -128,7 +128,6 @@ class PredictFromLDA():
         """ FOR COLLECTIVE CLASSIFICATION """
         self.loadAllData()
         self.makePrediction(limit=None)
-
 
 obj = PredictFromLDA()
 obj.run()

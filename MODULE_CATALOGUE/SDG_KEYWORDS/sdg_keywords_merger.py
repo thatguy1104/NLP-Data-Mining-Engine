@@ -6,8 +6,7 @@ class SDGKeywordsMerger():
     @staticmethod
     def merge(output_file):
         dfs = [] # list of data frames
-        os.chdir("./MODULE_CATALOGUE/SDG_KEYWORDS")
-        input_files = [f for f in glob.glob('*.{}'.format('csv'))]
+        input_files = ["MODULE_CATALOGUE/SDG_KEYWORDS/SDG_Keywords_Australasia.csv", "MODULE_CATALOGUE/SDG_KEYWORDS/SDG_Keywords_Australasia.csv", "MODULE_CATALOGUE/SDG_KEYWORDS/SDG_Keywords_Students.csv"]
         
         for input_file in input_files:
             df = pd.read_csv(input_file)
@@ -34,4 +33,4 @@ class SDGKeywordsMerger():
         output.to_csv(output_path, index=False)
 
 # Merge SDG keywords.
-SDGKeywordsMerger().merge("SDG_Keywords.csv")
+SDGKeywordsMerger().merge("MODULE_CATALOGUE/SDG_KEYWORDS/SDG_Keywords.csv")

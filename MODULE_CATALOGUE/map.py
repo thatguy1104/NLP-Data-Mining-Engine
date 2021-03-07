@@ -6,12 +6,11 @@ import pandas as pd
 from nltk import word_tokenize
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
-from preprocess import module_catalogue_tokenizer
-from LDA_map import preprocess_keywords, preprocess_keyword
+from NLP.LDA.LDA_map import preprocess_keywords, preprocess_keyword
+from NLP.preprocess import module_catalogue_tokenizer, get_stopwords
+
 
 numberOfModulesAnalysed = "MAX"
-from NLP.preprocess import module_catalogue_tokenizer
-
 class ModuleMap():
     def __init__(self):
         # SERVER LOGIN DETAILS
@@ -50,13 +49,14 @@ class ModuleMap():
     def read_keywords(self, data):
         resulting_data = {}
         counter = 0
-        keywords = self.preprocess_keywords("MODULE_CATALOGUE/SDG_KEYWORDS/SDG_Keywords.csv")
+        keywords = preprocess_keywords("MODULE_CATALOGUE/SDG_KEYWORDS/SDG_Keywords.csv")
+        stopwords = get_stopwords()
         num_modules = len(data)
         num_keywords = len(keywords)
 
         # Reset the data file.
-        if os.path.exists("MODULE_CATALOGUE/matchedModulesSDG.json"):
-            os.remove("MODULE_CATALOGUE/matchedModulesSDG.json")
+        # if os.path.exists("MODULE_CATALOGUE/matchedModulesSDG.json"):
+        #     os.remove("MODULE_CATALOGUE/matchedModulesSDG.json")
 
         # Iterate through the module descriptions.
         for i in range(num_modules):
@@ -77,7 +77,7 @@ class ModuleMap():
                 sdg = "SDG " + str(sdg_num) if sdg_num < num_keywords else "Misc"
                 sdg_occurences[sdg] = {"Word_Found": []}
                 for keyword in keywords[n]:
-                    if keyword in module_text:
+                    if keyword in module_text and keyword not in stopwords:
                         sdg_occurences[sdg]["Word_Found"].append(keyword)
                 
                 if len(sdg_occurences[sdg]["Word_Found"]) == 0:
@@ -85,7 +85,8 @@ class ModuleMap():
                 
                 resulting_data[data["Module_ID"][i]] = {"Module_Name": data["Module_Name"][i], "Related_SDG": sdg_occurences}
 
-        with open('MODULE_CATALOGUE/matchedModulesSDG.json', 'a') as outfile:
+        print()
+        with open('MODULE_CATALOGUE/matchedModulesSDG.json', 'w') as outfile:
             json.dump(resulting_data, outfile)
     
     def run(self):

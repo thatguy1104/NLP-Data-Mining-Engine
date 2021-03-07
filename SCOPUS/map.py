@@ -74,8 +74,8 @@ class ScopusMap():
         length = len(data)
 
         # Reset the data file
-        if os.path.exists("SCOPUS/matchedScopusSDG.json"):
-            os.remove("SCOPUS/matchedScopusSDG.json")
+        # if os.path.exists("SCOPUS/matchedScopusSDG.json"):
+        #     os.remove("SCOPUS/matchedScopusSDG.json")
 
         occuringWordCount = {}
         for p in df:  # iterate through SDGs

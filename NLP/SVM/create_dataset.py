@@ -38,7 +38,7 @@ def getDescription(moduleID):
 def process():
     tempcwd = os.getcwd()
     results = pd.DataFrame(columns=['ModuleID', 'Description', 'SDG'])
-    with open('NLP/ModelResults/training_results.json') as json_file:
+    with open('NLP/MODEL_RESULTS/training_results.json') as json_file:
         data = json.load(json_file)
         perplexity = data['Perplexity']
         docTopics = data['Document Topics']
@@ -70,5 +70,5 @@ def process():
     return results
 
 data = process()
-data.to_pickle("./SVM_dataset.pkl")
+data.to_pickle("NLP/SVM/SVM_dataset.pkl")
 print(data)

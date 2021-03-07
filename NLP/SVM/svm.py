@@ -8,7 +8,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import SGDClassifier
 from sklearn.pipeline import Pipeline
 from sklearn.metrics import classification_report, accuracy_score
-from preprocess import module_catalogue_tokenizer, text_lemmatizer, get_stopwords
+from NLP.preprocess import module_catalogue_tokenizer, text_lemmatizer, get_stopwords
 
 class SVM():
     def __init__(self, data):
@@ -48,10 +48,9 @@ class SVM():
         print()
         self.predict(X_test, y_test)
 
-df = pd.read_pickle("ModelResults/SVM_dataset.pkl")
-print(df)
+
+df = pd.read_pickle("NLP/MODEL_RESULTS/SVM_dataset.pkl")
 df = df.dropna()
-print(df)
 
 svm = SVM(df)
 svm.run()

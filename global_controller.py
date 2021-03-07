@@ -4,7 +4,8 @@ from MODULE_CATALOGUE.STUDENTS_PER_MOD.processPush import UpdateStudentsPerModul
 from MODULE_CATALOGUE.map import ModuleMap
 from SCOPUS.map import ScopusMap
 from SCOPUS import renameGeneratedFiles
-from SCOPUS.pybliometrics import Scopus
+from SCOPUS.scrape import Scopus
+from NLP.validate import ValidateLDA
 
 class MODULE_SECTION():
 
@@ -28,7 +29,7 @@ class MODULE_SECTION():
         """
         UCL_Module_Catalogue().run()
 
-    def moduleMap(self):
+    def map_modules(self):
         """
             Assigns an SDG/SDGs to each module
             Produces matchedModulesSDG.json + sdgCount.json
@@ -62,13 +63,23 @@ class SCOPUS_SECTION():
         ScopusMap().run()
 
 class NLP_SECTION():
-    pass
+
+    def merge_SDG_keywords(self):
+        pass
+
+
+    def validate(self):
+        ValidateLDA().run()
 
 
 
 
 
-module_actions = MODULE_SECTION()
 
+# module_actions = MODULE_SECTION()
+# module_actions.map_modules()
+# module_actions.initialise()
+# module_actions.update_studentsPerModule()
 # scopus_actions = SCOPUS_SECTION()
-# nlp_actions = NLP_SECTION()
+nlp_actions = NLP_SECTION()
+nlp_actions.validate()

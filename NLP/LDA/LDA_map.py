@@ -4,9 +4,8 @@ import numpy as np
 import pyodbc
 import pickle
 from itertools import zip_longest
-
-from LDA import LDA
-from preprocess import module_catalogue_tokenizer
+from NLP.LDA import LDA
+from NLP.preprocess import module_catalogue_tokenizer
 
 def progress(count, total, custom_text, suffix=''):
     bar_len = 60
@@ -49,13 +48,7 @@ def preprocess_keyword(keyword):
     return ' '.join(module_catalogue_tokenizer(keyword))
 
 def preprocess_keywords(file_name):
-    # convert keywords csv file to dataframe.
-    tempcwd = os.getcwd()
-    # os.chdir("../COMP0016_2020_21_Team16/MODULE_CATALOGUE/SDG_KEYWORDS")
-    os.chdir("../MODULE_CATALOGUE/SDG_KEYWORDS")
-    file_path = os.path.join(os.getcwd(), file_name)
-    df = pd.read_csv(file_path)
-    os.chdir(tempcwd)
+    df = pd.read_csv(file_name)
 
     # convert keywords dataframe to list of keywords.
     keywords_list = []
@@ -118,8 +111,8 @@ def moduleHasKeyword(data, df):
 
 def moduleHasKeywordJSON(data):
     indicies = []
-    dataJSON = pd.read_json('../MODULE_CATALOGUE/matchedModulesSDG.json')
-    # dataJSON = pd.read_json("../COMP0016_2020_21_Team16/MODULE_CATALOGUE/matchedModulesSDG.json")
+    dataJSON = pd.read_json('MODULE_CATALOGUE/matchedModulesSDG.json')
+
     for p in dataJSON:
         listSDG = dataJSON[p]['Related_SDG']
         if len(listSDG) == 0:
@@ -130,18 +123,11 @@ def moduleHasKeywordJSON(data):
     return data
 
 def load_dataset(numOfModules):
-    tempCwd = os.getcwd()
-    # os.chdir("../COMP0016_2020_21_Team16/MODULE_CATALOGUE/SDG_KEYWORDS")
-    os.chdir("../MODULE_CATALOGUE/SDG_KEYWORDS")
-    file_path = os.path.join(os.getcwd(), "SDG_Keywords.csv")
-    df = pd.read_csv(file_path)
-    os.chdir(tempCwd)
-
+    df = pd.read_csv("MODULE_CATALOGUE/SDG_KEYWORDS/SDG_Keywords.csv")
     df = df.dropna()
     data = getDBTable(numOfModules)
     data = data.dropna()
 
-    # return pd.DataFrame(data=moduleHasKeywordJSON(data), columns=["Module_ID", "Description"])
     return pd.DataFrame(data=data, columns=["Module_ID", "Description"])
 
 def run_example():
@@ -162,16 +148,11 @@ def run():
     ts = time.time()
     startTime = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
 
-    keywords = preprocess_keywords("SDG_Keywords.csv")
+    keywords = preprocess_keywords("MODULE_CATALOGUE/SDG_KEYWORDS/SDG_Keywords.csv")
     numberOfModules = "MAX"
     
     print("Loading dataset...")
     data = load_dataset(numberOfModules)
-
-    # if "ANTH0176" in data.values:
-    #     print("\n\n\nSUCCESS\n\n\n")
-    # if "HIST0457" in data.values:
-    #     print("\n\n\nSUCCESS 2\n\n\n")
 
     print("Size before/after filtering -->",  str(numberOfModules), "/", len(data))
     n_passes = 10
@@ -182,6 +163,3 @@ def run():
     lda.train(n_passes, n_iterations, 20)
     
     # serializeLDA("lda_model", lda)
-
-run()
-#run_example()

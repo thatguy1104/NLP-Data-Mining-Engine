@@ -9,7 +9,7 @@ import pyLDAvis.gensim
 
 from gensim import corpora
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
-from preprocess import module_catalogue_tokenizer, text_lemmatizer, get_stopwords
+from NLP.preprocess import module_catalogue_tokenizer, text_lemmatizer, get_stopwords
 
 import matplotlib.colors as mcolors
 from sklearn.manifold import TSNE
