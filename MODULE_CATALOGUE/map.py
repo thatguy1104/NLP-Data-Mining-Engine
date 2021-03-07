@@ -6,12 +6,13 @@ import pandas as pd
 from nltk import word_tokenize
 from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
+from preprocess import module_catalogue_tokenizer
+from LDA_map import preprocess_keywords, preprocess_keyword
 
 numberOfModulesAnalysed = "MAX"
 from NLP.preprocess import module_catalogue_tokenizer
 
 class ModuleMap():
-    
     def __init__(self):
         # SERVER LOGIN DETAILS
         self.server = 'miemie.database.windows.net'
@@ -27,81 +28,66 @@ class ModuleMap():
     def progress(self, count, total, custom_text, suffix=''):
         bar_len = 60
         filled_len = int(round(bar_len * count / float(total)))
-
         percents = round(100.0 * count / float(total), 1)
         bar = '*' * filled_len + '-' * (bar_len - filled_len)
-
         sys.stdout.write('[%s] %s%s %s %s\r' %(bar, percents, '%', custom_text, suffix))
         sys.stdout.flush()
 
-    def getFileData(self):
+    def get_file_data(self):
         cur = self.myConnection.cursor()
         numberModules = 1
         if numberOfModulesAnalysed == "MAX":
-            # Query into dataframe
+            # Query into dataframe.
             df = pd.read_sql_query("SELECT * FROM [dbo].[ModuleData]", self.myConnection)
             self.myConnection.commit()
             return df
         else:
-            # Query into dataframe
+            # Query into dataframe.
             df = pd.read_sql_query("SELECT TOP (%d) * FROM [dbo].[ModuleData]" % int(numberOfModulesAnalysed), self.myConnection)
             self.myConnection.commit()
             return df
 
-    def readKeywords(self, data):
-        fileName = "SDG_Keywords.csv"
-        # SDG keyword data
-        df = pd.read_csv(fileName)
-        df = df.dropna()
+    def read_keywords(self, data):
         resulting_data = {}
         counter = 0
-        length = len(data)
-        stop_words = pd.read_csv("MODULE_CATALOGUE/module_catalogue_stopwords.csv")["Stopwords"]
-        
-        # # Reset the data file
+        keywords = self.preprocess_keywords("MODULE_CATALOGUE/SDG_KEYWORDS/SDG_Keywords.csv")
+        num_modules = len(data)
+        num_keywords = len(keywords)
+
+        # Reset the data file.
         if os.path.exists("MODULE_CATALOGUE/matchedModulesSDG.json"):
             os.remove("MODULE_CATALOGUE/matchedModulesSDG.json")
 
-        occuringWordCount = {}
-        for p in df:  # iterate through SDGs
-            occuringWordCount[p] = {}
-            for j in df[p]:
-                occuringWordCount[p][j] = 0
-
-        for i in range(length):  # iterate through the paper descriptions
-            self.progress(counter, length, "processing MODULE_CATALOGUE/matchedModulesSDG.json")
+        # Iterate through the module descriptions.
+        for i in range(num_modules):
+            self.progress(counter, len(data), "processing MODULE_CATALOGUE/matchedModulesSDG.json")
             counter += 1
-            moduleName = data["Module_Name"][i]
+            
+            module_name = data["Module_Name"][i]
+            module_description = ""
             if data["Description"][i]:
-                description = data["Description"][i]
-            else:
-                description = ""
-            textData = moduleName + " " + description
+                module_description = data["Description"][i]
+
+            module_text = module_name + " " + module_description
+            module_text = " ".join(module_catalogue_tokenizer(module_text)) # preprocess module text.
 
             sdg_occurences = {}
-            seen = {}
-            text = module_catalogue_tokenizer(textData)
-            for p in df:  # iterate through SDGs
-                sdg_occurences[p] = {"Word_Found": []}
-                for j in df[p]: # iterate through the keyword in p SDG
-                    temp = j
-                    word = module_catalogue_tokenizer(j)
-                    print(word, word[0])
-                    if word not in seen:
-                        seen[word] = word
-                        if word not in stop_words and word in text:
-                            occuringWordCount[p][temp] += 1
-                            sdg_occurences[p]["Word_Found"].append(j)
-                if len(sdg_occurences[p]["Word_Found"]) == 0:
-                    del sdg_occurences[p]
+            for n in range(num_keywords):
+                sdg_num = n + 1
+                sdg = "SDG " + str(sdg_num) if sdg_num < num_keywords else "Misc"
+                sdg_occurences[sdg] = {"Word_Found": []}
+                for keyword in keywords[n]:
+                    if keyword in module_text:
+                        sdg_occurences[sdg]["Word_Found"].append(keyword)
+                
+                if len(sdg_occurences[sdg]["Word_Found"]) == 0:
+                    del sdg_occurences[sdg]
+                
                 resulting_data[data["Module_ID"][i]] = {"Module_Name": data["Module_Name"][i], "Related_SDG": sdg_occurences}
-        print()
+
         with open('MODULE_CATALOGUE/matchedModulesSDG.json', 'a') as outfile:
             json.dump(resulting_data, outfile)
-        with open('MODULE_CATALOGUE/sdgCount.json', 'w') as outfile:
-            json.dump(occuringWordCount, outfile)
     
     def run(self):
-        data = self.getFileData()
-        self.readKeywords(data)
-
+        data = self.get_file_data()
+        self.read_keywords(data)
