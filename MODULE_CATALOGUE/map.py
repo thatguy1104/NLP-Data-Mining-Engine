@@ -3,14 +3,11 @@ import json
 import pyodbc
 import datetime
 import pandas as pd
-from nltk import word_tokenize
-from nltk.corpus import stopwords
-from nltk.stem import WordNetLemmatizer
 from NLP.LDA.LDA_map import preprocess_keywords, preprocess_keyword
 from NLP.preprocess import module_catalogue_tokenizer, get_stopwords
 
+num_modules_analysed = "MAX"
 
-numberOfModulesAnalysed = "MAX"
 class ModuleMap():
     def __init__(self):
         # SERVER LOGIN DETAILS
@@ -34,15 +31,14 @@ class ModuleMap():
 
     def get_file_data(self):
         cur = self.myConnection.cursor()
-        numberModules = 1
-        if numberOfModulesAnalysed == "MAX":
+        if num_modules_analysed == "MAX":
             # Query into dataframe.
             df = pd.read_sql_query("SELECT * FROM [dbo].[ModuleData]", self.myConnection)
             self.myConnection.commit()
             return df
         else:
             # Query into dataframe.
-            df = pd.read_sql_query("SELECT TOP (%d) * FROM [dbo].[ModuleData]" % int(numberOfModulesAnalysed), self.myConnection)
+            df = pd.read_sql_query("SELECT TOP (%d) * FROM [dbo].[ModuleData]" % int(num_modules_analysed), self.myConnection)
             self.myConnection.commit()
             return df
 
@@ -53,10 +49,6 @@ class ModuleMap():
         stopwords = get_stopwords()
         num_modules = len(data)
         num_keywords = len(keywords)
-
-        # Reset the data file.
-        # if os.path.exists("MODULE_CATALOGUE/matchedModulesSDG.json"):
-        #     os.remove("MODULE_CATALOGUE/matchedModulesSDG.json")
 
         # Iterate through the module descriptions.
         for i in range(num_modules):

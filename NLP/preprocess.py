@@ -42,7 +42,7 @@ def module_catalogue_tokenizer(text):
     # Tokenization
     text = text.lower()
     tokens = [word for word in word_tokenize(text)]
-    tokens = [word for word in tokens if len(word) > 3]
+    tokens = [word for word in tokens if len(word) > 2]
     tokens = [text_lemmatizer(t) for t in tokens]
 
     return tokens

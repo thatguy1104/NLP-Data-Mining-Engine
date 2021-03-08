@@ -32,7 +32,7 @@ class MODULE_SECTION():
     def map_modules(self):
         """
             Assigns an SDG/SDGs to each module
-            Produces matchedModulesSDG.json + sdgCount.json
+            Produces matchedModulesSDG.json
         """
         ModuleMap().run()
 
@@ -58,7 +58,7 @@ class SCOPUS_SECTION():
     def scopusMap(self):
         """
             Assigns an SDG/SDGs to each research publication
-            Produces matchedModulesSDG.json + sdgCount.json
+            Produces matchedScopusSDG.json
         """
         ScopusMap().run()
 
@@ -76,10 +76,14 @@ class NLP_SECTION():
 
 
 
-# module_actions = MODULE_SECTION()
-# module_actions.map_modules()
+#module_actions = MODULE_SECTION()
+#module_actions.map_modules()
+
 # module_actions.initialise()
 # module_actions.update_studentsPerModule()
-# scopus_actions = SCOPUS_SECTION()
-nlp_actions = NLP_SECTION()
-nlp_actions.validate()
+
+scopus_actions = SCOPUS_SECTION()
+scopus_actions.scopusMap()
+
+#nlp_actions = NLP_SECTION()
+#nlp_actions.validate()

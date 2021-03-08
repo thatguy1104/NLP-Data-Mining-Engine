@@ -2,8 +2,7 @@ import pyodbc
 import datetime
 import pandas as pd
 import json
-import os, sys
-
+import sys
 
 # SERVER LOGIN DETAILS
 server = 'miemie.database.windows.net'
@@ -17,7 +16,6 @@ curr_time = datetime.datetime.now()
 myConnection = pyodbc.connect('DRIVER=' + driver + ';SERVER=' + server + ';PORT=1433;DATABASE=' + database + ';UID=' + username + ';PWD=' + password)
 threshold = 20
 
-
 def progress(count, total, custom_text, suffix=''):
     bar_len = 60
     filled_len = int(round(bar_len * count / float(total)))
@@ -26,49 +24,54 @@ def progress(count, total, custom_text, suffix=''):
     sys.stdout.write('[%s] %s%s %s %s\r' %(bar, percents, '%', custom_text, suffix))
     sys.stdout.flush()
 
-def getDescription(moduleID):
+def get_description(moduleID):
     cur = myConnection.cursor()
-    cur.execute(
-        "SELECT Description FROM ModuleData WHERE Module_ID = (?)", (moduleID))
+    cur.execute("SELECT Description FROM ModuleData WHERE Module_ID = (?)", (moduleID))
     data = cur.fetchall()
-    if len(data) == 0:
-        return ""
-    return data
+    return "" if len(data) == 0 else data
 
-def process():
-    tempcwd = os.getcwd()
+def process_modules():
     results = pd.DataFrame(columns=['ModuleID', 'Description', 'SDG'])
     with open('NLP/MODEL_RESULTS/training_results.json') as json_file:
         data = json.load(json_file)
-        perplexity = data['Perplexity']
-        docTopics = data['Document Topics']
-        finalData = {}
+        doc_topics = data['Document Topics']
+        final_data = {}
         counter = 0
-        for module in docTopics:
-            progress(counter, len(docTopics), "Forming SVM dataset")
-            weights = docTopics[module]
-            w = []
-            for i in range(len(weights)):
-                weights[i] = weights[i].replace('(', '').replace(')', '').replace('%', '').replace(' ', '').split(',')
-                sdgNum = int(weights[i][0])
-                weightSDG = weights[i][1]
+        for module in doc_topics:
+            progress(counter, len(doc_topics), "Forming UCL Module Dataset for SVM...")
+            raw_weights = doc_topics[module]
+            weights = []
+            for i in range(len(raw_weights)):
+                raw_weights[i] = raw_weights[i].replace('(', '').replace(')', '').replace('%', '').replace(' ', '').split(',')
+                sdg_num = int(raw_weights[i][0])
                 try:
-                    weightSDG = float(weightSDG)
+                    w = float(raw_weights[i][1])
                 except:
-                    weightSDG = 0.0
-                w.append((sdgNum, weightSDG))
+                    w = 0.0
+                weights.append((sdg_num, w))
 
-            m = max(w, key=lambda x: x[1])
+            sdg_weight_max = max(weights, key=lambda x: x[1]) # get (sdg, weight) with the maximum weight.
 
-            if m[1] >= threshold:
-                rowDataFrame = pd.DataFrame([[module, getDescription(module)[0][0], m[0]]], columns=results.columns)
+            if sdg_weight_max[1] >= threshold:
+                row_dataframe = pd.DataFrame([[module, get_description(module)[0][0], sdg_weight_max[0]]], columns=results.columns)
             else:
-                rowDataFrame = pd.DataFrame([[module, getDescription(module)[0][0], None]], columns=results.columns)
-            results = results.append(rowDataFrame, verify_integrity=True, ignore_index=True)
+                row_dataframe = pd.DataFrame([[module, get_description(module)[0][0], None]], columns=results.columns)
+            results = results.append(row_dataframe, verify_integrity=True, ignore_index=True)
             counter += 1
     
     return results
 
-data = process()
-data.to_pickle("NLP/SVM/SVM_dataset.pkl")
-print(data)
+def process_publications():
+    return None # TODO: implement me
+
+def run(create_modules, create_publications):
+    df = pd.DataFrame()
+    if create_modules:
+        df.append(process_modules())
+    if create_publications:
+        df.append(process_publications())
+
+    #df.to_pickle("NLP/SVM/SVM_dataset.pkl")
+    print(df)
+
+run(True, False)
