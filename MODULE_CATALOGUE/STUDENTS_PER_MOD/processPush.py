@@ -83,7 +83,7 @@ class UpdateStudentsPerModule():
 
         counter = 0
         timestamp = datetime.datetime.now()
-        with open("studentsPerModule.csv", encoding='utf-16') as f:
+        with open("MODULE_CATALOGUE/STUDENTS_PER_MOD/studentsPerModule.csv", encoding='utf-16') as f:
             for i in f:
                 data = []
                 counter += 1

@@ -9,3 +9,4 @@ SELECT [Department_Name]
       , [Description]
       , [Last_Updated]
 FROM [dbo].[ModuleData]
+WHERE Module_ID = 'BARC0147'

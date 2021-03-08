@@ -17,10 +17,8 @@ myConnection = pyodbc.connect('DRIVER=' + driver + ';SERVER=' + server +';PORT=1
 def progress(count, total, custom_text, suffix=''):
     bar_len = 60
     filled_len = int(round(bar_len * count / float(total)))
-
     percents = round(100.0 * count / float(total), 1)
     bar = '*' * filled_len + '-' * (bar_len - filled_len)
-
     sys.stdout.write('[%s] %s%s %s %s\r' % (bar, percents, '%', custom_text, suffix))
     sys.stdout.flush()
 
@@ -56,7 +54,7 @@ def organiseSDG(content):
             elem = int(elem)
             sdgList[elem] = 1
         except:
-            elem = elem
+            pass
     return sdgList
 
 def push():

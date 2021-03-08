@@ -5,11 +5,12 @@ import pandas as pd
 import gensim
 
 
-class PredictFromLDA():
+class ScopusMap():
+    
     def __init__(self):
         self.publication_files_directory = "SCOPUS/GENERATED_FILES/"
         self.publicationData = pd.DataFrame(columns=['DOI', 'Title', 'Description'])
-        self.modelName = "SCOPUS/LDA/lda_model.pkl"
+        self.modelName = "NLP/LDA/lda_model.pkl"
 
     def progress(self, count, total, custom_text, suffix=''):
         bar_len = 60
@@ -44,7 +45,7 @@ class PredictFromLDA():
 
                 td = [x for x in topic_distribution]
                 td = td[0]
-                td.sort(key=lambda x: x[1], reverse=True)
+                # td.sort(key=lambda x: x[1], reverse=True)
 
                 results[papers['DOI'][i]] = {}
                 for topic, pr in td:
@@ -52,7 +53,7 @@ class PredictFromLDA():
                     results[papers['DOI'][i]][topic + 1] = str(pr)
                 counter += 1
         print()
-        with open("SCOPUS/ModelResults/sdgAssignments.json", "w") as f:
+        with open("NLP/MODEL_RESULTS/scopus_prediction_results.json", "w") as f:
             json.dump(results, f)
 
     def makePredictionDOI(self):
@@ -116,7 +117,7 @@ class PredictFromLDA():
                 rowDataFrame = pd.DataFrame([[doi, title, concatDataFields]], columns=self.publicationData.columns)
                 self.publicationData = self.publicationData.append(rowDataFrame, verify_integrity=True, ignore_index=True)
 
-    def run(self):
+    def predict(self):
         """ FOR SINGLE PAPER CLASSIFICATION """
         # EID = '2-s2.0-85019224026' # climate change
         # EID = '2-s2.0-84961616003' # programming
@@ -128,6 +129,3 @@ class PredictFromLDA():
         """ FOR COLLECTIVE CLASSIFICATION """
         self.loadAllData()
         self.makePrediction(limit=None)
-
-obj = PredictFromLDA()
-obj.run()
