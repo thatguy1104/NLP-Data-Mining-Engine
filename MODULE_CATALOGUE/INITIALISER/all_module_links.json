@@ -237,12 +237,12 @@
         "Module_Name": "Physical Sciences Module 2: Imaging Modalities",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/physical-sciences-module-2:-imaging-modalities-ANIM0008"
     },
-    "CLNE0013": {
+    "CLNE0007": {
         "Department_ID": "QSION_BRN",
         "Department_Name": "UCL Queen Square Institute of Neurology",
-        "Module_ID": "CLNE0013",
-        "Module_Name": "Neurodegenerative, Infectious and Inflammatory Diseases of the Nervous System - Basic",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/neurodegenerative,-infectious-and-inflammatory-diseases-of-the-nervous-system---basic-CLNE0013"
+        "Module_ID": "CLNE0007",
+        "Module_Name": "Research Methods and Introduction to Statistics",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/research-methods-and-introduction-to-statistics-CLNE0007"
     },
     "CLNE0005": {
         "Department_ID": "QSION_BRN",
@@ -250,6 +250,13 @@
         "Module_ID": "CLNE0005",
         "Module_Name": "Paroxysmal disorders, Tumours and Special Senses of the Central Nervous System",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/paroxysmal-disorders,-tumours-and-special-senses-of-the-central-nervous-system-CLNE0005"
+    },
+    "CLNE0013": {
+        "Department_ID": "QSION_BRN",
+        "Department_Name": "UCL Queen Square Institute of Neurology",
+        "Module_ID": "CLNE0013",
+        "Module_Name": "Neurodegenerative, Infectious and Inflammatory Diseases of the Nervous System - Basic",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/neurodegenerative,-infectious-and-inflammatory-diseases-of-the-nervous-system---basic-CLNE0013"
     },
     "CLNE0031": {
         "Department_ID": "QSION_BRN",
@@ -362,13 +369,6 @@
         "Module_ID": "CLNE0022",
         "Module_Name": "Skeletal Muscle and Associated Diseases",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/skeletal-muscle-and-associated-diseases-CLNE0022"
-    },
-    "CLNE0007": {
-        "Department_ID": "QSION_BRN",
-        "Department_Name": "UCL Queen Square Institute of Neurology",
-        "Module_ID": "CLNE0007",
-        "Module_Name": "Research Methods and Introduction to Statistics",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/research-methods-and-introduction-to-statistics-CLNE0007"
     },
     "CHEM0002": {
         "Department_ID": "CHEMS_MAP",
@@ -958,13 +958,6 @@
         "Module_Name": "Renewable Energy in the Resources Sector",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/renewable-energy-in-the-resources-sector-CENG0059"
     },
-    "CENG0009": {
-        "Department_ID": "CENGN_ENG",
-        "Department_Name": "Chemical Engineering",
-        "Module_ID": "CENG0009",
-        "Module_Name": "Process Heat Transfer",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/process-heat-transfer-CENG0009"
-    },
     "CENG0017": {
         "Department_ID": "CENGN_ENG",
         "Department_Name": "Chemical Engineering",
@@ -999,6 +992,13 @@
         "Module_ID": "CENG0033",
         "Module_Name": "Advanced Separation Processes",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/advanced-separation-processes-CENG0033"
+    },
+    "CENG0009": {
+        "Department_ID": "CENGN_ENG",
+        "Department_Name": "Chemical Engineering",
+        "Module_ID": "CENG0009",
+        "Module_Name": "Process Heat Transfer",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/process-heat-transfer-CENG0009"
     },
     "CENG0007": {
         "Department_ID": "CENGN_ENG",
@@ -2106,6 +2106,13 @@
         "Module_Name": "Preparation for Study Abroad A",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/preparation-for-study-abroad-a-REGS0006"
     },
+    "REGS0008": {
+        "Department_ID": "REGST_ADM",
+        "Department_Name": "Registry and Academic Services",
+        "Module_ID": "REGS0008",
+        "Module_Name": "Preparation for Study Abroad B",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/preparation-for-study-abroad-b-REGS0008"
+    },
     "BENG0055": {
         "Department_ID": "BENGN_ENG",
         "Department_Name": "Biochemical Engineering",
@@ -2225,13 +2232,6 @@
         "Module_Name": "Bio-microfluidics and Microsystems Engineering",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/bio-microfluidics-and-microsystems-engineering-BENG0042"
     },
-    "BENG0054": {
-        "Department_ID": "BENGN_ENG",
-        "Department_Name": "Biochemical Engineering",
-        "Module_ID": "BENG0054",
-        "Module_Name": "Biomolecular and Cellular Analysis",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/biomolecular-and-cellular-analysis-BENG0054"
-    },
     "BENG0048": {
         "Department_ID": "BENGN_ENG",
         "Department_Name": "Biochemical Engineering",
@@ -2267,13 +2267,6 @@
         "Module_Name": "Advanced Bioreactor Engineering",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/advanced-bioreactor-engineering-BENG0090"
     },
-    "BENG0077": {
-        "Department_ID": "BENGN_ENG",
-        "Department_Name": "Biochemical Engineering",
-        "Module_ID": "BENG0077",
-        "Module_Name": "Design of Experiments for Bioprocess Optimisation",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/design-of-experiments-for-bioprocess-optimisation-BENG0077"
-    },
     "BENG0095": {
         "Department_ID": "BENGN_ENG",
         "Department_Name": "Biochemical Engineering",
@@ -2288,19 +2281,12 @@
         "Module_Name": "Emerging Tools and Technologies for New Medicines",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/emerging-tools-and-technologies-for-new-medicines-BENG0088"
     },
-    "BENG0056": {
+    "BENG0077": {
         "Department_ID": "BENGN_ENG",
         "Department_Name": "Biochemical Engineering",
-        "Module_ID": "BENG0056",
-        "Module_Name": "Pilot Plant Project",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/pilot-plant-project-BENG0056"
-    },
-    "BENG0057": {
-        "Department_ID": "BENGN_ENG",
-        "Department_Name": "Biochemical Engineering",
-        "Module_ID": "BENG0057",
-        "Module_Name": "Pilot Plant Unit Operations",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/pilot-plant-unit-operations-BENG0057"
+        "Module_ID": "BENG0077",
+        "Module_Name": "Design of Experiments for Bioprocess Optimisation",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/design-of-experiments-for-bioprocess-optimisation-BENG0077"
     },
     "BENG0004": {
         "Department_ID": "BENGN_ENG",
@@ -2365,6 +2351,13 @@
         "Module_Name": "Core Practical Research Skills",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/core-practical-research-skills-BENG0069"
     },
+    "BENG0054": {
+        "Department_ID": "BENGN_ENG",
+        "Department_Name": "Biochemical Engineering",
+        "Module_ID": "BENG0054",
+        "Module_Name": "Biomolecular and Cellular Analysis",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/biomolecular-and-cellular-analysis-BENG0054"
+    },
     "BENG0102": {
         "Department_ID": "BENGN_ENG",
         "Department_Name": "Biochemical Engineering",
@@ -2378,6 +2371,13 @@
         "Module_ID": "BENG0101",
         "Module_Name": "Bioprocess Recovery and Purification",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/bioprocess-recovery-and-purification-BENG0101"
+    },
+    "BENG0056": {
+        "Department_ID": "BENGN_ENG",
+        "Department_Name": "Biochemical Engineering",
+        "Module_ID": "BENG0056",
+        "Module_Name": "Pilot Plant Project",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/pilot-plant-project-BENG0056"
     },
     "BENG0003": {
         "Department_ID": "BENGN_ENG",
@@ -2484,13 +2484,6 @@
         "Module_Name": "MSc Advanced Therapy Research Project",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/msc-advanced-therapy-research-project-BENG0076"
     },
-    "BENG0009": {
-        "Department_ID": "BENGN_ENG",
-        "Department_Name": "Biochemical Engineering",
-        "Module_ID": "BENG0009",
-        "Module_Name": "Bioprocess Recovery and Purification",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/bioprocess-recovery-and-purification-BENG0009"
-    },
     "BENG0013": {
         "Department_ID": "BENGN_ENG",
         "Department_Name": "Biochemical Engineering",
@@ -2525,13 +2518,6 @@
         "Module_ID": "BENG0070",
         "Module_Name": "Bioprocess Research Project",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/bioprocess-research-project-BENG0070"
-    },
-    "BENG0012": {
-        "Department_ID": "BENGN_ENG",
-        "Department_Name": "Biochemical Engineering",
-        "Module_ID": "BENG0012",
-        "Module_Name": "Downstream Processing for Engineers",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/downstream-processing-for-engineers-BENG0012"
     },
     "BENG0038": {
         "Department_ID": "BENGN_ENG",
@@ -2581,13 +2567,6 @@
         "Module_ID": "BENG0016",
         "Module_Name": "Design and Professional Skills II",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/design-and-professional-skills-ii-BENG0016"
-    },
-    "BENG0046": {
-        "Department_ID": "BENGN_ENG",
-        "Department_Name": "Biochemical Engineering",
-        "Module_ID": "BENG0046",
-        "Module_Name": "MRes Synthetic Biology Research Project",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/mres-synthetic-biology-research-project-BENG0046"
     },
     "BENG0078": {
         "Department_ID": "BENGN_ENG",
@@ -2707,6 +2686,13 @@
         "Module_ID": "BENG0020",
         "Module_Name": "Bioprocess Design Study",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/bioprocess-design-study-BENG0020"
+    },
+    "BENG0057": {
+        "Department_ID": "BENGN_ENG",
+        "Department_Name": "Biochemical Engineering",
+        "Module_ID": "BENG0057",
+        "Module_Name": "Pilot Plant Unit Operations",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/pilot-plant-unit-operations-BENG0057"
     },
     "CEGE0040": {
         "Department_ID": "CIVLG_ENG",
@@ -3065,6 +3051,13 @@
         "Module_Name": "Environmental Systems",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/environmental-systems-CEGE0015"
     },
+    "CEGE0098": {
+        "Department_ID": "CIVLG_ENG",
+        "Department_Name": "Civil, Environmental and Geomatic Engineering",
+        "Module_ID": "CEGE0098",
+        "Module_Name": "Engineering Surveying",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/engineering-surveying-CEGE0098"
+    },
     "CEGE0051": {
         "Department_ID": "CIVLG_ENG",
         "Department_Name": "Civil, Environmental and Geomatic Engineering",
@@ -3092,13 +3085,6 @@
         "Module_ID": "CEGE0059",
         "Module_Name": "Life Cycle Assessment",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/life-cycle-assessment-CEGE0059"
-    },
-    "CEGE0098": {
-        "Department_ID": "CIVLG_ENG",
-        "Department_Name": "Civil, Environmental and Geomatic Engineering",
-        "Module_ID": "CEGE0098",
-        "Module_Name": "Engineering Surveying",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/engineering-surveying-CEGE0098"
     },
     "CEGE0105": {
         "Department_ID": "CIVLG_ENG",
@@ -3359,6 +3345,13 @@
         "Module_Name": "Intermediate Biblical Hebrew",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/intermediate-biblical-hebrew-HEBR0018"
     },
+    "HEBR0003": {
+        "Department_ID": "HEBRW_ART",
+        "Department_Name": "Hebrew and Jewish Studies",
+        "Module_ID": "HEBR0003",
+        "Module_Name": "Introduction to Bibliical Hebrew A",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/introduction-to-bibliical-hebrew-a-HEBR0003"
+    },
     "HEBR0099": {
         "Department_ID": "HEBRW_ART",
         "Department_Name": "Hebrew and Jewish Studies",
@@ -3435,13 +3428,6 @@
         "Module_ID": "HEBR0106",
         "Module_Name": "Introduction to the History and Literature of Ancient Israel",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/introduction-to-the-history-and-literature-of-ancient-israel-HEBR0106"
-    },
-    "HEBR0003": {
-        "Department_ID": "HEBRW_ART",
-        "Department_Name": "Hebrew and Jewish Studies",
-        "Module_ID": "HEBR0003",
-        "Module_Name": "Introduction to Bibliical Hebrew A",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/introduction-to-bibliical-hebrew-a-HEBR0003"
     },
     "HEBR0056": {
         "Department_ID": "HEBRW_ART",
@@ -3639,6 +3625,27 @@
         "Module_Name": "Philosophy of Medicine",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/philosophy-of-medicine-HPSC0109"
     },
+    "HPSC0038": {
+        "Department_ID": "SCITS_MAP",
+        "Department_Name": "Science and Technology Studies",
+        "Module_ID": "HPSC0038",
+        "Module_Name": "Medicine and Society",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/medicine-and-society-HPSC0038"
+    },
+    "HPSC0057": {
+        "Department_ID": "SCITS_MAP",
+        "Department_Name": "Science and Technology Studies",
+        "Module_ID": "HPSC0057",
+        "Module_Name": "Investigating Contemporary Science",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/investigating-contemporary-science-HPSC0057"
+    },
+    "HPSC0013": {
+        "Department_ID": "SCITS_MAP",
+        "Department_Name": "Science and Technology Studies",
+        "Module_ID": "HPSC0013",
+        "Module_Name": "Science in Popular Culture",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/science-in-popular-culture-HPSC0013"
+    },
     "HPSC0138": {
         "Department_ID": "SCITS_MAP",
         "Department_Name": "Science and Technology Studies",
@@ -3652,13 +3659,6 @@
         "Module_ID": "HPSC0085",
         "Module_Name": "Knowledge, Explanation and Classification in Science",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/knowledge,-explanation-and-classification-in-science-HPSC0085"
-    },
-    "HPSC0057": {
-        "Department_ID": "SCITS_MAP",
-        "Department_Name": "Science and Technology Studies",
-        "Module_ID": "HPSC0057",
-        "Module_Name": "Investigating Contemporary Science",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/investigating-contemporary-science-HPSC0057"
     },
     "HPSC0010": {
         "Department_ID": "SCITS_MAP",
@@ -3750,13 +3750,6 @@
         "Module_ID": "HPSC0065",
         "Module_Name": "Philosophy of Information",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/philosophy-of-information-HPSC0065"
-    },
-    "HPSC0013": {
-        "Department_ID": "SCITS_MAP",
-        "Department_Name": "Science and Technology Studies",
-        "Module_ID": "HPSC0013",
-        "Module_Name": "Science in Popular Culture",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/science-in-popular-culture-HPSC0013"
     },
     "HPSC0012": {
         "Department_ID": "SCITS_MAP",
@@ -4080,19 +4073,19 @@
         "Module_Name": "Practical Machine Learning for Physicists",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/practical-machine-learning-for-physicists-PHAS0056"
     },
-    "PHAS0099": {
-        "Department_ID": "PHYSA_MAP",
-        "Department_Name": "Physics and Astronomy",
-        "Module_ID": "PHAS0099",
-        "Module_Name": "Molecular Physics",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/molecular-physics-PHAS0099"
-    },
     "PHAS0026": {
         "Department_ID": "PHYSA_MAP",
         "Department_Name": "Physics and Astronomy",
         "Module_ID": "PHAS0026",
         "Module_Name": "Mathematical Methods for Theoretical Physics",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/mathematical-methods-for-theoretical-physics-PHAS0026"
+    },
+    "PHAS0099": {
+        "Department_ID": "PHYSA_MAP",
+        "Department_Name": "Physics and Astronomy",
+        "Module_ID": "PHAS0099",
+        "Module_Name": "Molecular Physics",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/molecular-physics-PHAS0099"
     },
     "PHAS0049": {
         "Department_ID": "PHYSA_MAP",
@@ -4290,6 +4283,13 @@
         "Module_Name": "Quantum Technologies Individual Research Project",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/quantum-technologies-individual-research-project-PHAS0095"
     },
+    "PHAS0072": {
+        "Department_ID": "PHYSA_MAP",
+        "Department_Name": "Physics and Astronomy",
+        "Module_ID": "PHAS0072",
+        "Module_Name": "Particle Physics",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/particle-physics-PHAS0072"
+    },
     "PHAS0022": {
         "Department_ID": "PHYSA_MAP",
         "Department_Name": "Physics and Astronomy",
@@ -4303,13 +4303,6 @@
         "Module_ID": "PHAS0091",
         "Module_Name": "Transferable Skills in Research Case Studies for Quantum Technologies",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/transferable-skills-in-research-case-studies-for-quantum-technologies-PHAS0091"
-    },
-    "PHAS0072": {
-        "Department_ID": "PHYSA_MAP",
-        "Department_Name": "Physics and Astronomy",
-        "Module_ID": "PHAS0072",
-        "Module_Name": "Particle Physics",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/particle-physics-PHAS0072"
     },
     "PHAS0032": {
         "Department_ID": "PHYSA_MAP",
@@ -4374,13 +4367,6 @@
         "Module_Name": "Astrophysics Research Project",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/astrophysics-research-project-PHAS0060"
     },
-    "PHAS0002": {
-        "Department_ID": "PHYSA_MAP",
-        "Department_Name": "Physics and Astronomy",
-        "Module_ID": "PHAS0002",
-        "Module_Name": "Mathematical Methods 1",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/mathematical-methods-1-PHAS0002"
-    },
     "PHAS0052": {
         "Department_ID": "PHYSA_MAP",
         "Department_Name": "Physics and Astronomy",
@@ -4401,6 +4387,13 @@
         "Module_ID": "PHAS0105",
         "Module_Name": "Atom and Photon Physics",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/atom-and-photon-physics-PHAS0105"
+    },
+    "PHAS0002": {
+        "Department_ID": "PHYSA_MAP",
+        "Department_Name": "Physics and Astronomy",
+        "Module_ID": "PHAS0002",
+        "Module_Name": "Mathematical Methods 1",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/mathematical-methods-1-PHAS0002"
     },
     "PHAS0042": {
         "Department_ID": "PHYSA_MAP",
@@ -5403,19 +5396,19 @@
         "Module_Name": "Computational Modelling for Biomedical Imaging",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/computational-modelling-for-biomedical-imaging-COMP0118"
     },
-    "COMP0089": {
-        "Department_ID": "COMPS_ENG",
-        "Department_Name": "Computer Science",
-        "Module_ID": "COMP0089",
-        "Module_Name": "Reinforcement Learning",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/reinforcement-learning-COMP0089"
-    },
     "COMP0037": {
         "Department_ID": "COMPS_ENG",
         "Department_Name": "Computer Science",
         "Module_ID": "COMP0037",
         "Module_Name": "Robotic Systems",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/robotic-systems-COMP0037"
+    },
+    "COMP0089": {
+        "Department_ID": "COMPS_ENG",
+        "Department_Name": "Computer Science",
+        "Module_ID": "COMP0089",
+        "Module_Name": "Reinforcement Learning",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/reinforcement-learning-COMP0089"
     },
     "COMP0170": {
         "Department_ID": "COMPS_ENG",
@@ -5444,6 +5437,13 @@
         "Module_ID": "COMP0129",
         "Module_Name": "Robotic Sensing, Manipulation and Interaction",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/robotic-sensing,-manipulation-and-interaction-COMP0129"
+    },
+    "COMP0043": {
+        "Department_ID": "COMPS_ENG",
+        "Department_Name": "Computer Science",
+        "Module_ID": "COMP0043",
+        "Module_Name": "Numerical Methods for Finance",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/numerical-methods-for-finance-COMP0043"
     },
     "COMP0158": {
         "Department_ID": "COMPS_ENG",
@@ -5501,6 +5501,13 @@
         "Module_Name": "Malware",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/malware-COMP0060"
     },
+    "COMP0026": {
+        "Department_ID": "COMPS_ENG",
+        "Department_Name": "Computer Science",
+        "Module_ID": "COMP0026",
+        "Module_Name": "Image Processing",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/image-processing-COMP0026"
+    },
     "COMP0146": {
         "Department_ID": "COMPS_ENG",
         "Department_Name": "Computer Science",
@@ -5542,13 +5549,6 @@
         "Module_ID": "COMP0085",
         "Module_Name": "Approximate Inference and Learning in Probabilistic Models",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/approximate-inference-and-learning-in-probabilistic-models-COMP0085"
-    },
-    "COMP0026": {
-        "Department_ID": "COMPS_ENG",
-        "Department_Name": "Computer Science",
-        "Module_ID": "COMP0026",
-        "Module_Name": "Image Processing",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/image-processing-COMP0026"
     },
     "COMP0034": {
         "Department_ID": "COMPS_ENG",
@@ -5746,6 +5746,13 @@
         "Module_Name": "Innovation and Strategy in Finance",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/innovation-and-strategy-in-finance-COMP0167"
     },
+    "COMP0104": {
+        "Department_ID": "COMPS_ENG",
+        "Department_Name": "Computer Science",
+        "Module_ID": "COMP0104",
+        "Module_Name": "Tools and Environments",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/tools-and-environments-COMP0104"
+    },
     "COMP0029": {
         "Department_ID": "COMPS_ENG",
         "Department_Name": "Computer Science",
@@ -5759,13 +5766,6 @@
         "Module_ID": "COMP0159",
         "Module_Name": "MSc Disability, Design and Innovation Dissertation",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/msc-disability,-design-and-innovation-dissertation-COMP0159"
-    },
-    "COMP0104": {
-        "Department_ID": "COMPS_ENG",
-        "Department_Name": "Computer Science",
-        "Module_ID": "COMP0104",
-        "Module_Name": "Tools and Environments",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/tools-and-environments-COMP0104"
     },
     "COMP0071": {
         "Department_ID": "COMPS_ENG",
@@ -5941,13 +5941,6 @@
         "Module_ID": "COMP0064",
         "Module_Name": "MSc Information Security Dissertation",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/msc-information-security-dissertation-COMP0064"
-    },
-    "COMP0043": {
-        "Department_ID": "COMPS_ENG",
-        "Department_Name": "Computer Science",
-        "Module_ID": "COMP0043",
-        "Module_Name": "Numerical Methods for Finance",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/numerical-methods-for-finance-COMP0043"
     },
     "COMP0022": {
         "Department_ID": "COMPS_ENG",
@@ -7048,6 +7041,13 @@
         "Module_Name": "MSc Individual Project (Biomaterials and Tissue Engineering)",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/msc-individual-project-(biomaterials-and-tissue-engineering)-MECH0048"
     },
+    "XBEL0003": {
+        "Department_ID": "ICOLL_NFA",
+        "Department_Name": "Intercollegiate Course",
+        "Module_ID": "XBEL0003",
+        "Module_Name": "University of Belgrade: Serbian as a Foreign Language 2",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/university-of-belgrade:-serbian-as-a-foreign-language-2-XBEL0003"
+    },
     "XBER0013": {
         "Department_ID": "ICOLL_NFA",
         "Department_Name": "Intercollegiate Course",
@@ -7118,12 +7118,26 @@
         "Module_Name": "School of Advanced Study: Ecology and Economy of the Roman Empire",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/school-of-advanced-study:-ecology-and-economy-of-the-roman-empire-XSAS0003"
     },
+    "XICS0003": {
+        "Department_ID": "ICOLL_NFA",
+        "Department_Name": "Intercollegiate Course",
+        "Module_ID": "XICS0003",
+        "Module_Name": "Institute of Classical Studies: Digital Classics: Linking written and material culture",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/institute-of-classical-studies:-digital-classics:-linking-written-and-material-culture-XICS0003"
+    },
     "XBAR0003": {
         "Department_ID": "ICOLL_NFA",
         "Department_Name": "Intercollegiate Course",
         "Module_ID": "XBAR0003",
         "Module_Name": "Universtat de Barcelona: Responses to Situations of Crisis from the Global Health Perspecitve",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/universtat-de-barcelona:-responses-to-situations-of-crisis-from-the-global-health-perspecitve-XBAR0003"
+    },
+    "XSAS0004": {
+        "Department_ID": "ICOLL_NFA",
+        "Department_Name": "Intercollegiate Course",
+        "Module_ID": "XSAS0004",
+        "Module_Name": "School of Advanced Study: Places, Artefacts and Images: Digital Approaches to Cultural Heritage",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/school-of-advanced-study:-places,-artefacts-and-images:-digital-approaches-to-cultural-heritage-XSAS0004"
     },
     "XSAS0002": {
         "Department_ID": "ICOLL_NFA",
@@ -7545,13 +7559,6 @@
         "Module_Name": "Introduction to Quantitative Research Methods",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/introduction-to-quantitative-research-methods-POLS0008"
     },
-    "POLS0074": {
-        "Department_ID": "POLSC_SHS",
-        "Department_Name": "Political Science",
-        "Module_ID": "POLS0074",
-        "Module_Name": "Religion and Politics",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/religion-and-politics-POLS0074"
-    },
     "POLS0028": {
         "Department_ID": "POLSC_SHS",
         "Department_Name": "Political Science",
@@ -7572,6 +7579,13 @@
         "Module_ID": "POLS0063",
         "Module_Name": "Ethics and Public Policy",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/ethics-and-public-policy-POLS0063"
+    },
+    "POLS0074": {
+        "Department_ID": "POLSC_SHS",
+        "Department_Name": "Political Science",
+        "Module_ID": "POLS0074",
+        "Module_Name": "Religion and Politics",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/religion-and-politics-POLS0074"
     },
     "PUBL0072": {
         "Department_ID": "POLSC_SHS",
@@ -8343,6 +8357,13 @@
         "Module_Name": "Web Architecture",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/web-architecture-CASA0017"
     },
+    "CASA0006": {
+        "Department_ID": "CASAN_BEN",
+        "Department_Name": "Centre for Advanced Spatial Analysis",
+        "Module_ID": "CASA0006",
+        "Module_Name": "Data Science for Spatial Systems",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/data-science-for-spatial-systems-CASA0006"
+    },
     "CASA0016": {
         "Department_ID": "CASAN_BEN",
         "Department_Name": "Centre for Advanced Spatial Analysis",
@@ -8412,13 +8433,6 @@
         "Module_ID": "CASA0022",
         "Module_Name": "Dissertation",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/dissertation-CASA0022"
-    },
-    "CASA0006": {
-        "Department_ID": "CASAN_BEN",
-        "Department_Name": "Centre for Advanced Spatial Analysis",
-        "Module_ID": "CASA0006",
-        "Module_Name": "Data Science for Spatial Systems",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/data-science-for-spatial-systems-CASA0006"
     },
     "CASA0005": {
         "Department_ID": "CASAN_BEN",
@@ -9722,13 +9736,6 @@
         "Module_Name": "Advanced Clinical Care in Oral Medicine",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/advanced-clinical-care-in-oral-medicine-DENT0055"
     },
-    "DENT0126": {
-        "Department_ID": "EASTD_MDS",
-        "Department_Name": "Eastman Dental Institute",
-        "Module_ID": "DENT0126",
-        "Module_Name": "Health Behaviour Change",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/health-behaviour-change-DENT0126"
-    },
     "DENT0071": {
         "Department_ID": "EASTD_MDS",
         "Department_Name": "Eastman Dental Institute",
@@ -9819,6 +9826,13 @@
         "Module_ID": "DENT0050",
         "Module_Name": "MSc in Endodontics Dissertation",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/msc-in-endodontics-dissertation-DENT0050"
+    },
+    "DENT0126": {
+        "Department_ID": "EASTD_MDS",
+        "Department_Name": "Eastman Dental Institute",
+        "Module_ID": "DENT0126",
+        "Module_Name": "Health Behaviour Change",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/health-behaviour-change-DENT0126"
     },
     "DENT0022": {
         "Department_ID": "EASTD_MDS",
@@ -10660,6 +10674,13 @@
         "Module_Name": "MultiOmics and Ethics",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/multiomics-and-ethics-MEDC0086"
     },
+    "MEDC0048": {
+        "Department_ID": "MEDCN_MDS",
+        "Department_Name": "Division of Medicine",
+        "Module_ID": "MEDC0048",
+        "Module_Name": "Drug Discovery 2",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/drug-discovery-2-MEDC0048"
+    },
     "MEDC0035": {
         "Department_ID": "MEDCN_MDS",
         "Department_Name": "Division of Medicine",
@@ -10680,13 +10701,6 @@
         "Module_ID": "MEDC0073",
         "Module_Name": "Research Project (Clinical Drug Development MRes)",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/research-project-(clinical-drug-development-mres)-MEDC0073"
-    },
-    "MEDC0048": {
-        "Department_ID": "MEDCN_MDS",
-        "Department_Name": "Division of Medicine",
-        "Module_ID": "MEDC0048",
-        "Module_Name": "Drug Discovery 2",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/drug-discovery-2-MEDC0048"
     },
     "MEDC0061": {
         "Department_ID": "MEDCN_MDS",
@@ -11304,6 +11318,13 @@
         "Module_Name": "Plastic and Reconstructive Surgery",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/plastic-and-reconstructive-surgery-SURG0072"
     },
+    "SURG0118": {
+        "Department_ID": "SURGS_MDS",
+        "Department_Name": "Division of Surgery and Interventional Science",
+        "Module_ID": "SURG0118",
+        "Module_Name": "Medical Innovation and Enterprise II",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/medical-innovation-and-enterprise-ii-SURG0118"
+    },
     "SURG0045": {
         "Department_ID": "SURGS_MDS",
         "Department_Name": "Division of Surgery and Interventional Science",
@@ -11499,13 +11520,6 @@
         "Module_ID": "SURG0132",
         "Module_Name": "Pain in Cancer Patients",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/pain-in-cancer-patients-SURG0132"
-    },
-    "SURG0118": {
-        "Department_ID": "SURGS_MDS",
-        "Department_Name": "Division of Surgery and Interventional Science",
-        "Module_ID": "SURG0118",
-        "Module_Name": "Medical Innovation and Enterprise II",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/medical-innovation-and-enterprise-ii-SURG0118"
     },
     "SURG0130": {
         "Department_ID": "SURGS_MDS",
@@ -12312,6 +12326,27 @@
         "Module_Name": "Human Learning and Memory",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/human-learning-and-memory-PSYC0030"
     },
+    "PSYC0261": {
+        "Department_ID": "PSYLA_BRN",
+        "Department_Name": "Division of Psychology and Language Sciences",
+        "Module_ID": "PSYC0261",
+        "Module_Name": "Research Dissertation",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/research-dissertation-PSYC0261"
+    },
+    "PSYC0258": {
+        "Department_ID": "PSYLA_BRN",
+        "Department_Name": "Division of Psychology and Language Sciences",
+        "Module_ID": "PSYC0258",
+        "Module_Name": "Quality improvement and audit",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/quality-improvement-and-audit-PSYC0258"
+    },
+    "PSYC0260": {
+        "Department_ID": "PSYLA_BRN",
+        "Department_Name": "Division of Psychology and Language Sciences",
+        "Module_ID": "PSYC0260",
+        "Module_Name": "Developing as a practitioner",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/developing-as-a-practitioner-PSYC0260"
+    },
     "PSYC0181": {
         "Department_ID": "PSYLA_BRN",
         "Department_Name": "Division of Psychology and Language Sciences",
@@ -12578,26 +12613,12 @@
         "Module_Name": "Clinical portfolio and End Point Assessment",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/clinical-portfolio-and-end-point-assessment-PSYC0262"
     },
-    "PSYC0258": {
-        "Department_ID": "PSYLA_BRN",
-        "Department_Name": "Division of Psychology and Language Sciences",
-        "Module_ID": "PSYC0258",
-        "Module_Name": "Quality improvement and audit",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/quality-improvement-and-audit-PSYC0258"
-    },
     "PSYC0254": {
         "Department_ID": "PSYLA_BRN",
         "Department_Name": "Division of Psychology and Language Sciences",
         "Module_ID": "PSYC0254",
         "Module_Name": "Social and Healthcare Context",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/social-and-healthcare-context-PSYC0254"
-    },
-    "PSYC0261": {
-        "Department_ID": "PSYLA_BRN",
-        "Department_Name": "Division of Psychology and Language Sciences",
-        "Module_ID": "PSYC0261",
-        "Module_Name": "Research Dissertation",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/research-dissertation-PSYC0261"
     },
     "PSYC0257": {
         "Department_ID": "PSYLA_BRN",
@@ -12613,19 +12634,40 @@
         "Module_Name": "Assessment and Engagement",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/assessment-and-engagement-PSYC0255"
     },
-    "PSYC0260": {
-        "Department_ID": "PSYLA_BRN",
-        "Department_Name": "Division of Psychology and Language Sciences",
-        "Module_ID": "PSYC0260",
-        "Module_Name": "Developing as a practitioner",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/developing-as-a-practitioner-PSYC0260"
-    },
     "PALS0017": {
         "Department_ID": "PSYLA_BRN",
         "Department_Name": "Division of Psychology and Language Sciences",
         "Module_ID": "PALS0017",
         "Module_Name": "Development of Speech Perception and Production",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/development-of-speech-perception-and-production-PALS0017"
+    },
+    "PSYC0070": {
+        "Department_ID": "PSYLA_BRN",
+        "Department_Name": "Division of Psychology and Language Sciences",
+        "Module_ID": "PSYC0070",
+        "Module_Name": "Values, Policy, Culture and Diversity in Low Intensity CBT Interventions",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/values,-policy,-culture-and-diversity-in-low-intensity-cbt-interventions-PSYC0070"
+    },
+    "PSYC0071": {
+        "Department_ID": "PSYLA_BRN",
+        "Department_Name": "Division of Psychology and Language Sciences",
+        "Module_ID": "PSYC0071",
+        "Module_Name": "Evidence-Based Low-Intensity Treatment for Common Mental Health Disorders",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/evidence-based-low-intensity-treatment-for-common-mental-health-disorders-PSYC0071"
+    },
+    "PSYC0069": {
+        "Department_ID": "PSYLA_BRN",
+        "Department_Name": "Division of Psychology and Language Sciences",
+        "Module_ID": "PSYC0069",
+        "Module_Name": "Engagement and Assessment of Patients with Common Mental Health Problems",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/engagement-and-assessment-of-patients-with-common-mental-health-problems-PSYC0069"
+    },
+    "PSYC0081": {
+        "Department_ID": "PSYLA_BRN",
+        "Department_Name": "Division of Psychology and Language Sciences",
+        "Module_ID": "PSYC0081",
+        "Module_Name": "Cognitive Behaviour Therapy for People with Psychosis: Implementation",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/cognitive-behaviour-therapy-for-people-with-psychosis:-implementation-PSYC0081"
     },
     "PALS0029": {
         "Department_ID": "PSYLA_BRN",
@@ -12634,12 +12676,19 @@
         "Module_Name": "The Human Voice: Speech, Emotions, Identity",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/the-human-voice:-speech,-emotions,-identity-PALS0029"
     },
-    "PSYC0071": {
+    "PSYC0074": {
         "Department_ID": "PSYLA_BRN",
         "Department_Name": "Division of Psychology and Language Sciences",
-        "Module_ID": "PSYC0071",
-        "Module_Name": "Evidence-Based Low-Intensity Treatment for Common Mental Health Disorders",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/evidence-based-low-intensity-treatment-for-common-mental-health-disorders-PSYC0071"
+        "Module_ID": "PSYC0074",
+        "Module_Name": "Fundamentals of Cognitive Therapy",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/fundamentals-of-cognitive-therapy-PSYC0074"
+    },
+    "PSYC0075": {
+        "Department_ID": "PSYLA_BRN",
+        "Department_Name": "Division of Psychology and Language Sciences",
+        "Module_ID": "PSYC0075",
+        "Module_Name": "Cognitive Behaviour Therapy for Anxiety Disorders (Basic)",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/cognitive-behaviour-therapy-for-anxiety-disorders-(basic)-PSYC0075"
     },
     "PSYC0080": {
         "Department_ID": "PSYLA_BRN",
@@ -12708,7 +12757,7 @@
         "Department_ID": "PSYLA_BRN",
         "Department_Name": "Division of Psychology and Language Sciences",
         "Module_ID": "PSYC0236",
-        "Module_Name": "Core Skills: (Part 2) Clinical practice and the therapeutic relationship",
+        "Module_Name": "Core Skills: (Part 2) Clinical Practice and The Therapeutic Relationship",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/core-skills:-(part-2)-clinical-practice-and-the-therapeutic-relationship-PSYC0236"
     },
     "PSYC0237": {
@@ -12820,8 +12869,8 @@
         "Department_ID": "PSYLA_BRN",
         "Department_Name": "Division of Psychology and Language Sciences",
         "Module_ID": "PSYC0246",
-        "Module_Name": "Under Fives: (Part 1) Fundauclmental Principles",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/under-fives:-(part-1)-fundauclmental-principles-PSYC0246"
+        "Module_Name": "Under Fives: (Part 1) Fundamental Principles",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/under-fives:-(part-1)-fundamental-principles-PSYC0246"
     },
     "PSYC0252": {
         "Department_ID": "PSYLA_BRN",
@@ -12841,8 +12890,8 @@
         "Department_ID": "PSYLA_BRN",
         "Department_Name": "Division of Psychology and Language Sciences",
         "Module_ID": "PSYC0251",
-        "Module_Name": "Mental Health in ASC (LD): (Part 1) Intervention and Support",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/mental-health-in-asc-(ld):-(part-1)-intervention-and-support-PSYC0251"
+        "Module_Name": "Mental Health in ASC (LD): (Part 1) Theory and Assessment",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/mental-health-in-asc-(ld):-(part-1)-theory-and-assessment-PSYC0251"
     },
     "PALS0046": {
         "Department_ID": "PSYLA_BRN",
@@ -12885,13 +12934,6 @@
         "Module_ID": "PSYC0042",
         "Module_Name": "Psychology Readings",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/psychology-readings-PSYC0042"
-    },
-    "PSYC0074": {
-        "Department_ID": "PSYLA_BRN",
-        "Department_Name": "Division of Psychology and Language Sciences",
-        "Module_ID": "PSYC0074",
-        "Module_Name": "Fundamentals of Cognitive Therapy",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/fundamentals-of-cognitive-therapy-PSYC0074"
     },
     "PSYC0235": {
         "Department_ID": "PSYLA_BRN",
@@ -13502,13 +13544,6 @@
         "Module_Name": "Designing and Analysing fMRI experiments",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/designing-and-analysing-fmri-experiments-PSYC0073"
     },
-    "PSYC0081": {
-        "Department_ID": "PSYLA_BRN",
-        "Department_Name": "Division of Psychology and Language Sciences",
-        "Module_ID": "PSYC0081",
-        "Module_Name": "Cognitive Behaviour Therapy for People with Psychosis: Implementation",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/cognitive-behaviour-therapy-for-people-with-psychosis:-implementation-PSYC0081"
-    },
     "PSYC0201": {
         "Department_ID": "PSYLA_BRN",
         "Department_Name": "Division of Psychology and Language Sciences",
@@ -13522,13 +13557,6 @@
         "Module_ID": "PLIN0038",
         "Module_Name": "Neurolinguistics",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/neurolinguistics-PLIN0038"
-    },
-    "PSYC0069": {
-        "Department_ID": "PSYLA_BRN",
-        "Department_Name": "Division of Psychology and Language Sciences",
-        "Module_ID": "PSYC0069",
-        "Module_Name": "Engagement and Assessment of Patients with Common Mental Health Problems",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/engagement-and-assessment-of-patients-with-common-mental-health-problems-PSYC0069"
     },
     "PSYC0208": {
         "Department_ID": "PSYLA_BRN",
@@ -13662,13 +13690,6 @@
         "Module_ID": "PALS0008",
         "Module_Name": "Memory",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/memory-PALS0008"
-    },
-    "PSYC0075": {
-        "Department_ID": "PSYLA_BRN",
-        "Department_Name": "Division of Psychology and Language Sciences",
-        "Module_ID": "PSYC0075",
-        "Module_Name": "Cognitive Behaviour Therapy for Anxiety Disorders (Basic)",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/cognitive-behaviour-therapy-for-anxiety-disorders-(basic)-PSYC0075"
     },
     "PSYC0146": {
         "Department_ID": "PSYLA_BRN",
@@ -14054,13 +14075,6 @@
         "Module_ID": "PALS0031",
         "Module_Name": "Introduction to Event-Related Potential Techniques",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/introduction-to-event-related-potential-techniques-PALS0031"
-    },
-    "PSYC0070": {
-        "Department_ID": "PSYLA_BRN",
-        "Department_Name": "Division of Psychology and Language Sciences",
-        "Module_ID": "PSYC0070",
-        "Module_Name": "Values, Policy, Culture and Diversity in Low Intensity CBT Interventions",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/values,-policy,-culture-and-diversity-in-low-intensity-cbt-interventions-PSYC0070"
     },
     "PLIN0010": {
         "Department_ID": "PSYLA_BRN",
@@ -14580,19 +14594,19 @@
         "Module_Name": "Lateral Skull Base and Facial Nerve",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/lateral-skull-base-and-facial-nerve-EARI0004"
     },
-    "EARI0023": {
-        "Department_ID": "EARIN_BRN",
-        "Department_Name": "Ear Institute",
-        "Module_ID": "EARI0023",
-        "Module_Name": "Paediatric Habilitation",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/paediatric-habilitation-EARI0023"
-    },
     "EARI0017": {
         "Department_ID": "EARIN_BRN",
         "Department_Name": "Ear Institute",
         "Module_ID": "EARI0017",
         "Module_Name": "Living with Hearing Loss",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/living-with-hearing-loss-EARI0017"
+    },
+    "EARI0023": {
+        "Department_ID": "EARIN_BRN",
+        "Department_Name": "Ear Institute",
+        "Module_ID": "EARI0023",
+        "Module_Name": "Paediatric Habilitation",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/paediatric-habilitation-EARI0023"
     },
     "EARI0018": {
         "Department_ID": "EARIN_BRN",
@@ -14845,6 +14859,27 @@
         "Module_ID": "OPHT0065",
         "Module_Name": "Diagnostic imaging - Glaucoma & Cornea",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/diagnostic-imaging---glaucoma-&-cornea-OPHT0065"
+    },
+    "OPHT0001": {
+        "Department_ID": "OPHTH_BRN",
+        "Department_Name": "Institute of Ophthalmology",
+        "Module_ID": "OPHT0001",
+        "Module_Name": "Clinical Practice: Case-Based Portfolio",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/clinical-practice:-case-based-portfolio-OPHT0001"
+    },
+    "OPHT0016": {
+        "Department_ID": "OPHTH_BRN",
+        "Department_Name": "Institute of Ophthalmology",
+        "Module_ID": "OPHT0016",
+        "Module_Name": "Clinical Practice: Uveitis",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/clinical-practice:-uveitis-OPHT0016"
+    },
+    "OPHT0010": {
+        "Department_ID": "OPHTH_BRN",
+        "Department_Name": "Institute of Ophthalmology",
+        "Module_ID": "OPHT0010",
+        "Module_Name": "Clinical Practice: Cataract",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/clinical-practice:-cataract-OPHT0010"
     },
     "OPHT0049": {
         "Department_ID": "OPHTH_BRN",
@@ -15965,13 +16000,6 @@
         "Module_ID": "BASC0030",
         "Module_Name": "Arts, Nature and Wellbeing: Non-clinical Interventions in Health",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/arts,-nature-and-wellbeing:-non-clinical-interventions-in-health-BASC0030"
-    },
-    "BASC0031": {
-        "Department_ID": "BASCO_ART",
-        "Department_Name": "Arts and Sciences BASc",
-        "Module_ID": "BASC0031",
-        "Module_Name": "Ecosociologies: Theory, Analysis and Action",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/ecosociologies:-theory,-analysis-and-action-BASC0031"
     },
     "BASC0007": {
         "Department_ID": "BASCO_ART",
@@ -17370,8 +17398,8 @@
         "Department_ID": "EISPS_ART",
         "Department_Name": "European and International Social and Political Studies",
         "Module_ID": "ESPS0024",
-        "Module_Name": "Law, Freedom, and Morality",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/law,-freedom,-and-morality-ESPS0024"
+        "Module_Name": "Law, Freedom~ and Morality",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/law,-freedom~-and-morality-ESPS0024"
     },
     "ESPS0022": {
         "Department_ID": "EISPS_ART",
@@ -17660,12 +17688,12 @@
         "Module_Name": "Development Project: Regeneration",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/development-project:-regeneration-BPLN0088"
     },
-    "BPLN0078": {
+    "BPLN0056": {
         "Department_ID": "BSPLN_BEN",
         "Department_Name": "Bartlett School of Planning",
-        "Module_ID": "BPLN0078",
-        "Module_Name": "Urban Design: Theory to Practice",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/urban-design:-theory-to-practice-BPLN0078"
+        "Module_ID": "BPLN0056",
+        "Module_Name": "Urban Design: Layout, Density and Typology",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/urban-design:-layout,-density-and-typology-BPLN0056"
     },
     "BPLN0033": {
         "Department_ID": "BSPLN_BEN",
@@ -17673,13 +17701,6 @@
         "Module_ID": "BPLN0033",
         "Module_Name": "Collaborative City Planning Strategies",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/collaborative-city-planning-strategies-BPLN0033"
-    },
-    "BPLN0056": {
-        "Department_ID": "BSPLN_BEN",
-        "Department_Name": "Bartlett School of Planning",
-        "Module_ID": "BPLN0056",
-        "Module_Name": "Urban Design: Layout, Density and Typology",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/urban-design:-layout,-density-and-typology-BPLN0056"
     },
     "BPLN0051": {
         "Department_ID": "BSPLN_BEN",
@@ -17765,6 +17786,13 @@
         "Module_Name": "Transport Consultancy Study",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/transport-consultancy-study-BPLN0105"
     },
+    "BPLN0102": {
+        "Department_ID": "BSPLN_BEN",
+        "Department_Name": "Bartlett School of Planning",
+        "Module_ID": "BPLN0102",
+        "Module_Name": "Planning for Sustainability and Inclusion",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/planning-for-sustainability-and-inclusion-BPLN0102"
+    },
     "BPLN0079": {
         "Department_ID": "BSPLN_BEN",
         "Department_Name": "Bartlett School of Planning",
@@ -17806,6 +17834,13 @@
         "Module_ID": "BPLN0047",
         "Module_Name": "Spatial Planning: Critical Practice",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/spatial-planning:-critical-practice-BPLN0047"
+    },
+    "BPLN0078": {
+        "Department_ID": "BSPLN_BEN",
+        "Department_Name": "Bartlett School of Planning",
+        "Module_ID": "BPLN0078",
+        "Module_Name": "Urban Design: Theory to Practice",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/urban-design:-theory-to-practice-BPLN0078"
     },
     "BPLN0006": {
         "Department_ID": "BSPLN_BEN",
@@ -17926,13 +17961,6 @@
         "Module_Name": "Individual Study Project",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/individual-study-project-BPLN0001"
     },
-    "BPLN0102": {
-        "Department_ID": "BSPLN_BEN",
-        "Department_Name": "Bartlett School of Planning",
-        "Module_ID": "BPLN0102",
-        "Module_Name": "Planning for Sustainability and Inclusion",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/planning-for-sustainability-and-inclusion-BPLN0102"
-    },
     "BPLN0093": {
         "Department_ID": "BSPLN_BEN",
         "Department_Name": "Bartlett School of Planning",
@@ -18002,13 +18030,6 @@
         "Module_ID": "BPLN0090",
         "Module_Name": "Urban Project Management",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/urban-project-management-BPLN0090"
-    },
-    "BPLN0021": {
-        "Department_ID": "BSPLN_BEN",
-        "Department_Name": "Bartlett School of Planning",
-        "Module_ID": "BPLN0021",
-        "Module_Name": "Interdisciplinary Urban Design",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/interdisciplinary-urban-design-BPLN0021"
     },
     "BPLN0103": {
         "Department_ID": "BSPLN_BEN",
@@ -18191,13 +18212,6 @@
         "Module_ID": "BPLN0011",
         "Module_Name": "Real Estate Investment",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/real-estate-investment-BPLN0011"
-    },
-    "BPLN0031": {
-        "Department_ID": "BSPLN_BEN",
-        "Department_Name": "Bartlett School of Planning",
-        "Module_ID": "BPLN0031",
-        "Module_Name": "Design and Real Estate",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/design-and-real-estate-BPLN0031"
     },
     "BPLN0054": {
         "Department_ID": "BSPLN_BEN",
@@ -19690,13 +19704,6 @@
         "Module_Name": "Strays: Lost & Found in the Nineteenth-Century European Novel",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/strays:-lost-&-found-in-the-nineteenth-century-european-novel-LITC0033"
     },
-    "CMII0133": {
-        "Department_ID": "SELCS_ART",
-        "Department_Name": "School of European Languages, Culture and Society",
-        "Module_ID": "CMII0133",
-        "Module_Name": "Fictions of Grief",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/fictions-of-grief-CMII0133"
-    },
     "ELCS0069": {
         "Department_ID": "SELCS_ART",
         "Department_Name": "School of European Languages, Culture and Society",
@@ -19830,13 +19837,6 @@
         "Module_Name": "Urban Tales: the City in East Asian Literature",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/urban-tales:-the-city-in-east-asian-literature-LITC0014"
     },
-    "GERM0057": {
-        "Department_ID": "SELCS_ART",
-        "Department_Name": "School of European Languages, Culture and Society",
-        "Module_ID": "GERM0057",
-        "Module_Name": "Black Germany",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/black-germany-GERM0057"
-    },
     "ITAL0004": {
         "Department_ID": "SELCS_ART",
         "Department_Name": "School of European Languages, Culture and Society",
@@ -19871,6 +19871,13 @@
         "Module_ID": "LITC0039",
         "Module_Name": "Transcultural East Asia",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/transcultural-east-asia-LITC0039"
+    },
+    "GERM0057": {
+        "Department_ID": "SELCS_ART",
+        "Department_Name": "School of European Languages, Culture and Society",
+        "Module_ID": "GERM0057",
+        "Module_Name": "Black Germany",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/black-germany-GERM0057"
     },
     "GERM0020": {
         "Department_ID": "SELCS_ART",
@@ -20131,6 +20138,13 @@
         "Module_Name": "Comparative Syntax",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/comparative-syntax-ELCS0013"
     },
+    "GERM0021": {
+        "Department_ID": "SELCS_ART",
+        "Department_Name": "School of European Languages, Culture and Society",
+        "Module_ID": "GERM0021",
+        "Module_Name": "Parzival",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/parzival-GERM0021"
+    },
     "SCAN0012": {
         "Department_ID": "SELCS_ART",
         "Department_Name": "School of European Languages, Culture and Society",
@@ -20186,13 +20200,6 @@
         "Module_ID": "SCAN0034",
         "Module_Name": "Advanced Project Work in Danish, Norwegian or Swedish",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/advanced-project-work-in-danish,-norwegian-or-swedish-SCAN0034"
-    },
-    "GERM0021": {
-        "Department_ID": "SELCS_ART",
-        "Department_Name": "School of European Languages, Culture and Society",
-        "Module_ID": "GERM0021",
-        "Module_Name": "Parzival",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/parzival-GERM0021"
     },
     "SCAN0041": {
         "Department_ID": "SELCS_ART",
@@ -20852,13 +20859,6 @@
         "Module_Name": "Animal Biodiversity",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/animal-biodiversity-BIOL0012"
     },
-    "BIOL0021": {
-        "Department_ID": "BIOSC_LIF",
-        "Department_Name": "Division of Biosciences",
-        "Module_ID": "BIOL0021",
-        "Module_Name": "Advanced Human Genetics",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/advanced-human-genetics-BIOL0021"
-    },
     "PHAR0011": {
         "Department_ID": "BIOSC_LIF",
         "Department_Name": "Division of Biosciences",
@@ -20872,13 +20872,6 @@
         "Module_ID": "BIOC0030",
         "Module_Name": "Advanced Molecular Biology of Protein Regulatory Networks",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/advanced-molecular-biology-of-protein-regulatory-networks-BIOC0030"
-    },
-    "ANAT0017": {
-        "Department_ID": "BIOSC_LIF",
-        "Department_Name": "Division of Biosciences",
-        "Module_ID": "ANAT0017",
-        "Module_Name": "MSc Neuroscience: Journal Club",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/msc-neuroscience:-journal-club-ANAT0017"
     },
     "GENE0006": {
         "Department_ID": "BIOSC_LIF",
@@ -20921,13 +20914,6 @@
         "Module_ID": "BIOC0032",
         "Module_Name": "Biochemistry Year in Industry",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/biochemistry-year-in-industry-BIOC0032"
-    },
-    "ANAT0007": {
-        "Department_ID": "BIOSC_LIF",
-        "Department_Name": "Division of Biosciences",
-        "Module_ID": "ANAT0007",
-        "Module_Name": "Forensic Osteology and Anthropology",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/forensic-osteology-and-anthropology-ANAT0007"
     },
     "PHAR0014": {
         "Department_ID": "BIOSC_LIF",
@@ -20992,6 +20978,13 @@
         "Module_Name": "Species Conservation and Biodiversity",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/species-conservation-and-biodiversity-BIOL0032"
     },
+    "BIOL0021": {
+        "Department_ID": "BIOSC_LIF",
+        "Department_Name": "Division of Biosciences",
+        "Module_ID": "BIOL0021",
+        "Module_Name": "Advanced Human Genetics",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/advanced-human-genetics-BIOL0021"
+    },
     "BIOC0005": {
         "Department_ID": "BIOSC_LIF",
         "Department_Name": "Division of Biosciences",
@@ -21027,6 +21020,13 @@
         "Module_Name": "Second Year Core Skills",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/second-year-core-skills-BIOL0015"
     },
+    "BIOS0022": {
+        "Department_ID": "BIOSC_LIF",
+        "Department_Name": "Division of Biosciences",
+        "Module_ID": "BIOS0022",
+        "Module_Name": "Human Sciences Year Abroad",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/human-sciences-year-abroad-BIOS0022"
+    },
     "ANAT0008": {
         "Department_ID": "BIOSC_LIF",
         "Department_Name": "Division of Biosciences",
@@ -21054,6 +21054,13 @@
         "Module_ID": "ANAT0012",
         "Module_Name": "Molecular Basis of Neuropsychiatric Disorders",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/molecular-basis-of-neuropsychiatric-disorders-ANAT0012"
+    },
+    "PHAR0015": {
+        "Department_ID": "BIOSC_LIF",
+        "Department_Name": "Division of Biosciences",
+        "Module_ID": "PHAR0015",
+        "Module_Name": "Psychopharmacology",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/psychopharmacology-PHAR0015"
     },
     "CELL0017": {
         "Department_ID": "BIOSC_LIF",
@@ -21089,13 +21096,6 @@
         "Module_ID": "BIOS0024",
         "Module_Name": "Investigative Methods in Neuroscience, Physiology and Pharmacology",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/investigative-methods-in-neuroscience,-physiology-and-pharmacology-BIOS0024"
-    },
-    "PHAR0015": {
-        "Department_ID": "BIOSC_LIF",
-        "Department_Name": "Division of Biosciences",
-        "Module_ID": "PHAR0015",
-        "Module_Name": "Psychopharmacology",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/psychopharmacology-PHAR0015"
     },
     "BIOS0004": {
         "Department_ID": "BIOSC_LIF",
@@ -21152,6 +21152,13 @@
         "Module_ID": "ANAT0019",
         "Module_Name": "Cognitive Systems Neuroscience",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/cognitive-systems-neuroscience-ANAT0019"
+    },
+    "ANAT0017": {
+        "Department_ID": "BIOSC_LIF",
+        "Department_Name": "Division of Biosciences",
+        "Module_ID": "ANAT0017",
+        "Module_Name": "MSc Neuroscience: Journal Club",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/msc-neuroscience:-journal-club-ANAT0017"
     },
     "ANAT0010": {
         "Department_ID": "BIOSC_LIF",
@@ -21390,13 +21397,6 @@
         "Module_ID": "BIOL0001",
         "Module_Name": "Quantitative Biology",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/quantitative-biology-BIOL0001"
-    },
-    "ANAT0004": {
-        "Department_ID": "BIOSC_LIF",
-        "Department_Name": "Division of Biosciences",
-        "Module_ID": "ANAT0004",
-        "Module_Name": "Human Anatomy and Embryology",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/human-anatomy-and-embryology-ANAT0004"
     },
     "NEUR0003": {
         "Department_ID": "BIOSC_LIF",
@@ -22070,13 +22070,6 @@
         "Module_Name": "MRes Biodiversity Research Project II",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/mres-biodiversity-research-project-ii-BIOS0014"
     },
-    "BIOS0015": {
-        "Department_ID": "BIOSC_LIF",
-        "Department_Name": "Division of Biosciences",
-        "Module_ID": "BIOS0015",
-        "Module_Name": "MSc Biomedical Sciences Research Project",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/msc-biomedical-sciences-research-project-BIOS0015"
-    },
     "CELL0011": {
         "Department_ID": "BIOSC_LIF",
         "Department_Name": "Division of Biosciences",
@@ -22153,6 +22146,13 @@
         "Module_ID": "ANAT0005",
         "Module_Name": "Human Anatomy and Embryology (Thorax, Abdomen and Pelvis)",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/human-anatomy-and-embryology-(thorax,-abdomen-and-pelvis)-ANAT0005"
+    },
+    "BIOS0015": {
+        "Department_ID": "BIOSC_LIF",
+        "Department_Name": "Division of Biosciences",
+        "Module_ID": "BIOS0015",
+        "Module_Name": "MSc Biomedical Sciences Research Project",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/msc-biomedical-sciences-research-project-BIOS0015"
     },
     "DEVP0002": {
         "Department_ID": "DEVPU_BEN",
@@ -22651,13 +22651,6 @@
         "Module_Name": "Russian Short Fiction from Romanticism to Postmodernism",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/russian-short-fiction-from-romanticism-to-postmodernism-SERS0062"
     },
-    "SERS0030": {
-        "Department_ID": "SSERS_ART",
-        "Department_Name": "SSEES - Russian",
-        "Module_ID": "SERS0030",
-        "Module_Name": "Chekhov A",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/chekhov-a-SERS0030"
-    },
     "SERS0014": {
         "Department_ID": "SSERS_ART",
         "Department_Name": "SSEES - Russian",
@@ -22706,6 +22699,13 @@
         "Module_ID": "SERS0081",
         "Module_Name": "Contemporary Russian Cinema A",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/contemporary-russian-cinema-a-SERS0081"
+    },
+    "SERS0030": {
+        "Department_ID": "SSERS_ART",
+        "Department_Name": "SSEES - Russian",
+        "Module_ID": "SERS0030",
+        "Module_Name": "Chekhov A",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/chekhov-a-SERS0030"
     },
     "SERS0060": {
         "Department_ID": "SSERS_ART",
@@ -22987,6 +22987,20 @@
         "Module_Name": "Introduction to Hungarian Literature and Culture",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/introduction-to-hungarian-literature-and-culture-SEEH0026"
     },
+    "SEES0121": {
+        "Department_ID": "SSEES_SES",
+        "Department_Name": "SSEES - School of Slavonic and East European Studies",
+        "Module_ID": "SEES0121",
+        "Module_Name": "One Year MRes Dissertation in Politics and Economics of Eastern Europe",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/one-year-mres-dissertation-in-politics-and-economics-of-eastern-europe-SEES0121"
+    },
+    "SEES0109": {
+        "Department_ID": "SSEES_SES",
+        "Department_Name": "SSEES - School of Slavonic and East European Studies",
+        "Module_ID": "SEES0109",
+        "Module_Name": "Public Choice - Private Interest",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/public-choice---private-interest-SEES0109"
+    },
     "SEES0115": {
         "Department_ID": "SSEES_SES",
         "Department_Name": "SSEES - School of Slavonic and East European Studies",
@@ -23189,13 +23203,6 @@
         "Module_ID": "SEES0128",
         "Module_Name": "Qualitative Methods",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/qualitative-methods-SEES0128"
-    },
-    "SEES0109": {
-        "Department_ID": "SSEES_SES",
-        "Department_Name": "SSEES - School of Slavonic and East European Studies",
-        "Module_ID": "SEES0109",
-        "Module_Name": "Public Choice - Private Interest",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/public-choice---private-interest-SEES0109"
     },
     "SEES0065": {
         "Department_ID": "SSEES_SES",
@@ -24254,19 +24261,19 @@
         "Module_Name": "How Words Work: Meaning and Modularity",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/how-words-work:-meaning-and-modularity-SEEE0003"
     },
-    "SEEU0019": {
-        "Department_ID": "SSEEL_ART",
-        "Department_Name": "SSEES - East European Languages and Culture",
-        "Module_ID": "SEEU0019",
-        "Module_Name": "Ukrainian A Affiliate",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/ukrainian-a-affiliate-SEEU0019"
-    },
     "SEEC0004": {
         "Department_ID": "SSEEL_ART",
         "Department_Name": "SSEES - East European Languages and Culture",
         "Module_ID": "SEEC0004",
         "Module_Name": "Czech A (e-learning version)",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/czech-a-(e-learning-version)-SEEC0004"
+    },
+    "SEEU0019": {
+        "Department_ID": "SSEEL_ART",
+        "Department_Name": "SSEES - East European Languages and Culture",
+        "Module_ID": "SEEU0019",
+        "Module_Name": "Ukrainian A Affiliate",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/ukrainian-a-affiliate-SEEU0019"
     },
     "SEEB0001": {
         "Department_ID": "SSEEL_ART",
@@ -24421,6 +24428,13 @@
         "Module_ID": "SESS0081",
         "Module_Name": "International and Regional Politics of Eurasia",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/international-and-regional-politics-of-eurasia-SESS0081"
+    },
+    "SESS0037": {
+        "Department_ID": "SSESS_SHS",
+        "Department_Name": "SSEES - Social Sciences",
+        "Module_ID": "SESS0037",
+        "Module_Name": "Economics of Industrial, Technological and Corporate Change",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/economics-of-industrial,-technological-and-corporate-change-SESS0037"
     },
     "SESS0013": {
         "Department_ID": "SSESS_SHS",
@@ -25948,6 +25962,13 @@
         "Module_Name": "Project in Mathematics",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/project-in-mathematics-MATH0084"
     },
+    "MATH0071": {
+        "Department_ID": "MATHS_MAP",
+        "Department_Name": "Mathematics",
+        "Module_ID": "MATH0071",
+        "Module_Name": "Spectral Theory",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/spectral-theory-MATH0071"
+    },
     "MATH0040": {
         "Department_ID": "MATHS_MAP",
         "Department_Name": "Mathematics",
@@ -25961,13 +25982,6 @@
         "Module_ID": "MATH0099",
         "Module_Name": "Statistical Methods and Data Analytics for Finance",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/statistical-methods-and-data-analytics-for-finance-MATH0099"
-    },
-    "MATH0071": {
-        "Department_ID": "MATHS_MAP",
-        "Department_Name": "Mathematics",
-        "Module_ID": "MATH0071",
-        "Module_Name": "Spectral Theory",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/spectral-theory-MATH0071"
     },
     "MATH0064": {
         "Department_ID": "MATHS_MAP",
@@ -26003,6 +26017,13 @@
         "Module_ID": "XBKB0029",
         "Module_Name": "Birkbeck College: Remote Sensing and Planetary Surfaces",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/birkbeck-college:-remote-sensing-and-planetary-surfaces-XBKB0029"
+    },
+    "XBKB0073": {
+        "Department_ID": "ICBRK_NFA",
+        "Department_Name": "Birkbeck",
+        "Module_ID": "XBKB0073",
+        "Module_Name": "Birkbeck College: Beginners Greek",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/birkbeck-college:-beginners-greek-XBKB0073"
     },
     "XBKB0022": {
         "Department_ID": "ICBRK_NFA",
@@ -26046,6 +26067,13 @@
         "Module_Name": "Birkbeck College: Environmental Isotopes",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/birkbeck-college:-environmental-isotopes-XBKB0062"
     },
+    "XBKB0075": {
+        "Department_ID": "ICBRK_NFA",
+        "Department_Name": "Birkbeck",
+        "Module_ID": "XBKB0075",
+        "Module_Name": "Birkbeck College: Intermediate Latin I",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/birkbeck-college:-intermediate-latin-i-XBKB0075"
+    },
     "XBKB0012": {
         "Department_ID": "ICBRK_NFA",
         "Department_Name": "Birkbeck",
@@ -26059,6 +26087,13 @@
         "Module_ID": "XBKB0017",
         "Module_Name": "Birkbeck College: Victorian Emotions",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/birkbeck-college:-victorian-emotions-XBKB0017"
+    },
+    "XBKB0072": {
+        "Department_ID": "ICBRK_NFA",
+        "Department_Name": "Birkbeck",
+        "Module_ID": "XBKB0072",
+        "Module_Name": "Birkbeck College: Sexuality",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/birkbeck-college:-sexuality-XBKB0072"
     },
     "XBKB0002": {
         "Department_ID": "ICBRK_NFA",
@@ -26339,6 +26374,13 @@
         "Module_ID": "XBKB0027",
         "Module_Name": "Birkbeck College: Advanced Palaeontology",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/birkbeck-college:-advanced-palaeontology-XBKB0027"
+    },
+    "XBKB0074": {
+        "Department_ID": "ICBRK_NFA",
+        "Department_Name": "Birkbeck",
+        "Module_ID": "XBKB0074",
+        "Module_Name": "Birkbeck College: Geological Hazards",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/birkbeck-college:-geological-hazards-XBKB0074"
     },
     "XBKB0028": {
         "Department_ID": "ICBRK_NFA",
@@ -26746,6 +26788,13 @@
         "Module_Name": "King's College: Mathematical Biology",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/king's-college:-mathematical-biology-XKCL0192"
     },
+    "XKCL0272": {
+        "Department_ID": "ICKCL_NFA",
+        "Department_Name": "Kings College",
+        "Module_ID": "XKCL0272",
+        "Module_Name": "King's College: Harlem: A Social and Intellectual History Since 1900",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/king's-college:-harlem:-a-social-and-intellectual-history-since-1900-XKCL0272"
+    },
     "XKCL0113": {
         "Department_ID": "ICKCL_NFA",
         "Department_Name": "Kings College",
@@ -26886,6 +26935,34 @@
         "Module_Name": "King's College: Cinema and Sentiment",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/king's-college:-cinema-and-sentiment-XKCL0006"
     },
+    "XKCL0043": {
+        "Department_ID": "ICKCL_NFA",
+        "Department_Name": "Kings College",
+        "Module_ID": "XKCL0043",
+        "Module_Name": "King's College: Patristic Theology in the Making",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/king's-college:-patristic-theology-in-the-making-XKCL0043"
+    },
+    "XKCL0008": {
+        "Department_ID": "ICKCL_NFA",
+        "Department_Name": "Kings College",
+        "Module_ID": "XKCL0008",
+        "Module_Name": "King's College: New Directions in Chinese Cinemas",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/king's-college:-new-directions-in-chinese-cinemas-XKCL0008"
+    },
+    "XKCL0300": {
+        "Department_ID": "ICKCL_NFA",
+        "Department_Name": "Kings College",
+        "Module_ID": "XKCL0300",
+        "Module_Name": "King's College: Research In Marketing",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/king's-college:-research-in-marketing-XKCL0300"
+    },
+    "XKCL0301": {
+        "Department_ID": "ICKCL_NFA",
+        "Department_Name": "Kings College",
+        "Module_ID": "XKCL0301",
+        "Module_Name": "King's College: Marketing Analytics",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/king's-college:-marketing-analytics-XKCL0301"
+    },
     "XKCL0022": {
         "Department_ID": "ICKCL_NFA",
         "Department_Name": "Kings College",
@@ -27004,6 +27081,27 @@
         "Module_ID": "XKCL0147",
         "Module_Name": "King's College: The Origins of the Reformation in England II",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/king's-college:-the-origins-of-the-reformation-in-england-ii-XKCL0147"
+    },
+    "XKCL0303": {
+        "Department_ID": "ICKCL_NFA",
+        "Department_Name": "Kings College",
+        "Module_ID": "XKCL0303",
+        "Module_Name": "King's College: Engaging Greece: Experiencing the Past and Responding to the Present",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/king's-college:-engaging-greece:-experiencing-the-past-and-responding-to-the-present-XKCL0303"
+    },
+    "XKCL0302": {
+        "Department_ID": "ICKCL_NFA",
+        "Department_Name": "Kings College",
+        "Module_ID": "XKCL0302",
+        "Module_Name": "King's College: Urban Ecology",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/king's-college:-urban-ecology-XKCL0302"
+    },
+    "XKCL0286": {
+        "Department_ID": "ICKCL_NFA",
+        "Department_Name": "Kings College",
+        "Module_ID": "XKCL0286",
+        "Module_Name": "King's College: Female Voices in Greek and Latin Literature",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/king's-college:-female-voices-in-greek-and-latin-literature-XKCL0286"
     },
     "XKCL0219": {
         "Department_ID": "ICKCL_NFA",
@@ -27642,6 +27740,27 @@
         "Module_Name": "King's College: Mathematical Methods for Theoretical Physics",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/king's-college:-mathematical-methods-for-theoretical-physics-XKCL0217"
     },
+    "XKCL0298": {
+        "Department_ID": "ICKCL_NFA",
+        "Department_Name": "Kings College",
+        "Module_ID": "XKCL0298",
+        "Module_Name": "King's College: Virgil's Aeneid",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/king's-college:-virgil's-aeneid-XKCL0298"
+    },
+    "XKCL0297": {
+        "Department_ID": "ICKCL_NFA",
+        "Department_Name": "Kings College",
+        "Module_ID": "XKCL0297",
+        "Module_Name": "King's College: Introductory Latin Texts IV (Verse)",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/king's-college:-introductory-latin-texts-iv-(verse)-XKCL0297"
+    },
+    "XKCL0299": {
+        "Department_ID": "ICKCL_NFA",
+        "Department_Name": "Kings College",
+        "Module_ID": "XKCL0299",
+        "Module_Name": "King's College: Classical Antiquity at the Fin de Si\u00e8cle: Art, Sexuality, Religion and Madness",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/king's-college:-classical-antiquity-at-the-fin-de-si\u00e8cle:-art,-sexuality,-religion-and-madness-XKCL0299"
+    },
     "XKCL0161": {
         "Department_ID": "ICKCL_NFA",
         "Department_Name": "Kings College",
@@ -27872,13 +27991,6 @@
         "Module_ID": "XKCL0104",
         "Module_Name": "King's College: Hollywood and the Post Industrial City",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/king's-college:-hollywood-and-the-post-industrial-city-XKCL0104"
-    },
-    "XKCL0008": {
-        "Department_ID": "ICKCL_NFA",
-        "Department_Name": "Kings College",
-        "Module_ID": "XKCL0008",
-        "Module_Name": "King's College: New Directions in Chinese Cinemas",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/king's-college:-new-directions-in-chinese-cinemas-XKCL0008"
     },
     "XKCL0141": {
         "Department_ID": "ICKCL_NFA",
@@ -28349,13 +28461,6 @@
         "Module_Name": "King's College: The Reception of Roman Comedy",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/king's-college:-the-reception-of-roman-comedy-XKCL0034"
     },
-    "XKCL0043": {
-        "Department_ID": "ICKCL_NFA",
-        "Department_Name": "Kings College",
-        "Module_ID": "XKCL0043",
-        "Module_Name": "King's College: Patristic Theology in the Making",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/king's-college:-patristic-theology-in-the-making-XKCL0043"
-    },
     "XKCL0170": {
         "Department_ID": "ICKCL_NFA",
         "Department_Name": "Kings College",
@@ -28524,6 +28629,13 @@
         "Module_Name": "King's College: British Economic History, 1700-1939",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/king's-college:-british-economic-history,-1700-1939-XKCL0110"
     },
+    "XKCL0296": {
+        "Department_ID": "ICKCL_NFA",
+        "Department_Name": "Kings College",
+        "Module_ID": "XKCL0296",
+        "Module_Name": "King's College: The Politics of Managing Public Finances in Emerging Economies",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/king's-college:-the-politics-of-managing-public-finances-in-emerging-economies-XKCL0296"
+    },
     "XLSE0016": {
         "Department_ID": "ICLSE_NFA",
         "Department_Name": "London School of Economics",
@@ -28558,13 +28670,6 @@
         "Module_ID": "XLSE0018",
         "Module_Name": "LSE: Quantifying Risk and Modelling Alternative Markets",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/lse:-quantifying-risk-and-modelling-alternative-markets-XLSE0018"
-    },
-    "12AN0256": {
-        "Department_ID": "ICLSE_NFA",
-        "Department_Name": "London School of Economics",
-        "Module_ID": "12AN0256",
-        "Module_Name": "LSE: Economic Anthropology (1): Production and Exchange",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/lse:-economic-anthropology-(1):-production-and-exchange-12AN0256"
     },
     "XLSE0002": {
         "Department_ID": "ICLSE_NFA",
@@ -28643,19 +28748,19 @@
         "Module_Name": "LSE: Information Technology and the Law",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/lse:-information-technology-and-the-law-XLSE0015"
     },
-    "XLSE0010": {
-        "Department_ID": "ICLSE_NFA",
-        "Department_Name": "London School of Economics",
-        "Module_ID": "XLSE0010",
-        "Module_Name": "LSE: Derivatives",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/lse:-derivatives-XLSE0010"
-    },
     "XLSE0013": {
         "Department_ID": "ICLSE_NFA",
         "Department_Name": "London School of Economics",
         "Module_ID": "XLSE0013",
         "Module_Name": "LSE: Finance II",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/lse:-finance-ii-XLSE0013"
+    },
+    "XLSE0010": {
+        "Department_ID": "ICLSE_NFA",
+        "Department_Name": "London School of Economics",
+        "Module_ID": "XLSE0010",
+        "Module_Name": "LSE: Derivatives",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/lse:-derivatives-XLSE0010"
     },
     "XLSE0014": {
         "Department_ID": "ICLSE_NFA",
@@ -28783,6 +28888,27 @@
         "Module_Name": "Queen Mary: Advanced Cosmology",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/queen-mary:-advanced-cosmology-XQML0044"
     },
+    "XQML0070": {
+        "Department_ID": "ICQMY_NFA",
+        "Department_Name": "Queen Mary",
+        "Module_ID": "XQML0070",
+        "Module_Name": "Queen Mary: Stellar Structure and Evolution",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/queen-mary:-stellar-structure-and-evolution-XQML0070"
+    },
+    "XQML0032": {
+        "Department_ID": "ICQMY_NFA",
+        "Department_Name": "Queen Mary",
+        "Module_ID": "XQML0032",
+        "Module_Name": "Queen Mary: Relativity and Gravitation",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/queen-mary:-relativity-and-gravitation-XQML0032"
+    },
+    "XQML0071": {
+        "Department_ID": "ICQMY_NFA",
+        "Department_Name": "Queen Mary",
+        "Module_ID": "XQML0071",
+        "Module_Name": "Queen Mary: Security Engineering",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/queen-mary:-security-engineering-XQML0071"
+    },
     "XQML0039": {
         "Department_ID": "ICQMY_NFA",
         "Department_Name": "Queen Mary",
@@ -28845,13 +28971,6 @@
         "Module_ID": "XQML0016",
         "Module_Name": "Queen Mary: The French Civil War 1934-1944",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/queen-mary:-the-french-civil-war-1934-1944-XQML0016"
-    },
-    "XQML0032": {
-        "Department_ID": "ICQMY_NFA",
-        "Department_Name": "Queen Mary",
-        "Module_ID": "XQML0032",
-        "Module_Name": "Queen Mary: Relativity and Gravitation",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/queen-mary:-relativity-and-gravitation-XQML0032"
     },
     "XQML0002": {
         "Department_ID": "ICQMY_NFA",
@@ -29231,6 +29350,13 @@
         "Module_Name": "Queen Mary: Modern Girls? Gender, Culture and Society in Britain c.1918-1979",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/queen-mary:-modern-girls?-gender,-culture-and-society-in-britain-c.1918-1979-XQML0028"
     },
+    "XQML0072": {
+        "Department_ID": "ICQMY_NFA",
+        "Department_Name": "Queen Mary",
+        "Module_ID": "XQML0072",
+        "Module_Name": "Queen Mary: The Galaxy",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/queen-mary:-the-galaxy-XQML0072"
+    },
     "XSOA0263": {
         "Department_ID": "ICSOA_NFA",
         "Department_Name": "SOAS",
@@ -29265,6 +29391,48 @@
         "Module_ID": "XSOA0036",
         "Module_Name": "SOAS: Banking and Finance",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/soas:-banking-and-finance-XSOA0036"
+    },
+    "XSOA0298": {
+        "Department_ID": "ICSOA_NFA",
+        "Department_Name": "SOAS",
+        "Module_ID": "XSOA0298",
+        "Module_Name": "SOAS: Alexander the Great",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/soas:-alexander-the-great-XSOA0298"
+    },
+    "XSOA0299": {
+        "Department_ID": "ICSOA_NFA",
+        "Department_Name": "SOAS",
+        "Module_ID": "XSOA0299",
+        "Module_Name": "SOAS: Sources and Methods in Ancient History",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/soas:-sources-and-methods-in-ancient-history-XSOA0299"
+    },
+    "XSOA0300": {
+        "Department_ID": "ICSOA_NFA",
+        "Department_Name": "SOAS",
+        "Module_ID": "XSOA0300",
+        "Module_Name": "SOAS: Pompeii",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/soas:-pompeii-XSOA0300"
+    },
+    "XSOA0285": {
+        "Department_ID": "ICSOA_NFA",
+        "Department_Name": "SOAS",
+        "Module_ID": "XSOA0285",
+        "Module_Name": "SOAS: Swahili 1 B",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/soas:-swahili-1-b-XSOA0285"
+    },
+    "XSOA0284": {
+        "Department_ID": "ICSOA_NFA",
+        "Department_Name": "SOAS",
+        "Module_ID": "XSOA0284",
+        "Module_Name": "SOAS: Swahili 1 A",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/soas:-swahili-1-a-XSOA0284"
+    },
+    "XSOA0297": {
+        "Department_ID": "ICSOA_NFA",
+        "Department_Name": "SOAS",
+        "Module_ID": "XSOA0297",
+        "Module_Name": "SOAS: International Migration Law",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/soas:-international-migration-law-XSOA0297"
     },
     "XSOA0125": {
         "Department_ID": "ICSOA_NFA",
@@ -29307,6 +29475,13 @@
         "Module_ID": "XSOA0050",
         "Module_Name": "SOAS: Art and Culture in Modern China",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/soas:-art-and-culture-in-modern-china-XSOA0050"
+    },
+    "XSOA0215": {
+        "Department_ID": "ICSOA_NFA",
+        "Department_Name": "SOAS",
+        "Module_ID": "XSOA0215",
+        "Module_Name": "SOAS: Korean Readings",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/soas:-korean-readings-XSOA0215"
     },
     "XSOA0086": {
         "Department_ID": "ICSOA_NFA",
@@ -29406,13 +29581,6 @@
         "Module_Name": "SOAS: Mesopotamian Languages and Literature B: The Second Millennium BC",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/soas:-mesopotamian-languages-and-literature-b:-the-second-millennium-bc-XSOA0179"
     },
-    "XSOA0215": {
-        "Department_ID": "ICSOA_NFA",
-        "Department_Name": "SOAS",
-        "Module_ID": "XSOA0215",
-        "Module_Name": "SOAS: Korean Readings",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/soas:-korean-readings-XSOA0215"
-    },
     "XSOA0210": {
         "Department_ID": "ICSOA_NFA",
         "Department_Name": "SOAS",
@@ -29420,12 +29588,61 @@
         "Module_Name": "SOAS: Survey of Pre-Modern Japanese Literature in Translation",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/soas:-survey-of-pre-modern-japanese-literature-in-translation-XSOA0210"
     },
+    "XSOA0296": {
+        "Department_ID": "ICSOA_NFA",
+        "Department_Name": "SOAS",
+        "Module_ID": "XSOA0296",
+        "Module_Name": "SOAS: History of the Palestine-Israel Conflict (I): 1900 to 1948",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/soas:-history-of-the-palestine-israel-conflict-(i):-1900-to-1948-XSOA0296"
+    },
+    "XSOA0295": {
+        "Department_ID": "ICSOA_NFA",
+        "Department_Name": "SOAS",
+        "Module_ID": "XSOA0295",
+        "Module_Name": "SOAS: Hindi Language 1B",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/soas:-hindi-language-1b-XSOA0295"
+    },
+    "XSOA0154": {
+        "Department_ID": "ICSOA_NFA",
+        "Department_Name": "SOAS",
+        "Module_ID": "XSOA0154",
+        "Module_Name": "SOAS: Modern Film from Taiwan and the Chinese Diaspora",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/soas:-modern-film-from-taiwan-and-the-chinese-diaspora-XSOA0154"
+    },
+    "XSOA0290": {
+        "Department_ID": "ICSOA_NFA",
+        "Department_Name": "SOAS",
+        "Module_ID": "XSOA0290",
+        "Module_Name": "SOAS: African and Asian Diasporas: Migration, Space, Identity",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/soas:-african-and-asian-diasporas:-migration,-space,-identity-XSOA0290"
+    },
     "XSOA0266": {
         "Department_ID": "ICSOA_NFA",
         "Department_Name": "SOAS",
         "Module_ID": "XSOA0266",
         "Module_Name": "SOAS: Urdu Literacy B",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/soas:-urdu-literacy-b-XSOA0266"
+    },
+    "XSOA0247": {
+        "Department_ID": "ICSOA_NFA",
+        "Department_Name": "SOAS",
+        "Module_ID": "XSOA0247",
+        "Module_Name": "SOAS: Queer Politics in Asia, Africa and the Middle East",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/soas:-queer-politics-in-asia,-africa-and-the-middle-east-XSOA0247"
+    },
+    "XSOA0275": {
+        "Department_ID": "ICSOA_NFA",
+        "Department_Name": "SOAS",
+        "Module_ID": "XSOA0275",
+        "Module_Name": "SOAS: Nationalism and Revolution in the Modern Middle East, 1914-1979",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/soas:-nationalism-and-revolution-in-the-modern-middle-east,-1914-1979-XSOA0275"
+    },
+    "XSOA0264": {
+        "Department_ID": "ICSOA_NFA",
+        "Department_Name": "SOAS",
+        "Module_ID": "XSOA0264",
+        "Module_Name": "SOAS: Hindi Language 1A",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/soas:-hindi-language-1a-XSOA0264"
     },
     "XSOA0037": {
         "Department_ID": "ICSOA_NFA",
@@ -29440,6 +29657,41 @@
         "Module_ID": "XSOA0219",
         "Module_Name": "SOAS: Ethnography of Japan",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/soas:-ethnography-of-japan-XSOA0219"
+    },
+    "XSOA0291": {
+        "Department_ID": "ICSOA_NFA",
+        "Department_Name": "SOAS",
+        "Module_ID": "XSOA0291",
+        "Module_Name": "SOAS: Key Debates on Neoliberalism",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/soas:-key-debates-on-neoliberalism-XSOA0291"
+    },
+    "XSOA0292": {
+        "Department_ID": "ICSOA_NFA",
+        "Department_Name": "SOAS",
+        "Module_ID": "XSOA0292",
+        "Module_Name": "SOAS: Classical Ottoman Texts",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/soas:-classical-ottoman-texts-XSOA0292"
+    },
+    "XSOA0293": {
+        "Department_ID": "ICSOA_NFA",
+        "Department_Name": "SOAS",
+        "Module_ID": "XSOA0293",
+        "Module_Name": "SOAS: Zionism: Critical Perspectives (UG)",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/soas:-zionism:-critical-perspectives-(ug)-XSOA0293"
+    },
+    "XSOA0288": {
+        "Department_ID": "ICSOA_NFA",
+        "Department_Name": "SOAS",
+        "Module_ID": "XSOA0288",
+        "Module_Name": "SOAS: Islamic Philosophy",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/soas:-islamic-philosophy-XSOA0288"
+    },
+    "XSOA0289": {
+        "Department_ID": "ICSOA_NFA",
+        "Department_Name": "SOAS",
+        "Module_ID": "XSOA0289",
+        "Module_Name": "SOAS: Ethnography of East Africa",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/soas:-ethnography-of-east-africa-XSOA0289"
     },
     "XSOA0223": {
         "Department_ID": "ICSOA_NFA",
@@ -29707,13 +29959,6 @@
         "Module_Name": "SOAS: Hittite Texts 1",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/soas:-hittite-texts-1-XSOA0139"
     },
-    "XSOA0154": {
-        "Department_ID": "ICSOA_NFA",
-        "Department_Name": "SOAS",
-        "Module_ID": "XSOA0154",
-        "Module_Name": "SOAS: Modern Film from Taiwan and the Chinese Diaspora",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/soas:-modern-film-from-taiwan-and-the-chinese-diaspora-XSOA0154"
-    },
     "XSOA0236": {
         "Department_ID": "ICSOA_NFA",
         "Department_Name": "SOAS",
@@ -29956,8 +30201,8 @@
         "Department_ID": "ICSOA_NFA",
         "Department_Name": "SOAS",
         "Module_ID": "XSOA0135",
-        "Module_Name": "SOAS: Survey of Modern Japanese Literature in Translation",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/soas:-survey-of-modern-japanese-literature-in-translation-XSOA0135"
+        "Module_Name": "SOAS: K303: Korean Conversation",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/soas:-k303:-korean-conversation-XSOA0135"
     },
     "XSOA0225": {
         "Department_ID": "ICSOA_NFA",
@@ -30028,6 +30273,13 @@
         "Module_ID": "XSOA0186",
         "Module_Name": "SOAS: Burmese Language 2",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/soas:-burmese-language-2-XSOA0186"
+    },
+    "XSOA0294": {
+        "Department_ID": "ICSOA_NFA",
+        "Department_Name": "SOAS",
+        "Module_ID": "XSOA0294",
+        "Module_Name": "SOAS: Advanced Cuneiform Texts: The Earliest Literature",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/soas:-advanced-cuneiform-texts:-the-earliest-literature-XSOA0294"
     },
     "XSOA0026": {
         "Department_ID": "ICSOA_NFA",
@@ -30708,6 +30960,13 @@
         "Module_Name": "SOAS: Anthropology and Film",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/soas:-anthropology-and-film-XSOA0002"
     },
+    "XSOA0286": {
+        "Department_ID": "ICSOA_NFA",
+        "Department_Name": "SOAS",
+        "Module_ID": "XSOA0286",
+        "Module_Name": "SOAS: Musical Traditions of East Asia",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/soas:-musical-traditions-of-east-asia-XSOA0286"
+    },
     "XSOA0274": {
         "Department_ID": "ICSOA_NFA",
         "Department_Name": "SOAS",
@@ -30974,13 +31233,6 @@
         "Module_Name": "SOAS: Music and Religion in South Asia",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/soas:-music-and-religion-in-south-asia-XSOA0102"
     },
-    "XSOA0275": {
-        "Department_ID": "ICSOA_NFA",
-        "Department_Name": "SOAS",
-        "Module_ID": "XSOA0275",
-        "Module_Name": "SOAS: Nationalism and Revolution in the Modern Middle East, 1914-1979",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/soas:-nationalism-and-revolution-in-the-modern-middle-east,-1914-1979-XSOA0275"
-    },
     "XSOA0273": {
         "Department_ID": "ICSOA_NFA",
         "Department_Name": "SOAS",
@@ -31030,12 +31282,12 @@
         "Module_Name": "SOAS: Under Western Eyes: European Writings on South East Asia",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/soas:-under-western-eyes:-european-writings-on-south-east-asia-XSOA0163"
     },
-    "XHTM0002": {
-        "Department_ID": "ICHTM_NFA",
-        "Department_Name": "London School of Hygiene and Tropical Medicine",
-        "Module_ID": "XHTM0002",
-        "Module_Name": "LSHTM: Statistical Methods in Epidemiology",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/lshtm:-statistical-methods-in-epidemiology-XHTM0002"
+    "XSOA0287": {
+        "Department_ID": "ICSOA_NFA",
+        "Department_Name": "SOAS",
+        "Module_ID": "XSOA0287",
+        "Module_Name": "SOAS: Body Politics: The Anthropology of \"Race\", Gender and Desire",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/soas:-body-politics:-the-anthropology-of-\"race\",-gender-and-desire-XSOA0287"
     },
     "XHTM0003": {
         "Department_ID": "ICHTM_NFA",
@@ -31043,6 +31295,13 @@
         "Module_ID": "XHTM0003",
         "Module_Name": "LSHTM: Statistics for Epidemiology and Population Health",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/lshtm:-statistics-for-epidemiology-and-population-health-XHTM0003"
+    },
+    "XHTM0002": {
+        "Department_ID": "ICHTM_NFA",
+        "Department_Name": "London School of Hygiene and Tropical Medicine",
+        "Module_ID": "XHTM0002",
+        "Module_Name": "LSHTM: Statistical Methods in Epidemiology",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/lshtm:-statistical-methods-in-epidemiology-XHTM0002"
     },
     "XHTM0004": {
         "Department_ID": "ICHTM_NFA",
@@ -31057,13 +31316,6 @@
         "Module_ID": "XHTM0001",
         "Module_Name": "LSHTM: Managing Health Services",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/lshtm:-managing-health-services-XHTM0001"
-    },
-    "ANTH0149": {
-        "Department_ID": "ANTHR_SHS",
-        "Department_Name": "Anthropology",
-        "Module_ID": "ANTH0149",
-        "Module_Name": "Creative Enterprise",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/creative-enterprise-ANTH0149"
     },
     "ANTH0051": {
         "Department_ID": "ANTHR_SHS",
@@ -31100,13 +31352,6 @@
         "Module_Name": "Graduation Project (Creative Feature Length Documentary Film)",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/graduation-project-(creative-feature-length-documentary-film)-ANTH0180"
     },
-    "ANTH0011": {
-        "Department_ID": "ANTHR_SHS",
-        "Department_Name": "Anthropology",
-        "Module_ID": "ANTH0011",
-        "Module_Name": "Documentary Film-Making",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/documentary-film-making-ANTH0011"
-    },
     "ANTH0207": {
         "Department_ID": "ANTHR_SHS",
         "Department_Name": "Anthropology",
@@ -31121,12 +31366,26 @@
         "Module_Name": "Advanced Practice of Documentary and Ethnographic Film",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/advanced-practice-of-documentary-and-ethnographic-film-ANTH0177"
     },
-    "ANTH0005": {
+    "ANTH0011": {
         "Department_ID": "ANTHR_SHS",
         "Department_Name": "Anthropology",
-        "Module_ID": "ANTH0005",
-        "Module_Name": "Introduction to Social Anthropology II B",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/introduction-to-social-anthropology-ii-b-ANTH0005"
+        "Module_ID": "ANTH0011",
+        "Module_Name": "Documentary Film-Making",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/documentary-film-making-ANTH0011"
+    },
+    "ANTH0206": {
+        "Department_ID": "ANTHR_SHS",
+        "Department_Name": "Anthropology",
+        "Module_ID": "ANTH0206",
+        "Module_Name": "Intermediate Radio and Broadcasting Production",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/intermediate-radio-and-broadcasting-production-ANTH0206"
+    },
+    "ANTH0083": {
+        "Department_ID": "ANTHR_SHS",
+        "Department_Name": "Anthropology",
+        "Module_ID": "ANTH0083",
+        "Module_Name": "Experimental cinema and new media: Form and narrative",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/experimental-cinema-and-new-media:-form-and-narrative-ANTH0083"
     },
     "ANTH0211": {
         "Department_ID": "ANTHR_SHS",
@@ -31184,19 +31443,19 @@
         "Module_Name": "Ecology of the Turkana Basin",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/ecology-of-the-turkana-basin-ANTH0052"
     },
+    "ANTH0012": {
+        "Department_ID": "ANTHR_SHS",
+        "Department_Name": "Anthropology",
+        "Module_ID": "ANTH0012",
+        "Module_Name": "Palaeoanthropology",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/palaeoanthropology-ANTH0012"
+    },
     "ANTH0178": {
         "Department_ID": "ANTHR_SHS",
         "Department_Name": "Anthropology",
         "Module_ID": "ANTH0178",
         "Module_Name": "Short Commissioned Practical Film Project and Sustained Reflection",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/short-commissioned-practical-film-project-and-sustained-reflection-ANTH0178"
-    },
-    "ANTH0206": {
-        "Department_ID": "ANTHR_SHS",
-        "Department_Name": "Anthropology",
-        "Module_ID": "ANTH0206",
-        "Module_Name": "Intermediate Radio and Broadcasting Production",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/intermediate-radio-and-broadcasting-production-ANTH0206"
     },
     "ANTH0151": {
         "Department_ID": "ANTHR_SHS",
@@ -31232,6 +31491,20 @@
         "Module_ID": "ANTH0110",
         "Module_Name": "An Introduction to Social Theory - a foundation course",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/an-introduction-to-social-theory---a-foundation-course-ANTH0110"
+    },
+    "ANTH0032": {
+        "Department_ID": "ANTHR_SHS",
+        "Department_Name": "Anthropology",
+        "Module_ID": "ANTH0032",
+        "Module_Name": "Atapuerca and Human Evolution in Europe",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/atapuerca-and-human-evolution-in-europe-ANTH0032"
+    },
+    "ANTH0064": {
+        "Department_ID": "ANTHR_SHS",
+        "Department_Name": "Anthropology",
+        "Module_ID": "ANTH0064",
+        "Module_Name": "Anthropology of the Built Environment",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/anthropology-of-the-built-environment-ANTH0064"
     },
     "ANTH0044": {
         "Department_ID": "ANTHR_SHS",
@@ -31309,13 +31582,6 @@
         "Module_ID": "ANTH0040",
         "Module_Name": "Primate Evolution and Environments",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/primate-evolution-and-environments-ANTH0040"
-    },
-    "ANTH0079": {
-        "Department_ID": "ANTHR_SHS",
-        "Department_Name": "Anthropology",
-        "Module_ID": "ANTH0079",
-        "Module_Name": "Aspects of Applied Medical Anthropology",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/aspects-of-applied-medical-anthropology-ANTH0079"
     },
     "ANTH0095": {
         "Department_ID": "ANTHR_SHS",
@@ -31408,13 +31674,6 @@
         "Module_Name": "Art in the Public Sphere",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/art-in-the-public-sphere-ANTH0074"
     },
-    "ANTH0064": {
-        "Department_ID": "ANTHR_SHS",
-        "Department_Name": "Anthropology",
-        "Module_ID": "ANTH0064",
-        "Module_Name": "Anthropology of the Built Environment",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/anthropology-of-the-built-environment-ANTH0064"
-    },
     "ANTH0208": {
         "Department_ID": "ANTHR_SHS",
         "Department_Name": "Anthropology",
@@ -31464,13 +31723,6 @@
         "Module_Name": "Practical Skills for Feature Writing in a Multimedia World",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/practical-skills-for-feature-writing-in-a-multimedia-world-ANTH0189"
     },
-    "ANTH0083": {
-        "Department_ID": "ANTHR_SHS",
-        "Department_Name": "Anthropology",
-        "Module_ID": "ANTH0083",
-        "Module_Name": "Experimental cinema and new media: Form and narrative",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/experimental-cinema-and-new-media:-form-and-narrative-ANTH0083"
-    },
     "ANTH0021": {
         "Department_ID": "ANTHR_SHS",
         "Department_Name": "Anthropology",
@@ -31498,6 +31750,13 @@
         "Module_ID": "ANTH0035",
         "Module_Name": "Human Sciences Seminar Project",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/human-sciences-seminar-project-ANTH0035"
+    },
+    "ANTH0079": {
+        "Department_ID": "ANTHR_SHS",
+        "Department_Name": "Anthropology",
+        "Module_ID": "ANTH0079",
+        "Module_Name": "Aspects of Applied Medical Anthropology",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/aspects-of-applied-medical-anthropology-ANTH0079"
     },
     "ANTH0193": {
         "Department_ID": "ANTHR_SHS",
@@ -31583,20 +31842,6 @@
         "Module_Name": "Individual Studies in Anthropology",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/individual-studies-in-anthropology-ANTH0036"
     },
-    "ANTH0065": {
-        "Department_ID": "ANTHR_SHS",
-        "Department_Name": "Anthropology",
-        "Module_ID": "ANTH0065",
-        "Module_Name": "Fishers and Fisheries Anthropology, Aquatic Resources and Development",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/fishers-and-fisheries-anthropology,-aquatic-resources-and-development-ANTH0065"
-    },
-    "ANTH0012": {
-        "Department_ID": "ANTHR_SHS",
-        "Department_Name": "Anthropology",
-        "Module_ID": "ANTH0012",
-        "Module_Name": "Palaeoanthropology",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/palaeoanthropology-ANTH0012"
-    },
     "ANTH0141": {
         "Department_ID": "ANTHR_SHS",
         "Department_Name": "Anthropology",
@@ -31673,13 +31918,6 @@
         "Module_ID": "ANTH0145",
         "Module_Name": "Social Anthropology Dissertation",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/social-anthropology-dissertation-ANTH0145"
-    },
-    "ANTH0150": {
-        "Department_ID": "ANTHR_SHS",
-        "Department_Name": "Anthropology",
-        "Module_ID": "ANTH0150",
-        "Module_Name": "Collaborative Enterprise",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/collaborative-enterprise-ANTH0150"
     },
     "ANTH0002": {
         "Department_ID": "ANTHR_SHS",
@@ -31884,6 +32122,20 @@
         "Module_Name": "The Story and I - Finding the Form: A Practical Exploration of Storytelling",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/the-story-and-i---finding-the-form:-a-practical-exploration-of-storytelling-ANTH0081"
     },
+    "ANTH0149": {
+        "Department_ID": "ANTHR_SHS",
+        "Department_Name": "Anthropology",
+        "Module_ID": "ANTH0149",
+        "Module_Name": "Creative Enterprise",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/creative-enterprise-ANTH0149"
+    },
+    "ANTH0150": {
+        "Department_ID": "ANTHR_SHS",
+        "Department_Name": "Anthropology",
+        "Module_ID": "ANTH0150",
+        "Module_Name": "Collaborative Enterprise",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/collaborative-enterprise-ANTH0150"
+    },
     "BARC0085": {
         "Department_ID": "BSARC_BEN",
         "Department_Name": "Bartlett School of Architecture",
@@ -31912,12 +32164,47 @@
         "Module_Name": "Introduction to Urban Design Theory",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/introduction-to-urban-design-theory-BARC0084"
     },
-    "BARC0079": {
+    "BARC0030": {
         "Department_ID": "BSARC_BEN",
         "Department_Name": "Bartlett School of Architecture",
-        "Module_ID": "BARC0079",
-        "Module_Name": "Situated Practice: Major Project",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/situated-practice:-major-project-BARC0079"
+        "Module_ID": "BARC0030",
+        "Module_Name": "Computational Analysis",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/computational-analysis-BARC0030"
+    },
+    "BARC0036": {
+        "Department_ID": "BSARC_BEN",
+        "Department_Name": "Bartlett School of Architecture",
+        "Module_ID": "BARC0036",
+        "Module_Name": "Embodied and Embedded Technologies: Body as Interface",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/embodied-and-embedded-technologies:-body-as-interface-BARC0036"
+    },
+    "BARC0048": {
+        "Department_ID": "BSARC_BEN",
+        "Department_Name": "Bartlett School of Architecture",
+        "Module_ID": "BARC0048",
+        "Module_Name": "Multiple Modernities Architecture Part 1",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/multiple-modernities-architecture-part-1-BARC0048"
+    },
+    "BARC0046": {
+        "Department_ID": "BSARC_BEN",
+        "Department_Name": "Bartlett School of Architecture",
+        "Module_ID": "BARC0046",
+        "Module_Name": "Materialist Ecological Architecture Part 1",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/materialist-ecological-architecture-part-1-BARC0046"
+    },
+    "BARC0129": {
+        "Department_ID": "BSARC_BEN",
+        "Department_Name": "Bartlett School of Architecture",
+        "Module_ID": "BARC0129",
+        "Module_Name": "Histories of Global London, 1900 to the Present (I)",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/histories-of-global-london,-1900-to-the-present-(i)-BARC0129"
+    },
+    "BARC0035": {
+        "Department_ID": "BSARC_BEN",
+        "Department_Name": "Bartlett School of Architecture",
+        "Module_ID": "BARC0035",
+        "Module_Name": "Introduction to Programming for Architecture and Design",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/introduction-to-programming-for-architecture-and-design-BARC0035"
     },
     "BARC0082": {
         "Department_ID": "BSARC_BEN",
@@ -31946,6 +32233,13 @@
         "Module_ID": "BARC0101",
         "Module_Name": "Practice, Ethics and Enterprise",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/practice,-ethics-and-enterprise-BARC0101"
+    },
+    "BARC0079": {
+        "Department_ID": "BSARC_BEN",
+        "Department_Name": "Bartlett School of Architecture",
+        "Module_ID": "BARC0079",
+        "Module_Name": "Situated Practice: Major Project",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/situated-practice:-major-project-BARC0079"
     },
     "BARC0073": {
         "Department_ID": "BSARC_BEN",
@@ -32037,13 +32331,6 @@
         "Module_ID": "BARC0107",
         "Module_Name": "Design and Creative Practice 3",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/design-and-creative-practice-3-BARC0107"
-    },
-    "BARC0048": {
-        "Department_ID": "BSARC_BEN",
-        "Department_Name": "Bartlett School of Architecture",
-        "Module_ID": "BARC0048",
-        "Module_Name": "Multiple Modernities Architecture Part 1",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/multiple-modernities-architecture-part-1-BARC0048"
     },
     "BARC0053": {
         "Department_ID": "BSARC_BEN",
@@ -32226,13 +32513,6 @@
         "Module_ID": "BARC0020",
         "Module_Name": "Architectural Phenomena",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/architectural-phenomena-BARC0020"
-    },
-    "BARC0036": {
-        "Department_ID": "BSARC_BEN",
-        "Department_Name": "Bartlett School of Architecture",
-        "Module_ID": "BARC0036",
-        "Module_Name": "Embodied and Embedded Technologies: Body as Interface",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/embodied-and-embedded-technologies:-body-as-interface-BARC0036"
     },
     "BARC0105": {
         "Department_ID": "BSARC_BEN",
@@ -32464,13 +32744,6 @@
         "Module_ID": "BARC0068",
         "Module_Name": "Final Project",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/final-project-BARC0068"
-    },
-    "BARC0030": {
-        "Department_ID": "BSARC_BEN",
-        "Department_Name": "Bartlett School of Architecture",
-        "Module_ID": "BARC0030",
-        "Module_Name": "Computational Analysis",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/computational-analysis-BARC0030"
     },
     "BARC0051": {
         "Department_ID": "BSARC_BEN",
@@ -32724,13 +32997,6 @@
         "Module_Name": "Advanced Landscape Design 2",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/advanced-landscape-design-2-BARC0113"
     },
-    "BARC0046": {
-        "Department_ID": "BSARC_BEN",
-        "Department_Name": "Bartlett School of Architecture",
-        "Module_ID": "BARC0046",
-        "Module_Name": "Materialist Ecological Architecture Part 1",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/materialist-ecological-architecture-part-1-BARC0046"
-    },
     "BARC0011": {
         "Department_ID": "BSARC_BEN",
         "Department_Name": "Bartlett School of Architecture",
@@ -32807,13 +33073,6 @@
         "Module_ID": "BARC0106",
         "Module_Name": "Architecture-Design Projects",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/architecture-design-projects-BARC0106"
-    },
-    "BARC0129": {
-        "Department_ID": "BSARC_BEN",
-        "Department_Name": "Bartlett School of Architecture",
-        "Module_ID": "BARC0129",
-        "Module_Name": "Histories of Global London, 1900 to the Present (I)",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/histories-of-global-london,-1900-to-the-present-(i)-BARC0129"
     },
     "BARC0088": {
         "Department_ID": "BSARC_BEN",
@@ -32989,13 +33248,6 @@
         "Module_ID": "BARC0091",
         "Module_Name": "Project Work ID",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/project-work-id-BARC0091"
-    },
-    "BARC0035": {
-        "Department_ID": "BSARC_BEN",
-        "Department_Name": "Bartlett School of Architecture",
-        "Module_ID": "BARC0035",
-        "Module_Name": "Introduction to Programming for Architecture and Design",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/introduction-to-programming-for-architecture-and-design-BARC0035"
     },
     "ENGL0002": {
         "Department_ID": "ENGLS_ART",
@@ -33823,6 +34075,20 @@
         "Module_Name": "Marine Conservation",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/marine-conservation-GEOG0135"
     },
+    "GEOG0171": {
+        "Department_ID": "GEOGR_SHS",
+        "Department_Name": "Geography",
+        "Module_ID": "GEOG0171",
+        "Module_Name": "Studying Everyday Life",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/studying-everyday-life-GEOG0171"
+    },
+    "GEOG0032": {
+        "Department_ID": "GEOGR_SHS",
+        "Department_Name": "Geography",
+        "Module_ID": "GEOG0032",
+        "Module_Name": "Human Geography Field Course",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/human-geography-field-course-GEOG0032"
+    },
     "GEOG0163": {
         "Department_ID": "GEOGR_SHS",
         "Department_Name": "Geography",
@@ -34271,19 +34537,19 @@
         "Module_Name": "Models in Environmental Science",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/models-in-environmental-science-GEOG0109"
     },
-    "GEOG0137": {
-        "Department_ID": "GEOGR_SHS",
-        "Department_Name": "Geography",
-        "Module_ID": "GEOG0137",
-        "Module_Name": "Urban Imaginations",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/urban-imaginations-GEOG0137"
-    },
     "GEOG0005": {
         "Department_ID": "GEOGR_SHS",
         "Department_Name": "Geography",
         "Module_ID": "GEOG0005",
         "Module_Name": "Earth: An Integrated System",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/earth:-an-integrated-system-GEOG0005"
+    },
+    "GEOG0137": {
+        "Department_ID": "GEOGR_SHS",
+        "Department_Name": "Geography",
+        "Module_ID": "GEOG0137",
+        "Module_Name": "Urban Imaginations",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/urban-imaginations-GEOG0137"
     },
     "GEOG0023": {
         "Department_ID": "GEOGR_SHS",
@@ -34453,6 +34719,13 @@
         "Module_Name": "Ancient Ideas in the Modern World",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/ancient-ideas-in-the-modern-world-CLAS0008"
     },
+    "CLAS0127": {
+        "Department_ID": "GRKLT_ART",
+        "Department_Name": "Greek and Latin",
+        "Module_ID": "CLAS0127",
+        "Module_Name": "Greek Myth, Religion and Society",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/greek-myth,-religion-and-society-CLAS0127"
+    },
     "LATN0021": {
         "Department_ID": "GRKLT_ART",
         "Department_Name": "Greek and Latin",
@@ -34600,6 +34873,13 @@
         "Module_Name": "Classical Poetry and its Reception in English Literature",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/classical-poetry-and-its-reception-in-english-literature-CLAS0147"
     },
+    "GREK0010": {
+        "Department_ID": "GRKLT_ART",
+        "Department_Name": "Greek and Latin",
+        "Module_ID": "GREK0010",
+        "Module_Name": "Greek Translation",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/greek-translation-GREK0010"
+    },
     "CLAS0005": {
         "Department_ID": "GRKLT_ART",
         "Department_Name": "Greek and Latin",
@@ -34620,20 +34900,6 @@
         "Module_ID": "CLAS0017",
         "Module_Name": "Roman Authors: Roman Love Poetry",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/roman-authors:-roman-love-poetry-CLAS0017"
-    },
-    "GREK0010": {
-        "Department_ID": "GRKLT_ART",
-        "Department_Name": "Greek and Latin",
-        "Module_ID": "GREK0010",
-        "Module_Name": "Greek Translation",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/greek-translation-GREK0010"
-    },
-    "LATN0043": {
-        "Department_ID": "GRKLT_ART",
-        "Department_Name": "Greek and Latin",
-        "Module_ID": "LATN0043",
-        "Module_Name": "Horace",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/horace-LATN0043"
     },
     "CLAS0154": {
         "Department_ID": "GRKLT_ART",
@@ -34662,6 +34928,13 @@
         "Module_ID": "GREK0052",
         "Module_Name": "Euripides",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/euripides-GREK0052"
+    },
+    "LATN0043": {
+        "Department_ID": "GRKLT_ART",
+        "Department_Name": "Greek and Latin",
+        "Module_ID": "LATN0043",
+        "Module_Name": "Horace",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/horace-LATN0043"
     },
     "GREK0039": {
         "Department_ID": "GRKLT_ART",
@@ -34950,6 +35223,13 @@
         "Module_Name": "History of Russia 1598-1856 A",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/history-of-russia-1598-1856-a-HIST0489"
     },
+    "HIST0376": {
+        "Department_ID": "HISTR_SHS",
+        "Department_Name": "History",
+        "Module_ID": "HIST0376",
+        "Module_Name": "Gender and Sexuality in Modern Britain, c1850 to the Present B: Sexuality and Sexual Behaviour",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/gender-and-sexuality-in-modern-britain,-c1850-to-the-present-b:-sexuality-and-sexual-behaviour-HIST0376"
+    },
     "HIST0083": {
         "Department_ID": "HISTR_SHS",
         "Department_Name": "History",
@@ -35173,6 +35453,13 @@
         "Module_ID": "HIST0158",
         "Module_Name": "The Greek World, c.800-386 BC",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/the-greek-world,-c.800-386-bc-HIST0158"
+    },
+    "HIST0043": {
+        "Department_ID": "HISTR_SHS",
+        "Department_Name": "History",
+        "Module_ID": "HIST0043",
+        "Module_Name": "History of the Caribbean since the Haitian Revolution",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/history-of-the-caribbean-since-the-haitian-revolution-HIST0043"
     },
     "HIST0627": {
         "Department_ID": "HISTR_SHS",
@@ -36322,13 +36609,6 @@
         "Module_Name": "Ivan the Terrible and the Russian Monarchy in the Sixteenth Century (II)",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/ivan-the-terrible-and-the-russian-monarchy-in-the-sixteenth-century-(ii)-SEHI0013"
     },
-    "HIST0376": {
-        "Department_ID": "HISTR_SHS",
-        "Department_Name": "History",
-        "Module_ID": "HIST0376",
-        "Module_Name": "Gender and Sexuality in Modern Britain, c1850 to the Present B: Sexuality and Sexual Behaviour",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/gender-and-sexuality-in-modern-britain,-c1850-to-the-present-b:-sexuality-and-sexual-behaviour-HIST0376"
-    },
     "HIST0106": {
         "Department_ID": "HISTR_SHS",
         "Department_Name": "History",
@@ -37316,13 +37596,6 @@
         "Module_Name": "Evolution of the Human Brain and Behaviour",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/evolution-of-the-human-brain-and-behaviour-ARCL0124"
     },
-    "ARCL0036": {
-        "Department_ID": "ARCLG_SHS",
-        "Department_Name": "Institute of Archaeology",
-        "Module_ID": "ARCL0036",
-        "Module_Name": "Archaeological Illustration and Imaging",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/archaeological-illustration-and-imaging-ARCL0036"
-    },
     "ARCL0001": {
         "Department_ID": "ARCLG_SHS",
         "Department_Name": "Institute of Archaeology",
@@ -37379,13 +37652,6 @@
         "Module_Name": "Late Egyptian Language and Texts",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/late-egyptian-language-and-texts-ARCL0081"
     },
-    "ARCL0145": {
-        "Department_ID": "ARCLG_SHS",
-        "Department_Name": "Institute of Archaeology",
-        "Module_ID": "ARCL0145",
-        "Module_Name": "Archaeologies of Modern Conflict",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/archaeologies-of-modern-conflict-ARCL0145"
-    },
     "ARCL0212": {
         "Department_ID": "ARCLG_SHS",
         "Department_Name": "Institute of Archaeology",
@@ -37413,13 +37679,6 @@
         "Module_ID": "ARCL0134",
         "Module_Name": "Themes, Thought and Theory in World Archaeology: Current Topics",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/themes,-thought-and-theory-in-world-archaeology:-current-topics-ARCL0134"
-    },
-    "ARCL0160": {
-        "Department_ID": "ARCLG_SHS",
-        "Department_Name": "Institute of Archaeology",
-        "Module_ID": "ARCL0160",
-        "Module_Name": "Archaeological Data Science",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/archaeological-data-science-ARCL0160"
     },
     "ARCL0159": {
         "Department_ID": "ARCLG_SHS",
@@ -37477,13 +37736,6 @@
         "Module_Name": "Introduction to Greek Archaeology",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/introduction-to-greek-archaeology-ARCL0005"
     },
-    "ARCL0131": {
-        "Department_ID": "ARCLG_SHS",
-        "Department_Name": "Institute of Archaeology",
-        "Module_ID": "ARCL0131",
-        "Module_Name": "Exhibition Project",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/exhibition-project-ARCL0131"
-    },
     "ARCL0093": {
         "Department_ID": "ARCLG_SHS",
         "Department_Name": "Institute of Archaeology",
@@ -37519,12 +37771,12 @@
         "Module_Name": "The Neolithic of Europe",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/the-neolithic-of-europe-ARCL0193"
     },
-    "ARCL0070": {
+    "ARCL0036": {
         "Department_ID": "ARCLG_SHS",
         "Department_Name": "Institute of Archaeology",
-        "Module_ID": "ARCL0070",
-        "Module_Name": "The Archaeology of Etruscan Italy",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/the-archaeology-of-etruscan-italy-ARCL0070"
+        "Module_ID": "ARCL0036",
+        "Module_Name": "Archaeological Illustration and Imaging",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/archaeological-illustration-and-imaging-ARCL0036"
     },
     "ARCL0083": {
         "Department_ID": "ARCLG_SHS",
@@ -37547,27 +37799,6 @@
         "Module_Name": "Indigenous Archaeology",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/indigenous-archaeology-ARCL0051"
     },
-    "ARCL0138": {
-        "Department_ID": "ARCLG_SHS",
-        "Department_Name": "Institute of Archaeology",
-        "Module_ID": "ARCL0138",
-        "Module_Name": "The Mediterranean World in the Iron Age",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/the-mediterranean-world-in-the-iron-age-ARCL0138"
-    },
-    "ARCL0139": {
-        "Department_ID": "ARCLG_SHS",
-        "Department_Name": "Institute of Archaeology",
-        "Module_ID": "ARCL0139",
-        "Module_Name": "The Mediterranean World in the Iron Age A",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/the-mediterranean-world-in-the-iron-age-a-ARCL0139"
-    },
-    "ARCL0076": {
-        "Department_ID": "ARCLG_SHS",
-        "Department_Name": "Institute of Archaeology",
-        "Module_ID": "ARCL0076",
-        "Module_Name": "Iron Age Europe",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/iron-age-europe-ARCL0076"
-    },
     "ARCL0063": {
         "Department_ID": "ARCLG_SHS",
         "Department_Name": "Institute of Archaeology",
@@ -37581,13 +37812,6 @@
         "Module_ID": "ARCL0012",
         "Module_Name": "Sites and Artefacts",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/sites-and-artefacts-ARCL0012"
-    },
-    "ARCL0085": {
-        "Department_ID": "ARCLG_SHS",
-        "Department_Name": "Institute of Archaeology",
-        "Module_ID": "ARCL0085",
-        "Module_Name": "London before the Great Fire",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/london-before-the-great-fire-ARCL0085"
     },
     "ARCL0037": {
         "Department_ID": "ARCLG_SHS",
@@ -37603,13 +37827,6 @@
         "Module_Name": "Roman Art and Architecture",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/roman-art-and-architecture-ARCL0018"
     },
-    "ARCL0137": {
-        "Department_ID": "ARCLG_SHS",
-        "Department_Name": "Institute of Archaeology",
-        "Module_ID": "ARCL0137",
-        "Module_Name": "Aztec Archaeology: Codices and Ethnohistory",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/aztec-archaeology:-codices-and-ethnohistory-ARCL0137"
-    },
     "ARCL0061": {
         "Department_ID": "ARCLG_SHS",
         "Department_Name": "Institute of Archaeology",
@@ -37623,13 +37840,6 @@
         "Module_ID": "ARCL0094",
         "Module_Name": "GIS in Archaeology and History",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/gis-in-archaeology-and-history-ARCL0094"
-    },
-    "ARCL0213": {
-        "Department_ID": "ARCLG_SHS",
-        "Department_Name": "Institute of Archaeology",
-        "Module_ID": "ARCL0213",
-        "Module_Name": "Archaeology of the Roman Empire: Current Themes and Debates",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/archaeology-of-the-roman-empire:-current-themes-and-debates-ARCL0213"
     },
     "ARCL0200": {
         "Department_ID": "ARCLG_SHS",
@@ -37666,26 +37876,12 @@
         "Module_Name": "Interpreting Pottery",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/interpreting-pottery-ARCL0100"
     },
-    "ARCL0151": {
-        "Department_ID": "ARCLG_SHS",
-        "Department_Name": "Institute of Archaeology",
-        "Module_ID": "ARCL0151",
-        "Module_Name": "The Neolithic and Early Bronze Age of the Near East: the Emergence of Villages and Urban Societies",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/the-neolithic-and-early-bronze-age-of-the-near-east:-the-emergence-of-villages-and-urban-societies-ARCL0151"
-    },
     "ARCL0185": {
         "Department_ID": "ARCLG_SHS",
         "Department_Name": "Institute of Archaeology",
         "Module_ID": "ARCL0185",
         "Module_Name": "Evolution of the Human Brain and Behaviour",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/evolution-of-the-human-brain-and-behaviour-ARCL0185"
-    },
-    "ARCL0025": {
-        "Department_ID": "ARCLG_SHS",
-        "Department_Name": "Institute of Archaeology",
-        "Module_ID": "ARCL0025",
-        "Module_Name": "Early Medieval Archaeology of Britain  A",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/early-medieval-archaeology-of-britain--a-ARCL0025"
     },
     "ARCL0043": {
         "Department_ID": "ARCLG_SHS",
@@ -37694,26 +37890,12 @@
         "Module_Name": "Applications of Archaeological Science",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/applications-of-archaeological-science-ARCL0043"
     },
-    "ARCL0011": {
-        "Department_ID": "ARCLG_SHS",
-        "Department_Name": "Institute of Archaeology",
-        "Module_ID": "ARCL0011",
-        "Module_Name": "Field Methods",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/field-methods-ARCL0011"
-    },
     "ARCL0155": {
         "Department_ID": "ARCLG_SHS",
         "Department_Name": "Institute of Archaeology",
         "Module_ID": "ARCL0155",
         "Module_Name": "Social Complexity in Early China: From the Neolithic to the Early Empire",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/social-complexity-in-early-china:-from-the-neolithic-to-the-early-empire-ARCL0155"
-    },
-    "ARCL0179": {
-        "Department_ID": "ARCLG_SHS",
-        "Department_Name": "Institute of Archaeology",
-        "Module_ID": "ARCL0179",
-        "Module_Name": "Themes and Debates in Islamic Archaeology and Heritage A",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/themes-and-debates-in-islamic-archaeology-and-heritage-a-ARCL0179"
     },
     "ARCL0188": {
         "Department_ID": "ARCLG_SHS",
@@ -37722,19 +37904,12 @@
         "Module_Name": "Comparative Archaeologies of the Americas II: Empires, States and Settlement",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/comparative-archaeologies-of-the-americas-ii:-empires,-states-and-settlement-ARCL0188"
     },
-    "ARCL0024": {
+    "ARCL0145": {
         "Department_ID": "ARCLG_SHS",
         "Department_Name": "Institute of Archaeology",
-        "Module_ID": "ARCL0024",
-        "Module_Name": "Early Medieval Archaeology of Britain",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/early-medieval-archaeology-of-britain-ARCL0024"
-    },
-    "ARCL0041": {
-        "Department_ID": "ARCLG_SHS",
-        "Department_Name": "Institute of Archaeology",
-        "Module_ID": "ARCL0041",
-        "Module_Name": "Organic Materials in Archaeology",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/organic-materials-in-archaeology-ARCL0041"
+        "Module_ID": "ARCL0145",
+        "Module_Name": "Archaeologies of Modern Conflict",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/archaeologies-of-modern-conflict-ARCL0145"
     },
     "ARCL0022": {
         "Department_ID": "ARCLG_SHS",
@@ -37750,19 +37925,19 @@
         "Module_Name": "Roman Britain: History and Archaeology",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/roman-britain:-history-and-archaeology-ARCL0016"
     },
-    "ARCL0097": {
+    "ARCL0011": {
         "Department_ID": "ARCLG_SHS",
         "Department_Name": "Institute of Archaeology",
-        "Module_ID": "ARCL0097",
-        "Module_Name": "Geoarchaeology: Methods and Concepts 1",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/geoarchaeology:-methods-and-concepts-1-ARCL0097"
+        "Module_ID": "ARCL0011",
+        "Module_Name": "Field Methods",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/field-methods-ARCL0011"
     },
-    "ARCL0154": {
+    "ARCL0138": {
         "Department_ID": "ARCLG_SHS",
         "Department_Name": "Institute of Archaeology",
-        "Module_ID": "ARCL0154",
-        "Module_Name": "Archaeology of Buddhism",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/archaeology-of-buddhism-ARCL0154"
+        "Module_ID": "ARCL0138",
+        "Module_Name": "The Mediterranean: Human Interaction from Prehistory to Ancient Colonialism",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/the-mediterranean:-human-interaction-from-prehistory-to-ancient-colonialism-ARCL0138"
     },
     "ARCL0031": {
         "Department_ID": "ARCLG_SHS",
@@ -37770,13 +37945,6 @@
         "Module_ID": "ARCL0031",
         "Module_Name": "Archaeology of Mesoamerica",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/archaeology-of-mesoamerica-ARCL0031"
-    },
-    "ARCL0084": {
-        "Department_ID": "ARCLG_SHS",
-        "Department_Name": "Institute of Archaeology",
-        "Module_ID": "ARCL0084",
-        "Module_Name": "Ancient Egypt in London",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/ancient-egypt-in-london-ARCL0084"
     },
     "ARCL0099": {
         "Department_ID": "ARCLG_SHS",
@@ -37813,13 +37981,6 @@
         "Module_Name": "Themes, Thought and Theory in World Archaeology: Foundations",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/themes,-thought-and-theory-in-world-archaeology:-foundations-ARCL0133"
     },
-    "ARCL0129": {
-        "Department_ID": "ARCLG_SHS",
-        "Department_Name": "Institute of Archaeology",
-        "Module_ID": "ARCL0129",
-        "Module_Name": "Environmental Archaeology in Practice",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/environmental-archaeology-in-practice-ARCL0129"
-    },
     "ARCL0120": {
         "Department_ID": "ARCLG_SHS",
         "Department_Name": "Institute of Archaeology",
@@ -37841,20 +38002,6 @@
         "Module_Name": "World Archaeology (i): Evolutionary origins to the earliest",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/world-archaeology-(i):-evolutionary-origins-to-the-earliest-ARCL0003"
     },
-    "ARCL0128": {
-        "Department_ID": "ARCLG_SHS",
-        "Department_Name": "Institute of Archaeology",
-        "Module_ID": "ARCL0128",
-        "Module_Name": "Resources and Subsistence",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/resources-and-subsistence-ARCL0128"
-    },
-    "ARCL0178": {
-        "Department_ID": "ARCLG_SHS",
-        "Department_Name": "Institute of Archaeology",
-        "Module_ID": "ARCL0178",
-        "Module_Name": "Themes and Debates in Islamic Archaeology and Heritage",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/themes-and-debates-in-islamic-archaeology-and-heritage-ARCL0178"
-    },
     "ARCL0196": {
         "Department_ID": "ARCLG_SHS",
         "Department_Name": "Institute of Archaeology",
@@ -37869,19 +38016,19 @@
         "Module_Name": "The Archaeology of the Silk Roads",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/the-archaeology-of-the-silk-roads-ARCL0210"
     },
-    "ARCL0163": {
-        "Department_ID": "ARCLG_SHS",
-        "Department_Name": "Institute of Archaeology",
-        "Module_ID": "ARCL0163",
-        "Module_Name": "Making and Meaning in Ancient Greek Art A",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/making-and-meaning-in-ancient-greek-art-a-ARCL0163"
-    },
     "ARCL0044": {
         "Department_ID": "ARCLG_SHS",
         "Department_Name": "Institute of Archaeology",
         "Module_ID": "ARCL0044",
         "Module_Name": "Introduction to Ancient Egyptian Language",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/introduction-to-ancient-egyptian-language-ARCL0044"
+    },
+    "ARCL0084": {
+        "Department_ID": "ARCLG_SHS",
+        "Department_Name": "Institute of Archaeology",
+        "Module_ID": "ARCL0084",
+        "Module_Name": "Ancient Egypt in London",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/ancient-egypt-in-london-ARCL0084"
     },
     "ARCL0009": {
         "Department_ID": "ARCLG_SHS",
@@ -37903,13 +38050,6 @@
         "Module_ID": "ARCL0014",
         "Module_Name": "World Archaeology: An Outline of the Deep History of Human Societies",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/world-archaeology:-an-outline-of-the-deep-history-of-human-societies-ARCL0014"
-    },
-    "ARCL0146": {
-        "Department_ID": "ARCLG_SHS",
-        "Department_Name": "Institute of Archaeology",
-        "Module_ID": "ARCL0146",
-        "Module_Name": "British and European Prehistory - Neolithic to Iron Age",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/british-and-european-prehistory---neolithic-to-iron-age-ARCL0146"
     },
     "ARCL0157": {
         "Department_ID": "ARCLG_SHS",
@@ -37967,13 +38107,6 @@
         "Module_Name": "Archaeometallurgy I: Mining and Extractive Metallurgy",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/archaeometallurgy-i:-mining-and-extractive-metallurgy-ARCL0098"
     },
-    "ARCL0042": {
-        "Department_ID": "ARCLG_SHS",
-        "Department_Name": "Institute of Archaeology",
-        "Module_ID": "ARCL0042",
-        "Module_Name": "Theory and Method for the Archaeology of the Ancient World",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/theory-and-method-for-the-archaeology-of-the-ancient-world-ARCL0042"
-    },
     "ARCL0002": {
         "Department_ID": "ARCLG_SHS",
         "Department_Name": "Institute of Archaeology",
@@ -37987,13 +38120,6 @@
         "Module_ID": "ARCL0089",
         "Module_Name": "Dissertation",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/dissertation-ARCL0089"
-    },
-    "ARCL0087": {
-        "Department_ID": "ARCLG_SHS",
-        "Department_Name": "Institute of Archaeology",
-        "Module_ID": "ARCL0087",
-        "Module_Name": "Exploratory Data Analysis in Archaeology",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/exploratory-data-analysis-in-archaeology-ARCL0087"
     },
     "ARCL0077": {
         "Department_ID": "ARCLG_SHS",
@@ -38029,20 +38155,6 @@
         "Module_ID": "ARCL0199",
         "Module_Name": "Heritage Ethics and Archaeological Practice in the Middle East and Mediterranean",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/heritage-ethics-and-archaeological-practice-in-the-middle-east-and-mediterranean-ARCL0199"
-    },
-    "ARCL0165": {
-        "Department_ID": "ARCLG_SHS",
-        "Department_Name": "Institute of Archaeology",
-        "Module_ID": "ARCL0165",
-        "Module_Name": "Making and Meaning in Ancient Roman Art A",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/making-and-meaning-in-ancient-roman-art-a-ARCL0165"
-    },
-    "ARCL0088": {
-        "Department_ID": "ARCLG_SHS",
-        "Department_Name": "Institute of Archaeology",
-        "Module_ID": "ARCL0088",
-        "Module_Name": "Museum and Site Interpretation",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/museum-and-site-interpretation-ARCL0088"
     },
     "ARCL0169": {
         "Department_ID": "ARCLG_SHS",
@@ -38085,13 +38197,6 @@
         "Module_ID": "ARCL0182",
         "Module_Name": "Portfolio of Coursework",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/portfolio-of-coursework-ARCL0182"
-    },
-    "ARCL0125": {
-        "Department_ID": "ARCLG_SHS",
-        "Department_Name": "Institute of Archaeology",
-        "Module_ID": "ARCL0125",
-        "Module_Name": "Zooarchaeology in Practice",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/zooarchaeology-in-practice-ARCL0125"
     },
     "ARCL0106": {
         "Department_ID": "ARCLG_SHS",
@@ -38149,20 +38254,6 @@
         "Module_Name": "Collections Curatorship",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/collections-curatorship-ARCL0132"
     },
-    "ARCL0096": {
-        "Department_ID": "ARCLG_SHS",
-        "Department_Name": "Institute of Archaeology",
-        "Module_ID": "ARCL0096",
-        "Module_Name": "Archaeobotanical Analysis in Practice",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/archaeobotanical-analysis-in-practice-ARCL0096"
-    },
-    "ARCL0103": {
-        "Department_ID": "ARCLG_SHS",
-        "Department_Name": "Institute of Archaeology",
-        "Module_ID": "ARCL0103",
-        "Module_Name": "Spatial Statistics, Network Analysis and Human History",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/spatial-statistics,-network-analysis-and-human-history-ARCL0103"
-    },
     "ARCL0038": {
         "Department_ID": "ARCLG_SHS",
         "Department_Name": "Institute of Archaeology",
@@ -38177,13 +38268,6 @@
         "Module_Name": "Dissertation",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/dissertation-ARCL0090"
     },
-    "ARCL0008": {
-        "Department_ID": "ARCLG_SHS",
-        "Department_Name": "Institute of Archaeology",
-        "Module_ID": "ARCL0008",
-        "Module_Name": "Introduction to European Prehistory",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/introduction-to-european-prehistory-ARCL0008"
-    },
     "ARCL0047": {
         "Department_ID": "ARCLG_SHS",
         "Department_Name": "Institute of Archaeology",
@@ -38191,40 +38275,12 @@
         "Module_Name": "A Detailed Study of a Selected Topic",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/a-detailed-study-of-a-selected-topic-ARCL0047"
     },
-    "ARCL0060": {
-        "Department_ID": "ARCLG_SHS",
-        "Department_Name": "Institute of Archaeology",
-        "Module_ID": "ARCL0060",
-        "Module_Name": "Field Study Tour",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/field-study-tour-ARCL0060"
-    },
     "ARCL0017": {
         "Department_ID": "ARCLG_SHS",
         "Department_Name": "Institute of Archaeology",
         "Module_ID": "ARCL0017",
         "Module_Name": "Greek Art and Architecture",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/greek-art-and-architecture-ARCL0017"
-    },
-    "ARCL0095": {
-        "Department_ID": "ARCLG_SHS",
-        "Department_Name": "Institute of Archaeology",
-        "Module_ID": "ARCL0095",
-        "Module_Name": "GIS Approaches to Past Landscapes",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/gis-approaches-to-past-landscapes-ARCL0095"
-    },
-    "ARCL0161": {
-        "Department_ID": "ARCLG_SHS",
-        "Department_Name": "Institute of Archaeology",
-        "Module_ID": "ARCL0161",
-        "Module_Name": "Complexity, Space and Human History",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/complexity,-space-and-human-history-ARCL0161"
-    },
-    "ARCL0158": {
-        "Department_ID": "ARCLG_SHS",
-        "Department_Name": "Institute of Archaeology",
-        "Module_ID": "ARCL0158",
-        "Module_Name": "Structure and Deterioration of Craft Materials",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/structure-and-deterioration-of-craft-materials-ARCL0158"
     },
     "ARCL0148": {
         "Department_ID": "ARCLG_SHS",
@@ -38359,19 +38415,12 @@
         "Module_Name": "Cultural Memory",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/cultural-memory-ARCL0121"
     },
-    "ARCL0191": {
+    "ARCL0025": {
         "Department_ID": "ARCLG_SHS",
         "Department_Name": "Institute of Archaeology",
-        "Module_ID": "ARCL0191",
-        "Module_Name": "Conservation for Archaeologists",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/conservation-for-archaeologists-ARCL0191"
-    },
-    "ARCL0143": {
-        "Department_ID": "ARCLG_SHS",
-        "Department_Name": "Institute of Archaeology",
-        "Module_ID": "ARCL0143",
-        "Module_Name": "Remote Sensing in Archaeology",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/remote-sensing-in-archaeology-ARCL0143"
+        "Module_ID": "ARCL0025",
+        "Module_Name": "Early Medieval Archaeology of Britain  A",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/early-medieval-archaeology-of-britain--a-ARCL0025"
     },
     "ARCL0035": {
         "Department_ID": "ARCLG_SHS",
@@ -38379,13 +38428,6 @@
         "Module_ID": "ARCL0035",
         "Module_Name": "Archaeological Photography",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/archaeological-photography-ARCL0035"
-    },
-    "ARCL0141": {
-        "Department_ID": "ARCLG_SHS",
-        "Department_Name": "Institute of Archaeology",
-        "Module_ID": "ARCL0141",
-        "Module_Name": "Mediterranean Prehistory",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/mediterranean-prehistory-ARCL0141"
     },
     "ARCL0107": {
         "Department_ID": "ARCLG_SHS",
@@ -38400,6 +38442,13 @@
         "Module_ID": "ARCL0144",
         "Module_Name": "Cultural Heritage, Globalization and Development",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/cultural-heritage,-globalization-and-development-ARCL0144"
+    },
+    "ARCL0085": {
+        "Department_ID": "ARCLG_SHS",
+        "Department_Name": "Institute of Archaeology",
+        "Module_ID": "ARCL0085",
+        "Module_Name": "London before the Great Fire",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/london-before-the-great-fire-ARCL0085"
     },
     "ECON0002": {
         "Department_ID": "ECONS_SHS",
@@ -39073,6 +39122,13 @@
         "Module_Name": "Experimental Economics",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/experimental-economics-ECON0112"
     },
+    "XRHL0049": {
+        "Department_ID": "ICRHU_NFA",
+        "Department_Name": "Royal Holloway",
+        "Module_ID": "XRHL0049",
+        "Module_Name": "RHUL: Looking at the Victorians: Visual and Material Culture in Britain 1837-1901",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/rhul:-looking-at-the-victorians:-visual-and-material-culture-in-britain-1837-1901-XRHL0049"
+    },
     "XRHL0039": {
         "Department_ID": "ICRHU_NFA",
         "Department_Name": "Royal Holloway",
@@ -39121,6 +39177,20 @@
         "Module_ID": "XRHL0042",
         "Module_Name": "RHUL: Athenian Law and Social History (single term)",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/rhul:-athenian-law-and-social-history-(single-term)-XRHL0042"
+    },
+    "XRHL0045": {
+        "Department_ID": "ICRHU_NFA",
+        "Department_Name": "Royal Holloway",
+        "Module_ID": "XRHL0045",
+        "Module_Name": "RHUL: Letters in Roman Literature",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/rhul:-letters-in-roman-literature-XRHL0045"
+    },
+    "XRHL0044": {
+        "Department_ID": "ICRHU_NFA",
+        "Department_Name": "Royal Holloway",
+        "Module_ID": "XRHL0044",
+        "Module_Name": "RHUL: Byzantium and the First Crusade",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/rhul:-byzantium-and-the-first-crusade-XRHL0044"
     },
     "XRHL0010": {
         "Department_ID": "ICRHU_NFA",
@@ -39226,6 +39296,20 @@
         "Module_ID": "XRHL0004",
         "Module_Name": "RHUL: Advanced Latin B",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/rhul:-advanced-latin-b-XRHL0004"
+    },
+    "XRHL0047": {
+        "Department_ID": "ICRHU_NFA",
+        "Department_Name": "Royal Holloway",
+        "Module_ID": "XRHL0047",
+        "Module_Name": "RHUL: Byzantium and the Fourth Crusade",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/rhul:-byzantium-and-the-fourth-crusade-XRHL0047"
+    },
+    "XRHL0048": {
+        "Department_ID": "ICRHU_NFA",
+        "Department_Name": "Royal Holloway",
+        "Module_ID": "XRHL0048",
+        "Module_Name": "RHUL: Elementary Greek Palaeography",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/rhul:-elementary-greek-palaeography-XRHL0048"
     },
     "XRHL0021": {
         "Department_ID": "ICRHU_NFA",
@@ -39339,6 +39423,13 @@
         "Module_Name": "RHUL: Cities of Empire",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/rhul:-cities-of-empire-XRHL0007"
     },
+    "XRHL0046": {
+        "Department_ID": "ICRHU_NFA",
+        "Department_Name": "Royal Holloway",
+        "Module_ID": "XRHL0046",
+        "Module_Name": "RHUL: Pompeii",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/rhul:-pompeii-XRHL0046"
+    },
     "XRHL0026": {
         "Department_ID": "ICRHU_NFA",
         "Department_Name": "Royal Holloway",
@@ -39366,6 +39457,13 @@
         "Module_ID": "XRHL0013",
         "Module_Name": "RHUL: Homer - Odyssey",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/rhul:-homer---odyssey-XRHL0013"
+    },
+    "XGLD0060": {
+        "Department_ID": "ICGLD_NFA",
+        "Department_Name": "Goldsmiths College",
+        "Module_ID": "XGLD0060",
+        "Module_Name": "Goldsmiths College: Embodiment and Experience",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/goldsmiths-college:-embodiment-and-experience-XGLD0060"
     },
     "XGLD0047": {
         "Department_ID": "ICGLD_NFA",
@@ -39409,6 +39507,34 @@
         "Module_Name": "Goldsmiths College: Medicine on the Silk Roads: Traditions and Transmissions",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/goldsmiths-college:-medicine-on-the-silk-roads:-traditions-and-transmissions-XGLD0013"
     },
+    "XGLD0053": {
+        "Department_ID": "ICGLD_NFA",
+        "Department_Name": "Goldsmiths College",
+        "Module_ID": "XGLD0053",
+        "Module_Name": "Goldsmiths College: Critical Musicology and Popular Music",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/goldsmiths-college:-critical-musicology-and-popular-music-XGLD0053"
+    },
+    "XGLD0056": {
+        "Department_ID": "ICGLD_NFA",
+        "Department_Name": "Goldsmiths College",
+        "Module_ID": "XGLD0056",
+        "Module_Name": "Goldsmiths College: Expressive Game Design",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/goldsmiths-college:-expressive-game-design-XGLD0056"
+    },
+    "XGLD0054": {
+        "Department_ID": "ICGLD_NFA",
+        "Department_Name": "Goldsmiths College",
+        "Module_ID": "XGLD0054",
+        "Module_Name": "Goldsmiths College: Contemporary Chinese Issues",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/goldsmiths-college:-contemporary-chinese-issues-XGLD0054"
+    },
+    "XGLD0055": {
+        "Department_ID": "ICGLD_NFA",
+        "Department_Name": "Goldsmiths College",
+        "Module_ID": "XGLD0055",
+        "Module_Name": "Goldsmiths College: Counter Forensics",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/goldsmiths-college:-counter-forensics-XGLD0055"
+    },
     "XGLD0023": {
         "Department_ID": "ICGLD_NFA",
         "Department_Name": "Goldsmiths College",
@@ -39416,12 +39542,33 @@
         "Module_Name": "Goldsmiths College: Experimental Media",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/goldsmiths-college:-experimental-media-XGLD0023"
     },
+    "XGLD0052": {
+        "Department_ID": "ICGLD_NFA",
+        "Department_Name": "Goldsmiths College",
+        "Module_ID": "XGLD0052",
+        "Module_Name": "Goldsmiths College: Social Media in Everyday Life: A Global Perspective",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/goldsmiths-college:-social-media-in-everyday-life:-a-global-perspective-XGLD0052"
+    },
     "XGLD0011": {
         "Department_ID": "ICGLD_NFA",
         "Department_Name": "Goldsmiths College",
         "Module_ID": "XGLD0011",
         "Module_Name": "Goldsmiths College: Poverty, Dress and Identity in Nineteenth-Century England",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/goldsmiths-college:-poverty,-dress-and-identity-in-nineteenth-century-england-XGLD0011"
+    },
+    "XGLD0058": {
+        "Department_ID": "ICGLD_NFA",
+        "Department_Name": "Goldsmiths College",
+        "Module_ID": "XGLD0058",
+        "Module_Name": "Goldsmiths College: Language and Gender",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/goldsmiths-college:-language-and-gender-XGLD0058"
+    },
+    "XGLD0057": {
+        "Department_ID": "ICGLD_NFA",
+        "Department_Name": "Goldsmiths College",
+        "Module_ID": "XGLD0057",
+        "Module_Name": "Goldsmiths College: Psychological Approaches to Music",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/goldsmiths-college:-psychological-approaches-to-music-XGLD0057"
     },
     "XGLD0031": {
         "Department_ID": "ICGLD_NFA",
@@ -39514,6 +39661,20 @@
         "Module_Name": "Goldsmiths College: Filmmakers Make Theory",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/goldsmiths-college:-filmmakers-make-theory-XGLD0025"
     },
+    "XGLD0062": {
+        "Department_ID": "ICGLD_NFA",
+        "Department_Name": "Goldsmiths College",
+        "Module_ID": "XGLD0062",
+        "Module_Name": "Goldsmiths College: Postmodern Gender, Identity and Queer Theory",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/goldsmiths-college:-postmodern-gender,-identity-and-queer-theory-XGLD0062"
+    },
+    "XGLD0061": {
+        "Department_ID": "ICGLD_NFA",
+        "Department_Name": "Goldsmiths College",
+        "Module_ID": "XGLD0061",
+        "Module_Name": "Goldsmiths College: Women and Gender in the Middle East",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/goldsmiths-college:-women-and-gender-in-the-middle-east-XGLD0061"
+    },
     "XGLD0007": {
         "Department_ID": "ICGLD_NFA",
         "Department_Name": "Goldsmiths College",
@@ -39541,6 +39702,13 @@
         "Module_ID": "XGLD0036",
         "Module_Name": "Goldsmiths College: Moving Image and Spectatorship",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/goldsmiths-college:-moving-image-and-spectatorship-XGLD0036"
+    },
+    "XGLD0063": {
+        "Department_ID": "ICGLD_NFA",
+        "Department_Name": "Goldsmiths College",
+        "Module_ID": "XGLD0063",
+        "Module_Name": "Goldsmiths College: Black and British a long and varied history",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/goldsmiths-college:-black-and-british-a-long-and-varied-history-XGLD0063"
     },
     "XGLD0006": {
         "Department_ID": "ICGLD_NFA",
@@ -39653,6 +39821,41 @@
         "Module_ID": "XGLD0001",
         "Module_Name": "Goldsmiths College: Learning from Social Movements",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/goldsmiths-college:-learning-from-social-movements-XGLD0001"
+    },
+    "XGLD0059": {
+        "Department_ID": "ICGLD_NFA",
+        "Department_Name": "Goldsmiths College",
+        "Module_ID": "XGLD0059",
+        "Module_Name": "Goldsmiths College: Mediating Violence: Feminist, Queer, Decolonial Perspectives",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/goldsmiths-college:-mediating-violence:-feminist,-queer,-decolonial-perspectives-XGLD0059"
+    },
+    "XLBS0021": {
+        "Department_ID": "ICLBS_NFA",
+        "Department_Name": "London Business School",
+        "Module_ID": "XLBS0021",
+        "Module_Name": "LBS: Micro OB - individuals",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/lbs:-micro-ob---individuals-XLBS0021"
+    },
+    "XLBS0023": {
+        "Department_ID": "ICLBS_NFA",
+        "Department_Name": "London Business School",
+        "Module_ID": "XLBS0023",
+        "Module_Name": "LBS: Microeconomics (for non-economists)",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/lbs:-microeconomics-(for-non-economists)-XLBS0023"
+    },
+    "XLBS0024": {
+        "Department_ID": "ICLBS_NFA",
+        "Department_Name": "London Business School",
+        "Module_ID": "XLBS0024",
+        "Module_Name": "LBS: Micro OB - teams",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/lbs:-micro-ob---teams-XLBS0024"
+    },
+    "XLBS0025": {
+        "Department_ID": "ICLBS_NFA",
+        "Department_Name": "London Business School",
+        "Module_ID": "XLBS0025",
+        "Module_Name": "LBS: Econometrics Part I",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/lbs:-econometrics-part-i-XLBS0025"
     },
     "XLBS0017": {
         "Department_ID": "ICLBS_NFA",
@@ -39857,6 +40060,13 @@
         "Module_Name": "Understanding and Countering Radicalisation and Terrorism",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/understanding-and-countering-radicalisation-and-terrorism-ISSU0017"
     },
+    "LCSP0011": {
+        "Department_ID": "LANIE_IOE",
+        "Department_Name": "Centre for Languages and International Education",
+        "Module_ID": "LCSP0011",
+        "Module_Name": "Spanish Levels 3+4",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/spanish-levels-3+4-LCSP0011"
+    },
     "LCPO0004": {
         "Department_ID": "LANIE_IOE",
         "Department_Name": "Centre for Languages and International Education",
@@ -40024,13 +40234,6 @@
         "Module_ID": "LCMA0011",
         "Module_Name": "Mandarin Levels 3+4",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/mandarin-levels-3+4-LCMA0011"
-    },
-    "LCSP0011": {
-        "Department_ID": "LANIE_IOE",
-        "Department_Name": "Centre for Languages and International Education",
-        "Module_ID": "LCSP0011",
-        "Module_Name": "Spanish Levels 3+4",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/spanish-levels-3+4-LCSP0011"
     },
     "LCMA0009": {
         "Department_ID": "LANIE_IOE",
@@ -41761,6 +41964,27 @@
         "Module_Name": "Research Project Literature Review",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/research-project-literature-review-STEP0016"
     },
+    "STEP0011": {
+        "Department_ID": "STEPP_ENG",
+        "Department_Name": "Science, Technology, Engineering and Public Policy",
+        "Module_ID": "STEP0011",
+        "Module_Name": "Ethics, Institutions and Power",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/ethics,-institutions-and-power-STEP0011"
+    },
+    "STEP0023": {
+        "Department_ID": "STEPP_ENG",
+        "Department_Name": "Science, Technology, Engineering and Public Policy",
+        "Module_ID": "STEP0023",
+        "Module_Name": "DTP Books Seminar A",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/dtp-books-seminar-a-STEP0023"
+    },
+    "STEP0010": {
+        "Department_ID": "STEPP_ENG",
+        "Department_Name": "Science, Technology, Engineering and Public Policy",
+        "Module_ID": "STEP0010",
+        "Module_Name": "Introduction to Science, Technology, Engineering and Public Policy",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/introduction-to-science,-technology,-engineering-and-public-policy-STEP0010"
+    },
     "STEP0024": {
         "Department_ID": "STEPP_ENG",
         "Department_Name": "Science, Technology, Engineering and Public Policy",
@@ -42097,6 +42321,62 @@
         "Module_Name": "Energy, Technology and Innovation",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/energy,-technology-and-innovation-BENV0016"
     },
+    "BENV0056": {
+        "Department_ID": "BSEER_BEN",
+        "Department_Name": "Bartlett School of Environment, Energy and Resources",
+        "Module_ID": "BENV0056",
+        "Module_Name": "Health and Wellbeing in Cities: Theory and Practice",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/health-and-wellbeing-in-cities:-theory-and-practice-BENV0056"
+    },
+    "BENV0119": {
+        "Department_ID": "BSEER_BEN",
+        "Department_Name": "Bartlett School of Environment, Energy and Resources",
+        "Module_ID": "BENV0119",
+        "Module_Name": "Machine Learning in Smart Buildings",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/machine-learning-in-smart-buildings-BENV0119"
+    },
+    "BENV0057": {
+        "Department_ID": "BSEER_BEN",
+        "Department_Name": "Bartlett School of Environment, Energy and Resources",
+        "Module_ID": "BENV0057",
+        "Module_Name": "Designing Inclusive Places",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/designing-inclusive-places-BENV0057"
+    },
+    "BENV0085": {
+        "Department_ID": "BSEER_BEN",
+        "Department_Name": "Bartlett School of Environment, Energy and Resources",
+        "Module_ID": "BENV0085",
+        "Module_Name": "Engineered Environmental Elements",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/engineered-environmental-elements-BENV0085"
+    },
+    "BENV0054": {
+        "Department_ID": "BSEER_BEN",
+        "Department_Name": "Bartlett School of Environment, Energy and Resources",
+        "Module_ID": "BENV0054",
+        "Module_Name": "Wellbeing in Buildings: Theory and Practice",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/wellbeing-in-buildings:-theory-and-practice-BENV0054"
+    },
+    "BENV0086": {
+        "Department_ID": "BSEER_BEN",
+        "Department_Name": "Bartlett School of Environment, Energy and Resources",
+        "Module_ID": "BENV0086",
+        "Module_Name": "Building Systems Modelling",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/building-systems-modelling-BENV0086"
+    },
+    "BENV0030": {
+        "Department_ID": "BSEER_BEN",
+        "Department_Name": "Bartlett School of Environment, Energy and Resources",
+        "Module_ID": "BENV0030",
+        "Module_Name": "Light, Lighting and Wellbeing in Buildings",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/light,-lighting-and-wellbeing-in-buildings-BENV0030"
+    },
+    "BENV0033": {
+        "Department_ID": "BSEER_BEN",
+        "Department_Name": "Bartlett School of Environment, Energy and Resources",
+        "Module_ID": "BENV0033",
+        "Module_Name": "Building Acoustics",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/building-acoustics-BENV0033"
+    },
     "BENV0043": {
         "Department_ID": "BSEER_BEN",
         "Department_Name": "Bartlett School of Environment, Energy and Resources",
@@ -42138,13 +42418,6 @@
         "Module_ID": "BENV0051",
         "Module_Name": "Sustainability and Heritage Value",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/sustainability-and-heritage-value-BENV0051"
-    },
-    "BENV0020": {
-        "Department_ID": "BSEER_BEN",
-        "Department_Name": "Bartlett School of Environment, Energy and Resources",
-        "Module_ID": "BENV0020",
-        "Module_Name": "Planetary Economics and the Political Economy of Energy and Climate Change",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/planetary-economics-and-the-political-economy-of-energy-and-climate-change-BENV0020"
     },
     "BENV0088": {
         "Department_ID": "BSEER_BEN",
@@ -42208,13 +42481,6 @@
         "Module_ID": "BENV0135",
         "Module_Name": "The Evolution of Lighting Design",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/the-evolution-of-lighting-design-BENV0135"
-    },
-    "BENV0033": {
-        "Department_ID": "BSEER_BEN",
-        "Department_Name": "Bartlett School of Environment, Energy and Resources",
-        "Module_ID": "BENV0033",
-        "Module_Name": "Building Acoustics",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/building-acoustics-BENV0033"
     },
     "BENV0044": {
         "Department_ID": "BSEER_BEN",
@@ -42293,6 +42559,13 @@
         "Module_Name": "Heritage Materials and Assemblies (UK)",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/heritage-materials-and-assemblies-(uk)-BENV0127"
     },
+    "BENV0020": {
+        "Department_ID": "BSEER_BEN",
+        "Department_Name": "Bartlett School of Environment, Energy and Resources",
+        "Module_ID": "BENV0020",
+        "Module_Name": "Planetary Economics and the Political Economy of Energy and Climate Change",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/planetary-economics-and-the-political-economy-of-energy-and-climate-change-BENV0020"
+    },
     "BENV0093": {
         "Department_ID": "BSEER_BEN",
         "Department_Name": "Bartlett School of Environment, Energy and Resources",
@@ -42321,13 +42594,6 @@
         "Module_Name": "Systems Thinking and System Dynamics",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/systems-thinking-and-system-dynamics-BENV0047"
     },
-    "BENV0041": {
-        "Department_ID": "BSEER_BEN",
-        "Department_Name": "Bartlett School of Environment, Energy and Resources",
-        "Module_ID": "BENV0041",
-        "Module_Name": "Sustainable Housing Design Principles",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/sustainable-housing-design-principles-BENV0041"
-    },
     "BENV0014": {
         "Department_ID": "BSEER_BEN",
         "Department_Name": "Bartlett School of Environment, Energy and Resources",
@@ -42341,13 +42607,6 @@
         "Module_ID": "BENV0003",
         "Module_Name": "MSc Light and Lighting Dissertation",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/msc-light-and-lighting-dissertation-BENV0003"
-    },
-    "BENV0085": {
-        "Department_ID": "BSEER_BEN",
-        "Department_Name": "Bartlett School of Environment, Energy and Resources",
-        "Module_ID": "BENV0085",
-        "Module_Name": "Engineered Environmental Elements",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/engineered-environmental-elements-BENV0085"
     },
     "BENV0035": {
         "Department_ID": "BSEER_BEN",
@@ -42398,13 +42657,6 @@
         "Module_Name": "Business and Sustainability",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/business-and-sustainability-BENV0009"
     },
-    "BENV0077": {
-        "Department_ID": "BSEER_BEN",
-        "Department_Name": "Bartlett School of Environment, Energy and Resources",
-        "Module_ID": "BENV0077",
-        "Module_Name": "Eco-Innovation and Sustainable Entrepreneurship",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/eco-innovation-and-sustainable-entrepreneurship-BENV0077"
-    },
     "BENV0094": {
         "Department_ID": "BSEER_BEN",
         "Department_Name": "Bartlett School of Environment, Energy and Resources",
@@ -42425,20 +42677,6 @@
         "Module_ID": "BENV0066",
         "Module_Name": "Science and Engineering in Arts, Heritage and Archaeology - Field Project",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/science-and-engineering-in-arts,-heritage-and-archaeology---field-project-BENV0066"
-    },
-    "BENV0118": {
-        "Department_ID": "BSEER_BEN",
-        "Department_Name": "Bartlett School of Environment, Energy and Resources",
-        "Module_ID": "BENV0118",
-        "Module_Name": "Circular Economy in the Built Environment",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/circular-economy-in-the-built-environment-BENV0118"
-    },
-    "BENV0119": {
-        "Department_ID": "BSEER_BEN",
-        "Department_Name": "Bartlett School of Environment, Energy and Resources",
-        "Module_ID": "BENV0119",
-        "Module_Name": "Machine Learning in Smart Buildings",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/machine-learning-in-smart-buildings-BENV0119"
     },
     "BENV0120": {
         "Department_ID": "BSEER_BEN",
@@ -42495,13 +42733,6 @@
         "Module_ID": "BENV0073",
         "Module_Name": "Future Resource Pathways and Visions",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/future-resource-pathways-and-visions-BENV0073"
-    },
-    "BENV0030": {
-        "Department_ID": "BSEER_BEN",
-        "Department_Name": "Bartlett School of Environment, Energy and Resources",
-        "Module_ID": "BENV0030",
-        "Module_Name": "Light, Lighting and Wellbeing in Buildings",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/light,-lighting-and-wellbeing-in-buildings-BENV0030"
     },
     "BENV0076": {
         "Department_ID": "BSEER_BEN",
@@ -42566,26 +42797,12 @@
         "Module_Name": "Econometrics for Energy and the Environment",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/econometrics-for-energy-and-the-environment-BENV0018"
     },
-    "BENV0039": {
-        "Department_ID": "BSEER_BEN",
-        "Department_Name": "Bartlett School of Environment, Energy and Resources",
-        "Module_ID": "BENV0039",
-        "Module_Name": "Low Energy Housing Retrofit",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/low-energy-housing-retrofit-BENV0039"
-    },
     "BENV0109": {
         "Department_ID": "BSEER_BEN",
         "Department_Name": "Bartlett School of Environment, Energy and Resources",
         "Module_ID": "BENV0109",
         "Module_Name": "Energy, Environment and Resources in Developing Countries",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/energy,-environment-and-resources-in-developing-countries-BENV0109"
-    },
-    "BENV0054": {
-        "Department_ID": "BSEER_BEN",
-        "Department_Name": "Bartlett School of Environment, Energy and Resources",
-        "Module_ID": "BENV0054",
-        "Module_Name": "Wellbeing in Buildings: Theory and Practice",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/wellbeing-in-buildings:-theory-and-practice-BENV0054"
     },
     "BENV0007": {
         "Department_ID": "BSEER_BEN",
@@ -42607,13 +42824,6 @@
         "Module_ID": "BENV0006",
         "Module_Name": "Dissertation: economics and Policy of Energy and the Environment",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/dissertation:-economics-and-policy-of-energy-and-the-environment-BENV0006"
-    },
-    "BENV0056": {
-        "Department_ID": "BSEER_BEN",
-        "Department_Name": "Bartlett School of Environment, Energy and Resources",
-        "Module_ID": "BENV0056",
-        "Module_Name": "Health and Wellbeing in Cities: Theory and Practice",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/health-and-wellbeing-in-cities:-theory-and-practice-BENV0056"
     },
     "BENV0095": {
         "Department_ID": "BSEER_BEN",
@@ -42650,13 +42860,6 @@
         "Module_Name": "Policies for Sustainable Resources",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/policies-for-sustainable-resources-BENV0071"
     },
-    "BENV0057": {
-        "Department_ID": "BSEER_BEN",
-        "Department_Name": "Bartlett School of Environment, Energy and Resources",
-        "Module_ID": "BENV0057",
-        "Module_Name": "Designing Inclusive Places",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/designing-inclusive-places-BENV0057"
-    },
     "BENV0075": {
         "Department_ID": "BSEER_BEN",
         "Department_Name": "Bartlett School of Environment, Energy and Resources",
@@ -42677,13 +42880,6 @@
         "Module_ID": "BENV0011",
         "Module_Name": "Environmental and Resource Economics",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/environmental-and-resource-economics-BENV0011"
-    },
-    "BENV0086": {
-        "Department_ID": "BSEER_BEN",
-        "Department_Name": "Bartlett School of Environment, Energy and Resources",
-        "Module_ID": "BENV0086",
-        "Module_Name": "Building Systems Modelling",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/building-systems-modelling-BENV0086"
     },
     "BENV0091": {
         "Department_ID": "BSEER_BEN",
@@ -42845,6 +43041,13 @@
         "Module_ID": "LCLL0054",
         "Module_Name": "Dissertation on Leadership (Teach First)",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/dissertation-on-leadership-(teach-first)-LCLL0054"
+    },
+    "LCLL0050": {
+        "Department_ID": "LEARN_IOE",
+        "Department_Name": "Learning and Leadership",
+        "Module_ID": "LCLL0050",
+        "Module_Name": "Leadership for the Learning Community (Leadership)",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/leadership-for-the-learning-community-(leadership)-LCLL0050"
     },
     "LCLL0075": {
         "Department_ID": "LEARN_IOE",
@@ -43147,13 +43350,6 @@
         "Module_Name": "The Theory and Practice of Reading Recovery: Children, Teachers and Schools",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/the-theory-and-practice-of-reading-recovery:-children,-teachers-and-schools-LCLL0027"
     },
-    "LCLL0050": {
-        "Department_ID": "LEARN_IOE",
-        "Department_Name": "Learning and Leadership",
-        "Module_ID": "LCLL0050",
-        "Module_Name": "Leadership for the Learning Community (Leadership)",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/leadership-for-the-learning-community-(leadership)-LCLL0050"
-    },
     "LCLL0064": {
         "Department_ID": "LEARN_IOE",
         "Department_Name": "Learning and Leadership",
@@ -43293,13 +43489,6 @@
         "Module_ID": "SOCS0099",
         "Module_Name": "Historical Foundations of Sociological Thought",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/historical-foundations-of-sociological-thought-SOCS0099"
-    },
-    "SOCS0020": {
-        "Department_ID": "SOCSC_IOE",
-        "Department_Name": "Social Science",
-        "Module_ID": "SOCS0020",
-        "Module_Name": "Economic Perspectives on Education Policy",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/economic-perspectives-on-education-policy-SOCS0020"
     },
     "SOCS0037": {
         "Department_ID": "SOCSC_IOE",
@@ -43958,6 +44147,13 @@
         "Module_ID": "EDPS0216",
         "Module_Name": "An Introduction to Applied Quantitative Analysis in the Social Sciences",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/an-introduction-to-applied-quantitative-analysis-in-the-social-sciences-EDPS0216"
+    },
+    "SOCS0020": {
+        "Department_ID": "EDPAS_IOE",
+        "Department_Name": "Education, Practice and Society",
+        "Module_ID": "SOCS0020",
+        "Module_Name": "Economic Perspectives on Education Policy",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/economic-perspectives-on-education-policy-SOCS0020"
     },
     "EDPS0139": {
         "Department_ID": "EDPAS_IOE",
@@ -44764,6 +44960,20 @@
         "Module_Name": "Business Strategy",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/business-strategy-MSIN0186"
     },
+    "MSIN0206": {
+        "Department_ID": "MANAG_ENG",
+        "Department_Name": "UCL School of Management",
+        "Module_ID": "MSIN0206",
+        "Module_Name": "Capstone Project Version B (Industry/Market Forecast: Group)",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/capstone-project-version-b-(industry/market-forecast:-group)-MSIN0206"
+    },
+    "MSIN0205": {
+        "Department_ID": "MANAG_ENG",
+        "Department_Name": "UCL School of Management",
+        "Module_ID": "MSIN0205",
+        "Module_Name": "Capstone Project Version A (Organisation Forecast: Individual)",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/capstone-project-version-a-(organisation-forecast:-individual)-MSIN0205"
+    },
     "MSIN0208": {
         "Department_ID": "MANAG_ENG",
         "Department_Name": "UCL School of Management",
@@ -45030,26 +45240,12 @@
         "Module_Name": "Emerging Business Technologies",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/emerging-business-technologies-MSIN0173"
     },
-    "MSIN0206": {
-        "Department_ID": "MANAG_ENG",
-        "Department_Name": "UCL School of Management",
-        "Module_ID": "MSIN0206",
-        "Module_Name": "Capstone Project Version B (Industry/Market Forecast: Group)",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/capstone-project-version-b-(industry/market-forecast:-group)-MSIN0206"
-    },
     "MSIN0198": {
         "Department_ID": "MANAG_ENG",
         "Department_Name": "UCL School of Management",
         "Module_ID": "MSIN0198",
         "Module_Name": "New Product Development",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/new-product-development-MSIN0198"
-    },
-    "MSIN0205": {
-        "Department_ID": "MANAG_ENG",
-        "Department_Name": "UCL School of Management",
-        "Module_ID": "MSIN0205",
-        "Module_Name": "Capstone Project Version A (Organisation Forecast: Individual)",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/capstone-project-version-a-(organisation-forecast:-individual)-MSIN0205"
     },
     "MSIN0143": {
         "Department_ID": "MANAG_ENG",
@@ -45282,13 +45478,6 @@
         "Module_Name": "Managing Across Cultures",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/managing-across-cultures-MSIN0220"
     },
-    "MSIN0075": {
-        "Department_ID": "MANAG_ENG",
-        "Department_Name": "UCL School of Management",
-        "Module_ID": "MSIN0075",
-        "Module_Name": "Business Economics",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/business-economics-MSIN0075"
-    },
     "MSIN0112": {
         "Department_ID": "MANAG_ENG",
         "Department_Name": "UCL School of Management",
@@ -45323,6 +45512,13 @@
         "Module_ID": "MSIN0065",
         "Module_Name": "Business Economics for Engineers",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/business-economics-for-engineers-MSIN0065"
+    },
+    "MSIN0075": {
+        "Department_ID": "MANAG_ENG",
+        "Department_Name": "UCL School of Management",
+        "Module_ID": "MSIN0075",
+        "Module_Name": "Business Economics",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/business-economics-MSIN0075"
     },
     "MSIN0076": {
         "Department_ID": "MANAG_ENG",
@@ -45821,19 +46017,19 @@
         "Module_Name": "Economics and Business in China",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/economics-and-business-in-china-MSIN0117"
     },
-    "MSIN0125": {
-        "Department_ID": "MANAG_ENG",
-        "Department_Name": "UCL School of Management",
-        "Module_ID": "MSIN0125",
-        "Module_Name": "Entrepreneurship and innovation in Europe",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/entrepreneurship-and-innovation-in-europe-MSIN0125"
-    },
     "MSIN0115": {
         "Department_ID": "MANAG_ENG",
         "Department_Name": "UCL School of Management",
         "Module_ID": "MSIN0115",
         "Module_Name": "Accounting and Finance",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/accounting-and-finance-MSIN0115"
+    },
+    "MSIN0125": {
+        "Department_ID": "MANAG_ENG",
+        "Department_Name": "UCL School of Management",
+        "Module_ID": "MSIN0125",
+        "Module_Name": "Entrepreneurship and innovation in Europe",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/entrepreneurship-and-innovation-in-europe-MSIN0125"
     },
     "MSIN0171": {
         "Department_ID": "MANAG_ENG",
@@ -45974,6 +46170,13 @@
         "Module_ID": "MSIN0020",
         "Module_Name": "Strategy by Design",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/strategy-by-design-MSIN0020"
+    },
+    "MSIN0192": {
+        "Department_ID": "MANAG_ENG",
+        "Department_Name": "UCL School of Management",
+        "Module_ID": "MSIN0192",
+        "Module_Name": "Corporate Strategy and M&A",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/corporate-strategy-and-m&a-MSIN0192"
     },
     "CHLD0093": {
         "Department_ID": "GOSCH_PHS",
@@ -46619,12 +46822,26 @@
         "Module_Name": "Masculinity in Literature and Cinematic Adaptations",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/masculinity-in-literature-and-cinematic-adaptations-CMII0050"
     },
+    "CMII0072": {
+        "Department_ID": "MUDIC_ART",
+        "Department_Name": "Centre for Multidisciplinary and Intercultural Inquiry",
+        "Module_ID": "CMII0072",
+        "Module_Name": "Research Methods",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/research-methods-CMII0072"
+    },
     "CMII0039": {
         "Department_ID": "MUDIC_ART",
         "Department_Name": "Centre for Multidisciplinary and Intercultural Inquiry",
         "Module_ID": "CMII0039",
         "Module_Name": "Global Politics",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/global-politics-CMII0039"
+    },
+    "CMII0129": {
+        "Department_ID": "MUDIC_ART",
+        "Department_Name": "Centre for Multidisciplinary and Intercultural Inquiry",
+        "Module_ID": "CMII0129",
+        "Module_Name": "Neoliberalism, Necrocapitalism and the Aesthetics of Precarity",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/neoliberalism,-necrocapitalism-and-the-aesthetics-of-precarity-CMII0129"
     },
     "CMII0115": {
         "Department_ID": "MUDIC_ART",
@@ -46660,13 +46877,6 @@
         "Module_ID": "CMII0124",
         "Module_Name": "Short Films",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/short-films-CMII0124"
-    },
-    "CMII0072": {
-        "Department_ID": "MUDIC_ART",
-        "Department_Name": "Centre for Multidisciplinary and Intercultural Inquiry",
-        "Module_ID": "CMII0072",
-        "Module_Name": "Research Methods",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/research-methods-CMII0072"
     },
     "CMII0126": {
         "Department_ID": "MUDIC_ART",
@@ -46934,6 +47144,13 @@
         "Module_Name": "Knowledge, Power and the Cultural Production of Gender",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/knowledge,-power-and-the-cultural-production-of-gender-CMII0053"
     },
+    "CMII0133": {
+        "Department_ID": "MUDIC_ART",
+        "Department_Name": "Centre for Multidisciplinary and Intercultural Inquiry",
+        "Module_ID": "CMII0133",
+        "Module_Name": "Fictions of Grief",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/fictions-of-grief-CMII0133"
+    },
     "CMII0015": {
         "Department_ID": "MUDIC_ART",
         "Department_Name": "Centre for Multidisciplinary and Intercultural Inquiry",
@@ -47059,13 +47276,6 @@
         "Module_ID": "CMII0074",
         "Module_Name": "Madness",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/madness-CMII0074"
-    },
-    "CMII0129": {
-        "Department_ID": "MUDIC_ART",
-        "Department_Name": "Centre for Multidisciplinary and Intercultural Inquiry",
-        "Module_ID": "CMII0129",
-        "Module_Name": "Neoliberalism, Necrocapitalism and the Aesthetics of Precarity",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/neoliberalism,-necrocapitalism-and-the-aesthetics-of-precarity-CMII0129"
     },
     "CMII0137": {
         "Department_ID": "MUDIC_ART",
@@ -47858,13 +48068,6 @@
         "Module_Name": "Extending Impact and Influencing Others",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/extending-impact-and-influencing-others-CCME0025"
     },
-    "CCME0011": {
-        "Department_ID": "CULCM_IOE",
-        "Department_Name": "Culture, Communication and Media",
-        "Module_ID": "CCME0011",
-        "Module_Name": "Wider Educational Studies - Computing with ICT",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/wider-educational-studies---computing-with-ict-CCME0011"
-    },
     "CCME0133": {
         "Department_ID": "CULCM_IOE",
         "Department_Name": "Culture, Communication and Media",
@@ -48495,6 +48698,13 @@
         "Module_Name": "Dissertation on Curriculum, Pedagogy and Assessment",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/dissertation-on-curriculum,-pedagogy-and-assessment-CPAS0066"
     },
+    "CCME0011": {
+        "Department_ID": "CURPA_IOE",
+        "Department_Name": "Curriculum, Pedagogy and Assessment",
+        "Module_ID": "CCME0011",
+        "Module_Name": "Wider Educational Studies - Computing with ICT",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/wider-educational-studies---computing-with-ict-CCME0011"
+    },
     "CPAS0032": {
         "Department_ID": "CURPA_IOE",
         "Department_Name": "Curriculum, Pedagogy and Assessment",
@@ -48726,13 +48936,6 @@
         "Module_Name": "Cognitive Psychology",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/cognitive-psychology-PHDE0006"
     },
-    "PHDE0017": {
-        "Department_ID": "PSYHD_IOE",
-        "Department_Name": "Psychology and Human Development",
-        "Module_ID": "PHDE0017",
-        "Module_Name": "Atypical Development",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/atypical-development-PHDE0017"
-    },
     "PHDE0061": {
         "Department_ID": "PSYHD_IOE",
         "Department_Name": "Psychology and Human Development",
@@ -48760,6 +48963,13 @@
         "Module_ID": "PHDE0046",
         "Module_Name": "Dissertation on Special and Inclusive Education",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/dissertation-on-special-and-inclusive-education-PHDE0046"
+    },
+    "PHDE0017": {
+        "Department_ID": "PSYHD_IOE",
+        "Department_Name": "Psychology and Human Development",
+        "Module_ID": "PHDE0017",
+        "Module_Name": "Atypical Development",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/atypical-development-PHDE0017"
     },
     "PHDE0045": {
         "Department_ID": "PSYHD_IOE",
@@ -49097,6 +49307,13 @@
         "Module_Name": "Pathways to Prosperity 1: Global Legacies",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/pathways-to-prosperity-1:-global-legacies-BGLP0001"
     },
+    "BGLP0008": {
+        "Department_ID": "BSIGP_BEN",
+        "Department_Name": "Institute for Global Prosperity",
+        "Module_ID": "BGLP0008",
+        "Module_Name": "China and Global Prosperity",
+        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/china-and-global-prosperity-BGLP0008"
+    },
     "BGLP0012": {
         "Department_ID": "BSIGP_BEN",
         "Department_Name": "Institute for Global Prosperity",
@@ -49117,13 +49334,6 @@
         "Module_ID": "BGLP0009",
         "Module_Name": "Urban Futures and Prosperity",
         "Link": "https://www.ucl.ac.uk/module-catalogue/modules/urban-futures-and-prosperity-BGLP0009"
-    },
-    "BGLP0008": {
-        "Department_ID": "BSIGP_BEN",
-        "Department_Name": "Institute for Global Prosperity",
-        "Module_ID": "BGLP0008",
-        "Module_Name": "China and Global Prosperity",
-        "Link": "https://www.ucl.ac.uk/module-catalogue/modules/china-and-global-prosperity-BGLP0008"
     },
     "BGLP0013": {
         "Department_ID": "BSIGP_BEN",

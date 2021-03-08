@@ -1,6 +1,8 @@
 from MODULE_CATALOGUE.scrape import UCL_Module_Catalogue
 from MODULE_CATALOGUE.INITIALISER.initialise_files import Initialiser
 from MODULE_CATALOGUE.STUDENTS_PER_MOD.processPush import UpdateStudentsPerModule
+from MODULE_CATALOGUE.DATABASE_FILES.db_create import Create_ModuleData
+from MODULE_CATALOGUE.DATABASE_FILES.db_reset import Reset_ModuleData
 from MODULE_CATALOGUE.map import ModuleMap
 from SCOPUS.map import ScopusMap
 from SCOPUS import renameGeneratedFiles
@@ -20,6 +22,10 @@ class MODULE_SECTION():
             Given CSV file <studentsPerModule.csv>, update contents of the DB table <StudentsPerModule>
         """
         UpdateStudentsPerModule().update()
+
+    def resetDB_Table(self):
+        Reset_ModuleData().reset()
+        Create_ModuleData().create()
 
     def scrapeAllModules(self):
         """
@@ -73,7 +79,14 @@ class NLP_SECTION():
 
 
 
+def manager():
+    module_actions = MODULE_SECTION()
+    # module_actions.initialise()
+    module_actions.resetDB_Table()
+    module_actions.scrapeAllModules()
+    # module_actions.map_modules()
 
+    # module_actions.update_studentsPerModule()
 
 
 #module_actions = MODULE_SECTION()
