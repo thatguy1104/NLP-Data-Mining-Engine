@@ -13,25 +13,27 @@ class ScopusMap():
         sys.stdout.write('[%s] %s%s %s %s\r' %(bar, percents, '%', custom_text, suffix))
         sys.stdout.flush()
 
-    def get_file_data(self):
+    def load_publications(self):
         files_directory = "SCOPUS/GENERATED_FILES/"
         resulting_data = {}
         all_file_names = os.listdir(files_directory)
         for file_name in all_file_names:
             with open(files_directory + file_name) as json_file:
                 data = json.load(json_file)
-                if data and data["Abstract"] and data["DOI"]:
-                    abstract = data["Abstract"]
+                if not data:
+                    continue
+                abstract = data["Abstract"]
+                doi = data["DOI"]
+                if abstract and doi:
                     title = data["Title"]
-                    doi = data["DOI"]
-    
+
                     author_keywords = data["AuthorKeywords"]
                     if not author_keywords:
                         author_keywords = None
                     index_keywords = data["IndexKeywords"]
                     if not index_keywords:
                         index_keywords = None
-                        
+
                     resulting_data[doi] = {"Title" : title, "DOI" : doi, "Abstract" : abstract, "AuthorKeywords" : author_keywords, 
                             "IndexKeywords" : index_keywords}
 
@@ -78,5 +80,5 @@ class ScopusMap():
             json.dump(resulting_data, outfile)
         
     def run(self):
-        data = self.get_file_data()
+        data = self.load_publications()
         self.read_keywords(data)

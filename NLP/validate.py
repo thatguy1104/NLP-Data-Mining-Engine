@@ -132,5 +132,5 @@ class ValidateLDA():
 
         with open('MODULE_CATALOGUE/moduleValidationSDG.json', 'w') as outfile:
             json.dump(module_results, outfile)
-        with open('SCOPUS/moduleValidationSDG.json', 'w') as outfile:
+        with open('SCOPUS/scopusValidationSDG.json', 'w') as outfile:
             json.dump(scopus_results, outfile)
