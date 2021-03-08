@@ -18,10 +18,10 @@ def module_manager(initialise, resetDB, scrape, mapToSDG, updateStudentCount):
 
 def scopus_manager(renameFiles, scrape, mapToSDG):
     scopus_actions = SCOPUS_SECTION()
-    if renameFiles:
-        scopus_actions.renameGeneratedFiles()
     if scrape:
         scopus_actions.scrapeAllPublications()
+    if renameFiles:
+        scopus_actions.renameGeneratedFiles()
     if mapToSDG:
         scopus_actions.scopusMap()
 
@@ -36,8 +36,10 @@ def nlp_manager(mergeKeywords, initialiseModel, predictScopusData, validateModel
     if validateModel:
         nlp_actions.validate()
 
-def __main__():
+def main():
     module_manager(initialise=False, resetDB=False, scrape=False, mapToSDG=False, updateStudentCount=False)
     scopus_manager(renameFiles=False, scrape=False, mapToSDG=False)
-    nlp_manager(mergeKeywords=False, initialiseModel=False, predictScopusData=False, validateModel=False)
-    print("ok")
+    nlp_manager(mergeKeywords=False, initialiseModel=False, predictScopusData=False, validateModel=True)
+
+if __name__ == "__main__":
+    main()

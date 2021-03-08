@@ -47,6 +47,7 @@ class ValidateLDA():
 
                 # Add module code with array of SDG keyword counts to dictionary.
                 results[module] = counts
+                print(module)
 
             return results
 
