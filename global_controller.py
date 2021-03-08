@@ -73,7 +73,6 @@ class NLP_SECTION():
     def merge_SDG_keywords(self):
         pass
 
-
     def validate(self):
         ValidateLDA().run()
 
