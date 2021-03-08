@@ -82,13 +82,14 @@ class NLP_SECTION():
 def manager():
     module_actions = MODULE_SECTION()
     # module_actions.initialise()
-    module_actions.resetDB_Table()
-    module_actions.scrapeAllModules()
+    # module_actions.resetDB_Table()
+    # module_actions.scrapeAllModules()
     # module_actions.map_modules()
-
     # module_actions.update_studentsPerModule()
 
-# scopus_actions = SCOPUS_SECTION()
+    scopus_actions = SCOPUS_SECTION()
+    scopus_actions = scrapeAllPublications()
+
 # nlp_actions = NLP_SECTION()
 # nlp_actions.validate()
 

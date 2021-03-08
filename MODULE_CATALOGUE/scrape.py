@@ -59,6 +59,10 @@ class UCL_Module_Catalogue():
 
                 if not self.checkIfExists(moduleID):
                     title, mod_id, fac, dep, cred_val, name_lead, description = self.get_module_data(catalogueLink, moduleID)
+                    try:
+                        cred_val = int(cred_val)
+                    except:
+                        cred_val = None
                     if title is not None:
                         module_data.append((depName, depID, moduleName, moduleID, fac, cred_val, name_lead, catalogueLink, description, curr_time))
                         self.writeData_DB(module_data)
@@ -114,7 +118,7 @@ class UCL_Module_Catalogue():
             else:
                 name_lead = None
 
-            return (title, module_id, inf_v[0], inf_v[1], float(inf_v[2]), name_lead, result_description)
+            return (title, module_id, inf_v[0], inf_v[1], inf_v[2], name_lead, result_description)
         else:
             return (None, None, None, None, None, None, None)
 

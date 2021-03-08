@@ -9,10 +9,10 @@ import numpy as np
 
 class Scopus():
     def __init__(self):
-        self.rps_data_file = "SCOPUS/GIVEN_DATA_FILES/cleaned_RPS_export_2015.csv"
-        self.f = open("SCOPUS/log.txt", "w")
+        self.__rps_data_file = "SCOPUS/GIVEN_DATA_FILES/cleaned_RPS_export_2015.csv"
+        self.__f = open("SCOPUS/log.txt", "w")
 
-    def progress(self, count, total, custom_text, suffix=''):
+    def __progress(self, count, total, custom_text, suffix=''):
         bar_len = 60
         filled_len = int(round(bar_len * count / float(total)))
         percents = round(100.0 * count / float(total), 1)
@@ -20,17 +20,17 @@ class Scopus():
         sys.stdout.write('[%s] %s%s %s %s\r' %(bar, percents, '%', custom_text, suffix))
         sys.stdout.flush()
 
-    def getDOIs(self, columns, limit=None):
+    def __getDOIs(self, columns, limit=None):
         if not limit:
-            return pd.read_csv(self.rps_data_file)[columns]
-        return pd.read_csv(self.rps_data_file)[columns].head(limit)
+            return pd.read_csv(self.__rps_data_file)[columns]
+        return pd.read_csv(self.__rps_data_file)[columns].head(limit)
 
     def getInfo(self, scopusID):
         valid = True
         try:
             scopus = ok.AbstractRetrieval(scopusID, view='FULL')
         except:
-            self.f.write("Invalid DOI: " + scopusID + "\n")
+            self.__f.write("Invalid DOI: " + scopusID + "\n")
             
             valid = False
             return "invalid"
@@ -84,7 +84,6 @@ class Scopus():
 
     def formatData(self, data):
         authorData = {}
-        # if "AuthoGroup" in data:
         if data['AuthorGroup']:
             for i in data['AuthorGroup']:
                 affiliationID = i[0]
@@ -101,7 +100,7 @@ class Scopus():
         return None
 
     def cleanerFileReadings(self, limit):
-        one_researcher = self.getDOIs(["DOI"], limit)
+        one_researcher = self.__getDOIs(["DOI"], limit)
         doi_list = list(one_researcher["DOI"])
         doi = set(doi_list)
         result = set()
@@ -124,20 +123,20 @@ class Scopus():
             os.remove(f)
 
     def createAllFiles(self):
-        data = self.cleanerFileReadings(limit=3000)
+        data = self.__cleanerFileReadings(limit=3000)
         
         l = len(data)
         counter = 1
 
         for i in data:
-            data_dict = self.getInfo(i)
+            data_dict = self.__getInfo(i)
             if data_dict != "invalid":
-                self.progress(counter, l, "writing files")
-                self.f.write("Written " + str(counter) + "/" +str(l) + " files " + "DOI: " + i + "\n")
+                self.__progress(counter, l, "writing files")
+                self.__f.write("Written " + str(counter) + "/" + str(l) + " files " + "DOI: " + i + "\n")
                 reformatted_data = self.formatData(data_dict)
                 with open("SCOPUS/GENERATED_FILES/" + str(counter) + '.json', 'w') as outfile:
                     json.dump(reformatted_data, outfile)
                 counter += 1
 
-        self.f.write("\nDONE")
-        self.f.close()
+        self.__f.write("\nDONE")
+        self.__f.close()
