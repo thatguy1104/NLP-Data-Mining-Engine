@@ -6,9 +6,10 @@ from MODULE_CATALOGUE.DATABASE_FILES.db_reset import Reset_ModuleData
 from MODULE_CATALOGUE.map import ModuleMap
 from SCOPUS.map import ScopusMap
 from SCOPUS import renameGeneratedFiles
-from SCOPUS.scrape import Scopus
+from SCOPUS.scrape import GetScopusData
 from NLP.validate import ValidateLDA
-
+from NLP.LDA.LDA_map import Initialise_LDA_Model
+from NLP.LDA.predict_publication import ScopusMap
 class MODULE_SECTION():
 
     def initialise(self):
@@ -38,7 +39,7 @@ class MODULE_SECTION():
     def map_modules(self):
         """
             Assigns an SDG/SDGs to each module
-            Produces matchedModulesSDG.json + sdgCount.json
+            Produces matchedModulesSDG.json
         """
         ModuleMap().run()
 
@@ -59,12 +60,13 @@ class SCOPUS_SECTION():
             Note 3: Scrapes quota limit in ~6-8 hours
             Note 4: Scraping machine must be either on UCL network or utilises UCL Virtual Private Network (otherwise, Scopus API throws affiliation authorisation error)
         """
-        Scopus.createAllFiles()
+        obj = GetScopusData()
+        obj.createAllFiles(None)
 
     def scopusMap(self):
         """
             Assigns an SDG/SDGs to each research publication
-            Produces matchedModulesSDG.json + sdgCount.json
+            Produces matchedScopusSDG.json
         """
         ScopusMap().run()
 
@@ -73,24 +75,53 @@ class NLP_SECTION():
     def merge_SDG_keywords(self):
         pass
 
+    def initialise_LDA_model(self):
+        Initialise_LDA_Model().create()
+
+    def predictScopus(self):
+        ScopusMap().predict()
 
     def validate(self):
         ValidateLDA().run()
 
 
-
-def manager():
+def module_manager(initialise, resetDB, scrape, mapToSDG, updateStudentCount):
     module_actions = MODULE_SECTION()
-    # module_actions.initialise()
-    # module_actions.resetDB_Table()
-    # module_actions.scrapeAllModules()
-    # module_actions.map_modules()
-    # module_actions.update_studentsPerModule()
+    if initialise:
+        module_actions.initialise()
+    if resetDB:
+        module_actions.resetDB_Table()
+    if scrape:
+        module_actions.scrapeAllModules()
+    if mapToSDG:
+        module_actions.map_modules()
+    if updateStudentCount:
+        module_actions.update_studentsPerModule()
 
+def scopus_manager(renameFiles, scrape, mapToSDG):
     scopus_actions = SCOPUS_SECTION()
-    scopus_actions = scrapeAllPublications()
+    if renameFiles:
+        scopus_actions.renameGeneratedFiles()
+    if scrape:
+        scopus_actions.scrapeAllPublications()
+    if mapToSDG:
+        scopus_actions.scopusMap()
 
-# nlp_actions = NLP_SECTION()
-# nlp_actions.validate()
+def nlp_manager(mergeKeywords, initialiseModel, predictScopusData, validateModel):
+    nlp_actions = NLP_SECTION()
+    if mergeKeywords:
+        nlp_actions.merge_SDG_keywords()
+    if initialiseModel:
+        nlp_actions.initialise_LDA_model()
+    if predictScopusData:
+        nlp_actions.predictScopus()
+    if validateModel:
+        nlp_actions.validate()
 
-manager()
+def general_manager():
+    # module_manager(initialise=False, resetDB=False, scrape=False, mapToSDG=True, updateStudentCount=False)
+    scopus_manager(renameFiles=False, scrape=True, mapToSDG=False)
+    # nlp_manager(mergeKeywords=False, initialiseModel=False, predictScopusData=True, validateModel=False)
+
+
+general_manager()

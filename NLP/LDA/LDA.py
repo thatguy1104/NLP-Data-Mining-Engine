@@ -118,7 +118,7 @@ class LDA():
             doc_topics = ['({}, {:.1%})'.format(topic + 1, pr) for topic, pr in self.model.get_document_topics(c)]
             data['Document Topics'][d] = doc_topics
 
-        with open('ModelResults/training_results.json', 'w') as outfile:
+        with open('NLP/MODEL_RESULTS/training_results.json', 'w') as outfile:
             json.dump(data, outfile)
 
     def tSNE_cluster(self, corpus):
@@ -138,8 +138,7 @@ class LDA():
 
         # Plot topic clusters.
         colors = np.array([color for name, color in mcolors.TABLEAU_COLORS.items()])
-        plot = figure(title="t-SNE Clustering of {} SDGs".format(self.n_topics), 
-              plot_width=2000, plot_height=1500)
+        plot = figure(title="t-SNE Clustering of {} SDGs".format(self.n_topics),  plot_width=2000, plot_height=1500)
 
         plot.scatter(x=tsne_lda[:,0], y=tsne_lda[:,1], color=colors[topic])
         output_file("t_sne_clusters.html")

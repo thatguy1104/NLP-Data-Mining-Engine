@@ -42,7 +42,32 @@ def module_catalogue_tokenizer(text):
     # Tokenization
     text = text.lower()
     tokens = [word for word in word_tokenize(text)]
-    tokens = [word for word in tokens if len(word) > 3]
+    tokens = [word for word in tokens if len(word) > 2]
     tokens = [text_lemmatizer(t) for t in tokens]
 
     return tokens
+
+
+def preprocess_keyword(keyword):
+    return ' '.join(module_catalogue_tokenizer(keyword))
+
+def preprocess_keywords(file_name):
+    df = pd.read_csv(file_name)
+
+    # convert keywords dataframe to list of keywords.
+    keywords_list = []
+    for column in df:
+        keywords = pd.Index(df[column]).dropna()
+        keywords = keywords.map(preprocess_keyword).drop_duplicates()
+        keywords = list(keywords)
+        try:
+            keywords.remove('')
+        except ValueError:
+            pass
+        keywords_list.append(keywords)
+    return keywords_list
+
+def print_keywords(self):
+    for keywords in preprocess_keywords("MODULE_CATALOGUE/SDG_KEYWORDS/SDG_Keywords.csv"):
+        print(keywords)
+        print()
