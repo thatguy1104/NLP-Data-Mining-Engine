@@ -9,6 +9,7 @@ from NLP.preprocess import module_catalogue_tokenizer, get_stopwords
 num_modules_analysed = "MAX"
 
 class ModuleMap():
+    
     def __init__(self):
         # SERVER LOGIN DETAILS
         self.server = 'miemie.database.windows.net'

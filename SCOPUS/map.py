@@ -43,7 +43,7 @@ class ScopusMap():
         keywords = preprocess_keywords("MODULE_CATALOGUE/SDG_KEYWORDS/SDG_Keywords.csv")
         num_publications = len(data)
         num_keywords = len(keywords)
-
+        
         for i in data:
             self.progress(counter, num_publications, "processing SCOPUS/matchedScopusSDG.json")
             counter += 1

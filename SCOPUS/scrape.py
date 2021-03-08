@@ -7,11 +7,13 @@ import csv
 import math
 import numpy as np
 import os
+# import pymongo
 
 # from App.models import Publication
 f = open("SCOPUS/log.txt", "a")
+# client = pymongo.MongoClient("mongodb+srv://admin:admin@cluster0.hw8fo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+# db = client.Scopus
 
-# your imports, e.g. Django models
 class GetScopusData():
 
     def __init__(self):
@@ -163,6 +165,11 @@ class GetScopusData():
         for f in files:
             os.remove(f)
 
+    def pushToMongoDB(self, data):
+        col = db.Data
+        key = value = data
+        col.update(key, value, upsert=True)
+
     def createAllFiles(self, limit):
         data = self.__cleanerFileReadings(limit=limit)
         l = len(data)
@@ -180,5 +187,6 @@ class GetScopusData():
         print()
         f.write("\nDONE")
         f.close()
+        # client.close()
 
 
