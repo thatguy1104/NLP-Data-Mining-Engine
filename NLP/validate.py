@@ -10,14 +10,14 @@ num_of_sdgs = 18
 class ValidateLDA():
     # SCOPUS MODEL
     def __read_scopus_sdg_model_data(self):
-        with open('NLP/MODEL_RESULTS/sdgAssignmemts.json') as json_file:
+        with open('NLP/MODEL_RESULTS/scopus_prediction_results.json') as json_file:
             data = json.load(json_file)
             results = {}
             counter = 0
             for doi in data:
                 weights = [0] * num_of_sdgs
                 sdg_predictions = data[doi]
-                for i in range(len(num_of_sdgs)):
+                for i in range(num_of_sdgs):
                     sdg = str(i + 1)
                     try:
                         w = float(sdg_predictions[sdg])
