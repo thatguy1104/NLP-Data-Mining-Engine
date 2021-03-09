@@ -18,10 +18,10 @@ def module_manager(initialise, resetDB, scrape, mapToSDG, updateStudentCount):
 
 def scopus_manager(renameFiles, scrape, mapToSDG):
     scopus_actions = SCOPUS_SECTION()
-    if renameFiles:
-        scopus_actions.renameGeneratedFiles()
     if scrape:
         scopus_actions.scrapeAllPublications()
+    if renameFiles:
+        scopus_actions.renameGeneratedFiles()
     if mapToSDG:
         scopus_actions.scopusMap()
 

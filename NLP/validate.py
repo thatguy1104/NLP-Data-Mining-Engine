@@ -10,7 +10,7 @@ num_of_sdgs = 18
 class ValidateLDA():
     # SCOPUS MODEL
     def __read_scopus_sdg_model_data(self):
-        with open('NLP/MODEL_RESULTS/scopus_prediction_results.json') as json_file:
+        with open('NLP/MODEL_RESULTS/scopus_prediction_results.json', 'rb') as json_file:
             data = json.load(json_file)
             results = {}
             counter = 0
@@ -30,7 +30,7 @@ class ValidateLDA():
 
     # SCOPUS COUNT
     def __read_scopus_sdg_count_data(self):
-        with open('SCOPUS/matchedScopusSDG.json', 'r') as json_file:
+        with open('SCOPUS/matchedScopusSDG.json', 'rb') as json_file:
             data = json.load(json_file)
             results = {} # dictionary with doi and SDG keyword counts.
             for doi, publication_sdgs_dict in data.items():
@@ -47,7 +47,7 @@ class ValidateLDA():
 
     # MODULE CATALOGUE MODEL
     def __read_module_sdg_model_data(self):
-        with open('NLP/MODEL_RESULTS/training_results.json') as json_file:
+        with open('NLP/MODEL_RESULTS/training_results.json', 'rb') as json_file:
             data = json.load(json_file)
             docTopics = data['Document Topics']
             results = {}
@@ -68,7 +68,7 @@ class ValidateLDA():
 
     # MODULE CATALOGUE COUNT
     def __read_module_sdg_count_data(self):
-        with open('MODULE_CATALOGUE/matchedModulesSDG.json', 'r') as json_file:
+        with open('MODULE_CATALOGUE/matchedModulesSDG.json', 'rb') as json_file:
             data = json.load(json_file)
             results = {} # dictionary with module_code and SDG keyword counts.
             for module, module_name_sdgs_dict in data.items():
@@ -125,7 +125,7 @@ class ValidateLDA():
             sorted_results = dict(sorted(results.items(), key=lambda x: x[1]['Similarity']))
 
         return sorted_results
-
+    
     def run(self):
         module_results = self.__validate(self.__read_module_sdg_count_data, self.__read_module_sdg_model_data)
         scopus_results = self.__validate(self.__read_scopus_sdg_count_data, self.__read_scopus_sdg_model_data)
