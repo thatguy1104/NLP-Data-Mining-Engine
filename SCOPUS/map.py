@@ -1,10 +1,12 @@
 import os, sys, re
 import json
 import pandas as pd
+import pymongo
 from NLP.LDA.LDA_map import preprocess_keywords, preprocess_keyword
 from NLP.preprocess import module_catalogue_tokenizer
 
 class ScopusMap():
+
     def progress(self, count, total, custom_text, suffix=''):
         bar_len = 60
         filled_len = int(round(bar_len * count / float(total)))
@@ -13,28 +15,32 @@ class ScopusMap():
         sys.stdout.write('[%s] %s%s %s %s\r' %(bar, percents, '%', custom_text, suffix))
         sys.stdout.flush()
 
-    def get_file_data(self):
-        files_directory = "SCOPUS/GENERATED_FILES/"
+    def load_publications(self):
         resulting_data = {}
-        all_file_names = os.listdir(files_directory)
-        for file_name in all_file_names:
-            with open(files_directory + file_name) as json_file:
-                data = json.load(json_file)
-                if data and data["Abstract"] and data["DOI"]:
-                    abstract = data["Abstract"]
-                    title = data["Title"]
-                    doi = data["DOI"]
-    
-                    author_keywords = data["AuthorKeywords"]
-                    if not author_keywords:
-                        author_keywords = None
-                    index_keywords = data["IndexKeywords"]
-                    if not index_keywords:
-                        index_keywords = None
-                        
-                    resulting_data[doi] = {"Title" : title, "DOI" : doi, "Abstract" : abstract, "AuthorKeywords" : author_keywords, 
-                            "IndexKeywords" : index_keywords}
+        client = pymongo.MongoClient("mongodb+srv://admin:admin@cluster0.hw8fo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+        db = client.Scopus
+        col = db.Data
+        data = col.find()
+        for i in data:
+            if not i:
+                continue
+            abstract = i["Abstract"]
+            doi = i["DOI"]
+            if abstract and doi:
+                title = i["Title"]
+                author_keywords = i["AuthorKeywords"]
+                if not author_keywords:
+                    author_keywords = None
+                index_keywords = i["IndexKeywords"]
+                if not index_keywords:
+                    index_keywords = None
 
+                resulting_data[doi] = {
+                    "Title": title,
+                    "DOI": doi,
+                    "Abstract": abstract,
+                    "AuthorKeywords": author_keywords,
+                    "IndexKeywords": index_keywords}
         return resulting_data
 
     def read_keywords(self, data):
@@ -78,5 +84,5 @@ class ScopusMap():
             json.dump(resulting_data, outfile)
         
     def run(self):
-        data = self.get_file_data()
+        data = self.load_publications()
         self.read_keywords(data)

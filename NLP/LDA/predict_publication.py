@@ -9,8 +9,8 @@ class ScopusMap():
     
     def __init__(self):
         self.publication_files_directory = "SCOPUS/GENERATED_FILES/"
-        self.publicationData = pd.DataFrame(columns=['DOI', 'Title', 'Description'])
-        self.modelName = "NLP/LDA/lda_model.pkl"
+        self.publiction_data = pd.DataFrame(columns=['DOI', 'Title', 'Description'])
+        self.model_name = "NLP/LDA/lda_model.pkl"
 
     def progress(self, count, total, custom_text, suffix=''):
         bar_len = 60
@@ -22,22 +22,17 @@ class ScopusMap():
         sys.stdout.write('[%s] %s%s %s %s\r' % (bar, percents, '%', custom_text, suffix))
         sys.stdout.flush()
 
-    def makePrediction(self, limit):
+    def make_predictions(self, limit):
         results = {}
         counter = 1
+        papers = self.publiction_data.head(limit) if limit else self.publiction_data
+        num_papers = len(papers)
 
-        if limit:
-            papers = self.publicationData.head(limit)
-        else:
-            papers = self.publicationData
-        l = len(papers)
-
-        with open(self.modelName, 'rb') as f:
+        with open(self.model_name, 'rb') as f:
             lda = pickle.load(f)
-
-            for i in range(l):
-                self.progress(counter, l, "Predicting...")
-                description = papers['Description'][i]    
+            for i in range(num_papers):
+                self.progress(counter, num_papers, "Predicting...")
+                description = papers['Description'][i]
 
                 X_predicted = lda.vectorizer.transform([description])
                 C_predicted = gensim.matutils.Sparse2Corpus(X_predicted, documents_columns=False)
@@ -45,87 +40,49 @@ class ScopusMap():
 
                 td = [x for x in topic_distribution]
                 td = td[0]
-                # td.sort(key=lambda x: x[1], reverse=True)
-
                 results[papers['DOI'][i]] = {}
                 for topic, pr in td:
                     results[papers['DOI'][i]]['Title'] = papers['Title'][i]
                     results[papers['DOI'][i]][topic + 1] = str(pr)
                 counter += 1
+
         print()
         with open("NLP/MODEL_RESULTS/scopus_prediction_results.json", "w") as f:
             json.dump(results, f)
 
-    def makePredictionDOI(self):
-        assert len(self.publicationData == 1), "Invalid EID provided"
-        paper = self.publicationData
-        description = paper['Description'][0]
+    def load_publication(self, file_name):
+        with open(self.publication_files_directory + file_name) as json_file:
+            data = json.load(json_file)
+            if not data:
+                return
 
-        with open(self.modelName, 'rb') as f:
-            lda = pickle.load(f)
+            abstract = data["Abstract"]
+            doi = data["DOI"]
+            if abstract and doi:
+                title = data["Title"]
+                author_keywords = data['AuthorKeywords']
+                index_keywords = data['IndexKeywords']
+                subject_areas = data['SubjectAreas']
 
-            X_predicted = lda.vectorizer.transform([description])
-            C_predicted = gensim.matutils.Sparse2Corpus(X_predicted, documents_columns=False)
-            topic_distribution = lda.model.get_document_topics(C_predicted)
+                concat_data_fields = title + " " + abstract
+                if author_keywords:
+                    concat_data_fields += " " + " ".join(author_keywords)
+                if index_keywords:
+                    concat_data_fields += " " + " ".join(index_keywords)
+                if subject_areas:
+                    subject_name = [x[0] for x in subject_areas]
+                    concat_data_fields += " " + " ".join(subject_name)
 
-            td = [x for x in topic_distribution]
-            td = td[0]
-            td.sort(key=lambda x: x[1], reverse=True)
+                row_df = pd.DataFrame(
+                    [[doi, title, concat_data_fields]], columns=self.publiction_data.columns)
+                self.publiction_data = self.publiction_data.append(
+                    row_df, verify_integrity=True, ignore_index=True)
 
-            print('DOI: {}\n\nDescription: {}\n'.format(paper['DOI'][0], description))
-            for topic, pr in td:
-                print('SDG {}: {}'.format(topic + 1, pr))
-
-    def loadAllData(self):
-        fileNames = os.listdir(self.publication_files_directory)
-        for i in fileNames:
-            with open(self.publication_files_directory + i, 'rb') as json_file:
-                data_ = json.load(json_file)
-                if data_:
-                    doi = data_['DOI']
-                    title = data_['Title']
-                    concatDataFields = data_['Title']
-                    if data_['Abstract']:
-                        concatDataFields += data_['Abstract']
-                    if data_['AuthorKeywords']:
-                        concatDataFields += " ".join(data_['AuthorKeywords'])
-                    if data_['IndexKeywords']:
-                        concatDataFields += " ".join(data_['IndexKeywords'])
-                    if data_['SubjectAreas']:
-                        subjectName = [x[0] for x in data_['SubjectAreas']]
-                        concatDataFields += " ".join(subjectName)
-                    rowDataFrame = pd.DataFrame([[doi, title, concatDataFields]], columns=self.publicationData.columns)
-                    self.publicationData = self.publicationData.append(rowDataFrame, verify_integrity=True, ignore_index=True)
-
-    def loadPaper(self, EID):
-        fileName = self.publication_files_directory + EID + '.json'
-        with open(fileName, 'rb') as json_file:
-            data_ = json.load(json_file)
-            if data_:
-                doi = data_['DOI']
-                title = data_['Title']
-                concatDataFields = data_['Title']
-                if data_['Abstract']:
-                    concatDataFields += data_['Abstract']
-                if data_['AuthorKeywords']:
-                    concatDataFields += " ".join(data_['AuthorKeywords'])
-                if data_['IndexKeywords']:
-                    concatDataFields += " ".join(data_['IndexKeywords'])
-                if data_['SubjectAreas']:
-                    subjectName = [x[0] for x in data_['SubjectAreas']]
-                    concatDataFields += " ".join(subjectName)
-                rowDataFrame = pd.DataFrame([[doi, title, concatDataFields]], columns=self.publicationData.columns)
-                self.publicationData = self.publicationData.append(rowDataFrame, verify_integrity=True, ignore_index=True)
+    def load_publications(self):
+        file_names = os.listdir(self.publication_files_directory)
+        for file_name in file_names:
+            self.load_publication(file_name)
 
     def predict(self):
-        """ FOR SINGLE PAPER CLASSIFICATION """
-        # EID = '2-s2.0-85019224026' # climate change
-        # EID = '2-s2.0-84961616003' # programming
-        # EID = '2-s2.0-84948716653' # gender equality
-        # EID = '2-s2.0-0000717472'
-        # self.loadPaper(EID)
-        # self.makePredictionDOI()
-
-        """ FOR COLLECTIVE CLASSIFICATION """
-        self.loadAllData()
-        self.makePrediction(limit=None)
+        self.load_publications()
+        self.make_predictions(limit=None)

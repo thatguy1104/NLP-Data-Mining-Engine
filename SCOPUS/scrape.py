@@ -7,12 +7,12 @@ import csv
 import math
 import numpy as np
 import os
-# import pymongo
+import pymongo
 
 # from App.models import Publication
 f = open("SCOPUS/log.txt", "a")
-# client = pymongo.MongoClient("mongodb+srv://admin:admin@cluster0.hw8fo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
-# db = client.Scopus
+client = pymongo.MongoClient("mongodb+srv://admin:admin@cluster0.hw8fo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+db = client.Scopus
 
 class GetScopusData():
 
@@ -127,15 +127,13 @@ class GetScopusData():
             else:
                 result.add(i)
 
-        already_scraped_DOI = []        
-        allFileNames = os.listdir(self.__generated_data)
-        for i in allFileNames:
-            with open(self.__generated_data + i) as json_file:
-                data_ = json.load(json_file)
-                if data_:
-                    already_scraped_DOI.append(data_['DOI'])
-        exists = 0
-        notexists = 0
+        already_scraped_DOI = []   
+        col = db.Data
+        data = col.find()
+        for i in data:
+            already_scraped_DOI.append(i["DOI"])
+
+        exists = notexists = 0
         new_doi = set()
         for elem in result:
             if elem in already_scraped_DOI:
@@ -165,7 +163,7 @@ class GetScopusData():
         for f in files:
             os.remove(f)
 
-    def pushToMongoDB(self, data):
+    def __pushToMongoDB(self, data):
         col = db.Data
         key = value = data
         col.update(key, value, upsert=True)
@@ -176,17 +174,19 @@ class GetScopusData():
         
         counter = 1
         for i in data:
-            data_dict = self.__getInfo(i)
-            if data_dict != "invalid":
-                self.__progress(counter, l, "scraping Scopus publications")
-                f.write("Written " + str(counter) + "/" + str(l) + " files " + "DOI: " + i + "\n")
-                reformatted_data = self.__formatData(data_dict)
-                with open("SCOPUS/GENERATED_FILES/" + data_dict["EID"] + '.json', 'w') as outfile:
-                    json.dump(reformatted_data, outfile)
-                counter += 1
+            if counter < 1000:
+                data_dict = self.__getInfo(i)
+                if data_dict != "invalid":
+                    self.__progress(counter, l, "scraping Scopus publications")
+                    f.write("Written " + str(counter) + "/" + str(l) + " files " + "DOI: " + i + "\n")
+                    reformatted_data = self.__formatData(data_dict)
+                    self.__pushToMongoDB(reformatted_data)
+                    # with open("SCOPUS/GENERATED_FILES/" + data_dict["EID"] + '.json', 'w') as outfile:
+                    #     json.dump(reformatted_data, outfile)
+                    counter += 1
         print()
         f.write("\nDONE")
         f.close()
-        # client.close()
+        client.close()
 
 
