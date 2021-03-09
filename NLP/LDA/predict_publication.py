@@ -4,9 +4,7 @@ import pickle
 import pandas as pd
 import gensim
 
-
 class ScopusMap():
-    
     def __init__(self):
         self.publication_files_directory = "SCOPUS/GENERATED_FILES/"
         self.publiction_data = pd.DataFrame(columns=['DOI', 'Title', 'Description'])
@@ -15,10 +13,8 @@ class ScopusMap():
     def progress(self, count, total, custom_text, suffix=''):
         bar_len = 60
         filled_len = int(round(bar_len * count / float(total)))
-
         percents = round(100.0 * count / float(total), 1)
         bar = '*' * filled_len + '-' * (bar_len - filled_len)
-
         sys.stdout.write('[%s] %s%s %s %s\r' % (bar, percents, '%', custom_text, suffix))
         sys.stdout.flush()
 
@@ -71,16 +67,15 @@ class ScopusMap():
                     concat_data_fields += " " + " ".join(index_keywords)
                 if subject_areas:
                     subject_name = [x[0] for x in subject_areas]
-                    concat_data_fields += " " + " ".join(subject_areas)
+                    concat_data_fields += " " + " ".join(subject_name)
                 
-                row_df = pd.DataFrame([[doi, title, concat_data_fields]], columns=self.publiction_data.columns)
-                self.publiction_data = self.publiction_data.append(row_df, verify_integrity=True, ignore_index=True)
+                return pd.DataFrame([[doi, title, concat_data_fields]], columns=self.publiction_data.columns)
 
     def load_publications(self):
         file_names = os.listdir(self.publication_files_directory)
         for file_name in file_names:
-            self.load_publication(file_name)
+            row_df = self.load_publication(file_name)
+            self.publiction_data = self.publiction_data.append(row_df, verify_integrity=True, ignore_index=True)
 
     def predict(self):
-        self.load_publications()
         self.make_predictions(limit=None)

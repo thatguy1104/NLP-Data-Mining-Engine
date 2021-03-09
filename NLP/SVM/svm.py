@@ -47,10 +47,3 @@ class SVM():
         X_test, y_test = self.train()
         print()
         self.predict(X_test, y_test)
-
-
-df = pd.read_pickle("NLP/MODEL_RESULTS/SVM_dataset.pkl")
-df = df.dropna()
-
-svm = SVM(df)
-svm.run()
