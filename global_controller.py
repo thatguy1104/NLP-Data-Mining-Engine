@@ -43,7 +43,7 @@ def nlp_manager(mergeKeywords, initialiseLDA, initialiseSVM, predictScopusData, 
 def main():
     module_manager(initialise=False, resetDB=False, scrape=False, mapToSDG=False, updateStudentCount=False)
     scopus_manager(renameFiles=False, scrape=False, mapToSDG=False) 
-    nlp_manager(mergeKeywords=False, initialiseLDA=False, initialiseSVM=True, predictScopusData=False, validateModel=False, createSVMDataset=False)
+    nlp_manager(mergeKeywords=False, initialiseLDA=False, initialiseSVM=False, predictScopusData=True, validateModel=False, createSVMDataset=False)
 
 if __name__ == "__main__":
     main()

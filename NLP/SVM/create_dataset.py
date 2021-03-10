@@ -122,4 +122,4 @@ class SVMDataset():
         if publications:
             df = df.append(self.process_publications())
 
-        df.to_pickle("NLP/SVM/SVM_dataset.pkl") 
+        df.to_pickle("NLP/SVM/SVM_dataset.pkl")
