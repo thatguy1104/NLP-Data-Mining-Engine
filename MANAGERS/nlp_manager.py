@@ -1,12 +1,17 @@
 from NLP.validate import ValidateLDA
 from NLP.LDA.LDA_map import Initialise_LDA_Model
 from NLP.LDA.predict_publication import ScopusMap
+from NLP.SVM.create_dataset import SVMDataset
+from NLP.SVM.svm_map import Initialise_SVM_Model
 
 
 class NLP_SECTION():
 
     def merge_SDG_keywords(self):
         pass
+
+    def initialise_SVM_model(self):
+        Initialise_SVM_Model().create()
 
     def initialise_LDA_model(self):
         Initialise_LDA_Model().create()
@@ -16,3 +21,6 @@ class NLP_SECTION():
 
     def validate(self):
         ValidateLDA().run()
+
+    def createSVMDataset(self,):
+        SVMDataset().run(True, True)

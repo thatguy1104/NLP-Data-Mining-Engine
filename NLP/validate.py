@@ -121,9 +121,8 @@ class ValidateLDA():
             validation_dict["SDG_Keyword_Counts"] = original_counts
             results[key] = validation_dict
 
-            # Sort dictionary by Similarity.
-            sorted_results = dict(sorted(results.items(), key=lambda x: x[1]['Similarity']))
-
+        # Sort dictionary by Similarity.
+        sorted_results = dict(sorted(results.items(), key=lambda x: x[1]['Similarity']))
         return sorted_results
     
     def run(self):
