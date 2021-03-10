@@ -83,17 +83,11 @@ class ValidateLDA():
 
             return results
 
-    def __cosine_similarity(self, vec_A, vec_B):
+    def __compute_similarity(self, vec_A, vec_B):
         dot = vec_A.dot(vec_B)
         vec_A_magnitude = np.sqrt(vec_A.dot(vec_A))
         vec_B_magnitude = np.sqrt(vec_B.dot(vec_B))
         return dot / (vec_A_magnitude * vec_B_magnitude) # cosine of the angle between vec_A and vec_B.
-
-    def __squashing_function(self, vec_A, vec_B):
-        return 1
-
-    def __compute_similarity(self, vec_A, vec_B):
-        return self.__cosine_similarity(vec_A, vec_B) * self.__squashing_function(vec_A, vec_B)
 
     def __validate(self, read_count, read_model):
         model_data = read_model()
@@ -133,3 +127,4 @@ class ValidateLDA():
             json.dump(module_results, outfile)
         with open('SCOPUS/scopusValidationSDG.json', 'w') as outfile:
             json.dump(scopus_results, outfile)
+        print("FINISHED: Module % Scopus Validations")

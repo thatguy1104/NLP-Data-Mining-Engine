@@ -47,7 +47,6 @@ def module_catalogue_tokenizer(text):
 
     return tokens
 
-
 def preprocess_keyword(keyword):
     return ' '.join(module_catalogue_tokenizer(keyword))
 

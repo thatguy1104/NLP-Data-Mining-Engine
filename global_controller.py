@@ -29,10 +29,10 @@ def nlp_manager(mergeKeywords, initialiseLDA, initialiseSVM, predictScopusData, 
     nlp_actions = NLP_SECTION()
     if mergeKeywords:
         nlp_actions.merge_SDG_keywords()
-    if initialiseSVM:
-        nlp_actions.initialise_SVM_model()
     if initialiseLDA:
         nlp_actions.initialise_LDA_model()
+    if initialiseSVM:
+        nlp_actions.initialise_SVM_model()
     if predictScopusData:
         nlp_actions.predictScopus()
     if validateModel:
@@ -43,7 +43,7 @@ def nlp_manager(mergeKeywords, initialiseLDA, initialiseSVM, predictScopusData, 
 def main():
     module_manager(initialise=False, resetDB=False, scrape=False, mapToSDG=False, updateStudentCount=False)
     scopus_manager(renameFiles=False, scrape=False, mapToSDG=False) 
-    nlp_manager(mergeKeywords=False, initialiseLDA=False, initialiseSVM=False, predictScopusData=False, validateModel=True, createSVMDataset=False)
+    nlp_manager(mergeKeywords=False, initialiseLDA=False, initialiseSVM=False, predictScopusData=True, validateModel=True, createSVMDataset=False)
 
 if __name__ == "__main__":
     main()

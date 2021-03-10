@@ -78,5 +78,5 @@ class ScopusMap():
             self.publiction_data = self.publiction_data.append(row_df, verify_integrity=True, ignore_index=True)
 
     def predict(self):
-        print("RUNNNING")
+        self.load_publications()
         self.make_predictions(limit=None)
