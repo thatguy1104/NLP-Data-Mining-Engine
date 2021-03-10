@@ -3,10 +3,12 @@ import json
 import pickle
 import pandas as pd
 import gensim
-
+import pymongo
+from bson import json_util
+from SCOPUS.load_publications import LoadPublications
 class ScopusMap():
+    
     def __init__(self):
-        self.publication_files_directory = "SCOPUS/GENERATED_FILES/"
         self.publiction_data = pd.DataFrame(columns=['DOI', 'Title', 'Description'])
         self.model_name = "NLP/LDA/lda_model.pkl"
 
@@ -46,19 +48,17 @@ class ScopusMap():
         with open("NLP/MODEL_RESULTS/scopus_prediction_results.json", "w") as f:
             json.dump(results, f)
 
-    def load_publication(self, file_name):
-        with open(self.publication_files_directory + file_name) as json_file:
-            data = json.load(json_file)
-            if not data:
-                return
-
-            abstract = data["Abstract"]
-            doi = data["DOI"]
+    def load_publications(self, file_name):
+        data = LoadPublications().load()
+        for i in data:
+            i = json.loads(json_util.dumps(i))
+            abstract = i["Abstract"]
+            doi = i["DOI"]
             if abstract and doi:
-                title = data["Title"]
-                author_keywords = data['AuthorKeywords']
-                index_keywords = data['IndexKeywords']
-                subject_areas = data['SubjectAreas']
+                title = i["Title"]
+                author_keywords = i['AuthorKeywords']
+                index_keywords = i['IndexKeywords']
+                subject_areas = i['SubjectAreas']
 
                 concat_data_fields = title + " " + abstract
                 if author_keywords:
@@ -69,13 +69,8 @@ class ScopusMap():
                     subject_name = [x[0] for x in subject_areas]
                     concat_data_fields += " " + " ".join(subject_name)
                 
-                return pd.DataFrame([[doi, title, concat_data_fields]], columns=self.publiction_data.columns)
-
-    def load_publications(self):
-        file_names = os.listdir(self.publication_files_directory)
-        for file_name in file_names:
-            row_df = self.load_publication(file_name)
-            self.publiction_data = self.publiction_data.append(row_df, verify_integrity=True, ignore_index=True)
+                row_df = pd.DataFrame([[doi, title, concat_data_fields]], columns=self.publiction_data.columns)
+                self.publiction_data = self.publiction_data.append(row_df, verify_integrity=True, ignore_index=True)
 
     def predict(self):
         self.load_publications()
