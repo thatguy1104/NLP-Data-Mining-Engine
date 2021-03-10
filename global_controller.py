@@ -37,9 +37,9 @@ def nlp_manager(mergeKeywords, initialiseModel, predictScopusData, validateModel
         nlp_actions.validate()
 
 def main():
-    # module_manager(initialise=False, resetDB=False, scrape=False, mapToSDG=False, updateStudentCount=False)
-    scopus_manager(renameFiles=False, scrape=True, mapToSDG=True)
-    # nlp_manager(mergeKeywords=False, initialiseModel=False, predictScopusData=False, validateModel=True)
+    module_manager(initialise=False, resetDB=False, scrape=False, mapToSDG=False, updateStudentCount=False)
+    scopus_manager(renameFiles=False, scrape=False, mapToSDG=False)
+    nlp_manager(mergeKeywords=False, initialiseModel=False, predictScopusData=False, validateModel=False)
 
 if __name__ == "__main__":
     main()

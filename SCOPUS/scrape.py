@@ -109,7 +109,7 @@ class GetScopusData():
             del data['Affiliations']
             data['AuthorData'] = authorData
             return data
-        return None
+        return ""
 
     def __cleanerFileReadings(self, limit):
         one_researcher = self.__getDOIs(["DOI"], limit)
@@ -179,6 +179,7 @@ class GetScopusData():
                 if data_dict != "invalid":
                     self.__progress(counter, l, "scraping Scopus publications")
                     f.write("Written " + str(counter) + "/" + str(l) + " files " + "DOI: " + i + "\n")
+
                     reformatted_data = self.__formatData(data_dict)
                     self.__pushToMongoDB(reformatted_data)
                     # with open("SCOPUS/GENERATED_FILES/" + data_dict["EID"] + '.json', 'w') as outfile:
