@@ -4,6 +4,7 @@ import pandas as pd
 import nltk
 import json
 import logging
+import pymongo
 import pyLDAvis
 import pyLDAvis.gensim
 
@@ -105,18 +106,30 @@ class LDA():
         visualization = pyLDAvis.gensim.prepare(self.model, corpus, dictionary=d, sort_topics=False)
         pyLDAvis.save_html(visualization, 'LDA.html')
 
+    def __pushToMongo(self, data):
+        client = pymongo.MongoClient("mongodb+srv://admin:admin@cluster0.hw8fo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+        db = client.Scopus
+        col = db.ModulePrediction
+
+        for i in data:
+            key = value = i
+            col.update_one(key, {"$set": value}, upsert=True)
+        client.close()
+
     def writeResults(self, corpus, num_top_words):
         data = {}
         data['Perplexity'] = self.model.log_perplexity(corpus)
         data['Topic Words'] = {}
         for n in range(self.n_topics):
-            data['Topic Words'][n + 1] = [self.model.id2word[w]for w, p in self.model.get_topic_terms(n, topn=num_top_words)]
+            data['Topic Words'][str(n + 1)] = [self.model.id2word[w]for w, p in self.model.get_topic_terms(n, topn=num_top_words)]
 
         data['Document Topics'] = {}
         documents = self.data.Module_ID
         for d, c in zip(documents, corpus):
             doc_topics = ['({}, {:.1%})'.format(topic + 1, pr) for topic, pr in self.model.get_document_topics(c)]
-            data['Document Topics'][d] = doc_topics
+            data['Document Topics'][str(d)] = doc_topics
+
+        self.__pushToMongo(data)
 
         with open('NLP/MODEL_RESULTS/training_results.json', 'w') as outfile:
             json.dump(data, outfile)

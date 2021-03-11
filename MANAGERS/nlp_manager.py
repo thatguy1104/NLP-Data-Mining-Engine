@@ -7,9 +7,6 @@ from NLP.SVM.svm_map import Initialise_SVM_Model
 
 class NLP_SECTION():
 
-    def merge_SDG_keywords(self):
-        pass
-
     def initialise_SVM_model(self):
         Initialise_SVM_Model().create()
 

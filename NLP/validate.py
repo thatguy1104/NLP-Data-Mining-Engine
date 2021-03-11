@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd
 import json
 import re
+import pymongo
 
 matchedModulesSDG_filepath = "MODULE_CATALOGUE/matchedModulesSDG.json"
 matchedPublicationsSDG_filepath = "SCOPUS/matchedScopusSDG.json"
@@ -118,6 +119,20 @@ class ValidateLDA():
         # Sort dictionary by Similarity.
         sorted_results = dict(sorted(results.items(), key=lambda x: x[1]['Similarity']))
         return sorted_results
+
+    def __writeToDBP_Modules(self, data):
+        client = pymongo.MongoClient("mongodb+srv://admin:admin@cluster0.hw8fo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+        db = client.Scopus
+        col = db.ModuleValidation
+        key = value = data
+        col.update(key, value, upsert=True)
+
+    def __writeToDBP_Scopus(self, data):
+        client = pymongo.MongoClient("mongodb+srv://admin:admin@cluster0.hw8fo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+        db = client.Scopus
+        col = db.ScopusValidation
+        key = value = data
+        col.update(key, value, upsert=True)
     
     def run(self):
         module_results = self.__validate(self.__read_module_sdg_count_data, self.__read_module_sdg_model_data)
@@ -127,4 +142,6 @@ class ValidateLDA():
             json.dump(module_results, outfile)
         with open('SCOPUS/scopusValidationSDG.json', 'w') as outfile:
             json.dump(scopus_results, outfile)
-        print("FINISHED: Module % Scopus Validations")
+        self.__writeToDBP_Modules(module_results)
+        self.__writeToDBP_Scopus(scopus_results)
+        print("FINISHED: Module & Scopus Validations")

@@ -1,15 +1,8 @@
 from SCOPUS.map import ScopusMap
-from SCOPUS import renameGeneratedFiles
 from SCOPUS.scrape import GetScopusData
 
 
 class SCOPUS_SECTION():
-
-    def renameGeneratedFiles(self):
-        """
-            In case of error in writing files to SCOPUS/GENERATED_FILES, this script corrects file names for consistency and integrity
-        """
-        renameGeneratedFiles.rename()
 
     def scrapeAllPublications(self):
         """

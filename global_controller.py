@@ -16,19 +16,16 @@ def module_manager(initialise, resetDB, scrape, mapToSDG, updateStudentCount):
     if updateStudentCount:
         module_actions.update_studentsPerModule()
 
-def scopus_manager(renameFiles, scrape, mapToSDG):
+def scopus_manager(scrape, mapToSDG):
     scopus_actions = SCOPUS_SECTION()
     if scrape:
         scopus_actions.scrapeAllPublications()
-    if renameFiles:
-        scopus_actions.renameGeneratedFiles()
     if mapToSDG:
         scopus_actions.scopusMap()
 
-def nlp_manager(mergeKeywords, initialiseLDA, initialiseSVM, predictScopusData, validateModel, createSVMDataset):
+
+def nlp_manager(initialiseLDA, createSVMDataset, initialiseSVM, predictScopusData, validateModel):
     nlp_actions = NLP_SECTION()
-    if mergeKeywords:
-        nlp_actions.merge_SDG_keywords()
     if initialiseLDA:
         nlp_actions.initialise_LDA_model()
     if initialiseSVM:
@@ -42,8 +39,8 @@ def nlp_manager(mergeKeywords, initialiseLDA, initialiseSVM, predictScopusData, 
 
 def main():
     module_manager(initialise=False, resetDB=False, scrape=False, mapToSDG=False, updateStudentCount=False)
-    scopus_manager(renameFiles=False, scrape=False, mapToSDG=False) 
-    nlp_manager(mergeKeywords=False, initialiseLDA=False, initialiseSVM=False, predictScopusData=True, validateModel=True, createSVMDataset=False)
+    scopus_manager(scrape=False, mapToSDG=False) 
+    nlp_manager(initialiseLDA=True, createSVMDataset=False, initialiseSVM=False, predictScopusData=False, validateModel=False)
 
 if __name__ == "__main__":
     main()

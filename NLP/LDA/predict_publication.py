@@ -6,19 +6,29 @@ import gensim
 import pymongo
 from bson import json_util
 from SCOPUS.load_publications import LoadPublications
+
+
+client = pymongo.MongoClient("mongodb+srv://admin:admin@cluster0.hw8fo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+db = client.Scopus
+col = db.PublicationPrediction
 class ScopusMap():
     
     def __init__(self):
         self.publiction_data = pd.DataFrame(columns=['DOI', 'Title', 'Description'])
         self.model_name = "NLP/LDA/lda_model.pkl"
 
-    def progress(self, count, total, custom_text, suffix=''):
+    def __progress(self, count, total, custom_text, suffix=''):
         bar_len = 60
         filled_len = int(round(bar_len * count / float(total)))
         percents = round(100.0 * count / float(total), 1)
         bar = '*' * filled_len + '-' * (bar_len - filled_len)
         sys.stdout.write('[%s] %s%s %s %s\r' % (bar, percents, '%', custom_text, suffix))
         sys.stdout.flush()
+
+    def __writeToDBP_Scopus(self, data):
+        # for i in data:
+        key = value = data
+        col.update_one(key, {"$set": value}, upsert=True)
 
     def make_predictions(self, limit):
         results = {}
@@ -29,7 +39,7 @@ class ScopusMap():
         with open(self.model_name, 'rb') as f:
             lda = pickle.load(f)
             for i in range(num_papers):
-                self.progress(counter, num_papers, "Predicting...")
+                self.__progress(counter, num_papers, "Predicting...")
                 description = papers['Description'][i]
 
                 X_predicted = lda.vectorizer.transform([description])
@@ -41,14 +51,17 @@ class ScopusMap():
                 results[papers['DOI'][i]] = {}
                 for topic, pr in td:
                     results[papers['DOI'][i]]['Title'] = papers['Title'][i]
-                    results[papers['DOI'][i]][topic + 1] = str(pr)
+                    results[papers['DOI'][i]][str(topic + 1)] = str(pr)
+                
+                self.__writeToDBP_Scopus(results[papers['DOI'][i]])
                 counter += 1
 
         print()
         with open("NLP/MODEL_RESULTS/scopus_prediction_results.json", "w") as f:
             json.dump(results, f)
+        client.close()
 
-    def load_publications(self, file_name):
+    def load_publications(self):
         data = LoadPublications().load()
         for i in data:
             i = json.loads(json_util.dumps(i))
