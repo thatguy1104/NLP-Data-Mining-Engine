@@ -3,10 +3,14 @@ import json
 import pyodbc
 import datetime
 import pandas as pd
+import pymongo
 from NLP.LDA.LDA_map import preprocess_keywords, preprocess_keyword
 from NLP.preprocess import module_catalogue_tokenizer, get_stopwords
 
 num_modules_analysed = "MAX"
+client = pymongo.MongoClient("mongodb+srv://admin:admin@cluster0.hw8fo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+db = client.Scopus
+col = db.MatchedModules
 
 class ModuleMap():
     
@@ -43,6 +47,10 @@ class ModuleMap():
             self.myConnection.commit()
             return df
 
+    def __pushToMongoDB(self, data):
+        key = value = data
+        col.update_one(key, {"$set": value}, upsert=True)
+
     def read_keywords(self, data):
         resulting_data = {}
         counter = 0
@@ -77,7 +85,7 @@ class ModuleMap():
                     del sdg_occurences[sdg]
                 
                 resulting_data[data["Module_ID"][i]] = {"Module_Name": data["Module_Name"][i], "Related_SDG": sdg_occurences}
-
+                self.__pushToMongoDB(resulting_data[data["Module_ID"][i]])
         print()
         with open('MODULE_CATALOGUE/matchedModulesSDG.json', 'w') as outfile:
             json.dump(resulting_data, outfile)

@@ -4,7 +4,11 @@ import pandas as pd
 import pymongo
 from NLP.LDA.LDA_map import preprocess_keywords, preprocess_keyword
 from NLP.preprocess import module_catalogue_tokenizer
+from SCOPUS.load_publications import LoadPublications
 
+client = pymongo.MongoClient("mongodb+srv://admin:admin@cluster0.hw8fo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+db = client.Scopus
+col = db.MatchedScopus
 class ScopusMap():
 
     def progress(self, count, total, custom_text, suffix=''):
@@ -17,10 +21,11 @@ class ScopusMap():
 
     def load_publications(self):
         resulting_data = {}
-        client = pymongo.MongoClient("mongodb+srv://admin:admin@cluster0.hw8fo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
-        db = client.Scopus
-        col = db.Data
-        data = col.find()
+        data = LoadPublications().load()
+        # client = pymongo.MongoClient("mongodb+srv://admin:admin@cluster0.hw8fo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+        # db = client.Scopus
+        # col = db.Data
+        # data = col.find()
         for i in data:
             if not i:
                 continue
@@ -42,6 +47,10 @@ class ScopusMap():
                     "AuthorKeywords": author_keywords,
                     "IndexKeywords": index_keywords}
         return resulting_data
+
+    def __pushToMongoDB(self, data):
+        key = value = data
+        col.update_one(key, {"$set": value}, upsert=True)
 
     def read_keywords(self, data):
         resulting_data = {}
@@ -78,8 +87,11 @@ class ScopusMap():
                 if len(sdg_occurences[sdg]["Word_Found"]) == 0:
                     del sdg_occurences[sdg]
                 resulting_data[data[i]["DOI"]] = {"PublicationInfo" : data[i], "Related_SDG" : sdg_occurences}
+            
+            self.__pushToMongoDB(resulting_data[data[i]["DOI"]])
 
         print()
+        client.close()
         with open('SCOPUS/matchedScopusSDG.json', 'w') as outfile:
             json.dump(resulting_data, outfile)
         
