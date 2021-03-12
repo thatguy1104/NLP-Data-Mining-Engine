@@ -3,7 +3,7 @@ from MODULE_CATALOGUE.INITIALISER.initialise_files import Initialiser
 from MODULE_CATALOGUE.STUDENTS_PER_MOD.processPush import UpdateStudentsPerModule
 from MODULE_CATALOGUE.DATABASE_FILES.db_create import Create_ModuleData
 from MODULE_CATALOGUE.DATABASE_FILES.db_reset import Reset_ModuleData
-from MODULE_CATALOGUE.map import ModuleMap
+
 
 
 class MODULE_SECTION():
@@ -31,10 +31,3 @@ class MODULE_SECTION():
             Note: requires stable internet connection. Scrapes all modules in ~2-4 hours
         """
         UCL_Module_Catalogue().run()
-
-    def map_modules(self):
-        """
-            Assigns an SDG/SDGs to each module
-            Produces matchedModulesSDG.json
-        """
-        ModuleMap().run()

@@ -2,14 +2,19 @@ import os, sys, re
 import json
 import pandas as pd
 import pymongo
-from NLP.LDA.LDA_map import preprocess_keywords, preprocess_keyword
-from NLP.preprocess import module_catalogue_tokenizer
-from SCOPUS.load_publications import LoadPublications
+from bson import json_util
+from NLP.PREPROCESSING.preprocessor import Preprocessor
+from LOADERS.publication_loader import PublicationLoader
 
 client = pymongo.MongoClient("mongodb+srv://admin:admin@cluster0.hw8fo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
 db = client.Scopus
 col = db.MatchedScopus
-class ScopusMap():
+
+
+class ScopusStringMatch():
+
+    def __init__(self):
+        self.preprocessor = Preprocessor()
 
     def progress(self, count, total, custom_text, suffix=''):
         bar_len = 60
@@ -21,12 +26,10 @@ class ScopusMap():
 
     def load_publications(self):
         resulting_data = {}
-        data = LoadPublications().load()
-        # client = pymongo.MongoClient("mongodb+srv://admin:admin@cluster0.hw8fo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
-        # db = client.Scopus
-        # col = db.Data
-        # data = col.find()
+        data = PublicationLoader().load()
+        
         for i in data:
+            i = json.loads(json_util.dumps(i))
             if not i:
                 continue
             abstract = i["Abstract"]
@@ -55,26 +58,27 @@ class ScopusMap():
     def read_keywords(self, data):
         resulting_data = {}
         counter = 0
-        keywords = preprocess_keywords("MODULE_CATALOGUE/SDG_KEYWORDS/SDG_Keywords.csv")
+        keywords = self.preprocessor.preprocess_keywords("SDG_KEYWORDS/SDG_Keywords.csv")
         num_publications = len(data)
         num_keywords = len(keywords)
         
         for i in data:
-            self.progress(counter, num_publications, "processing SCOPUS/matchedScopusSDG.json")
+            self.progress(counter, num_publications, "processing scopus_matches.json")
             counter += 1
             
-            title = " ".join(module_catalogue_tokenizer(data[i]["Title"])) # preprocess title.
-            abstract = " ".join(module_catalogue_tokenizer(data[i]["Abstract"])) # preprocess abstract.
+            title = " ".join(self.preprocessor.tokenize(data[i]["Title"]))  # preprocess title.
+            # preprocess abstract.
+            abstract = " ".join(self.preprocessor.tokenize(data[i]["Abstract"]))
             publication_text = title + " " + abstract
 
             author_keywords = data[i]["AuthorKeywords"]
             if author_keywords:
                 for w in author_keywords:
-                    publication_text += " " + " ".join(module_catalogue_tokenizer(w))
+                    publication_text += " " + " ".join(self.preprocessor.tokenize(w))
             index_keywords = data[i]["IndexKeywords"]
             if index_keywords:
                 for w in index_keywords:
-                    publication_text += " " + " ".join(module_catalogue_tokenizer(w))
+                    publication_text += " " + " ".join(self.preprocessor.tokenize(w))
 
             sdg_occurences = {}
             for n in range(num_keywords):
@@ -92,7 +96,7 @@ class ScopusMap():
 
         print()
         client.close()
-        with open('SCOPUS/matchedScopusSDG.json', 'w') as outfile:
+        with open('NLP/STRING_MATCH/SDG_RESULTS/scopus_matches.json', 'w') as outfile:
             json.dump(resulting_data, outfile)
         
     def run(self):

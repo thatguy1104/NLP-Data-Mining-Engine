@@ -4,8 +4,10 @@ import pandas as pd
 import numpy as np
 import json
 import sys
+import pymongo
+from bson import json_util
 
-from NLP.LDA.predict_publication import ScopusMap
+from NLP.LDA.predict_publication import ScopusPrediction
 
 class SVMDataset():
     def __init__(self):
@@ -48,9 +50,16 @@ class SVMDataset():
     
     def process_modules(self):
         results = pd.DataFrame(columns=['ID', 'Description', 'SDG']) # ID = ModuleID
-        with open('NLP/MODEL_RESULTS/training_results.json') as json_file:
-            data = json.load(json_file)
-            doc_topics = data['Document Topics']
+        client = pymongo.MongoClient("mongodb+srv://admin:admin@cluster0.hw8fo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+        db = client.Scopus
+        col = db.ModulePrediction
+        data = col.find()
+        
+        for elements in data:
+        # with open('NLP/MODEL_RESULTS/training_results.json') as json_file:
+        #     data = json.load(json_file)
+            elements = json.loads(json_util.dumps(elements))
+            doc_topics = elements['Document Topics']
             num_modules = len(doc_topics)
             final_data = {}
             counter = 0
@@ -75,7 +84,7 @@ class SVMDataset():
                     row_df = pd.DataFrame([[module, self.get_module_description(module)[0][0], None]], columns=results.columns)
                 results = results.append(row_df, verify_integrity=True, ignore_index=True)
                 counter += 1
-        
+        client.close()
         return results
 
     def process_publications(self):
@@ -83,35 +92,42 @@ class SVMDataset():
         self.scopus_map.load_publications()
         print("Finished.")
 
+        client = pymongo.MongoClient("mongodb+srv://admin:admin@cluster0.hw8fo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+        db = client.Scopus
+        col = db.PublicationPrediction
+        data = col.find()
+
         results = pd.DataFrame(columns=['ID', 'Description', 'SDG']) # ID = DOI
-        with open('NLP/MODEL_RESULTS/scopus_prediction_results.json') as json_file:
-            data = json.load(json_file)
-            num_publications = len(data)
-            final_data = {}
-            counter = 0
-            for doi in data:
-                self.progress(counter, num_publications, "Forming Publications Dataset for SVM...")
-                raw_weights = data[doi]
-                num_sdgs = len(raw_weights) - 1 # subtract the title.
-                weights = [0] * num_sdgs
-                for i in range(num_sdgs):
-                    sdg_num = str(i + 1)
-                    try:
-                        w = float(raw_weights[sdg_num]) * 100.0
-                    except:
-                        w = 0.0
-                    weights[i] = w
+
+        # with open('NLP/MODEL_RESULTS/scopus_prediction_results.json') as json_file:
+        #     data = json.load(json_file)
+
+        num_publications = data.count()
+        final_data = {}
+        counter = 0
+        for doi in data:
+            self.progress(counter, num_publications,"Forming Publications Dataset for SVM...")
+            raw_weights = data[doi]
+            num_sdgs = len(raw_weights) - 1 # subtract the title.
+            weights = [0] * num_sdgs
+            for i in range(num_sdgs):
+                sdg_num = str(i + 1)
+                try:
+                    w = float(raw_weights[sdg_num]) * 100.0
+                except:
+                    w = 0.0
+                weights[i] = w
+        
+            weights = np.asarray(weights)
+            sdg_max = weights.argmax() + 1 # SDG with maximum weight.
+            sdg_weight_max = weights[sdg_max - 1] # maximum weight.
             
-                weights = np.asarray(weights)
-                sdg_max = weights.argmax() + 1 # SDG with maximum weight.
-                sdg_weight_max = weights[sdg_max - 1] # maximum weight.
-                
-                if sdg_weight_max >= self.threshold:
-                    row_df = pd.DataFrame([[doi, self.get_publication_description(doi), sdg_max]], columns=results.columns)
-                else:
-                    row_df = pd.DataFrame([[doi, self.get_publication_description(doi), None]], columns=results.columns)
-                results = results.append(row_df, verify_integrity=True, ignore_index=True)
-                counter += 1
+            if sdg_weight_max >= self.threshold:
+                row_df = pd.DataFrame([[doi, self.get_publication_description(doi), sdg_max]], columns=results.columns)
+            else:
+                row_df = pd.DataFrame([[doi, self.get_publication_description(doi), None]], columns=results.columns)
+            results = results.append(row_df, verify_integrity=True, ignore_index=True)
+            counter += 1
 
         return results
 

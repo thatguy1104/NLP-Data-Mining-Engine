@@ -1,6 +1,4 @@
-from SCOPUS.map import ScopusMap
 from SCOPUS.scrape import GetScopusData
-
 
 class SCOPUS_SECTION():
 
@@ -15,10 +13,3 @@ class SCOPUS_SECTION():
         """
         obj = GetScopusData()
         obj.createAllFiles(None)
-
-    def scopusMap(self):
-        """
-            Assigns an SDG/SDGs to each research publication
-            Produces matchedScopusSDG.json
-        """
-        ScopusMap().run()

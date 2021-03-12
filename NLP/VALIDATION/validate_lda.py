@@ -3,9 +3,8 @@ import pandas as pd
 import json
 import re
 import pymongo
+from bson import json_util
 
-matchedModulesSDG_filepath = "MODULE_CATALOGUE/matchedModulesSDG.json"
-matchedPublicationsSDG_filepath = "SCOPUS/matchedScopusSDG.json"
 num_of_sdgs = 18
 
 class ValidateLDA():
@@ -21,6 +20,7 @@ class ValidateLDA():
         results = {}
         counter = 0
         for doi in data:
+            doi = json.loads(json_util.dumps(doi))
             weights = [0] * num_of_sdgs
             sdg_predictions = data[doi]
             for i in range(num_of_sdgs):
@@ -36,10 +36,17 @@ class ValidateLDA():
 
     # SCOPUS COUNT
     def __read_scopus_sdg_count_data(self):
-        with open('SCOPUS/matchedScopusSDG.json', 'rb') as json_file:
-            data = json.load(json_file)
+        client = pymongo.MongoClient("mongodb+srv://admin:admin@cluster0.hw8fo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+        db = client.Scopus
+        col = db.MatchedScopus
+        data = col.find()
+
+        # with open('SCOPUS/matchedScopusSDG.json', 'rb') as json_file:
+        #     data = json.load(json_file)
+        for i in data:
+            i = json.loads(json_util.dumps(i))
             results = {} # dictionary with doi and SDG keyword counts.
-            for doi, publication_sdgs_dict in data.items():
+            for doi, publication_sdgs_dict in i.items():
                 sdg_dict = publication_sdgs_dict['Related_SDG']
                 counts = [0] * num_of_sdgs
                 for sdg, word_found_dict in sdg_dict.items():
@@ -49,7 +56,8 @@ class ValidateLDA():
                     counts[sdg_num - 1] = count
                 results[doi] = counts # add DOI with array of SDG keyword counts to results.
 
-            return results
+        client.close()
+        return results
 
     # MODULE CATALOGUE MODEL
     def __read_module_sdg_model_data(self):
@@ -61,6 +69,7 @@ class ValidateLDA():
         # with open('NLP/MODEL_RESULTS/training_results.json', 'rb') as json_file:
             # data = json.load(json_file)
         for i in data:
+            i = json.loads(json_util.dumps(i))
             docTopics = i['Document Topics']
             results = {}
             counter = 0
@@ -80,10 +89,16 @@ class ValidateLDA():
 
     # MODULE CATALOGUE COUNT
     def __read_module_sdg_count_data(self):
-        with open('MODULE_CATALOGUE/matchedModulesSDG.json', 'rb') as json_file:
-            data = json.load(json_file)
+        client = pymongo.MongoClient("mongodb+srv://admin:admin@cluster0.hw8fo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+        db = client.Scopus
+        col = db.MatchedModules
+        data = col.find()
+        # with open('NLP/VALIDATION/SDG_RESULTS//matchedModulesSDG.json', 'rb') as json_file:
+        #     data = json.load(json_file)
+        for i in data:
+            i = json.loads(json_util.dumps(i))
             results = {} # dictionary with module_code and SDG keyword counts.
-            for module, module_name_sdgs_dict in data.items():
+            for module, module_name_sdgs_dict in i.items():
                 sdg_dict = module_name_sdgs_dict['Related_SDG']
                 counts = [0] * num_of_sdgs
                 for sdg, word_found_dict in sdg_dict.items():
@@ -93,6 +108,7 @@ class ValidateLDA():
                     counts[sdg_num - 1] = count
                 results[module] = counts # add module_code with array of SDG keyword counts to results.
 
+            client.close()
             return results
 
     def __compute_similarity(self, vec_A, vec_B):
@@ -149,9 +165,9 @@ class ValidateLDA():
         module_results = self.__validate(self.__read_module_sdg_count_data, self.__read_module_sdg_model_data)
         scopus_results = self.__validate(self.__read_scopus_sdg_count_data, self.__read_scopus_sdg_model_data)
 
-        with open('MODULE_CATALOGUE/moduleValidationSDG.json', 'w') as outfile:
+        with open('NLP/VALIDATION/SDG_RESULTS/moduleValidationSDG.json', 'w') as outfile:
             json.dump(module_results, outfile)
-        with open('SCOPUS/scopusValidationSDG.json', 'w') as outfile:
+        with open('NLP/VALIDATION/SDG_RESULTS//scopusValidationSDG.json', 'w') as outfile:
             json.dump(scopus_results, outfile)
         self.__writeToDBP_Modules(module_results)
         self.__writeToDBP_Scopus(scopus_results)

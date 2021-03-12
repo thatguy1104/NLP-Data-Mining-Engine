@@ -2,8 +2,7 @@ from MANAGERS.module_manager import MODULE_SECTION
 from MANAGERS.scopus_manager import SCOPUS_SECTION
 from MANAGERS.nlp_manager import NLP_SECTION
 
-
-def module_manager(initialise, resetDB, scrape, mapToSDG, updateStudentCount):
+def module_manager(initialise, resetDB, scrape, updateStudentCount):
     module_actions = MODULE_SECTION()
     if initialise:
         module_actions.initialise()
@@ -11,36 +10,60 @@ def module_manager(initialise, resetDB, scrape, mapToSDG, updateStudentCount):
         module_actions.resetDB_Table()
     if scrape:
         module_actions.scrapeAllModules()
-    if mapToSDG:
-        module_actions.map_modules()
     if updateStudentCount:
         module_actions.update_studentsPerModule()
 
-def scopus_manager(scrape, mapToSDG):
+def scopus_manager(scrape):
     scopus_actions = SCOPUS_SECTION()
+
     if scrape:
         scopus_actions.scrapeAllPublications()
-    if mapToSDG:
-        scopus_actions.scopusMap()
 
-
-def nlp_manager(initialiseLDA, createSVMDataset, initialiseSVM, predictScopusData, validateModel):
+def nlp_manager(run_LDA_SDG, run_GUIDED_LDA_SDG, module_string_match, scopus_string_match, predict_scopus_data, create_SVM_dataset, run_SVM_SDG, validate_model):
     nlp_actions = NLP_SECTION()
-    if initialiseLDA:
-        nlp_actions.initialise_LDA_model()
-    if initialiseSVM:
-        nlp_actions.initialise_SVM_model()
-    if predictScopusData:
+
+    if run_LDA_SDG:
+        nlp_actions.run_LDA_SDG()
+
+    if run_GUIDED_LDA_SDG:
+        nlp_actions.run_GUIDED_LDA_SDG()
+
+    if module_string_match:
+        nlp_actions.module_string_match()
+
+    if scopus_string_match:
+        nlp_actions.scopus_string_match()
+
+    if predict_scopus_data:
         nlp_actions.predictScopus()
-    if validateModel:
-        nlp_actions.validate()
-    if createSVMDataset:
-        nlp_actions.createSVMDataset()
+
+    if create_SVM_dataset:
+        nlp_actions.create_SVM_dataset()
+
+    if run_SVM_SDG:
+        nlp_actions.run_SVM_SDG()    
+
+    if validate_model:
+        nlp_actions.validate_LDA()
 
 def main():
-    module_manager(initialise=False, resetDB=False, scrape=False, mapToSDG=True, updateStudentCount=False)
-    scopus_manager(scrape=False, mapToSDG=True) 
-    nlp_manager(initialiseLDA=False, createSVMDataset=False, initialiseSVM=False, predictScopusData=False, validateModel=False)
+    module_manager(initialise=False, resetDB=False, scrape=False, updateStudentCount=False)
+    scopus_manager(scrape=False) 
+    nlp_manager(run_LDA_SDG=False, run_GUIDED_LDA_SDG=False, module_string_match=True, scopus_string_match=False,
+                predict_scopus_data=False, create_SVM_dataset=False, run_SVM_SDG=False, validate_model=False)
+
+
+"""
+    TESTING NOTES:
+        run_LDA_SDG         --> partially works, bug to be fixed (change ETA)
+        run_GUIDED_LDA_SDG  --> to be fixed (guidedlda library issues)
+        module_string_match --> works
+        scopus_string_match --> to be tested
+        predict_scopus_data --> to be tested
+        create_SVM_dataset  --> to be tested
+        run_SVM_SDG         --> to be tested
+        validate_model      --> to be tested
+"""
 
 if __name__ == "__main__":
     main()

@@ -4,17 +4,19 @@ import pyodbc
 import datetime
 import pandas as pd
 import pymongo
-from NLP.LDA.LDA_map import preprocess_keywords, preprocess_keyword
-from NLP.preprocess import module_catalogue_tokenizer, get_stopwords
+from NLP.PREPROCESSING.module_preprocessor import ModuleCataloguePreprocessor
 
 num_modules_analysed = "MAX"
 client = pymongo.MongoClient("mongodb+srv://admin:admin@cluster0.hw8fo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
 db = client.Scopus
 col = db.MatchedModules
 
-class ModuleMap():
+
+class ModuleStringMatch():
     
     def __init__(self):
+        self.preprocessor = ModuleCataloguePreprocessor()
+
         # SERVER LOGIN DETAILS
         self.server = 'miemie.database.windows.net'
         self.database = 'MainDB'
@@ -48,20 +50,21 @@ class ModuleMap():
             return df
 
     def __pushToMongoDB(self, data):
-        key = value = data
-        col.update_one(key, {"$set": value}, upsert=True)
+        for i in data:
+            key = value = data[i]
+            col.update_one(key, {"$set": value}, upsert=True)
 
     def read_keywords(self, data):
         resulting_data = {}
         counter = 0
-        keywords = preprocess_keywords("MODULE_CATALOGUE/SDG_KEYWORDS/SDG_Keywords.csv")
-        stopwords = get_stopwords()
+        keywords = self.preprocessor.preprocess_keywords("SDG_KEYWORDS/SDG_Keywords.csv")
+        stopwords = self.preprocessor.stopwords
         num_modules = len(data)
         num_keywords = len(keywords)
 
         # Iterate through the module descriptions.
         for i in range(num_modules):
-            self.progress(counter, len(data), "processing MODULE_CATALOGUE/matchedModulesSDG.json")
+            self.progress(counter, len(data), "processing module_matches.json")
             counter += 1
             
             module_name = data["Module_Name"][i]
@@ -70,7 +73,7 @@ class ModuleMap():
                 module_description = data["Description"][i]
 
             module_text = module_name + " " + module_description
-            module_text = " ".join(module_catalogue_tokenizer(module_text)) # preprocess module text.
+            module_text = " ".join(self.preprocessor.tokenize(module_text)) # preprocess module text.
 
             sdg_occurences = {}
             for n in range(num_keywords):
@@ -85,9 +88,10 @@ class ModuleMap():
                     del sdg_occurences[sdg]
                 
                 resulting_data[data["Module_ID"][i]] = {"Module_Name": data["Module_Name"][i], "Related_SDG": sdg_occurences}
-                self.__pushToMongoDB(resulting_data[data["Module_ID"][i]])
+        self.__pushToMongoDB(resulting_data)
         print()
-        with open('MODULE_CATALOGUE/matchedModulesSDG.json', 'w') as outfile:
+        client.close()
+        with open('NLP/STRING_MATCH/SDG_RESULTS/module_matches.json', 'w') as outfile:
             json.dump(resulting_data, outfile)
     
     def run(self):

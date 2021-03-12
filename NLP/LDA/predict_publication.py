@@ -5,17 +5,18 @@ import pandas as pd
 import gensim
 import pymongo
 from bson import json_util
-from SCOPUS.load_publications import LoadPublications
+from LOADERS.publication_loader import PublicationLoader
 
 
 client = pymongo.MongoClient("mongodb+srv://admin:admin@cluster0.hw8fo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
 db = client.Scopus
 col = db.PublicationPrediction
-class ScopusMap():
+class ScopusPrediction():
     
     def __init__(self):
         self.publiction_data = pd.DataFrame(columns=['DOI', 'Title', 'Description'])
         self.model_name = "NLP/LDA/lda_model.pkl"
+        self.loader = PublicationLoader()
 
     def __progress(self, count, total, custom_text, suffix=''):
         bar_len = 60
@@ -62,7 +63,7 @@ class ScopusMap():
         client.close()
 
     def load_publications(self):
-        data = LoadPublications().load()
+        data = self.loader.load()
         for i in data:
             i = json.loads(json_util.dumps(i))
             abstract = i["Abstract"]
