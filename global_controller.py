@@ -2,7 +2,6 @@ from MANAGERS.module_manager import MODULE_SECTION
 from MANAGERS.scopus_manager import SCOPUS_SECTION
 from MANAGERS.nlp_manager import NLP_SECTION
 
-
 def module_manager(initialise, resetDB, scrape, mapToSDG, updateStudentCount):
     module_actions = MODULE_SECTION()
     if initialise:
@@ -23,24 +22,25 @@ def scopus_manager(scrape, mapToSDG):
     if mapToSDG:
         scopus_actions.scopusMap()
 
-
-def nlp_manager(initialiseLDA, createSVMDataset, initialiseSVM, predictScopusData, validateModel):
+def nlp_manager(run_LDA_SDG, run_GUIDED_LDA_SDG, initialise_SVM, predict_scopus_data, create_SVM_dataset, validate_model):
     nlp_actions = NLP_SECTION()
-    if initialiseLDA:
-        nlp_actions.initialise_LDA_model()
-    if initialiseSVM:
+    if run_LDA_SDG:
+        nlp_actions.run_LDA_SDG()
+    if run_GUIDED_LDA_SDG():
+        nlp_actions.run_GUIDED_LDA_SDG()
+    if initialise_SVM:
         nlp_actions.initialise_SVM_model()
-    if predictScopusData:
+    if predict_scopus_data:
         nlp_actions.predictScopus()
-    if validateModel:
-        nlp_actions.validate()
-    if createSVMDataset:
-        nlp_actions.createSVMDataset()
+    if create_SVM_dataset:
+        nlp_actions.create_SVM_dataset()
+    if validate_model:
+        nlp_actions.validate_LDA()
 
 def main():
     module_manager(initialise=False, resetDB=False, scrape=False, mapToSDG=False, updateStudentCount=False)
     scopus_manager(scrape=False, mapToSDG=False) 
-    nlp_manager(initialiseLDA=True, createSVMDataset=False, initialiseSVM=False, predictScopusData=False, validateModel=False)
+    nlp_manager(run_LDA_SDG=True, run_GUIDED_LDA_SDG=False, initialiseSVM=False, predict_scopus_data=False, create_SVM_dataset=False, validate_model=False)
 
 if __name__ == "__main__":
     main()

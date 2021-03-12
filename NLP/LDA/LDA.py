@@ -1,92 +1,82 @@
-import gensim
 import numpy as np
 import pandas as pd
-import nltk
-import json
 import logging
-import pymongo
-import pyLDAvis
-import pyLDAvis.gensim
+import pickle
+import gensim
+import nltk
 
-from gensim import corpora
+from NLP.PREPROCESSING.preprocessor import Preprocessor
+from LOADERS.loader import Loader
+
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
-from NLP.preprocess import module_catalogue_tokenizer, text_lemmatizer, get_stopwords
 
+import pyLDAvis.gensim
 import matplotlib.colors as mcolors
 from sklearn.manifold import TSNE
 from bokeh.plotting import figure, output_file, save
 from bokeh.models import Label
 
-class LDA():
-    def __init__(self, data, keywords):
-        self.data = data # module-catalogue data frame with columns {ModuleID, Description}.
-        self.keywords = keywords # list of topic keywords.
-        self.vectorizer = self.create_vectorizer(1, 3, 1, 0.03)
-        self.n_topics = len(self.keywords)
+class Lda():
+    def __init__(self):
+        self.loader = Loader()
+        self.preprocessor = Preprocessor()
+        self.data = None # dataframe with columns {ID, Description}
+        self.keywords = None # list of topic keywords
+        self.num_topics = 0
+        self.vectorizer = self.get_vectorizer(1, 1, 1, 1)
+        self.model = None
 
-    def create_vectorizer(self, min_n_gram, max_n_gram, min_df, max_df):
-        stopwords = [text_lemmatizer(s) for s in get_stopwords()] # lemmatize stopwords.
-        return TfidfVectorizer(tokenizer=module_catalogue_tokenizer, stop_words=stopwords, ngram_range=(min_n_gram, max_n_gram), strip_accents='unicode', 
-                min_df=min_df, max_df=max_df)
+    def load_keywords(self, keywords):
+        print("Loading keywords...")
+        self.keywords = self.preprocessor.preprocess_keywords(keywords)
 
-    # optimized alpha [0.07905018, 0.021635817, 0.02065896, 0.021123013, 0.022771074, 0.26609096, 0.017549414, 0.02452033, 0.02282285, 0.03086126, 0.023378693, 0.02263801, 0.021001419, 0.017342038, 0.023954913, 0.024656, 0.019133672, 0.024959238]
+    def load_dataset(self, count):
+        print("Loading dataset...")
+        self.data = loader.load(count)
+        print("Size before/after filtering -->",  str(count), "/", len(data))
 
-    def create_model(self, corpus, id2word, eta, n_passes, n_iterations):
-        return gensim.models.LdaMulticore(corpus=corpus, num_topics=self.n_topics, id2word=id2word, random_state=42, chunksize=5000, eta=eta,
-                eval_every=None, passes=n_passes, iterations=n_iterations, workers=3, alpha="symmetric", minimum_probability=0, per_word_topics=True)
+    def get_vectorizer(self, min_n_gram, max_n_gram, min_df, max_df):
+        stopwords = [self.preprocessor.lemmatize(s) for s in self.preprocessor.stopwords] # lemmatize stopwords.
+        return TfidfVectorizer(tokenizer=self.preprocessor.tokenize, stop_words=stopwords, ngram_range=(min_n_gram, max_n_gram), 
+                strip_accents='unicode', min_df=min_df, max_df=max_df)
 
-    def create_topic_seeds(self):
-        tf_feature_names = self.vectorizer.get_feature_names() # list of words or ngrams of words.
+    def lda_model(self, corpus, id2word, eta, passes, iterations):
+        return gensim.models.LdaMulticore(corpus=corpus, num_topics=num_topics, id2word=id2word, random_state=42, chunksize=5000, eta=eta,
+                eval_every=None, passes=passes, iterations=iterations, workers=3, alpha="symmetric", minimum_probability=0, per_word_topics=True)
+
+    def topic_seeds(self):
+        feature_names = self.vectorizer.get_feature_names() # list of n-grams of words.
         seed_topics = {} # dictionary of keyword to topic_id.
-        for t_id, keywords in enumerate(self.keywords):
-            for keyword in keywords:
-                if keyword in tf_feature_names:
-                    seed_topics.setdefault(keyword, []).append(t_id) # one-to-many mapping from keyword to topic.
+        for topic_id, topic_keywords in enumerate(self.keywords):
+            for keyword in topic_keywords:
+                if keyword in feature_names:
+                    seed_topics.setdefault(keyword, []).append(topic_id) # one-to-many mapping from keyword to topic_id.
         print(seed_topics, "\n")
         return seed_topics
 
-    def create_eta(self, priors, eta_dictionary):
-        eta = np.full(shape=(self.n_topics, len(eta_dictionary)), fill_value=1) # (n_topics, n_terms) matrix filled with 1s.
-        for keyword, topics in priors.items():
-            keyindex = [index for index, term in eta_dictionary.items() if term == keyword]
+    def eta(self, priors, eta_dictionary):
+        num_terms = len(eta_dictionary)
+        return np.full(shape=(self.num_topics, num_terms), fill_value=1) # topic-term matrix filled with the value 1.
 
-            if len(keyindex) > 0:
-                for topic in topics:
-                    eta[topic, keyindex[0]] = 1e6
-
-        #eta = np.divide(eta, eta.sum(axis=0))
-        return eta
-
-    def train(self, n_passes, n_iterations, num_top_words):
+    def train(self, passes, iterations):
         logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
 
-        X = self.vectorizer.fit_transform(self.data.Description) # map description column to a matrix with documents as rows and counts as columns.
+        X = self.vectorizer.fit_transform(self.data.Description) # map description to a document-count matrix.
         corpus = gensim.matutils.Sparse2Corpus(X, documents_columns=False)
         id2word = dict((v, k) for k, v in self.vectorizer.vocabulary_.items())
 
-        seed_topics = self.create_topic_seeds()
-        eta = self.create_eta(seed_topics, id2word)
-
+        topic_seeds = self.topic_seeds()
+        eta = self.eta(topic_seeds, id2word)
         with (np.errstate(divide='ignore')):
-            self.model = self.create_model(corpus, id2word, eta, n_passes, n_iterations)
-        
-        # Display perplexity, topic-word distribution and document-topic distribution.
-        self.display_perplexity(corpus)
-        print()
-        self.display_topic_words(num_top_words)
-        print()
-        self.display_document_topics(corpus)
-
-        self.writeResults(corpus, num_top_words) # record current results.
-
-        # Visualize model using pyLDAvis.
-        # self.visualize_model(corpus)
+            self.model = self.lda_model(corpus, id2word, eta, passes, iterations)
+            
+        return corpus
 
     def display_perplexity(self, corpus):
         print('Perplexity: {:.2f}'.format(self.model.log_perplexity(corpus)))   
 
     def display_topic_words(self, num_top_words):
-        for n in range(self.n_topics):
+        for n in range(self.num_topics):
             print('SDG {}: {}'.format(n + 1, [self.model.id2word[w] for w, p in self.model.get_topic_terms(n, topn=num_top_words)]))
     
     def display_document_topics(self, corpus):
@@ -96,45 +86,17 @@ class LDA():
             if count % 25 == 0:
                 doc_topics = ['({}, {:.1%})'.format(topic + 1, pr) for topic, pr in self.model.get_document_topics(c)]
                 print('{} {}'.format(d, doc_topics))
-            count = count + 1
+            count += 1
 
-    def py_lda_vis(self, corpus):
-        d = corpora.Dictionary()
+    def pyldavis(self, corpus, output_file):
+        dictionary = gensim.corpora.Dictionary()
         word2id = dict((k, v) for k, v in self.vectorizer.vocabulary_.items())
-        d.id2token = self.model.id2word
-        d.token2id = word2id
-        visualization = pyLDAvis.gensim.prepare(self.model, corpus, dictionary=d, sort_topics=False)
-        pyLDAvis.save_html(visualization, 'LDA.html')
+        dictionary.id2token = self.model.id2word
+        dictionary.token2id = word2id
+        visualization = pyLDAvis.gensim.prepare(self.model, corpus, dictionary=dictionary, sort_topics=False)
+        pyLDAvis.save_html(visualization, output_file)
 
-    def __pushToMongo(self, data):
-        client = pymongo.MongoClient("mongodb+srv://admin:admin@cluster0.hw8fo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
-        db = client.Scopus
-        col = db.ModulePrediction
-
-        for i in data:
-            key = value = i
-            col.update_one(key, {"$set": value}, upsert=True)
-        client.close()
-
-    def writeResults(self, corpus, num_top_words):
-        data = {}
-        data['Perplexity'] = self.model.log_perplexity(corpus)
-        data['Topic Words'] = {}
-        for n in range(self.n_topics):
-            data['Topic Words'][str(n + 1)] = [self.model.id2word[w]for w, p in self.model.get_topic_terms(n, topn=num_top_words)]
-
-        data['Document Topics'] = {}
-        documents = self.data.Module_ID
-        for d, c in zip(documents, corpus):
-            doc_topics = ['({}, {:.1%})'.format(topic + 1, pr) for topic, pr in self.model.get_document_topics(c)]
-            data['Document Topics'][str(d)] = doc_topics
-
-        self.__pushToMongo(data)
-
-        with open('NLP/MODEL_RESULTS/training_results.json', 'w') as outfile:
-            json.dump(data, outfile)
-
-    def tSNE_cluster(self, corpus):
+    def t_sne_cluster(self, corpus, output_file):
         # Find topic weights.
         topic_weights = []
         for i, row_list in enumerate(self.model[corpus]):
@@ -143,16 +105,37 @@ class LDA():
         df = pd.DataFrame(topic_weights).fillna(0).values # topic weights dataframe.
         df = df[np.amax(df, axis=1) > 0.35]
 
-        topic = np.argmax(df, axis=1) # highest related topic (SDG).
+        topic = np.argmax(df, axis=1) # highest related topic.
 
-        # t-SNE Dimensionality Reduction.
+        # t-SNE dimensionality reduction.
         tsne_model = TSNE(n_components=2, verbose=1, random_state=0, angle=.99, init='pca')
         tsne_lda = tsne_model.fit_transform(df)
 
         # Plot topic clusters.
         colors = np.array([color for name, color in mcolors.TABLEAU_COLORS.items()])
-        plot = figure(title="t-SNE Clustering of {} SDGs".format(self.n_topics),  plot_width=2000, plot_height=1500)
+        plot = figure(title="t-SNE Clustering of {} Topics".format(self.n_topics),  plot_width=2000, plot_height=1500)
 
         plot.scatter(x=tsne_lda[:,0], y=tsne_lda[:,1], color=colors[topic])
-        output_file("t_sne_clusters.html")
+        output_file(output_file)
         save(plot)
+
+    def display_results(self, corpus, num_top_words, pyldavis_html, t_sne_cluster_html):
+        self.display_perplexity(corpus) # perplexity.
+        self.display_topic_words(num_top_words) # topic-word distribution.
+        self.display_document_topics(corpus) # document-topic distribution.
+
+        self.pyldavis(corpus, pyldavis_html) # pyLDAvis distance map.
+        self.t_sne_cluster(corpus, t_sne_cluster_html) # t-SNE clustering.
+    
+    def push_to_mongo(self, data):
+        raise NotImplementedError
+
+    def write_results(self, corpus, num_top_words, results_file):
+        raise NotImplementedError
+
+    def serialize(self, model_pkl_file):
+        with open(model_pkl_file, 'wb') as f:
+            pickle.dump(self, f)
+
+    def run(self):
+        raise NotImplementedError

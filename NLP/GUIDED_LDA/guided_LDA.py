@@ -1,91 +1,79 @@
-import os
+import time, datetime
 import pandas as pd
 import numpy as np
-import joblib
+import pickle
 
 import guidedlda
-
 from sklearn.feature_extraction.text import CountVectorizer
-from preprocess import module_catalogue_tokenizer, text_lemmatizer, get_stopwords
+from NLP.PREPROCESSING.preprocessor import Preprocessor
+from LOADERS.loader import Loader
 
-class GuidedLDA():
-    def __init__(self, data, keywords, n_iter):
-        self.data = data # module-catalogue data frame with columns {ModuleID, Description}.
-        self.keywords = keywords # topic keywords list.
-        self.vectorizer = self.create_vectorizer(1, 3, 1, 0.4)
-        self.model = self.create_model(len(keywords), n_iter, 7, 20)
+class GuidedLda():
+    def __init__(self):
+        self.loader = Loader()
+        self.preprocessor = Preprocessor()
+        self.data = None # dataframe with columns {ID, Description}.
+        self.keywords = None # list of topic keywords
+        self.num_topics = 0
+        self.vectorizer = self.get_vectorizer(1, 1, 1, 1)
+        self.model = None
 
-    def create_vectorizer(self, min_n_gram, max_n_gram, min_df, max_df):
-        stopwords = [text_lemmatizer(s) for s in get_stopwords()] # lemmatize stopwords.
-        return CountVectorizer(tokenizer=module_catalogue_tokenizer, stop_words=stopwords, ngram_range=(min_n_gram, max_n_gram), 
-            strip_accents='unicode', min_df=min_df, max_df=max_df)
+    def load_keywords(self, keywords):
+        print("Loading keywords...")
+        self.keywords = self.preprocessor.preprocess_keywords(keywords)
 
-    def create_model(self, n_topics, n_iter, random_state, refresh):
-        return guidedlda.GuidedLDA(n_topics=n_topics, n_iter=n_iter, random_state=random_state, refresh=refresh, eta=0.1)
+    def load_dataset(self, count):
+        print("Loading dataset...")
+        self.data = loader.load(count)
+        print("Size before/after filtering -->",  str(count), "/", len(data))
 
-    def create_topic_seeds(self):
-        tf_feature_names = self.vectorizer.get_feature_names() # list of terms: words or ngrams of words.
-        word2id = dict((v, i) for i, v in enumerate(tf_feature_names)) # dictionary of word frequencies.
-        seed_topics = {} # dictionary: word_id to topic_id.
-        for t_id, st in enumerate(self.keywords):
-            for word in st:
-                id = word2id.get(word)
-                if id is not None:
-                    seed_topics[id] = t_id
+    def get_vectorizer(self, min_n_gram, max_n_gram, min_df, max_df):
+        stopwords = [self.preprocessor.lemmatize(s) for s in self.preprocessor.stopwords] # lemmatize stopwords.
+        return CountVectorizer(tokenizer=self.preprocessor.tokenize, stop_words=stopwords, ngram_range=(min_n_gram, max_n_gram), 
+                strip_accents='unicode', min_df=min_df, max_df=max_df)
+
+    def guidedlda_model(self, iterations):
+        return guidedlda.GuidedLDA(n_topics=self.num_topics, n_iter=iterations, random_state=42, refresh=20)
+
+    def topic_seeds(self):
+        feature_names = self.vectorizer.get_feature_names() # list of n-grams of words.
+        word2id = dict((v, i) for i, v in enumerate(feature_names)) # dictionary of word frequencies.
+        seed_topics = {} # dictionary of keyword_id to topic_id.
+        for topic_id, topic_keywords in enumerate(self.keywords):
+            for keyword in topic_keywords:
+                keyword_id = word2id.get(keyword)
+                if keyword_id is not None:
+                    seed_topics.setdefault(keyword_id, []).append(topic_id) # one-to-many mapping from keyword_id to topic_id.
         return seed_topics
 
-    def train(self, seed_confidence):
-        X = self.vectorizer.fit_transform(self.data.Description) # maps description column to matrix of documents as the rows and counts as the columns.
-        print("X.shape = " + str(X.shape))
-        seed_topics = self.create_topic_seeds()
+    def train(self, seed_confidence, iterations):
+        X = self.vectorizer.fit_transform(self.data.Description) # map description to a document-count matrix.
+        seed_topics = self.topic_seeds()
+        self.model = self.guidedlda_model(iterations)
         self.model.fit(X, seed_topics=seed_topics, seed_confidence=seed_confidence)
 
-    def serialize(self, filename):
-        filename = filename + ".pkl"
-        joblib.dump(self.model, filename)
-
-    def load_model(self, filename):
-        filename = filename + ".pkl"
-        self.model = joblib.load(filename)
-        
-    '''
-    def display_topic_words_with_scores(self, num_top_words):
-        tf_feature_names = self.vectorizer.get_feature_names()
-        topic_word = self.model.topic_word_
-
-        for i, topic_dist in enumerate(topic_word):
-            result = []
-            topic_dist_indices = np.argsort(topic_dist)
-            print(topic_dist_indices)
-            topic_words = np.array(tf_feature_names)[topic_dist_indices][:-(num_top_words + 1):-1]
-            print(topic_dist)
-            for j, word in enumerate(topic_words):
-                word_score = str(round(topic_dist[topic_dist_indices[j]], 6))
-                word_score_tuple = (word, word_score)
-                result.append(str(word_score_tuple))
-
-            print('Topic {}: {}'.format(i, ' + '.join(result)))
-    '''
+    def serialize(self, model_pkl_file):
+        with open(model_pkl_file, 'wb') as f:
+            pickle.dump(self, f)
 
     def display_topic_words(self, num_top_words):
-        tf_feature_names = self.vectorizer.get_feature_names()
+        feature_names = self.vectorizer.get_feature_names()
         topic_word = self.model.topic_word_
-
         for i, topic_dist in enumerate(topic_word):
-            topic_words = np.array(tf_feature_names)[np.argsort(topic_dist)][:-(num_top_words + 1):-1]
+            topic_words = np.array(feature_names)[np.argsort(topic_dist)][:-(num_top_words + 1):-1]
             print('Topic {}: {}'.format(i, ' '.join(topic_words)))
 
     def display_document_topics(self):
-        tf_feature_names = self.vectorizer.get_feature_names()
         doc_topic = self.model.doc_topic_
-        n_topics = self.model.n_topics
-        columns = ['topic {}'.format(i) for i in range(n_topics)] # column labels for all topics.
-        df = pd.DataFrame(doc_topic, columns = columns) # document-topics dataframe.
-        print(df.round(2).head(10))
+        documents = self.data.Module_ID
+        for doc, doc_topics in zip(documents, doc_topic):
+            doc_topics = [pr * 100 for pr in doc_topics]
+            topic_dist = ['({}, {:.1%})'.format(topic + 1, pr) for topic, pr in enumerate(doc_topics)]
+            print('{}: {}'.format(str(doc), topic_dist))
 
-    def display_document_topic_words(self, num_top_words):
-        print('-----------------------------------------------------')
+    def display_results(self, num_top_words, pyldavis_html, t_sne_cluster_html):
         self.display_topic_words(num_top_words)
-        print('-----------------------------------------------------')
         self.display_document_topics()
-        print('-----------------------------------------------------')
+
+    def run(self):
+        raise NotImplementedError

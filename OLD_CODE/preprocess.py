@@ -1,4 +1,3 @@
-
 import os
 import pandas as pd
 
@@ -66,7 +65,7 @@ def preprocess_keywords(file_name):
         keywords_list.append(keywords)
     return keywords_list
 
-def print_keywords(self):
+def print_keywords():
     for keywords in preprocess_keywords("MODULE_CATALOGUE/SDG_KEYWORDS/SDG_Keywords.csv"):
         print(keywords)
         print()
