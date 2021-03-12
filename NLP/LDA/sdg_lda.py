@@ -1,6 +1,7 @@
 import time, datetime
 import json
 import pymongo
+import numpy as np
 
 from NLP.LDA.LDA import Lda
 from NLP.PREPROCESSING.module_preprocessor import ModuleCataloguePreprocessor
@@ -16,6 +17,17 @@ class SdgLda(Lda):
         self.num_topics = 0
         self.vectorizer = self.get_vectorizer(1, 3, 1, 0.03)
         self.model = None
+
+    def create_eta(self, priors, eta_dictionary):
+        eta = np.full(shape=(self.n_topics, len(eta_dictionary)), fill_value=1) # (n_topics, n_terms) matrix filled with 1s.
+        for keyword, topics in priors.items():
+            keyindex = [index for index, term in eta_dictionary.items() if term == keyword]
+            if len(keyindex) > 0:
+                for topic in topics:
+                    eta[topic, keyindex[0]] = 1e6
+                    
+        # eta = np.divide(eta, eta.sum(axis=0))
+        return eta
 
     def push_to_mongo(self, data):
         client = pymongo.MongoClient("mongodb+srv://admin:admin@cluster0.hw8fo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")

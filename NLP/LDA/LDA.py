@@ -54,7 +54,7 @@ class Lda():
         print(seed_topics, "\n")
         return seed_topics
 
-    def eta(self, priors, eta_dictionary):
+    def create_eta(self, priors, eta_dictionary):
         num_terms = len(eta_dictionary)
         return np.full(shape=(self.num_topics, num_terms), fill_value=1) # topic-term matrix filled with the value 1.
 
@@ -66,7 +66,7 @@ class Lda():
         id2word = dict((v, k) for k, v in self.vectorizer.vocabulary_.items())
 
         topic_seeds = self.topic_seeds()
-        eta = self.eta(topic_seeds, id2word)
+        eta = self.create_eta(topic_seeds, id2word)
         with (np.errstate(divide='ignore')):
             self.model = self.lda_model(corpus, id2word, eta, passes, iterations)
             
