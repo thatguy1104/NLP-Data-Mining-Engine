@@ -18,6 +18,7 @@ from bokeh.plotting import figure, output_file, save
 from bokeh.models import Label
 
 class LDA():
+
     def __init__(self, data, keywords):
         self.data = data # module-catalogue data frame with columns {ModuleID, Description}.
         self.keywords = keywords # list of topic keywords.
@@ -111,9 +112,10 @@ class LDA():
         db = client.Scopus
         col = db.ModulePrediction
 
-        for i in data:
-            key = value = i
-            col.update_one(key, {"$set": value}, upsert=True)
+
+        key = value = data
+        col.update_one(key, {"$set": value}, upsert=True)
+        # col.update(key, value, upsert=True)
         client.close()
 
     def writeResults(self, corpus, num_top_words):

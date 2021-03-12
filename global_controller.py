@@ -38,9 +38,9 @@ def nlp_manager(initialiseLDA, createSVMDataset, initialiseSVM, predictScopusDat
         nlp_actions.createSVMDataset()
 
 def main():
-    module_manager(initialise=False, resetDB=False, scrape=False, mapToSDG=False, updateStudentCount=False)
-    scopus_manager(scrape=False, mapToSDG=False) 
-    nlp_manager(initialiseLDA=True, createSVMDataset=False, initialiseSVM=False, predictScopusData=False, validateModel=False)
+    module_manager(initialise=False, resetDB=False, scrape=False, mapToSDG=True, updateStudentCount=False)
+    scopus_manager(scrape=False, mapToSDG=True) 
+    nlp_manager(initialiseLDA=False, createSVMDataset=False, initialiseSVM=False, predictScopusData=False, validateModel=False)
 
 if __name__ == "__main__":
     main()

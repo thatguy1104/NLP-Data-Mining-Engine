@@ -1,5 +1,413 @@
-IHE
-one,
-two,
-three,
-four
+Artificial Intelligence & Machine Learning,Bioinformatics,Cybersecurity,Data Sciences,Software Engineering
+A/B testing,Active site,Air-Gapped Network,Algorithm,Acceptance testing
+accuracy,Adenine,Antivirus,AngularJS,Adaptive maintenance
+action,Agents,Best Practices,artificial intelligence,Algorithm
+activation function,Agricultural biotechnology (AgBio),Black Hat,Backpropagation,Alpha testing
+active learning,Alignment,Blacklist,Bayes' Theorem,Beta testing
+AdaGrad,Allele,Botnet,Bayesian network,Bottom-up design
+agent,Alternative splicing,Casus Belli,Bias,Boundary testing
+agglomerative clustering,Alternative splice-form,Civilian Participation,Big Data,Bugs
+AR,Alu family,Combatant Status,binomial distribution,Bytecode
+area under the PR curve,Amino acid,Communications Privacy Law,chi-square test,Client
+area under the ROC curve,Analogy,Computer Emergency Response Team,Classification,Compiler
+artificial general intelligence,Annotation,Computer Network Attack,Clustering,Concatenation
+artificial intelligence,Anticodon,COTS Software,Coefficient,Corrective maintenance
+attribute,Antigen,Credit Card Fraud,computational linguistics,COTS
+AUC (Area under the ROC Curve),Antisense,Crimeware,confidence interval,Data
+augmented reality,Assay,Cyber Crime,continuous variable,Database
+automation bias,Assembly,Cyber Security as an Externality,Correlation,Data modeling
+average precision,Autoradiography,Cyber Security as a Public Good,Covariance,Debugging
+backpropagation,Bacterial artificial chromosome,Cyber Terrorism,cross-validation,Declarative language
+bag of words,Bacteriophage,Cyber Warfare,D3,Desk checking
+baseline,Baculovirus,Data Mining,data engineer,Development team
+batch,Base pair,Department of Homeland Security,data mining,Dry run
+batch normalization,Beta sheet,DDoS Attack,data science,Event driven
+batch size,Bioinformatics,Digital Pearl Harbor,data structure,Event driven language
+Bayesian neural network,Bivalent,Disclosure Policy,data wrangling,Exceptions testing
+Bellman equation,Blunt-end (ligation),Distributed Denial of Service (DDoS),decision trees,Executable code
+bias (ethics/fairness),Carboxyl group,Dumpster Diving,deep learning,Exhaustive testing
+bias (math),cDNA,Einstein,dependent variable,Explicit declaration
+bigram,cDNA library,E.U. Cybersecurity,dimension reduction, 
+binary classification,Cell,Generativity,discrete variable,Feedback
+binning,Cell Cycle,Geneva Conventions,Econometrics,Fit for purpose
+boosting,Chimeric clone,Hacker,Feature,Function
+bounding box,Chromat,Hacktivism,feature engineering,Functional language
+broadcasting,Chromatin,Hacktivist,GATE,Functional specification
+bucketing,Chromosome,Honeypot,gradient boosting,General purpose language
+calibration layer,Clinical trials,Identity Fraud/Theft,gradient descent,High-level language
+candidate generation,Clone,Information Asymmetries,Histogram,Human computer interface
+candidate sampling,Cloning,Intelligence Infrastructure/Information Infrastructure,independent variable,Implicit declaration
+categorical data,Cluster,Information Operations,JavaScript,Independent test group
+centroid,Coding regions,Interdependencies,k-means clustering,Inheritance
+centroid-based clustering,Codon,International Humanitarian Law,k-nearest neighbors,Intermediate code
+checkpoint,Combinatorial chemistry,Internet Relay Chat (IRC),latent variable,Internal commentary
+class,Complementary determining region,Internet Service Providers,Lift,Internal documentation
+classification model,Complexity,Keylogger,linear algebra,Interpreter
+classification threshold,Configuration,Kinetic Attack,linear regression,Iterative
+class-imbalanced dataset,Conformation,Lawfare,Logarithm,Jackson Structured Programming
+clipping,Consensus sequence,Laws of War,logistic regression,Java
+Cloud TPU,Constitutive synthesis (expression),Malware,machine learning,Keyword
+clustering,Contig,National Cybersecurity Strategy (U.S.),machine learning model,Legal contract
+co-adaptation,Convergence,National Security,Markov Chain,Lexical analysis
+collaborative filtering,Cosmids,New Normalcy,MATLAB,Linear search
+confirmation bias,Crystal structure,Notice and Take-down,Matrix,Machine code
+confusion matrix,Cytoplasm,Organized Crime,Mean,Macro
+continuous feature,Cytosine,Outreach and Collaboration,Mean Absolute Error,Maintenance
+convenience sampling,Data Cleaning,Password Weakness,Mean Squared Error,Methodology
+convergence,Data Mining,Patching,Median,Module library
+convex function,Data Processing,Phishing,Mode,Normal operation
+convex optimization,Data Warehouses,Privacy Law,Model,Object
+convex set,Database,Red Team,Monte Carlo method,Object oriented design
+convolution,Deconvolution,Research & Development,moving average,Object-oriented language
+convolutional filter,Deletion,Risk Modeling,N-gram,Optimised
+convolutional layer,Deletion mapping,SCADA Systems,naive Bayes classifier,Parameter
+convolutional neural network,Dendrogram,Scareware,neural network,Parameter passing
+convolutional operation,Dimer,Script Kiddie,normal distribution,Perfective maintenance
+cost,Disulphide bond,Security Trade-Offs,NoSQL,Portable
+counterfactual fairness,DNA,Shoulder Surfing,null hypothesis,Problem oriented
+coverage bias,DNA fingerprinting,Sneakernet,objective function,Problem specification
+crash blossom,DNA microarrays,Social Engineering,Outlier,Procedural language
+critic,DNA polymerase,Social Network,Overfitting,Procedure
+cross-entropy,DNA probes,Software Vulnerability,P value,Process
+cross-validation,DNA sequencing,SPAM,PageRank,Programming team
+custom Estimator,DNase,Sponsored Attacks,Pandas,Project manager
+data analysis,Domain,State Affiliation,Perceptron,Pseudo-code
+data augmentation,Drug,Tragedy of Commons,Perl,RAD
+DataFrame,Drug discovery cycle,Transparency,pivot table,Recursion
+data set or dataset,Electronic Northerns,Trojan,Poisson distribution,Reference parameter
+Dataset API (tf.data),Electrophoresis,Virtual Military Technologies,posterior distribution,Reliable
+decision boundary,Enhancers,Virtual Warfare,predictive analytics,Repetition
+decision threshold,Enzyme,White Hat,predictive modeling,Requirements specification
+decision tree,Epigenomics,Whitelist,principal component analysis,Robust
+deep model,Equilibrium constant,Worm,prior distribution,Scripting language
+deep neural network,Eukaryote,Zero-Day Exploit,probability distribution,Semantics
+Deep Q-Network (DQN),Exon,,Python,Simulation
+demographic parity,Expressed Sequence Tags (ESTs),,Quantile,Software development environment
+dense feature,Expression (gene or protein),,Quartile,Software development process
+dense layer,Expression profile,,R,Software engineering
+depth,Expression vector,,random forest,Source code
+depthwise separable convolutional neural network (sepCNN),Fingerprint,,Regression,Special purpose language
+device,Frameshift,,reinforcement learning,Specification
+dimension reduction,Functional genomics,,Root Mean Squared Error,SSADM
+dimensions,Fusion protein,,Ruby,Standard algorithm
+discrete feature,Gaps,,S curve,Stepwise refinement
+discriminative model,Gap penalties,,SAS,Structure charts
+discriminator,Gel electrophoresis,,Scalar,Structured data
+disparate impact,Gene Index,,Scripting,Structured listing
+disparate treatment,GenBank,,serial correlation,Stub
+divisive clustering,Gene,,Shell,Symbol table
+downsampling,Gene chips,,spatiotemporal data,Syntax
+DQN,Gene expression,,SPSS,Systems analyst
+dropout regularization,Gene families,,SQL,Systems developer
+dynamic model,Gene library,,standard deviation,Systems specification
+eager execution,Gene product,,standard normal distribution,Technical guide
+early stopping,Gene therapy,,standardized score,Test data
+embeddings,Genetic engineering,,Stata,Testing
+embedding space,Genetic marker,,"Strata,",Test log
+empirical risk minimization (ERM),Genome,,stratified sampling,Test plan
+ensemble,Genomic DNA,,supervised learning,Top-down design
+environment,Genomics,,support vector machine,Trace facility
+episode,Genotype,,T-distribution,Traditional model
+epoch,Glycosylation,,Tableau,Unusual user activity
+epsilon greedy policy,Guanine (G),,time series data,User guide
+equality of opportunity,Hairpin,,UIMA,Value parameter
+equalized odds,Haploid,,unsupervised learning,Waterfall model
+Estimator,Heterodimer,,Variance,
+example,Heteroduplex,,Vector,
+experience replay,Hidden Markov model,,vector space,
+experimenter's bias,High-throughput screening,,Weka,
+exploding gradient problem,HLA complex,,,
+fairness constraint,Homeobox,,,
+fairness metric,Homeodomain,,,
+false negative (FN),Homeotic gene,,,
+false positive (FP),Homology,,,
+false positive rate (FPR),Housekeeping genes,,,
+feature,Human Anti-Murine Antibody Response,,,
+Feature column (tf.feature_column),Hybridization,,,
+feature cross,Hydrogen bond,,,
+feature engineering,Hydrophilicity,,,
+feature extraction,Hydrophobicity,,,
+feature set,Idiotype,,,
+feature spec,Immunoglobulin,,,
+feature vector,in silico (biology),,,
+federated learning,in situ hybridization,,,
+feedback loop,Integration,,,
+feedforward neural network (FFN),Intracellular signaling,,,
+few-shot learning,Introns,,,
+fine tuning,Isoschizomers,,,
+forget gate,Isozymes,,,
+full softmax,Iteration,,,
+fully connected layer,Junk DNA,,,
+GAN,Karyotype,,,
+generalization,Knockout mice,,,
+generalization curve,"""Lab on a chip""",,,
+generalized linear model,Lead compound,,,
+generative adversarial network (GAN),Lead optimization,,,
+generative model,Leucine zipper,,,
+generator,Lexicon,,,
+gradient,Library,,,
+gradient clipping,Ligand,,,
+gradient descent,Linkage,,,
+graph,Linkage map,,,
+graph execution,Locus,,,
+greedy policy,Map unit,,,
+ground truth,Markov chain,,,
+group attribution bias,Meiosis,,,
+hashing,Melting,,,
+heuristic,Messenger RNA,,,
+hidden layer,Methylation,,,
+hierarchical clustering,Microarray,,,
+hinge loss,Microfluidics,,,
+holdout data,Mimetics,,,
+hyperparameter,Missense mutation,,,
+hyperplane,Mitosis,,,
+i.i.d.,Modeling,,,
+image recognition,Monomer,,,
+imbalanced dataset,Monovalent,,,
+implicit bias,Motif,,,
+incompatibility of fairness metrics,Multigene family,,,
+independently and identically distributed (i.i.d),Multiple sequence alignment,,,
+individual fairness,Multiplex sequencing,,,
+inference,Mutagen,,,
+in-group bias,Mutation,,,
+input function,Naked DNA,,,
+input layer,NCEs (New Chemical Entity),,,
+instance,Nested PCR,,,
+interpretability,Neural net,,,
+inter-rater agreement,Nonsense mutation,,,
+intersection over union (IoU),Northern blotting,,,
+IoU,Nuclease,,,
+item matrix,Nucleoside,,,
+items,Nucleotide,,,
+iteration,Oligonucleotide,,,
+Keras,Open reading frame,,,
+keypoints,Operator,,,
+Kernel Support Vector Machines (KSVMs),Operon,,,
+k-means,Ortholog,,,
+k-median,Overlapping clones,,,
+L1 loss,Palindrome,,,
+L1 regularization,Pattern,,,
+L2 loss,Pathways,,,
+L2 regularization,Paralog,,,
+label,Parameters,,,
+labeled example,Peptide,,,
+lambda,Peptide bond (amide bond,,,
+landmarks,Phage,,,
+layer,Phage display,,,
+Layers API (tf.layers),Pharmacogenomics,,,
+learning rate,Pharmacophore,,,
+least squares regression,Phenotype,,,
+linear model,Phylum,,,
+linear regression,Physical map,,,
+logistic regression,Plasmid,,,
+logits,Pleiotropy,,,
+Log Loss,Point mutation,,,
+log-odds,Poly(A) tail,,,
+Long Short-Term Memory (LSTM),Polyadenylation site,,,
+loss,Polygenic inheritance,,,
+loss curve,Polymerase chain reaction,,,
+loss surface,Polymorphism,,,
+LSTM,Polypeptide,,,
+machine learning,Positional cloning,,,
+majority class,Post-transcriptional modification,,,
+Markov decision process (MDP),Posttranslational modification,,,
+Markov property,Primary sequence,,,
+matplotlib,Primary structure,,,
+matrix factorization,Primer,,,
+Mean Absolute Error (MAE),Probe,,,
+Mean Squared Error (MSE),Profile,,,
+metric,Prokaryote,,,
+Metrics API (tf.metrics),Promoter (site),,,
+mini-batch,Protein families,,,
+mini-batch stochastic gradient descent,Proteome,,,
+minimax loss,Proteomics,,,
+minority class,Purine,,,
+ML,Pyrimidine,,,
+MNIST,Query,,,
+model,Rational drug design,,,
+model capacity,Reading frame,,,
+model function,Reagents,,,
+model training,Recessive,,,
+Momentum,Recombinant DNA,,,
+multi-class classification,Recombination,,,
+multi-class logistic regression,Recursion,,,
+multinomial classification,Regulatory gene,,,
+NaN trap,Repeats (repeat sequences),,,
+natural language understanding,Repetitive elements,,,
+negative class,Replication,,,
+neural network,Repressor,,,
+neuron,Restriction enzyme,,,
+N-gram,Restriction fragment length polymorphisms,,,
+NLU,Restriction map,,,
+node (neural network),Reverse Genetics,,,
+node (TensorFlow graph),Reverse transcriptase,,,
+noise,Reverse transcriptase-PCR,,,
+non-response bias,Ribonucleic acid,,,
+normalization,Secondary structure,,,
+numerical data,Selectivity,,,
+NumPy,Sense strand,,,
+objective,Sensitivity,,,
+objective function,Sequence Tagged Site,,,
+offline inference,Sexual PCR,,,
+one-hot encoding,Shotgun cloning,,,
+one-shot learning,Similarity search,,,
+one-vs.-all,Signal sequence,,,
+online inference,Single nucleotide polymorphisms,,,
+Operation (op),Single-pass sequencing,,,
+optimizer,Site,,,
+out-group homogeneity bias,Southern blotting,,,
+outliers,Splice site,,,
+output layer,Splice form,,,
+overfitting,Splicing,,,
+pandas,Solvent accessibility,,,
+parameter,Structural gene,,,
+Parameter Server (PS),Structure prediction,,,
+parameter update,Substitution matrix,,,
+partial derivative,Subtraction library,,,
+participation bias,Tentative Consensus,,,
+partitioning strategy,Tentative Human Consensus sequences,,,
+perceptron,THCs,,,
+performance,Tertiary structure,,,
+perplexity,Thymine,,,
+pipeline,Tissue,,,
+policy,Transcript,,,
+pooling,Transcription,,,
+positive class,Transcription factors,,,
+post-processing,Transfer RNA,,,
+PR AUC (area under the PR curve),Transformation,,,
+precision,Transgene,,,
+precision-recall curve,Translation,,,
+prediction,Transmembrane region,,,
+prediction bias,Tissue,,,
+predictive parity,Unidentified reading frame,,,
+predictive rate parity,Uracil,,,
+premade Estimator,Variable numbers of tandem repeats,,,
+preprocessing,Variation,,,
+pre-trained model,Vector,,,
+prior belief,Virtual libraries,,,
+proxy (sensitive attributes),Visualization,,,
+proxy labels,Weight matrix,,,
+Q-function,Western blot,,,
+Q-learning,Wild type,,,
+quantile,X chromosome,,,
+quantile bucketing,Yeast 2-hybrid system,,,
+quantization,Z-DNA,,,
+queue,Zinc fingers,,,
+random forest,complementary DNA,,,
+random policy,VNTRs,,,
+rank (ordinality),Molecular Diversity),,,
+rank (Tensor),RNA,,,
+rater,BAC,,,
+recall,CDS,,,
+recommendation system,PCR,,,
+Rectified Linear Unit (ReLU),deoxyribonucleic acid,,,
+recurrent neural network,Deoxyribonuclease,,,
+regression model,Gene arrays,,,
+regularization,Recombinant DNA technology,,,
+regularization rate,tRNA,,,
+reinforcement learning (RL),Generic variation,,,
+replay buffer,RT-PCR,,,
+reporting bias,RFLPs,,,
+representation,Bacteriophage,,,
+re-ranking,restriction endonuclease,,,
+return,mRNA,,,
+reward,rDNA,,,
+ridge regularization,gene targeting,,,
+RNN,,,,
+ROC (receiver operating characteristic) Curve,,,,
+root directory,,,,
+Root Mean Squared Error (RMSE),,,,
+rotational invariance,,,,
+sampling bias,,,,
+SavedModel,,,,
+Saver,,,,
+scalar,,,,
+scaling,,,,
+scikit-learn,,,,
+scoring,,,,
+selection bias,,,,
+semi-supervised learning,,,,
+sensitive attribute,,,,
+sentiment analysis,,,,
+sequence model,,,,
+serving,,,,
+session (tf.session),,,,
+shape (Tensor),,,,
+sigmoid function,,,,
+similarity measure,,,,
+size invariance,,,,
+sketching,,,,
+softmax,,,,
+sparse feature,,,,
+sparse representation,,,,
+sparse vector,,,,
+sparsity,,,,
+spatial pooling,,,,
+squared hinge loss,,,,
+squared loss,,,,
+state,,,,
+state-action value function,,,,
+static model,,,,
+stationarity,,,,
+step,,,,
+step size,,,,
+stochastic gradient descent (SGD),,,,
+stride,,,,
+structural risk minimization (SRM),,,,
+subsampling,,,,
+summary,,,,
+supervised machine learning,,,,
+synthetic feature,,,,
+tabular Q-learning,,,,
+target,,,,
+target network,,,,
+temporal data,,,,
+Tensor,,,,
+TensorBoard,,,,
+TensorFlow,,,,
+TensorFlow Playground,,,,
+TensorFlow Serving,,,,
+Tensor Processing Unit (TPU),,,,
+Tensor rank,,,,
+Tensor shape,,,,
+Tensor size,,,,
+termination condition,,,,
+test set,,,,
+tf.Example,,,,
+tf.keras,,,,
+time series analysis,,,,
+timestep,,,,
+tower,,,,
+TPU,,,,
+TPU chip,,,,
+TPU device,,,,
+TPU master,,,,
+TPU node,,,,
+TPU Pod,,,,
+TPU resource,,,,
+TPU slice,,,,
+TPU type,,,,
+TPU worker,,,,
+training,,,,
+training set,,,,
+trajectory,,,,
+transfer learning,,,,
+translational invariance,,,,
+trigram,,,,
+true negative (TN),,,,
+true positive (TP),,,,
+true positive rate (TPR),,,,
+unawareness (to a sensitive attribute),,,,
+underfitting,,,,
+unlabeled example,,,,
+unsupervised machine learning,,,,
+upweighting,,,,
+user matrix,,,,
+validation,,,,
+validation set,,,,
+vanishing gradient problem,,,,
+Wasserstein loss,,,,
+weight,,,,
+Weighted Alternating Least Squares (WALS),,,,
+wide model,,,,
+width,,,,

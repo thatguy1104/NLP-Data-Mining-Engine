@@ -11,23 +11,28 @@ num_of_sdgs = 18
 class ValidateLDA():
     # SCOPUS MODEL
     def __read_scopus_sdg_model_data(self):
-        with open('NLP/MODEL_RESULTS/scopus_prediction_results.json', 'rb') as json_file:
-            data = json.load(json_file)
-            results = {}
-            counter = 0
-            for doi in data:
-                weights = [0] * num_of_sdgs
-                sdg_predictions = data[doi]
-                for i in range(num_of_sdgs):
-                    sdg = str(i + 1)
-                    try:
-                        w = float(sdg_predictions[sdg])
-                    except:
-                        w = 0.0
-                    weights[i] = w
-                    results[doi] = weights
-            
-            return results
+        client = pymongo.MongoClient("mongodb+srv://admin:admin@cluster0.hw8fo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+        db = client.Scopus
+        col = db.PublicationPrediction
+        data = col.find()
+
+        # with open('NLP/MODEL_RESULTS/scopus_prediction_results.json', 'rb') as json_file:
+        #     data = json.load(json_file)
+        results = {}
+        counter = 0
+        for doi in data:
+            weights = [0] * num_of_sdgs
+            sdg_predictions = data[doi]
+            for i in range(num_of_sdgs):
+                sdg = str(i + 1)
+                try:
+                    w = float(sdg_predictions[sdg])
+                except:
+                    w = 0.0
+                weights[i] = w
+                results[doi] = weights
+        client.close()
+        return results
 
     # SCOPUS COUNT
     def __read_scopus_sdg_count_data(self):
@@ -48,9 +53,15 @@ class ValidateLDA():
 
     # MODULE CATALOGUE MODEL
     def __read_module_sdg_model_data(self):
-        with open('NLP/MODEL_RESULTS/training_results.json', 'rb') as json_file:
-            data = json.load(json_file)
-            docTopics = data['Document Topics']
+        client = pymongo.MongoClient("mongodb+srv://admin:admin@cluster0.hw8fo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+        db = client.Scopus
+        col = db.ModulePrediction
+        data = col.find()
+
+        # with open('NLP/MODEL_RESULTS/training_results.json', 'rb') as json_file:
+            # data = json.load(json_file)
+        for i in data:
+            docTopics = i['Document Topics']
             results = {}
             counter = 0
             for module in docTopics:
@@ -64,7 +75,7 @@ class ValidateLDA():
                         w = 0.0
                     weights[i] = w
                     results[module] = weights
-
+            client.close()
             return results
 
     # MODULE CATALOGUE COUNT
