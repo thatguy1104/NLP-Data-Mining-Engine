@@ -4,6 +4,7 @@ import numpy as np
 import pymongo
 
 import guidedlda
+
 from NLP.GUIDED_LDA.guided_LDA import GuidedLda
 from NLP.PREPROCESSING.preprocessor import Preprocessor
 from LOADERS.publication_loader import PublicationLoader

@@ -4,7 +4,7 @@ from bson import json_util
 from LOADERS.loader import Loader
 
 class ModuleLoader(Loader):
-    def get_module_db_table(self, num_modules):
+    def get_modules_db(self, num_modules):
         # SERVER LOGIN DETAILS
         server = 'miemie.database.windows.net'
         database = 'MainDB'
@@ -23,6 +23,6 @@ class ModuleLoader(Loader):
         return df
 
     def load(self, count):
-        data = self.get_module_db_table(count)
+        data = self.get_modules_db(count)
         data = data.dropna()
         return pd.DataFrame(data=data, columns=["Module_ID", "Description"])
