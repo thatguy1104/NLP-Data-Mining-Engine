@@ -18,7 +18,9 @@ class PublicationLoader(Loader):
         df = pd.DataFrame(columns=["Publication Name", "DOI", "Abstract"])
 
         for i in data:
-            rowDf = pd.DataFrame([[i["Title"], i["DOI"], i["Abstract"]]], columns=df.columns)
+            if i["Abstract"]:
+                rowDf = pd.DataFrame([[i["Title"], i["DOI"], i["Abstract"]]], columns=df.columns)
+            else:
+                rowDf = pd.DataFrame([[i["Title"], i["DOI"], ""]], columns=df.columns)
             df = df.append(rowDf)
-        
         return df
