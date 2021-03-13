@@ -19,7 +19,8 @@ class SdgLda(Lda):
         self.model = None
 
     def create_eta(self, priors, eta_dictionary):
-        eta = np.full(shape=(self.n_topics, len(eta_dictionary)), fill_value=1) # (n_topics, n_terms) matrix filled with 1s.
+        # (n_topics, n_terms) matrix filled with 1s.
+        eta = np.full(shape=(self.num_topics, len(eta_dictionary)), fill_value=1)
         for keyword, topics in priors.items():
             keyindex = [index for index, term in eta_dictionary.items() if term == keyword]
             if len(keyindex) > 0:

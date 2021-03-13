@@ -49,13 +49,13 @@ def nlp_manager(run_LDA_SDG, run_GUIDED_LDA_SDG, module_string_match, scopus_str
 def main():
     module_manager(initialise=False, resetDB=False, scrape=False, updateStudentCount=False)
     scopus_manager(scrape=False) 
-    nlp_manager(run_LDA_SDG=False, run_GUIDED_LDA_SDG=False, module_string_match=True, scopus_string_match=False,
+    nlp_manager(run_LDA_SDG=False, run_GUIDED_LDA_SDG=False, module_string_match=False, scopus_string_match=True,
                 predict_scopus_data=False, create_SVM_dataset=False, run_SVM_SDG=False, validate_model=False)
 
 
 """
     TESTING NOTES:
-        run_LDA_SDG         --> partially works, bug to be fixed (change ETA)
+        run_LDA_SDG         --> works
         run_GUIDED_LDA_SDG  --> to be fixed (guidedlda library issues)
         module_string_match --> works
         scopus_string_match --> to be tested

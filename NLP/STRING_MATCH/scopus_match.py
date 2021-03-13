@@ -30,30 +30,14 @@ class ScopusStringMatch():
         
         for i in data:
             i = json.loads(json_util.dumps(i))
-            if not i:
-                continue
-            abstract = i["Abstract"]
-            doi = i["DOI"]
-            if abstract and doi:
-                title = i["Title"]
-                author_keywords = i["AuthorKeywords"]
-                if not author_keywords:
-                    author_keywords = None
-                index_keywords = i["IndexKeywords"]
-                if not index_keywords:
-                    index_keywords = None
-
-                resulting_data[doi] = {
-                    "Title": title,
-                    "DOI": doi,
-                    "Abstract": abstract,
-                    "AuthorKeywords": author_keywords,
-                    "IndexKeywords": index_keywords}
+            del i['_id']
+            resulting_data[i["DOI"]] = i
         return resulting_data
 
     def __pushToMongoDB(self, data):
-        key = value = data
-        col.update_one(key, {"$set": value}, upsert=True)
+        for i in data:
+            key = value = data[i]
+            col.update_one(key, {"$set": value}, upsert=True)
 
     def read_keywords(self, data):
         resulting_data = {}
@@ -66,9 +50,15 @@ class ScopusStringMatch():
             self.progress(counter, num_publications, "processing scopus_matches.json")
             counter += 1
             
-            title = " ".join(self.preprocessor.tokenize(data[i]["Title"]))  # preprocess title.
-            # preprocess abstract.
-            abstract = " ".join(self.preprocessor.tokenize(data[i]["Abstract"]))
+            title = " ".join(self.preprocessor.tokenize(data[i]["Title"]))  # Preprocess title
+            
+            # Preprocess abstract
+            abstract = data[i]["Abstract"]
+            if abstract:
+                abstract = " ".join(self.preprocessor.tokenize(abstract))
+            else:
+                abstract = ""
+                
             publication_text = title + " " + abstract
 
             author_keywords = data[i]["AuthorKeywords"]
@@ -90,10 +80,12 @@ class ScopusStringMatch():
                         sdg_occurences[sdg]["Word_Found"].append(keyword)
                 if len(sdg_occurences[sdg]["Word_Found"]) == 0:
                     del sdg_occurences[sdg]
-                resulting_data[data[i]["DOI"]] = {"PublicationInfo" : data[i], "Related_SDG" : sdg_occurences}
+                resulting_data[data[i]["DOI"]] = {
+                    "PublicationInfo" : data[i],
+                    "Related_SDG" : sdg_occurences
+                    }
             
-            self.__pushToMongoDB(resulting_data[data[i]["DOI"]])
-
+        self.__pushToMongoDB(resulting_data)
         print()
         client.close()
         with open('NLP/STRING_MATCH/SDG_RESULTS/scopus_matches.json', 'w') as outfile:
