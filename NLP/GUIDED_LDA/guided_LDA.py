@@ -24,8 +24,8 @@ class GuidedLda():
 
     def load_dataset(self, count):
         print("Loading dataset...")
-        self.data = loader.load(count)
-        print("Size before/after filtering -->",  str(count), "/", len(data))
+        self.data = self.loader.load(count)
+        print("Size before/after filtering -->",  str(count), "/", len(self.data))
 
     def get_vectorizer(self, min_n_gram, max_n_gram, min_df, max_df):
         stopwords = [self.preprocessor.lemmatize(s) for s in self.preprocessor.stopwords] # lemmatize stopwords.

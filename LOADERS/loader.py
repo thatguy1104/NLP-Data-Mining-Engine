@@ -1,3 +1,3 @@
 class Loader():
-    def load(self):
+    def load(self, count):
         raise NotImplementedError

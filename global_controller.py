@@ -19,7 +19,7 @@ def scopus_manager(scrape):
     if scrape:
         scopus_actions.scrapeAllPublications()
 
-def nlp_manager(run_LDA_SDG, run_GUIDED_LDA_SDG, module_string_match, scopus_string_match, predict_scopus_data, create_SVM_dataset, run_SVM_SDG, validate_model):
+def nlp_manager(run_LDA_SDG, run_GUIDED_LDA_SDG, run_GUIDED_LDA_IHE, module_string_match, scopus_string_match, predict_scopus_data, create_SVM_dataset, run_SVM_SDG, validate_model):
     nlp_actions = NLP_SECTION()
 
     if run_LDA_SDG:
@@ -27,6 +27,9 @@ def nlp_manager(run_LDA_SDG, run_GUIDED_LDA_SDG, module_string_match, scopus_str
 
     if run_GUIDED_LDA_SDG:
         nlp_actions.run_GUIDED_LDA_SDG()
+
+    if run_GUIDED_LDA_IHE:
+        nlp_actions.run_GUIDED_LDA_IHE()
 
     if module_string_match:
         nlp_actions.module_string_match()
@@ -49,9 +52,8 @@ def nlp_manager(run_LDA_SDG, run_GUIDED_LDA_SDG, module_string_match, scopus_str
 def main():
     module_manager(initialise=False, resetDB=False, scrape=False, updateStudentCount=False)
     scopus_manager(scrape=False) 
-    nlp_manager(run_LDA_SDG=False, run_GUIDED_LDA_SDG=False, module_string_match=False, scopus_string_match=True,
+    nlp_manager(run_LDA_SDG=False, run_GUIDED_LDA_SDG=False, run_GUIDED_LDA_IHE=True, module_string_match=False, scopus_string_match=False,
                 predict_scopus_data=False, create_SVM_dataset=False, run_SVM_SDG=False, validate_model=False)
-
 
 """
     TESTING NOTES:

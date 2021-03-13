@@ -1,6 +1,7 @@
 from NLP.VALIDATION.validate_lda import ValidateLDA
 from NLP.LDA.sdg_lda import SdgLda
-# from NLP.GUIDED_LDA.sdg_guided_lda import SdgGuidedLda
+from NLP.GUIDED_LDA.sdg_guided_lda import SdgGuidedLda
+from NLP.GUIDED_LDA.ihe_guided_lda import IheGuidedLda
 from NLP.LDA.predict_publication import ScopusPrediction
 from NLP.SVM.create_dataset import SVMDataset
 from NLP.SVM.sdg_svm import SdgSvm
@@ -12,8 +13,10 @@ class NLP_SECTION():
         SdgLda().run()
 
     def run_GUIDED_LDA_SDG(self):
-        # SdgGuidedLda().run()
-        pass
+        SdgGuidedLda().run()
+
+    def run_GUIDED_LDA_IHE(self):
+        IheGuidedLda().run()
 
     def module_string_match(self):
         ModuleStringMatch().run()

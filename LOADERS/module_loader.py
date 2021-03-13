@@ -22,7 +22,7 @@ class ModuleLoader(Loader):
         myConnection.commit()
         return df
 
-    def load(self, num_modules):
-        data = self.get_module_db_table(num_modules)
+    def load(self, count):
+        data = self.get_module_db_table(count)
         data = data.dropna()
         return pd.DataFrame(data=data, columns=["Module_ID", "Description"])
