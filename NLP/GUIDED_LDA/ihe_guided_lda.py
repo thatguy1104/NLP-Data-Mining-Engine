@@ -22,9 +22,9 @@ class IheGuidedLda(GuidedLda):
     def push_to_mongo(self, data):
         client = pymongo.MongoClient("mongodb+srv://admin:admin@cluster0.hw8fo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
         db = client.Scopus
-        col = db.ModulePrediction
-        key = value = data
-        col.update_one(key, {"$set": value}, upsert=True)
+        #col = db.ModulePrediction
+        #key = value = data
+        #col.update_one(key, {"$set": value}, upsert=True)
         client.close()
 
     def run(self):

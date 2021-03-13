@@ -21,7 +21,7 @@ class PublicationLoader(Loader):
 
     def load(self):
         resulting_data = {}
-        data = self.col.find()
+        data = self.col.find(batch_size=10)
 
         for publication in data:
             publication = json.loads(json_util.dumps(publication))
@@ -31,8 +31,8 @@ class PublicationLoader(Loader):
 
         return resulting_data
 
-    def load(self, count):            
-        data = self.col.find().limit(count) if isinstance(count, int) else self.col.find()
+    def load(self, count):     
+        data = self.col.find(batch_size=10).limit(count) if isinstance(count, int) else self.col.find(batch_size=10)
         df = pd.DataFrame(columns=["Title", "DOI", "Description"])
 
         for publication in data:
