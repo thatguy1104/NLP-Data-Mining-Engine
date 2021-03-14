@@ -22,7 +22,7 @@ class PublicationLoader(Loader):
     def load(self):
         resulting_data = {}
         data = self.col.find(batch_size=10)
-
+        
         for publication in data:
             publication = json.loads(json_util.dumps(publication))
             publication["Description"] = self.combine_text_fields(publication)
