@@ -51,8 +51,8 @@ class ModuleStringMatch():
 
     def __pushToMongoDB(self, data):
         for i in data:
-            key = value = data[i]
-            col.update_one(key, {"$set": value}, upsert=True)
+            value = data[i]
+            col.update_one({"Module_Name": data[i]["Module_Name"]}, {"$set": value}, upsert=True)
 
     def read_keywords(self, data):
         resulting_data = {}

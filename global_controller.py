@@ -52,8 +52,10 @@ def nlp_manager(run_LDA_SDG, run_GUIDED_LDA_SDG, run_GUIDED_LDA_IHE, module_stri
 def main():
     module_manager(initialise=False, resetDB=False, scrape=False, updateStudentCount=False)
     scopus_manager(scrape=False) 
-    nlp_manager(run_LDA_SDG=False, run_GUIDED_LDA_SDG=False, run_GUIDED_LDA_IHE=True, module_string_match=False, scopus_string_match=False,
+    # nlp_manager(run_LDA_SDG=False, run_GUIDED_LDA_SDG=False, run_GUIDED_LDA_IHE=True, module_string_match=False, scopus_string_match=False, predict_scopus_data=False, create_SVM_dataset=False, run_SVM_SDG=False, validate_model=False)
+    nlp_manager(run_LDA_SDG=False, run_GUIDED_LDA_SDG=False, run_GUIDED_LDA_IHE=False, module_string_match=False, scopus_string_match=True,
                 predict_scopus_data=False, create_SVM_dataset=False, run_SVM_SDG=False, validate_model=False)
+
 
 """
     TESTING NOTES:

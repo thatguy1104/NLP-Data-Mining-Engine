@@ -28,8 +28,9 @@ class ScopusPrediction():
 
     def __writeToDBP_Scopus(self, data):
         # for i in data:
-        key = value = data
-        col.update_one(key, {"$set": value}, upsert=True)
+        # col.update_one(key, {"$set": value}, upsert=True)
+        value = data
+        col.update_one({"Title": data["Title"]}, {"$set": value}, upsert=True)
 
     def make_predictions(self, limit):
         results = {}

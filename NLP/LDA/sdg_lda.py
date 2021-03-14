@@ -34,8 +34,9 @@ class SdgLda(Lda):
         client = pymongo.MongoClient("mongodb+srv://admin:admin@cluster0.hw8fo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
         db = client.Scopus
         col = db.ModulePrediction
+        col.drop()
         key = value = data
-        col.update_one(key, {"$set": value}, upsert=True)
+        col.update_one(data, {"$set": value}, upsert=True)
         client.close()
 
     def write_results(self, corpus, num_top_words, results_file):
@@ -60,12 +61,12 @@ class SdgLda(Lda):
         ts = time.time()
         startTime = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
 
-        num_modules = "MAX"
-        # num_modules = 100
+        # num_modules = "MAX"
+        num_modules = 100
         keywords = "SDG_KEYWORDS/SDG_Keywords.csv"
         passes = 10
-        iterations = 400
-        # iterations = 100
+        # iterations = 400
+        iterations = 100
         num_top_words = 20
 
         pyldavis_html = "NLP/LDA/SDG_RESULTS/pyldavis.html"
@@ -81,6 +82,6 @@ class SdgLda(Lda):
         corpus = self.train(passes, iterations)
         self.display_results(corpus, num_top_words, pyldavis_html, tsne_clusters_html)
 
-        print("Saving results...")
-        self.write_results(corpus, num_top_words, results) # record current results.
-        self.serialize(model)
+        # print("Saving results...")
+        # self.write_results(corpus, num_top_words, results) # record current results.
+        # self.serialize(model)

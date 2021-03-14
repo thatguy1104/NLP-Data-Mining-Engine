@@ -21,6 +21,8 @@ class SdgGuidedLda(GuidedLda):
         client = pymongo.MongoClient("mongodb+srv://admin:admin@cluster0.hw8fo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
         db = client.Scopus
         col = db.ModulePrediction
+        col.drop()
+
         key = value = data
         col.update_one(key, {"$set": value}, upsert=True)
         client.close()
@@ -44,7 +46,7 @@ class SdgGuidedLda(GuidedLda):
             topic_dist = ['({}, {:.1%})'.format(topic + 1, pr) for topic, pr in enumerate(doc_topics)]
             data['Document Topics'][str(doc)] = topic_dist
 
-        #self.push_to_mongo(data)
+        self.push_to_mongo(data)
         with open(results_file, 'w') as outfile:
             json.dump(data, outfile)
 

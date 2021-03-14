@@ -151,6 +151,8 @@ class ValidateLDA():
         client = pymongo.MongoClient("mongodb+srv://admin:admin@cluster0.hw8fo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
         db = client.Scopus
         col = db.ModuleValidation
+        col.drop()
+
         key = value = data
         col.update(key, value, upsert=True)
 
@@ -158,6 +160,8 @@ class ValidateLDA():
         client = pymongo.MongoClient("mongodb+srv://admin:admin@cluster0.hw8fo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
         db = client.Scopus
         col = db.ScopusValidation
+        col.drop()
+        
         key = value = data
         col.update(key, value, upsert=True)
     

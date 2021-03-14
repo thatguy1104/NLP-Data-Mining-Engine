@@ -112,7 +112,7 @@ class Lda():
         tsne_lda = tsne_model.fit_transform(df)
 
         # Plot topic clusters.
-        colors = np.array([color for name, color in mcolors.TABLEAU_COLORS.items()])
+        colors = np.array([color for name, color in mcolors.CSS4_COLORS.items()])
         plot = figure(title="t-SNE Clustering of {} Topics".format(self.num_topics),  plot_width=2000, plot_height=1500)
 
         plot.scatter(x=tsne_lda[:,0], y=tsne_lda[:,1], color=colors[topic])
@@ -124,8 +124,8 @@ class Lda():
         self.display_topic_words(num_top_words) # topic-word distribution.
         self.display_document_topics(corpus) # document-topic distribution.
 
-        self.pyldavis(corpus, pyldavis_html) # pyLDAvis distance map.
-        # self.t_sne_cluster(corpus, t_sne_cluster_html) # t-SNE clustering.
+        # self.pyldavis(corpus, pyldavis_html) # pyLDAvis distance map.
+        self.t_sne_cluster(corpus, t_sne_cluster_html) # t-SNE clustering.
     
     def push_to_mongo(self, data):
         raise NotImplementedError

@@ -38,8 +38,8 @@ class ScopusStringMatch():
 
     def __pushToMongoDB(self, data):
         for i in data:
-            key = value = data[i]
-            col.update_one(key, {"$set": value}, upsert=True)
+            value = data[i]
+            col.update_one({"DOI": data[i]["DOI"]}, {"$set": value}, upsert=True)
 
     def read_keywords(self, data):
         resulting_data = {}

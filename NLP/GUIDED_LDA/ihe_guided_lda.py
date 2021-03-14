@@ -3,7 +3,7 @@ import json
 import numpy as np
 import pymongo
 
-import guidedlda
+from LIBRARIES.GuidedLDA import guidedlda
 
 from NLP.GUIDED_LDA.guided_LDA import GuidedLda
 from NLP.PREPROCESSING.preprocessor import Preprocessor
@@ -22,9 +22,10 @@ class IheGuidedLda(GuidedLda):
     def push_to_mongo(self, data):
         client = pymongo.MongoClient("mongodb+srv://admin:admin@cluster0.hw8fo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
         db = client.Scopus
-        col = db.ModulePrediction
-        key = value = data
-        col.update_one(key, {"$set": value}, upsert=True)
+        #col = db.IHEPrediction
+        # col.drop()
+        #key = value = data
+        #col.update_one(key, {"$set": value}, upsert=True)
         client.close()
 
     def run(self):

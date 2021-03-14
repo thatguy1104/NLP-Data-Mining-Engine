@@ -3,7 +3,8 @@ import pandas as pd
 import numpy as np
 import pickle
 
-import guidedlda
+from LIBRARIES.GuidedLDA import guidedlda
+
 from sklearn.feature_extraction.text import CountVectorizer
 from NLP.PREPROCESSING.preprocessor import Preprocessor
 from LOADERS.loader import Loader
