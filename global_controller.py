@@ -1,6 +1,14 @@
+from MANAGERS.loader_manager import LOADER_SECTION
 from MANAGERS.module_manager import MODULE_SECTION
 from MANAGERS.scopus_manager import SCOPUS_SECTION
 from MANAGERS.nlp_manager import NLP_SECTION
+
+def loader_manager(modules, publications):
+    loader_actions = LOADER_SECTION()
+    if modules:
+        loader_actions.load_modules()
+    if publications:
+        loader_actions.load_publications()
 
 def module_manager(initialise, resetDB, scrape, updateStudentCount):
     module_actions = MODULE_SECTION()
@@ -50,9 +58,9 @@ def nlp_manager(run_LDA_SDG, run_GUIDED_LDA_SDG, run_GUIDED_LDA_IHE, module_stri
         nlp_actions.validate_LDA()
 
 def main():
-    module_manager(initialise=False, resetDB=False, scrape=False, updateStudentCount=False)
-    scopus_manager(scrape=False) 
-    # nlp_manager(run_LDA_SDG=False, run_GUIDED_LDA_SDG=False, run_GUIDED_LDA_IHE=True, module_string_match=False, scopus_string_match=False, predict_scopus_data=False, create_SVM_dataset=False, run_SVM_SDG=False, validate_model=False)
+    # loader_manager(modules=False, publications=True)
+    # module_manager(initialise=False, resetDB=False, scrape=False, updateStudentCount=False)
+    # scopus_manager(scrape=False) 
     nlp_manager(run_LDA_SDG=False, run_GUIDED_LDA_SDG=False, run_GUIDED_LDA_IHE=False, module_string_match=False, scopus_string_match=True,
                 predict_scopus_data=False, create_SVM_dataset=False, run_SVM_SDG=False, validate_model=False)
 

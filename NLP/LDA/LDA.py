@@ -116,8 +116,7 @@ class Lda():
         plot = figure(title="t-SNE Clustering of {} Topics".format(self.num_topics),  plot_width=2000, plot_height=1500)
 
         plot.scatter(x=tsne_lda[:,0], y=tsne_lda[:,1], color=colors[topic])
-        output_file(output_file)
-        save(plot)
+        save(plot, filename=output_file)
 
     def display_results(self, corpus, num_top_words, pyldavis_html, t_sne_cluster_html):
         self.display_perplexity(corpus) # perplexity.

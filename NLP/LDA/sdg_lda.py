@@ -61,12 +61,12 @@ class SdgLda(Lda):
         ts = time.time()
         startTime = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
 
-        # num_modules = "MAX"
-        num_modules = 100
+        num_modules = "MAX"
+        # num_modules = 100
         keywords = "SDG_KEYWORDS/SDG_Keywords.csv"
         passes = 10
-        # iterations = 400
-        iterations = 100
+        iterations = 400
+        # iterations = 100
         num_top_words = 20
 
         pyldavis_html = "NLP/LDA/SDG_RESULTS/pyldavis.html"
@@ -83,5 +83,5 @@ class SdgLda(Lda):
         self.display_results(corpus, num_top_words, pyldavis_html, tsne_clusters_html)
 
         # print("Saving results...")
-        # self.write_results(corpus, num_top_words, results) # record current results.
-        # self.serialize(model)
+        self.write_results(corpus, num_top_words, results) # record current results.
+        self.serialize(model)

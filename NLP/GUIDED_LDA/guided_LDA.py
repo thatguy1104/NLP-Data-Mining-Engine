@@ -44,7 +44,8 @@ class GuidedLda():
             for keyword in topic_keywords:
                 keyword_id = word2id.get(keyword)
                 if keyword_id is not None:
-                    seed_topics.setdefault(keyword_id, []).append(topic_id) # one-to-many mapping from keyword_id to topic_id.
+                    seed_topics[keyword_id] = topic_id
+                    #seed_topics.setdefault(keyword_id, []).append(topic_id) # one-to-many mapping from keyword_id to topic_id.
         return seed_topics
 
     def train(self, seed_confidence, iterations):

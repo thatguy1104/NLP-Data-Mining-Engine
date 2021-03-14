@@ -3,6 +3,7 @@ import json
 import numpy as np
 import pymongo
 
+# import guidedlda
 from NLP.GUIDED_LDA.guided_LDA import GuidedLda
 from NLP.PREPROCESSING.module_preprocessor import ModuleCataloguePreprocessor
 from LOADERS.module_loader import ModuleLoader
@@ -14,7 +15,7 @@ class SdgGuidedLda(GuidedLda):
         self.data = None # module-catalogue dataframe with columns {ModuleID, Description}
         self.keywords = None # list of SDG-specific keywords
         self.num_topics = 0
-        self.vectorizer = self.get_vectorizer(1, 1, 1, 1)
+        self.vectorizer = self.get_vectorizer(1, 4, 1, 0.4)
         self.model = None
 
     def push_to_mongo(self, data):

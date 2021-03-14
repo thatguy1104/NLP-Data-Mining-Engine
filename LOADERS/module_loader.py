@@ -1,9 +1,13 @@
 import pandas as pd
 import pyodbc
+import pickle
 from bson import json_util
 from LOADERS.loader import Loader
 
 class ModuleLoader(Loader):
+    def __init__(self):
+        self.data_file = "LOADERS/modules.pkl"
+
     def get_modules_db(self, num_modules):
         # SERVER LOGIN DETAILS
         server = 'miemie.database.windows.net'
@@ -23,6 +27,14 @@ class ModuleLoader(Loader):
         return df
 
     def load(self, count):
-        data = self.get_modules_db(count)
+        with open(self.data_file, "rb") as input_file:
+            data = pickle.load(input_file)
         data = data.dropna()
+        data = data.head(count) if isinstance(count, int) else data
         return pd.DataFrame(data=data, columns=["Module_ID", "Description"])
+
+    def load_pymongo_db(self):
+        print("Loading modules from SQL server...")
+        data = self.get_modules_db("MAX")
+        with open(self.data_file, "wb") as output_file:
+            pickle.dump(data, output_file)

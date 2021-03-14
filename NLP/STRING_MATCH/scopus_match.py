@@ -37,9 +37,14 @@ class ScopusStringMatch():
     '''
 
     def __pushToMongoDB(self, data):
+        col.drop()
+        l = len(data)
+        counter = 1
         for i in data:
-            value = data[i]
-            col.update_one({"DOI": data[i]["DOI"]}, {"$set": value}, upsert=True)
+            self.progress(counter, l, "uploading MatchedScopus to MongoDB")
+            key = value = data[i]
+            col.update_one(key, {"$set": value}, upsert=True)
+            counter += 1
 
     def read_keywords(self, data):
         resulting_data = {}
@@ -66,7 +71,8 @@ class ScopusStringMatch():
                     sdg_occurences.pop(sdg, None)
 
                 resulting_data[doi] = {"PublicationInfo" : publication, "Related_SDG" : sdg_occurences}
-            
+
+        print()    
         self.__pushToMongoDB(resulting_data)
         print()
         client.close()
@@ -74,5 +80,5 @@ class ScopusStringMatch():
             json.dump(resulting_data, outfile)
         
     def run(self):
-        data = self.loader.load()
+        data = self.loader.load_all()
         self.read_keywords(data)

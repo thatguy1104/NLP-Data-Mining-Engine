@@ -1,15 +1,18 @@
 import pymongo
 import json
 import pandas as pd
+import ssl
+import pickle
 
 from LOADERS.loader import Loader
 from bson import json_util
 
 class PublicationLoader(Loader):
     def __init__(self):
-        self.client = pymongo.MongoClient("mongodb+srv://admin:admin@cluster0.hw8fo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+        self.client = pymongo.MongoClient("mongodb+srv://admin:admin@cluster0.hw8fo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", ssl_cert_reqs=ssl.CERT_NONE)
         self.db = self.client.Scopus
         self.col = self.db.Data
+        self.data_file = "LOADERS/publications.pkl"
 
     def combine_text_fields(self, publication):
         title = publication["Title"] if publication["Title"] else ""
@@ -19,28 +22,42 @@ class PublicationLoader(Loader):
         description = [title, abstract, author_keywords, index_keywords]
         return " ".join(description)
 
-    def load(self):
+    def load_all(self):
+        with open(self.data_file, "rb") as input_file:
+            data = pickle.load(input_file)
+            
         resulting_data = {}
-        data = self.col.find(batch_size=10)
-        
         for publication in data:
-            publication = json.loads(json_util.dumps(publication))
             publication["Description"] = self.combine_text_fields(publication)
             publication.pop("_id", None)
             resulting_data[publication["DOI"]] = publication
 
         return resulting_data
 
-    def load(self, count):     
-        data = self.col.find(batch_size=10).limit(count) if isinstance(count, int) else self.col.find(batch_size=10)
-        df = pd.DataFrame(columns=["Title", "DOI", "Description"])
-
+    def load(self, count):
+        with open(self.data_file, "rb") as input_file:
+            data = pickle.load(input_file)
+        data = dict(list(data.items())[:count]) if isinstance(count, int) else data
+        
+        df = pd.DataFrame(columns=["Title", "DOI", "Description"])    
         for publication in data:
-            #publication = json.loads(json_util.dumps(publication))
             title = publication["Title"]
             doi = publication["DOI"]
-            description = self.combine_text_fields(publication)
-            row_df = pd.DataFrame([[title, doi, description]], columns=df.columns)
-            df = df.append(row_df)
+            print(doi)
+            # description = self.combine_text_fields(publication)
+            # row_df = pd.DataFrame([[title, doi, description]], columns=df.columns)
+            # df = df.append(row_df)
     
         return pd.DataFrame(data=df, columns=["DOI", "Description"])
+
+    def load_pymongo_db(self):
+        print("Loading publications from pymongo database...")
+        data = self.col.find(batch_size=10)
+        result = []
+        for publication in data:
+            publication = json.loads(json_util.dumps(publication))
+            del publication['_id']
+            result.append(publication)
+
+        with open(self.data_file, "wb") as output_file:
+            pickle.dump(result, output_file)
