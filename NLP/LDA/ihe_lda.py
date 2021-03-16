@@ -5,17 +5,17 @@ import numpy as np
 import ssl
 
 from NLP.LDA.LDA import Lda
-from NLP.PREPROCESSING.module_preprocessor import ModuleCataloguePreprocessor
-from LOADERS.module_loader import ModuleLoader
+from NLP.PREPROCESSING.preprocessor import Preprocessor
+from LOADERS.publication_loader import PublicationLoader
 
-class SdgLda(Lda):
+class IheLda(Lda):
     def __init__(self):
-        self.preprocessor = ModuleCataloguePreprocessor()
-        self.loader = ModuleLoader()
-        self.data = None # module-catalogue dataframe with columns {ModuleID, Description}.
-        self.keywords = None # list of SDG-specific keywords.
+        self.preprocessor = Preprocessor()
+        self.loader = PublicationLoader()
+        self.data = None # publication dataframe with columns {DOI, Description}.
+        self.keywords = None # list of IHE-specific keywords.
         self.num_topics = 0
-        self.vectorizer = self.get_vectorizer(1, 3, 1, 0.03)
+        self.vectorizer = self.get_vectorizer(1, 3, 1, 0.2)
         self.model = None
 
     def create_eta(self, priors, eta_dictionary):
@@ -33,7 +33,7 @@ class SdgLda(Lda):
     def push_to_mongo(self, data):
         client = pymongo.MongoClient("mongodb+srv://admin:admin@cluster0.hw8fo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", ssl_cert_reqs=ssl.CERT_NONE)
         db = client.Scopus
-        col = db.ModulePrediction
+        col = db.IHEPrediction
         col.drop()
         key = value = data
         col.update_one(data, {"$set": value}, upsert=True)
@@ -48,7 +48,7 @@ class SdgLda(Lda):
             data['Topic Words'][str(n + 1)] = [self.model.id2word[w]for w, p in self.model.get_topic_terms(n, topn=num_top_words)]
 
         data['Document Topics'] = {}
-        documents = self.data.Module_ID
+        documents = self.data.DOI
         for d, c in zip(documents, corpus):
             doc_topics = ['({}, {:.1%})'.format(topic + 1, pr) for topic, pr in self.model.get_document_topics(c)]
             data['Document Topics'][str(d)] = doc_topics
@@ -59,13 +59,13 @@ class SdgLda(Lda):
 
     def display_topic_words(self, num_top_words):
         for n in range(self.num_topics):
-            print('SDG {}: {}'.format(n + 1, [self.model.id2word[w] for w, p in self.model.get_topic_terms(n, topn=num_top_words)]))
+            print('IHE {}: {}'.format(n + 1, [self.model.id2word[w] for w, p in self.model.get_topic_terms(n, topn=num_top_words)]))
 
     def display_document_topics(self, corpus):
-        documents = self.data.Module_ID
+        documents = self.data.DOI
         count = 0
         for d, c in zip(documents, corpus):
-            if count % 25 == 0:
+            if count % 100 == 0:
                 doc_topics = ['({}, {:.1%})'.format(topic + 1, pr) for topic, pr in self.model.get_document_topics(c)]
                 print('{} {}'.format(d, doc_topics))
             count += 1
@@ -74,19 +74,19 @@ class SdgLda(Lda):
         ts = time.time()
         startTime = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
 
-        num_modules = "MAX"
-        keywords = "SDG_KEYWORDS/SDG_Keywords.csv"
+        num_publications = "MAX"
+        keywords = "IHE_KEYWORDS/ihe_keywords.csv"
         passes = 10
         iterations = 400
-        chunksize = 6000
+        chunksize = 30000
         num_top_words = 20
 
-        pyldavis_html = "NLP/LDA/SDG_RESULTS/pyldavis.html"
-        tsne_clusters_html = "NLP/LDA/SDG_RESULTS/tsne_clusters.html"
-        model = "NLP/LDA/SDG_RESULTS/model.pkl"
-        results = "NLP/LDA/SDG_RESULTS/training_results.json"
+        pyldavis_html = "NLP/LDA/IHE_RESULTS/pyldavis.html"
+        tsne_clusters_html = "NLP/LDA/IHE_RESULTS/tsne_clusters.html"
+        model = "NLP/LDA/IHE_RESULTS/model.pkl"
+        results = "NLP/LDA/IHE_RESULTS/training_results.json"
 
-        self.load_dataset(num_modules)
+        self.load_dataset(num_publications)
         self.load_keywords(keywords)
         self.num_topics = len(self.keywords)
         
@@ -97,5 +97,3 @@ class SdgLda(Lda):
         print("Saving results...")
         self.write_results(corpus, num_top_words, results) # record current results.
         self.serialize(model)
-        
-        print("Done.")

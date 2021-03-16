@@ -66,12 +66,7 @@ class GuidedLda():
             print('Topic {}: {}'.format(i, ' '.join(topic_words)))
 
     def display_document_topics(self):
-        doc_topic = self.model.doc_topic_
-        documents = self.data.Module_ID
-        for doc, doc_topics in zip(documents, doc_topic):
-            doc_topics = [pr * 100 for pr in doc_topics]
-            topic_dist = ['({}, {:.1%})'.format(topic + 1, pr) for topic, pr in enumerate(doc_topics)]
-            print('{}: {}'.format(str(doc), topic_dist))
+        raise NotImplementedError
 
     def display_results(self, num_top_words, pyldavis_html, t_sne_cluster_html):
         self.display_topic_words(num_top_words)

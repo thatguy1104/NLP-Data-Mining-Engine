@@ -4,3 +4,6 @@ class Loader():
 
     def load_pymongo_db(self):
         raise NotImplementedError
+
+    def load_prediction_results(self):
+        raise NotImplementedError

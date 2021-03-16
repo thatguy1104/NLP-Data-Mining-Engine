@@ -7,7 +7,8 @@ import sys
 import pymongo
 from bson import json_util
 
-from NLP.LDA.predict_publication import ScopusPrediction
+from LOADERS.module_loader import ModuleLoader
+from LOADERS.publication_loader import PublicationLoader
 
 class SVMDataset():
     def __init__(self):
@@ -23,7 +24,9 @@ class SVMDataset():
         self.myConnection = pyodbc.connect('DRIVER=' + driver + ';SERVER=' + server + ';PORT=1433;DATABASE=' + database + ';UID=' + username + ';PWD=' + password)
         self.threshold = 20
         
-        self.scopus_map = ScopusMap()
+        self.module_loader = ModuleLoader()
+        self.publication_loader = PublicationLoader()
+        self.svm_dataset = "NLP/SVM/SVM_dataset.pkl"
 
     def progress(self, count, total, custom_text, suffix=''):
         bar_len = 60
@@ -34,38 +37,28 @@ class SVMDataset():
         sys.stdout.flush()
 
     def get_module_description(self, module_id):
-        cur = self.myConnection.cursor()
-        cur.execute("SELECT Description FROM ModuleData WHERE Module_ID = (?)", (module_id))
-        data = cur.fetchall()
-        return None if len(data) == 0 else data
-
-    def get_publication_description(self, doi):
-        df = self.scopus_map.publiction_data
-        df = df.loc[df["DOI"] == doi]
+        df = self.module_loader.load("MAX")
+        df = df.loc[df["Module_ID"] == module_id]
         return None if len(df) == 0 else df["Description"].values[0]
 
-        #file_name = doi + ".json"
-        #df = self.scopus_map.load_publication(file_name)
-        #return df["Description"]
+    def get_publication_description(self, doi):
+        df = self.publication_loader.load("MAX")
+        df = df.loc[df["DOI"] == doi]
+        return None if len(df) == 0 else df["Description"].values[0]
     
     def process_modules(self):
         results = pd.DataFrame(columns=['ID', 'Description', 'SDG']) # ID = ModuleID
-        client = pymongo.MongoClient("mongodb+srv://admin:admin@cluster0.hw8fo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
-        db = client.Scopus
-        col = db.ModulePrediction
-        data = col.find()
-        
-        for elements in data:
-        # with open('NLP/MODEL_RESULTS/training_results.json') as json_file:
-        #     data = json.load(json_file)
-            elements = json.loads(json_util.dumps(elements))
-            doc_topics = elements['Document Topics']
+        data = self.module_loader.load_prediction_results()
+
+        for module in data:
+            module = json.loads(json_util.dumps(module))
+            doc_topics = module['Document Topics']
             num_modules = len(doc_topics)
             final_data = {}
             counter = 0
-            for module in doc_topics:
+            for module_id in doc_topics:
                 self.progress(counter, num_modules, "Forming Modules Dataset for SVM...")
-                raw_weights = doc_topics[module]
+                raw_weights = doc_topics[module_id]
                 weights = []
                 for i in range(len(raw_weights)):
                     raw_weights[i] = raw_weights[i].replace('(', '').replace(')', '').replace('%', '').replace(' ', '').split(',')
@@ -79,28 +72,17 @@ class SVMDataset():
                 sdg_weight_max = max(weights, key=lambda x: x[1]) # get (sdg, weight) with the maximum weight.
 
                 if sdg_weight_max[1] >= self.threshold:
-                    row_df = pd.DataFrame([[module, self.get_module_description(module)[0][0], sdg_weight_max[0]]], columns=results.columns)
+                    row_df = pd.DataFrame([[module_id, self.get_module_description(module_id)[0][0], sdg_weight_max[0]]], columns=results.columns)
                 else:
-                    row_df = pd.DataFrame([[module, self.get_module_description(module)[0][0], None]], columns=results.columns)
+                    row_df = pd.DataFrame([[module_id, self.get_module_description(module_id)[0][0], None]], columns=results.columns)
                 results = results.append(row_df, verify_integrity=True, ignore_index=True)
                 counter += 1
-        client.close()
+                
         return results
 
     def process_publications(self):
-        print("Loading publications...")
-        self.scopus_map.load_publications()
-        print("Finished.")
-
-        client = pymongo.MongoClient("mongodb+srv://admin:admin@cluster0.hw8fo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
-        db = client.Scopus
-        col = db.PublicationPrediction
-        data = col.find()
-
         results = pd.DataFrame(columns=['ID', 'Description', 'SDG']) # ID = DOI
-
-        # with open('NLP/MODEL_RESULTS/scopus_prediction_results.json') as json_file:
-        #     data = json.load(json_file)
+        data = self.publication_loader.load_prediction_results()
 
         num_publications = data.count()
         final_data = {}
@@ -138,4 +120,4 @@ class SVMDataset():
         if publications:
             df = df.append(self.process_publications())
 
-        df.to_pickle("NLP/SVM/SVM_dataset.pkl")
+        df.to_pickle(self.svm_dataset)

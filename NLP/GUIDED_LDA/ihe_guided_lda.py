@@ -2,6 +2,7 @@ import time, datetime
 import json
 import numpy as np
 import pymongo
+import ssl
 
 from LIBRARIES.GuidedLDA import guidedlda
 
@@ -20,13 +21,21 @@ class IheGuidedLda(GuidedLda):
         self.model = None
 
     def push_to_mongo(self, data):
-        client = pymongo.MongoClient("mongodb+srv://admin:admin@cluster0.hw8fo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+        client = pymongo.MongoClient("mongodb+srv://admin:admin@cluster0.hw8fo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", ssl_cert_reqs=ssl.CERT_NONE)
         db = client.Scopus
         #col = db.IHEPrediction
         # col.drop()
         #key = value = data
         #col.update_one(key, {"$set": value}, upsert=True)
         client.close()
+
+    def display_document_topics(self):
+        doc_topic = self.model.doc_topic_
+        documents = self.data.DOI
+        for doc, doc_topics in zip(documents, doc_topic):
+            doc_topics = [pr * 100 for pr in doc_topics]
+            topic_dist = ['({}, {:.1%})'.format(topic + 1, pr) for topic, pr in enumerate(doc_topics)]
+            print('{}: {}'.format(str(doc), topic_dist))
 
     def run(self):
         ts = time.time()

@@ -1,7 +1,8 @@
 import pymongo
 import json
-import pandas as pd
 import ssl
+import os
+import pandas as pd
 import pickle
 
 from LOADERS.loader import Loader
@@ -13,6 +14,7 @@ class PublicationLoader(Loader):
         self.db = self.client.Scopus
         self.col = self.db.Data
         self.data_file = "LOADERS/publications.pkl"
+        self.prediction_path = "NLP/LDA/SDG_RESULTS/prediction_results.json"
 
     def combine_text_fields(self, publication):
         title = publication["Title"] if publication["Title"] else ""
@@ -47,7 +49,20 @@ class PublicationLoader(Loader):
             row_df = pd.DataFrame([[doi, title, description]], columns=df.columns)
             df = df.append(row_df)
     
-        return pd.DataFrame(data=df, columns=["DOI", "Title", "Description"])
+        return df
+
+    def load_prediction_results(self):
+        if os.path.exists(self.prediction_path):
+            with open(self.prediction_path) as json_file:
+                data = json.load(json_file)
+        else:
+            client = pymongo.MongoClient("mongodb+srv://admin:admin@cluster0.hw8fo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", ssl_cert_reqs=ssl.CERT_NONE)
+            db = client.Scopus
+            col = db.PublicationPrediction
+            data = col.find()
+            client.close()
+            
+        return data
 
     def load_pymongo_db(self):
         print("Loading publications from pymongo database...")

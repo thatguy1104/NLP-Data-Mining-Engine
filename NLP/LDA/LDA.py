@@ -40,8 +40,8 @@ class Lda():
         return TfidfVectorizer(tokenizer=self.preprocessor.tokenize, stop_words=stopwords, ngram_range=(min_n_gram, max_n_gram), 
                 strip_accents='unicode', min_df=min_df, max_df=max_df)
 
-    def lda_model(self, corpus, id2word, eta, passes, iterations):
-        return gensim.models.LdaMulticore(corpus=corpus, num_topics=self.num_topics, id2word=id2word, random_state=42, chunksize=5000, eta=eta,
+    def lda_model(self, corpus, id2word, eta, passes, iterations, chunksize):
+        return gensim.models.LdaMulticore(corpus=corpus, num_topics=self.num_topics, id2word=id2word, random_state=42, chunksize=chunksize, eta=eta,
                 eval_every=None, passes=passes, iterations=iterations, workers=3, alpha="symmetric", minimum_probability=0, per_word_topics=True)
 
     def topic_seeds(self):
@@ -58,7 +58,7 @@ class Lda():
         num_terms = len(eta_dictionary)
         return np.full(shape=(self.num_topics, num_terms), fill_value=1) # topic-term matrix filled with the value 1.
 
-    def train(self, passes, iterations):
+    def train(self, passes, iterations, chunksize):
         logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
 
         X = self.vectorizer.fit_transform(self.data.Description) # map description to a document-count matrix.
@@ -68,7 +68,7 @@ class Lda():
         topic_seeds = self.topic_seeds()
         eta = self.create_eta(topic_seeds, id2word)
         with (np.errstate(divide='ignore')):
-            self.model = self.lda_model(corpus, id2word, eta, passes, iterations)
+            self.model = self.lda_model(corpus, id2word, eta, passes, iterations, chunksize)
             
         return corpus
 
@@ -76,17 +76,10 @@ class Lda():
         print('Perplexity: {:.2f}'.format(self.model.log_perplexity(corpus)))   
 
     def display_topic_words(self, num_top_words):
-        for n in range(self.num_topics):
-            print('SDG {}: {}'.format(n + 1, [self.model.id2word[w] for w, p in self.model.get_topic_terms(n, topn=num_top_words)]))
+        raise NotImplementedError
     
     def display_document_topics(self, corpus):
-        documents = self.data.Module_ID
-        count = 0
-        for d, c in zip(documents, corpus):
-            if count % 25 == 0:
-                doc_topics = ['({}, {:.1%})'.format(topic + 1, pr) for topic, pr in self.model.get_document_topics(c)]
-                print('{} {}'.format(d, doc_topics))
-            count += 1
+        raise NotImplementedError
 
     def pyldavis(self, corpus, output_file):
         dictionary = gensim.corpora.Dictionary()
@@ -123,7 +116,7 @@ class Lda():
         self.display_topic_words(num_top_words) # topic-word distribution.
         self.display_document_topics(corpus) # document-topic distribution.
 
-        # self.pyldavis(corpus, pyldavis_html) # pyLDAvis distance map.
+        self.pyldavis(corpus, pyldavis_html) # pyLDAvis distance map.
         self.t_sne_cluster(corpus, t_sne_cluster_html) # t-SNE clustering.
     
     def push_to_mongo(self, data):

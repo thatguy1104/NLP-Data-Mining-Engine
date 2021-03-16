@@ -1,12 +1,18 @@
+import pymongo
+import json
+import ssl
+import os
 import pandas as pd
-import pyodbc
 import pickle
+import pyodbc
+
 from bson import json_util
 from LOADERS.loader import Loader
 
 class ModuleLoader(Loader):
     def __init__(self):
         self.data_file = "LOADERS/modules.pkl"
+        self.prediction_path = "NLP/LDA/SDG_RESULTS/training_results.json"
 
     def get_modules_db(self, num_modules):
         # SERVER LOGIN DETAILS
@@ -33,6 +39,19 @@ class ModuleLoader(Loader):
         data = data.head(count) if isinstance(count, int) else data
         return pd.DataFrame(data=data, columns=["Module_ID", "Description"])
 
+    def load_prediction_results(self):
+        if os.path.exists(self.prediction_path):
+            with open(self.prediction_path) as json_file:
+                data = json.load(json_file)
+        else:
+            client = pymongo.MongoClient("mongodb+srv://admin:admin@cluster0.hw8fo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", ssl_cert_reqs=ssl.CERT_NONE)
+            db = client.Scopus
+            col = db.ModulePrediction
+            data = col.find()
+            client.close()
+
+        return data
+        
     def load_pymongo_db(self):
         print("Loading modules from SQL server...")
         data = self.get_modules_db("MAX")

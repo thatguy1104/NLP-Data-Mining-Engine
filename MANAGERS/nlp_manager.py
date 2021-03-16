@@ -1,5 +1,6 @@
 from NLP.VALIDATION.validate_lda import ValidateLDA
 from NLP.LDA.sdg_lda import SdgLda
+from NLP.LDA.ihe_lda import IheLda
 from NLP.GUIDED_LDA.sdg_guided_lda import SdgGuidedLda
 from NLP.GUIDED_LDA.ihe_guided_lda import IheGuidedLda
 from NLP.LDA.predict_publication import ScopusPrediction
@@ -11,6 +12,9 @@ from NLP.STRING_MATCH.scopus_match import ScopusStringMatch
 class NLP_SECTION():
     def run_LDA_SDG(self):
         SdgLda().run()
+
+    def run_LDA_IHE(self):
+        IheLda().run()
 
     def run_GUIDED_LDA_SDG(self):
         SdgGuidedLda().run()
