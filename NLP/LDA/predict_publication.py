@@ -27,10 +27,8 @@ class ScopusPrediction():
         sys.stdout.flush()
 
     def __writeToDB_Scopus(self, data):
-        # for i in data:
-        # col.update_one(key, {"$set": value}, upsert=True)
         value = data
-        col.update_one({"Title": data["Title"]}, {"$set": value}, upsert=True)
+        col.update_one({"DOI": data["DOI"]}, {"$set": value}, upsert=True)
 
     def make_predictions(self, limit):
         results = {}
@@ -53,6 +51,7 @@ class ScopusPrediction():
                 results[papers['DOI'][i]] = {}
                 for topic, pr in td:
                     results[papers['DOI'][i]]['Title'] = papers['Title'][i]
+                    results[papers['DOI'][i]]['DOI'] = papers['DOI'][i]
                     results[papers['DOI'][i]][str(topic + 1)] = str(pr)
                 
                 self.__writeToDB_Scopus(results[papers['DOI'][i]])

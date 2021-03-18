@@ -14,7 +14,6 @@ from MONGODB_PUSHERS.mongodb_pusher import MongoDbPusher
 class IheGuidedLda(GuidedLda):
     def __init__(self):
         self.loader = PublicationLoader()
-        self.mongodb_pusher = MongoDbPusher()
         self.preprocessor = Preprocessor()
         self.data = None # scopus-publications dataframe with columns {DOI, Description}
         self.keywords = None # list of IHE-specific keywords
@@ -41,7 +40,7 @@ class IheGuidedLda(GuidedLda):
             topic_dist = ['({}, {:.1%})'.format(topic + 1, pr) for topic, pr in enumerate(doc_topics)]
             data['Document Topics'][str(doc)] = topic_dist
 
-        self.mongodb_pusher.ihe_prediction(data) # push to mongo.
+        MongoDbPusher().ihe_prediction(data)  # push to mongo.
         with open(results_file, 'w') as outfile:
             json.dump(data, outfile)
 

@@ -12,7 +12,6 @@ from MONGODB_PUSHERS.mongodb_pusher import MongoDbPusher
 class SdgGuidedLda(GuidedLda):
     def __init__(self):
         self.loader = ModuleLoader()
-        self.mongodb_pusher = MongoDbPusher()
         self.preprocessor = ModuleCataloguePreprocessor()
         self.data = None # module-catalogue dataframe with columns {ModuleID, Description}
         self.keywords = None # list of SDG-specific keywords
@@ -39,7 +38,7 @@ class SdgGuidedLda(GuidedLda):
             topic_dist = ['({}, {:.1%})'.format(topic + 1, pr) for topic, pr in enumerate(doc_topics)]
             data['Document Topics'][str(doc)] = topic_dist
 
-        self.mongodb_pusher.module_prediction(data)
+        MongoDbPusher().module_prediction(data)
         with open(results_file, 'w') as outfile:
             json.dump(data, outfile)
 

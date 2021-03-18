@@ -13,7 +13,6 @@ from MONGODB_PUSHERS.mongodb_pusher import MongoDbPusher
 class GuidedLda():
     def __init__(self):
         self.loader = Loader()
-        self.mongodb_pusher = MongoDbPusher()
         self.preprocessor = Preprocessor()
         self.data = None # dataframe with columns {ID, Description}.
         self.keywords = None # list of topic keywords

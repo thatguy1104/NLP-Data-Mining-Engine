@@ -21,7 +21,6 @@ class Lda():
     def __init__(self):
         self.preprocessor = Preprocessor()
         self.loader = Loader()
-        self.mongodb_pusher = MongoDbPusher()
         self.data = None # dataframe with columns {ID, Description}
         self.keywords = None # list of topic keywords
         self.num_topics = 0

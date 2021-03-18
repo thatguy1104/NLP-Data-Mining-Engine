@@ -13,7 +13,6 @@ class IheLda(Lda):
     def __init__(self):
         self.preprocessor = Preprocessor()
         self.loader = PublicationLoader()
-        self.mongodb_pusher = MongoDbPusher()
         self.data = None # publication dataframe with columns {DOI, Description}.
         self.keywords = None # list of IHE-specific keywords.
         self.num_topics = 0
@@ -46,7 +45,7 @@ class IheLda(Lda):
             doc_topics = ['({}, {:.1%})'.format(topic + 1, pr) for topic, pr in self.model.get_document_topics(c)]
             data['Document Topics'][str(d)] = doc_topics
 
-        self.mongodb_pusher.ihe_prediction(data) # push to mongo.
+        MongoDbPusher().ihe_prediction(data)  # push to mongo.
         with open(results_file, 'w') as outfile:
             json.dump(data, outfile)
 
