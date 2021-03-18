@@ -7,6 +7,7 @@ import nltk
 
 from NLP.PREPROCESSING.preprocessor import Preprocessor
 from LOADERS.loader import Loader
+from MONGODB_PUSHERS.mongodb_pusher import MongoDbPusher
 
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 
@@ -18,8 +19,9 @@ from bokeh.models import Label
 
 class Lda():
     def __init__(self):
-        self.loader = Loader()
         self.preprocessor = Preprocessor()
+        self.loader = Loader()
+        self.mongodb_pusher = MongoDbPusher()
         self.data = None # dataframe with columns {ID, Description}
         self.keywords = None # list of topic keywords
         self.num_topics = 0
@@ -116,11 +118,8 @@ class Lda():
         self.display_topic_words(num_top_words) # topic-word distribution.
         self.display_document_topics(corpus) # document-topic distribution.
 
-        self.pyldavis(corpus, pyldavis_html) # pyLDAvis distance map.
-        self.t_sne_cluster(corpus, t_sne_cluster_html) # t-SNE clustering.
-    
-    def push_to_mongo(self, data):
-        raise NotImplementedError
+        #self.pyldavis(corpus, pyldavis_html) # pyLDAvis distance map.
+        #self.t_sne_cluster(corpus, t_sne_cluster_html) # t-SNE clustering.
 
     def write_results(self, corpus, num_top_words, results_file):
         raise NotImplementedError

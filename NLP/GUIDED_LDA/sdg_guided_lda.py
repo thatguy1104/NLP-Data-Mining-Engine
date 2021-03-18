@@ -7,26 +7,18 @@ import ssl
 from NLP.GUIDED_LDA.guided_LDA import GuidedLda
 from NLP.PREPROCESSING.module_preprocessor import ModuleCataloguePreprocessor
 from LOADERS.module_loader import ModuleLoader
+from MONGODB_PUSHERS.mongodb_pusher import MongoDbPusher
 
 class SdgGuidedLda(GuidedLda):
     def __init__(self):
         self.loader = ModuleLoader()
+        self.mongodb_pusher = MongoDbPusher()
         self.preprocessor = ModuleCataloguePreprocessor()
         self.data = None # module-catalogue dataframe with columns {ModuleID, Description}
         self.keywords = None # list of SDG-specific keywords
         self.num_topics = 0
         self.vectorizer = self.get_vectorizer(1, 4, 1, 0.4)
         self.model = None
-
-    def push_to_mongo(self, data):
-        client = pymongo.MongoClient("mongodb+srv://admin:admin@cluster0.hw8fo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", ssl_cert_reqs=ssl.CERT_NONE)
-        db = client.Scopus
-        col = db.ModulePrediction
-        col.drop()
-
-        key = value = data
-        col.update_one(key, {"$set": value}, upsert=True)
-        client.close()
 
     def write_results(self, num_top_words, results_file):
         feature_names = self.vectorizer.get_feature_names()
@@ -47,7 +39,7 @@ class SdgGuidedLda(GuidedLda):
             topic_dist = ['({}, {:.1%})'.format(topic + 1, pr) for topic, pr in enumerate(doc_topics)]
             data['Document Topics'][str(doc)] = topic_dist
 
-        self.push_to_mongo(data)
+        self.mongodb_pusher.module_prediction(data)
         with open(results_file, 'w') as outfile:
             json.dump(data, outfile)
 

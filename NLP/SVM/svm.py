@@ -6,7 +6,7 @@ from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer, Tf
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import SGDClassifier
 from sklearn.pipeline import Pipeline
-from sklearn.metrics import classification_report, accuracy_score
+from sklearn.metrics import classification_report, accuracy_score, confusion_matrix
 
 from NLP.PREPROCESSING.preprocessor import Preprocessor
 
@@ -43,13 +43,19 @@ class Svm():
 
         # Fit model.
         self.sgd.fit(X_train, y_train)
-        return X_test, y_test
+        return X_train, X_test, y_train, y_test
+
+    def predict(self, X):
+        raise NotImplementedError
 
     def prediction_report(self, X_test, y_test):
         y_pred = self.sgd.predict(X_test)
-        my_tags = self.tags
-
         print('accuracy %s' % accuracy_score(y_pred, y_test))
+        
+        cm = confusion_matrix(y_test, y_pred)
+        print(cm)
+
+        my_tags = self.tags
         print(classification_report(y_test, y_pred, target_names=my_tags))
 
     def push_to_mongo(self, data):

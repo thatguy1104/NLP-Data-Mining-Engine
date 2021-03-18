@@ -3,17 +3,14 @@ import json
 import pandas as pd
 import pymongo
 
-from NLP.PREPROCESSING.preprocessor import Preprocessor
 from LOADERS.publication_loader import PublicationLoader
-
-client = pymongo.MongoClient("mongodb+srv://admin:admin@cluster0.hw8fo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
-db = client.Scopus
-col = db.MatchedScopus
+from MONGODB_PUSHERS.mongodb_pusher import MongoDbPusher
+from NLP.PREPROCESSING.preprocessor import Preprocessor
 
 class ScopusStringMatch():
-
     def __init__(self):
         self.loader = PublicationLoader()
+        self.mongodb_pusher = MongoDbPusher()
         self.preprocessor = Preprocessor()
 
     def progress(self, count, total, custom_text, suffix=''):
@@ -23,28 +20,6 @@ class ScopusStringMatch():
         bar = '*' * filled_len + '-' * (bar_len - filled_len)
         sys.stdout.write('[%s] %s%s %s %s\r' %(bar, percents, '%', custom_text, suffix))
         sys.stdout.flush()
-
-    '''
-    def load_publications(self):
-        resulting_data = {}
-        data = PublicationLoader().load()
-        
-        for i in data:
-            i = json.loads(json_util.dumps(i))
-            del i['_id']
-            resulting_data[i["DOI"]] = i
-        return resulting_data
-    '''
-
-    def __pushToMongoDB(self, data):
-        col.drop()
-        l = len(data)
-        counter = 1
-        for i in data:
-            self.progress(counter, l, "uploading MatchedScopus to MongoDB")
-            key = value = data[i]
-            col.update_one(key, {"$set": value}, upsert=True)
-            counter += 1
 
     def read_keywords(self, data):
         resulting_data = {}
@@ -56,7 +31,6 @@ class ScopusStringMatch():
         for doi, publication in data.items():
             self.progress(counter, num_publications, "processing scopus_matches.json")
             counter += 1
-            
             description = self.preprocessor.tokenize(publication["Description"])
         
             sdg_occurences = {}
@@ -72,10 +46,8 @@ class ScopusStringMatch():
 
                 resulting_data[doi] = {"PublicationInfo" : publication, "Related_SDG" : sdg_occurences}
 
-        print()    
-        self.__pushToMongoDB(resulting_data)
+        self.mongodb_pusher.matched_scopus(resulting_data)
         print()
-        client.close()
         with open('NLP/STRING_MATCH/SDG_RESULTS/scopus_matches.json', 'w') as outfile:
             json.dump(resulting_data, outfile)
         

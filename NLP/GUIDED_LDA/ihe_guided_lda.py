@@ -9,10 +9,12 @@ from LIBRARIES.GuidedLDA import guidedlda
 from NLP.GUIDED_LDA.guided_LDA import GuidedLda
 from NLP.PREPROCESSING.preprocessor import Preprocessor
 from LOADERS.publication_loader import PublicationLoader
+from MONGODB_PUSHERS.mongodb_pusher import MongoDbPusher
 
 class IheGuidedLda(GuidedLda):
     def __init__(self):
         self.loader = PublicationLoader()
+        self.mongodb_pusher = MongoDbPusher()
         self.preprocessor = Preprocessor()
         self.data = None # scopus-publications dataframe with columns {DOI, Description}
         self.keywords = None # list of IHE-specific keywords
@@ -20,14 +22,28 @@ class IheGuidedLda(GuidedLda):
         self.vectorizer = self.get_vectorizer(1, 4, 1, 0.4)
         self.model = None
 
-    def push_to_mongo(self, data):
-        client = pymongo.MongoClient("mongodb+srv://admin:admin@cluster0.hw8fo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", ssl_cert_reqs=ssl.CERT_NONE)
-        db = client.Scopus
-        #col = db.IHEPrediction
-        # col.drop()
-        #key = value = data
-        #col.update_one(key, {"$set": value}, upsert=True)
-        client.close()
+    def write_results(self, num_top_words, results_file):
+        feature_names = self.vectorizer.get_feature_names()
+        data = {}
+        data['Log Likelihood'] = self.model.loglikelihood()
+
+        data['Topic Words'] = {}
+        topic_word = self.model.topic_word_
+        for n, topic_dist in enumerate(topic_dist):
+            topic_words = np.array(feature_names)[np.argsort(topic_dist)][:-(num_top_words + 1):-1]
+            data['Topic Words'][str(n + 1)] = topic_words
+
+        data['Document Topics'] = {}
+        doc_topic = self.model.doc_topic_
+        documents = self.data.DOI
+        for doc, doc_topics in zip(documents, doc_topic):
+            doc_topics = [pr * 100 for pr in doc_topics]
+            topic_dist = ['({}, {:.1%})'.format(topic + 1, pr) for topic, pr in enumerate(doc_topics)]
+            data['Document Topics'][str(doc)] = topic_dist
+
+        self.mongodb_pusher.ihe_prediction(data) # push to mongo.
+        with open(results_file, 'w') as outfile:
+            json.dump(data, outfile)
 
     def display_document_topics(self):
         doc_topic = self.model.doc_topic_
@@ -61,5 +77,5 @@ class IheGuidedLda(GuidedLda):
         self.display_results(num_top_words, pyldavis_html, tsne_clusters_html)
 
         print("Saving results...")
-        #self.write_results(num_top_words, results) # record current results.
-        #self.serialize(model)
+        self.write_results(num_top_words, results) # record current results.
+        self.serialize(model)

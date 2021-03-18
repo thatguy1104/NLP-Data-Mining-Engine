@@ -1,417 +1,119 @@
-Artificial Intelligence & Machine Learning,Bioinformatics,Cybersecurity,Data Sciences,Software Engineering,Robotics,Synthetic Biology,Pharmacology and pharmaceuticals,Tissue Engineering
-A/B testing,Active site,Air-Gapped Network,Algorithm,Acceptance testing,Actuator,Active Pharmaceutical Ingredient,Active Immunity,Animal model
-accuracy,Adenine,Antivirus,AngularJS,Adaptive maintenance,Assembly Robot,Antibody,Active Site,artificial cells
-action,Agents,Best Practices,artificial intelligence,Algorithm,"Automatic Measurement Function
-",Antigen,Addiction,artificial chromosomes
-activation function,Agricultural biotechnology (AgBio),Black Hat,Backpropagation,Alpha testing,Automaton,Artemisinin,Adsorption,Artificial organ
-active learning,Alignment,Blacklist,Bayes' Theorem,Beta testing,Autonomous vehicle,Autoimmune Disease,Adverse Drug Reaction,Bacterial artificial chromosome
-AdaGrad,Allele,Botnet,Bayesian network,Bottom-up design,Bionics,Biobricks,Agonist,biobanking
-agent,Alternative splicing,Casus Belli,Bias,Boundary testing,Cartesian-coordinate Robot,Bioeconomy,Allergic Response,biological specimen banks
-agglomerative clustering,Alternative splice-form,Civilian Participation,Big Data,Bugs,Cloud robotics,Biofuel,Allergy,biorepository
-AR,Alu family,Combatant Status,binomial distribution,Bytecode,Cobots,Biohacking,Allosteric modulator,biospecimen
-area under the PR curve,Amino acid,Communications Privacy Law,chi-square test,Client,"Collaborative Robot
-",Biologic,Analgesic,cell assays
-area under the ROC curve,Analogy,Computer Emergency Response Team,Classification,Compiler,"Compliant Robot
-",Biological Engineering,Anesthetic,cell chips
-artificial general intelligence,Annotation,Computer Network Attack,Clustering,Concatenation,"Control Command
-",Biomedical Engineering,Anesthetic,cell fusion
-artificial intelligence,Anticodon,COTS Software,Coefficient,Corrective maintenance,Controller System,Biopharmaceutical,Antagonist,cell microarrays
-attribute,Antigen,Credit Card Fraud,computational linguistics,COTS,Downtime,Bioreactor,Antibiotic,cell sorting
-AUC (Area under the ROC Curve),Antisense,Crimeware,confidence interval,Data,End effector,Biosensor,Antibody,Cell therapy
-augmented reality,Assay,Cyber Crime,continuous variable,Database,Feedback Control,Carlson Curve,Antibody Production,cell-based imaging
-automation bias,Assembly,Cyber Security as an Externality,Correlation,Data modeling,Feedback sensor,Cell Culture,Bacteria,cellular engineering
-average precision,Autoradiography,Cyber Security as a Public Good,Covariance,Debugging,Force Feedback,Cell Line,Bioassay,cellular imaging
-backpropagation,Bacterial artificial chromosome,Cyber Terrorism,cross-validation,Declarative language,Forward Kinematic Solution,Cell Strain,Bioavailability,cellular models
-bag of words,Bacteriophage,Cyber Warfare,D3,Desk checking,Forward Kinematics,Cell Therapy,Bioavailability,cellular reprogramming
-baseline,Baculovirus,Data Mining,data engineer,Development team,Gantry,Chassis,Biological Equivalents,chromosome painting
-batch,Base pair,Department of Homeland Security,data mining,Dry run,Gripper,Clinical Trial,Biologics,Chronic wound
-batch normalization,Beta sheet,DDoS Attack,data science,Event driven,Haptic,Clone,Biopharmaceutics,Clinical practice
-batch size,Bioinformatics,Digital Pearl Harbor,data structure,Event driven language,Humanoid,Codon,Bioreactor,Clinical translation
-Bayesian neural network,Bivalent,Disclosure Policy,data wrangling,Exceptions testing,Industrial robot,Commodity Chemical,Biotech,Clinical trial
-Bellman equation,Blunt-end (ligation),Distributed Denial of Service (DDoS),decision trees,Executable code,Intelligent robot,DNA,Biotransformation,cryobiology
-bias (ethics/fairness),Carboxyl group,Dumpster Diving,deep learning,Exhaustive testing,Jacobian matrix,DNA Synthesis,Biotranslocation,cryonics
-bias (math),cDNA,Einstein,dependent variable,Explicit declaration,Joint,Drug Delivery,Body weight,dielectrophoresis
-bigram,cDNA library,Cybersecurity,dimension reduction, ,Joint Interpolated Motion,Drug Product,Capsule Banding,electron tomography
-binary classification,Cell,Generativity,discrete variable,Feedback,Joint Motion Type,Engineering Biology,Carcinogenicity,flow cytometry
-binning,Cell Cycle,Geneva Conventions,Econometrics,Fit for purpose,Joint Space,Fermentation,Central Nervous System,Gene therapy
-boosting,Chimeric clone,Hacker,Feature,Function,Kinematics,Fermentor,Centrifuge,genotype tissue expression
-bounding box,Chromat,Hacktivism,feature engineering,Functional language,Material Processing Robot,Food and Drug Administration,Chemical,human tissue engineered product
-broadcasting,Chromatin,Hacktivist,GATE,Functional specification,Mirror Shift Function,Gene Drive,Chemical Equivalents,hybridoma
-bucketing,Chromosome,Honeypot,gradient boosting,General purpose language,Motion Axis,Gene Expression,Chemotherapy,image cytometry
-calibration layer,Clinical trials,Identity Fraud/Theft,gradient descent,High-level language,Nanobot,Gene Therapy,Cheng-Prusoff equation,immortalizing oncogene
-candidate generation,Clone,Information Asymmetries,Histogram,Human computer interface,Offline programming,Genetic Engineering,Chromatography,immunohistochemistry
-candidate sampling,Cloning,Intelligence Infrastructure/Information Infrastructure,independent variable,Implicit declaration,Optical Proximity Sensors,Genetically Modified Organism,Clearance,Laser Capture Microdissection
-categorical data,Cluster,Information Operations,JavaScript,Independent test group,Path,Genome,Clinical Design,laser tweezers
-centroid,Coding regions,Interdependencies,k-means clustering,Inheritance,PLC,Glycosylation,Clinical Equivalents,micellar nanocontainers
-centroid-based clustering,Codon,International Humanitarian Law,k-nearest neighbors,Intermediate code,Programmable Logical Controller,Immunotherapy,Clinical Supply,microdissection
-checkpoint,Combinatorial chemistry,Internet Relay Chat (IRC),latent variable,Internal commentary,Prosthetic,International Gene Synthesis Consortium,Clinical Therapeutic Index,microimaging
-class,Complementary determining region,Internet Service Providers,Lift,Internal documentation,Revolute Joint,Kozak Sequence,Concentration response curve,micromanipulation
-classification model,Complexity,Keylogger,linear algebra,Interpreter,Robot,Metabolite,Contamination,microspectrophotometry
-classification threshold,Configuration,Kinetic Attack,linear regression,Iterative,Robot,Molecular targeted drug,Crystallisation,microtissues
-class-imbalanced dataset,Conformation,Lawfare,Logarithm,Jackson Structured Programming,Robot Coordinate System,Mutant,Cytotoxic,nuclear transfer
-clipping,Consensus sequence,Laws of War,logistic regression,Java,Robot Integrator,Nucleic Acids,Dealthcare,optical mapping
-Cloud TPU,Constitutive synthesis (expression),Malware,machine learning,Keyword,Robot Programming Language,Oligonucleotide,Dentistry,optical trapping
-clustering,Contig,National Cybersecurity Strategy (U.S.),machine learning model,Legal contract,Robot Range Limit Monitoring,Operon,Desensitization,optical tweezers
-co-adaptation,Convergence,National Security,Markov Chain,Lexical analysis,Robot Simulation,Protein Synthesis,Desensitization,organotypic
-collaborative filtering,Cosmids,New Normalcy,MATLAB,Linear search,Rotary Joint,Recombinant DNA,Dissolution Time,organotypic
-confirmation bias,Crystal structure,Notice and Take-down,Matrix,Machine code,RPA,Recombinant Protein,Distillation,organotypic models
-confusion matrix,Cytoplasm,Organized Crime,Mean,Macro,SCARA Robot,Ribosome Binding Site,DNA,organotypic models
-continuous feature,Cytosine,Outreach and Collaboration,Mean Absolute Error,Maintenance,Sensory Feedback,Scar,DNA Sequence,photobleaching
-convenience sampling,Data Cleaning,Password Weakness,Mean Squared Error,Methodology,Spline,Synthetic Biology,Dose,plasmid
-convergence,Data Mining,Patching,Median,Module library,Uptime,Transgenic,Dose-Duration Curve,Regenerative medicine
-convex function,Data Processing,Phishing,Mode,Normal operation,User Coordinate System,Unmet Medical Need,Drug Delivery,Scaffold
-convex optimization,Data Warehouses,Privacy Law,Model,Object,Vision Guided,Upstream Processing,Efficacy,Scar tissue
-convex set,Database,Red Team,Monte Carlo method,Object oriented design,Vision Sensor,Zika Virus,Electrophoresis,single cell analysis
-convolution,Deconvolution,Research & Development,moving average,Object-oriented language,World Coordinates,,ELISA,site-directed mutagenesis
-convolutional filter,Deletion,Risk Modeling,N-gram,Optimised,Robotics,,Emergency Medicine,small intestinal submucosa
-convolutional layer,Deletion mapping,SCADA Systems,naive Bayes classifier,Parameter,,,Endocrinology,sonocytology
-convolutional neural network,Dendrogram,Scareware,neural network,Parameter passing,,,Enzyme,Stem cell
-convolutional operation,Dimer,Script Kiddie,normal distribution,Perfective maintenance,,,Ethical Pharmaceutical,synthetic lethal screening
-cost,Disulphide bond,Security Trade-Offs,NoSQL,Portable,,,Fermentation,tissue array analysis
-counterfactual fairness,DNA,Shoulder Surfing,null hypothesis,Problem oriented,,,Filtration,tissue banking
-coverage bias,DNA fingerprinting,Sneakernet,objective function,Problem specification,,,Fluorination,tissue chips
-crash blossom,DNA microarrays,Social Engineering,Outlier,Procedural language,,,Food and Drug Administration,tissue engineering 
-critic,DNA polymerase,Social Network,Overfitting,Procedure,,,Food and Drug Administration,tissue microarrays
-cross-entropy,DNA probes,Software Vulnerability,P value,Process,,,Full agonist,tissue microdissection
-cross-validation,DNA sequencing,SPAM,PageRank,Programming team,,,Gastrointestinal,tissue models
-custom Estimator,DNase,Sponsored Attacks,Pandas,Project manager,,,Gene,tumoroid
-data analysis,Domain,State Affiliation,Perceptron,Pseudo-code,,,Gene Expression,Ventricular assist device
-data augmentation,Drug,Tragedy of Commons,Perl,RAD,,,Gene Therapy,white biotechnology
-DataFrame,Drug discovery cycle,Transparency,pivot table,Recursion,,,Generic Drugs,xenograft
-data set or dataset,Electronic Northerns,Trojan,Poisson distribution,Reference parameter,,,Generic Drugs,xenotransplantation
-Dataset API (tf.data),Electrophoresis,Virtual Military Technologies,posterior distribution,Reliable,,,Generic Pharmaceutical,Yeast Artificial Chromosomes
-decision boundary,Enhancers,Virtual Warfare,predictive analytics,Repetition,,,Genetic Engineering,
-decision threshold,Enzyme,White Hat,predictive modeling,Requirements specification,,,Genomics,
-decision tree,Epigenomics,Whitelist,principal component analysis,Robust,,,Genotype,
-deep model,Equilibrium constant,Worm,prior distribution,Scripting language,,,Habituation,
-deep neural network,Eukaryote,Zero-Day Exploit,probability distribution,Semantics,,,Halogen,
-Deep Q-Network (DQN),Exon,,Python,Simulation,,,Hazardous Chemical Reaction,
-demographic parity,Expressed Sequence Tags (ESTs),,Quantile,Software development environment,,,Hormone,
-dense feature,Expression (gene or protein),,Quartile,Software development process,,,Hydrogenation,
-dense layer,Expression profile,,R,Software engineering,,,Immunology,
-depth,Expression vector,,random forest,Source code,,,Impurity,
-depthwise separable convolutional neural network (sepCNN),Fingerprint,,Regression,Special purpose language,,,Infectious Disease,
-device,Frameshift,,reinforcement learning,Specification,,,Infusion Kinetics,
-dimension reduction,Functional genomics,,Root Mean Squared Error,SSADM,,,Insulin,
-dimensions,Fusion protein,,Ruby,Standard algorithm,,,Intrinsic Efficacy,
-discrete feature,Gaps,,S curve,Stepwise refinement,,,Inverse agonist,
-discriminative model,Gap penalties,,SAS,Structure charts,,,Kinase,
-discriminator,Gel electrophoresis,,Scalar,Structured data,,,Loading Dose,
-disparate impact,Gene Index,,Scripting,Structured listing,,,Lyophilisation,
-disparate treatment,GenBank,,serial correlation,Stub,,,Lyophiliser,
-divisive clustering,Gene,,Shell,Symbol table,,,Median Effective Dose,
-downsampling,Gene chips,,spatiotemporal data,Syntax,,,Medical Device,
-DQN,Gene expression,,SPSS,Systems analyst,,,Metabolic Diseases,
-dropout regularization,Gene families,,SQL,Systems developer,,,Microbial Barrier,
-dynamic model,Gene library,,standard deviation,Systems specification,,,Molecular Diagnostics,
-eager execution,Gene product,,standard normal distribution,Technical guide,,,Multiple Dose Regimens,
-early stopping,Gene therapy,,standardized score,Test data,,,Mutagenesis,
-embeddings,Genetic engineering,,Stata,Testing,,,Nanotechnology,
-embedding space,Genetic marker,,"Strata,",Test log,,,Neurology,
-empirical risk minimization (ERM),Genome,,stratified sampling,Test plan,,,Nonrenal Clearance,
-ensemble,Genomic DNA,,supervised learning,Top-down design,,,Nucleic Acid,
-environment,Genomics,,support vector machine,Trace facility,,,Obstetrics,
-episode,Genotype,,T-distribution,Traditional model,,,Occupancy,
-epoch,Glycosylation,,Tableau,Unusual user activity,,,Oncology,
-epsilon greedy policy,Guanine (G),,time series data,User guide,,,Oral,
-equality of opportunity,Hairpin,,UIMA,Value parameter,,,Oxidiser,
-equalized odds,Haploid,,unsupervised learning,Waterfall model,,,Paediatric,
-Estimator,Heterodimer,,Variance,,,,Pandemic Disease,
-example,Heteroduplex,,Vector,,,,Parenteral Drug,
-experience replay,Hidden Markov model,,vector space,,,,Parenteral Drug,
-experimenter's bias,High-throughput screening,,Weka,,,,Partial agonist ,
-exploding gradient problem,HLA complex,,,,,,Patent,
-fairness constraint,Homeobox,,,,,,Peripheral Neuropathy,
-fairness metric,Homeodomain,,,,,,Pharma,
-false negative (FN),Homeotic gene,,,,,,Pharma Resources,
-false positive (FP),Homology,,,,,,Pharmaceutical Development,
-false positive rate (FPR),Housekeeping genes,,,,,,Pharmaceutical Research,
-feature,Human Anti-Murine Antibody Response,,,,,,Pharmaceuticals,
-Feature column (tf.feature_column),Hybridization,,,,,,Pharmaceutics,
-feature cross,Hydrogen bond,,,,,,Pharmacodynamics,
-feature engineering,Hydrophilicity,,,,,,Pharmacogenetics,
-feature extraction,Hydrophobicity,,,,,,Pharmacokinetics,
-feature set,Idiotype,,,,,,Pharmacological,
-feature spec,Immunoglobulin,,,,,,Pharmacology,
-feature vector,in silico (biology),,,,,,,
-federated learning,in situ hybridization,,,,,,Pharmacovigilance,
-feedback loop,Integration,,,,,,Physiological,
-feedforward neural network (FFN),Intracellular signaling,,,,,,Polymerase Chain Reaction,
-few-shot learning,Introns,,,,,,Polymorph,
-fine tuning,Isoschizomers,,,,,,Polypropylene,
-forget gate,Isozymes,,,,,,Potency,
-full softmax,Iteration,,,,,,Potency,
-fully connected layer,Junk DNA,,,,,,Preclinical Studies,
-GAN,Karyotype,,,,,,Protein,
-generalization,Knockout mice,,,,,,Proteomics,
-generalization curve,"""Lab on a chip""",,,,,,Radiology,
-generalized linear model,Lead compound,,,,,,Renal Clearance,
-generative adversarial network (GAN),Lead optimization,,,,,,Rheumatology,
-generative model,Leucine zipper,,,,,,Rheumatology,
-generator,Lexicon,,,,,,Serialisation,
-gradient,Library,,,,,,Spectrophotometry,
-gradient clipping,Ligand,,,,,,Spectroscopy,
-gradient descent,Linkage,,,,,,Syringe,
-graph,Linkage map,,,,,,Therapeutics,
-graph execution,Locus,,,,,,Threshold Dose,
-greedy policy,Map unit,,,,,,Toxicity,
-ground truth,Markov chain,,,,,,Toxicology,
-group attribution bias,Meiosis,,,,,,Toxicology,
-hashing,Melting,,,,,,Trauma,
-heuristic,Messenger RNA,,,,,,Vaccination,
-hidden layer,Methylation,,,,,,Vaccine,
-hierarchical clustering,Microarray,,,,,,Vascular Disease,
-hinge loss,Microfluidics,,,,,,Viral Clearance,
-holdout data,Mimetics,,,,,,White Blood Cell,
-hyperparameter,Missense mutation,,,,,,Yeast Artificial Chromosome,
-hyperplane,Mitosis,,,,,,Zeta Potential,
-i.i.d.,Modeling,,,,,,Zoonosis,
-image recognition,Monomer,,,,,,,
-imbalanced dataset,Monovalent,,,,,,,
-implicit bias,Motif,,,,,,,
-incompatibility of fairness metrics,Multigene family,,,,,,,
-independently and identically distributed (i.i.d),Multiple sequence alignment,,,,,,,
-individual fairness,Multiplex sequencing,,,,,,,
-inference,Mutagen,,,,,,,
-in-group bias,Mutation,,,,,,,
-input function,Naked DNA,,,,,,,
-input layer,NCEs (New Chemical Entity),,,,,,,
-instance,Nested PCR,,,,,,,
-interpretability,Neural net,,,,,,,
-inter-rater agreement,Nonsense mutation,,,,,,,
-intersection over union (IoU),Northern blotting,,,,,,,
-IoU,Nuclease,,,,,,,
-item matrix,Nucleoside,,,,,,,
-items,Nucleotide,,,,,,,
-iteration,Oligonucleotide,,,,,,,
-Keras,Open reading frame,,,,,,,
-keypoints,Operator,,,,,,,
-Kernel Support Vector Machines (KSVMs),Operon,,,,,,,
-k-means,Ortholog,,,,,,,
-k-median,Overlapping clones,,,,,,,
-L1 loss,Palindrome,,,,,,,
-L1 regularization,Pattern,,,,,,,
-L2 loss,Pathways,,,,,,,
-L2 regularization,Paralog,,,,,,,
-label,Parameters,,,,,,,
-labeled example,Peptide,,,,,,,
-lambda,Peptide bond (amide bond,,,,,,,
-landmarks,Phage,,,,,,,
-layer,Phage display,,,,,,,
-Layers API (tf.layers),Pharmacogenomics,,,,,,,
-learning rate,Pharmacophore,,,,,,,
-least squares regression,Phenotype,,,,,,,
-linear model,Phylum,,,,,,,
-linear regression,Physical map,,,,,,,
-logistic regression,Plasmid,,,,,,,
-logits,Pleiotropy,,,,,,,
-Log Loss,Point mutation,,,,,,,
-log-odds,Poly(A) tail,,,,,,,
-Long Short-Term Memory (LSTM),Polyadenylation site,,,,,,,
-loss,Polygenic inheritance,,,,,,,
-loss curve,Polymerase chain reaction,,,,,,,
-loss surface,Polymorphism,,,,,,,
-LSTM,Polypeptide,,,,,,,
-machine learning,Positional cloning,,,,,,,
-majority class,Post-transcriptional modification,,,,,,,
-Markov decision process (MDP),Posttranslational modification,,,,,,,
-Markov property,Primary sequence,,,,,,,
-matplotlib,Primary structure,,,,,,,
-matrix factorization,Primer,,,,,,,
-Mean Absolute Error (MAE),Probe,,,,,,,
-Mean Squared Error (MSE),Profile,,,,,,,
-metric,Prokaryote,,,,,,,
-Metrics API (tf.metrics),Promoter (site),,,,,,,
-mini-batch,Protein families,,,,,,,
-mini-batch stochastic gradient descent,Proteome,,,,,,,
-minimax loss,Proteomics,,,,,,,
-minority class,Purine,,,,,,,
-ML,Pyrimidine,,,,,,,
-MNIST,Query,,,,,,,
-model,Rational drug design,,,,,,,
-model capacity,Reading frame,,,,,,,
-model function,Reagents,,,,,,,
-model training,Recessive,,,,,,,
-Momentum,Recombinant DNA,,,,,,,
-multi-class classification,Recombination,,,,,,,
-multi-class logistic regression,Recursion,,,,,,,
-multinomial classification,Regulatory gene,,,,,,,
-NaN trap,Repeats (repeat sequences),,,,,,,
-natural language understanding,Repetitive elements,,,,,,,
-negative class,Replication,,,,,,,
-neural network,Repressor,,,,,,,
-neuron,Restriction enzyme,,,,,,,
-N-gram,Restriction fragment length polymorphisms,,,,,,,
-NLU,Restriction map,,,,,,,
-node (neural network),Reverse Genetics,,,,,,,
-node (TensorFlow graph),Reverse transcriptase,,,,,,,
-noise,Reverse transcriptase-PCR,,,,,,,
-non-response bias,Ribonucleic acid,,,,,,,
-normalization,Secondary structure,,,,,,,
-numerical data,Selectivity,,,,,,,
-NumPy,Sense strand,,,,,,,
-objective,Sensitivity,,,,,,,
-objective function,Sequence Tagged Site,,,,,,,
-offline inference,Sexual PCR,,,,,,,
-one-hot encoding,Shotgun cloning,,,,,,,
-one-shot learning,Similarity search,,,,,,,
-one-vs.-all,Signal sequence,,,,,,,
-online inference,Single nucleotide polymorphisms,,,,,,,
-Operation (op),Single-pass sequencing,,,,,,,
-optimizer,Site,,,,,,,
-out-group homogeneity bias,Southern blotting,,,,,,,
-outliers,Splice site,,,,,,,
-output layer,Splice form,,,,,,,
-overfitting,Splicing,,,,,,,
-pandas,Solvent accessibility,,,,,,,
-parameter,Structural gene,,,,,,,
-Parameter Server (PS),Structure prediction,,,,,,,
-parameter update,Substitution matrix,,,,,,,
-partial derivative,Subtraction library,,,,,,,
-participation bias,Tentative Consensus,,,,,,,
-partitioning strategy,Tentative Human Consensus sequences,,,,,,,
-perceptron,THCs,,,,,,,
-performance,Tertiary structure,,,,,,,
-perplexity,Thymine,,,,,,,
-pipeline,Tissue,,,,,,,
-policy,Transcript,,,,,,,
-pooling,Transcription,,,,,,,
-positive class,Transcription factors,,,,,,,
-post-processing,Transfer RNA,,,,,,,
-PR AUC (area under the PR curve),Transformation,,,,,,,
-precision,Transgene,,,,,,,
-precision-recall curve,Translation,,,,,,,
-prediction,Transmembrane region,,,,,,,
-prediction bias,Tissue,,,,,,,
-predictive parity,Unidentified reading frame,,,,,,,
-predictive rate parity,Uracil,,,,,,,
-premade Estimator,Variable numbers of tandem repeats,,,,,,,
-preprocessing,Variation,,,,,,,
-pre-trained model,Vector,,,,,,,
-prior belief,Virtual libraries,,,,,,,
-proxy (sensitive attributes),Visualization,,,,,,,
-proxy labels,Weight matrix,,,,,,,
-Q-function,Western blot,,,,,,,
-Q-learning,Wild type,,,,,,,
-quantile,X chromosome,,,,,,,
-quantile bucketing,Yeast 2-hybrid system,,,,,,,
-quantization,Z-DNA,,,,,,,
-queue,Zinc fingers,,,,,,,
-random forest,complementary DNA,,,,,,,
-random policy,VNTRs,,,,,,,
-rank (ordinality),Molecular Diversity),,,,,,,
-rank (Tensor),RNA,,,,,,,
-rater,BAC,,,,,,,
-recall,CDS,,,,,,,
-recommendation system,PCR,,,,,,,
-Rectified Linear Unit (ReLU),deoxyribonucleic acid,,,,,,,
-recurrent neural network,Deoxyribonuclease,,,,,,,
-regression model,Gene arrays,,,,,,,
-regularization,Recombinant DNA technology,,,,,,,
-regularization rate,tRNA,,,,,,,
-reinforcement learning (RL),Generic variation,,,,,,,
-replay buffer,RT-PCR,,,,,,,
-reporting bias,RFLPs,,,,,,,
-representation,Bacteriophage,,,,,,,
-re-ranking,restriction endonuclease,,,,,,,
-return,mRNA,,,,,,,
-reward,rDNA,,,,,,,
-ridge regularization,gene targeting,,,,,,,
-RNN,,,,,,,,
-ROC (receiver operating characteristic) Curve,,,,,,,,
-root directory,,,,,,,,
-Root Mean Squared Error (RMSE),,,,,,,,
-rotational invariance,,,,,,,,
-sampling bias,,,,,,,,
-SavedModel,,,,,,,,
-Saver,,,,,,,,
-scalar,,,,,,,,
-scaling,,,,,,,,
-scikit-learn,,,,,,,,
-scoring,,,,,,,,
-selection bias,,,,,,,,
-semi-supervised learning,,,,,,,,
-sensitive attribute,,,,,,,,
-sentiment analysis,,,,,,,,
-sequence model,,,,,,,,
-serving,,,,,,,,
-session (tf.session),,,,,,,,
-shape (Tensor),,,,,,,,
-sigmoid function,,,,,,,,
-similarity measure,,,,,,,,
-size invariance,,,,,,,,
-sketching,,,,,,,,
-softmax,,,,,,,,
-sparse feature,,,,,,,,
-sparse representation,,,,,,,,
-sparse vector,,,,,,,,
-sparsity,,,,,,,,
-spatial pooling,,,,,,,,
-squared hinge loss,,,,,,,,
-squared loss,,,,,,,,
-state,,,,,,,,
-state-action value function,,,,,,,,
-static model,,,,,,,,
-stationarity,,,,,,,,
-step,,,,,,,,
-step size,,,,,,,,
-stochastic gradient descent (SGD),,,,,,,,
-stride,,,,,,,,
-structural risk minimization (SRM),,,,,,,,
-subsampling,,,,,,,,
-summary,,,,,,,,
-supervised machine learning,,,,,,,,
-synthetic feature,,,,,,,,
-tabular Q-learning,,,,,,,,
-target,,,,,,,,
-target network,,,,,,,,
-temporal data,,,,,,,,
-Tensor,,,,,,,,
-TensorBoard,,,,,,,,
-TensorFlow,,,,,,,,
-TensorFlow Playground,,,,,,,,
-TensorFlow Serving,,,,,,,,
-Tensor Processing Unit (TPU),,,,,,,,
-Tensor rank,,,,,,,,
-Tensor shape,,,,,,,,
-Tensor size,,,,,,,,
-termination condition,,,,,,,,
-test set,,,,,,,,
-tf.Example,,,,,,,,
-tf.keras,,,,,,,,
-time series analysis,,,,,,,,
-timestep,,,,,,,,
-tower,,,,,,,,
-TPU,,,,,,,,
-TPU chip,,,,,,,,
-TPU device,,,,,,,,
-TPU master,,,,,,,,
-TPU node,,,,,,,,
-TPU Pod,,,,,,,,
-TPU resource,,,,,,,,
-TPU slice,,,,,,,,
-TPU type,,,,,,,,
-TPU worker,,,,,,,,
-training,,,,,,,,
-training set,,,,,,,,
-trajectory,,,,,,,,
-transfer learning,,,,,,,,
-translational invariance,,,,,,,,
-trigram,,,,,,,,
-true negative (TN),,,,,,,,
-true positive (TP),,,,,,,,
-true positive rate (TPR),,,,,,,,
-unawareness (to a sensitive attribute),,,,,,,,
-underfitting,,,,,,,,
-unlabeled example,,,,,,,,
-unsupervised machine learning,,,,,,,,
-upweighting,,,,,,,,
-user matrix,,,,,,,,
-validation,,,,,,,,
-validation set,,,,,,,,
-vanishing gradient problem,,,,,,,,
-Wasserstein loss,,,,,,,,
-weight,,,,,,,,
-Weighted Alternating Least Squares (WALS),,,,,,,,
-wide model,,,,,,,,
-width,,,,,,,,
+AI and Machine Learning,Bioinformatics,Cybersecurity,Data Sciences,Software Engineering,Robotics,Synthetic Biology,Pharmacology and pharmaceuticals,Tissue Engineering
+activation function,Amino acid,access control,bag of words,Agile development,Actuator,Active Pharmaceutical Ingredient,Active Immunity,artificial cells
+active learning,Anticodon,Admin privilege,Bayes Theorem,Agile methods,Agent Based Systems,Antibody,Active Site,artificial chromosomes
+agglomerative clustering,Antigen,Antivirus,Bayesian network,Alpha testing,Agricultural Automation,Antigen,Adverse Drug Reaction,Artificial organ
+artificial general intelligence,Bioinformatics,Antivirus software,Behavioural analytics,Anti patterns,Assembly Robot,Artemisinin,Agonist,Bacterial artificial chromosome
+artificial intelligence,Carboxyl group,Asymmetric encryption,Big data,Apache Subversion,Automaton,Autoimmune Disease,Allergic Response,biobanking
+augmented reality,cDNA,Authenticated encryption,bigram,Automated program repair,Autonomous Agents,Biobricks,Allergy,biological specimen banks
+backpropagation,Chromatin,Backdoor,data analysis,Beta testing,Autonomous systems,Bioeconomy,Allosteric modulator,biorepository
+Bayesian neural network,Chromosome,block cipher,Data analyst,Bytecode,Autonomous Technology,Biofuel,Analgesic,biospecimen
+binary classification,Codon,Botnet,Data analytics,Class diagram,Autonomous vehicle,Biohacking,Anesthetic,cell assays
+bounding box,Cytoplasm,Browser fingerprinting,data augmentation,Code bug,Autonomous Vehicle Navigation,Biologic,Antibiotic,cell chips
+calibration layer,Cytosine,Brute force attack,data engineer,Code documentation,Bionics,Biological Engineering,Antibody,cell fusion
+classification model,Deoxyribonuclease,Catfishing,Data governance,Code refactoring,Cartesian coordinate Robot,Biomedical Engineering,Antibody Production,cell microarrays
+confusion matrix,deoxyribonucleic acid,Cipher,Data lake,Code smells,Climbing Robots,Biopharmaceutical,Bacteria,cell sorting
+convolutional filter,DNA,ciphertext,Data mining,Code style,Cloud robotics,Bioreactor,Bioassay,Cell therapy
+convolutional layer,DNA fingerprinting,Clickjacking,Data modeling,Data modeling,Cobots,Biosensor,Bioavailability,cell-based imaging
+convolutional neural network,DNA polymerase,Cloud security,Data pool,Database management system,Cognitive Control Architectures,Carlson Curve,Biologics,cellular engineering
+decision tree,DNA sequencing,Computer Network Attack,data science,Debugging,Cognitive Modeling,Cell Culture,Biopharmaceutics,cellular imaging
+deep neural network,Enzyme,Computer virus,Data Set,Delta debugging,"Collaborative Robot
+",Cell Line,Bioreactor,cellular models
+dimension reduction,Gel electrophoresis,Computer worm,Data visualization,Design patterns,Collision Avoidance,Cell Strain,Biotech,cellular reprogramming
+DQN,Gene expression,Credit Card Fraud,Data Warehouse,Docker,"Compliant Robot
+",Cell Therapy,Biotransformation,cryobiology
+empirical risk minimization,Genetic engineering,Crimeware,Data wrangling,Event driven language,Controlled robot,Chassis,Biotranslocation,cryonics
+epsilon greedy policy,Genotype,Crypojacking,dataset,Executable code,Controlled robot dynamics,Clinical Trial,Body weight,flow cytometry
+exploding gradient problem,Guanine,cryptographic system,Deep Learning,Explicit declaration,Cyborgs,Codon,Carcinogenicity,genotype tissue expression
+false negative,Immunoglobulin,Cryptography,divisive clustering,Firebase,Cylindrical coordinate Robot,DNA,Central Nervous System,human tissue engineered product
+false positive,Meiosis,Cryptosystem,feature engineering,Full stack developer,Developmental Robotics,DNA Synthesis,Chemotherapy,hybridoma
+feature engineering,Messenger RNA,Cyber Crime,feature extraction,Git,Domestic Robotics,Drug Delivery,Cheng-Prusoff equation,image cytometry
+feature extraction,Mitosis,Cyber security,feature set,Github,Downtime,Drug Product,Chromatography,immortalizing oncogene
+feature set,mRNA,Cyber Terrorism,feature vector,Haskell,Embodied Cognitive Science,Engineering Biology,Clinical Design,immunohistochemistry
+feature vector,Mutagen,Cyber Warfare,Hadoop,High level language,End effector,Fermentation,Clinical Supply,Laser Capture Microdissection
+federated learning,Nuclease,cyberattack,imbalanced dataset,Human computer interface,Epigenetic Robotics,Fermentor,Clinical Therapeutic Index,laser tweezers
+feedforward neural network,Peptide,cyberespionage,Machine learning engineer,IDE,Evolutionary Robotics,Gene Drive,Concentration response curve,microdissection
+FFN,Peptide bond,Cybersecurity,machine learning model,Implicit declaration,Factory Automation,Gene Expression,Contamination,microimaging
+fully connected layer,Polymerase chain reaction,data breach,Markov Chain,Independent testing,Field Robots,Gene Therapy,Dealthcare,micromanipulation
+GAN,rDNA,Data encryption,matplotlib,Intermediate code,Force Feedback,Genetic Engineering,Dentistry,microtissues
+generative adversarial network,restriction endonuclease,Data protection,naive Bayes classifier,Interpreter,Forward Kinematic Solution,Genetically Modified Organism,Desensitization,nuclear transfer
+gradient descent,Restriction enzyme,DDoS Attack,neural network,Jackson Structured Programming,Forward Kinematics,Genome,Dissolution Time,optical trapping
+hyperparameter,RNA,Decipher,PageRank,Java,Gripper,Glycosylation,DNA,optical tweezers
+input layer,Transfer RNA,Denial of service,pivot table,JavaScript,Haptic feedback,Immunotherapy,DNA Sequence,organotypic
+Kernel Support Vector Machines,tRNA,Diffie Hellman key exchange,posterior distribution,JUnit,Human centered Automation,Kozak Sequence,Dose,organotypic models
+latent dirichlet allocation,,digital forensics,predictive analytics,Machine code,Human centered Robotics,Metabolite,Dose-Duration Curve,plasmid
+learning rate,,Digital signatures,predictive modeling,Module library,Human robot,Molecular targeted drug,Drug Delivery,Regenerative medicine
+LSTM,,Distributed Denial of Service,Predictive Modelling,Mutation testing,Humanoid,Nucleic Acids,Electrophoresis,Scar tissue
+machine learning,,DOS,preprocessing,NoSQL,Humanoid Robot Systems,,Emergency Medicine,single cell analysis
+model training,,Encipher,Prior distribution,Object oriented design,Industrial robot,,Endocrinology,site-directed mutagenesis
+multinomial classification,,Encrypted web traffic,Reinforcement learning,Object-oriented language,Intelligent robot,,Enzyme,small intestinal submucosa
+natural language processing,,Encryption,supervised learning,Pair programming,Intelligent systems,,Ethical Pharmaceutical,Stem cell
+natural language understanding,,Fileless Malware,support vector machine,Penetration testing,Intelligent Transportation Systems,,Food and Drug Administration,synthetic lethal screening
+neural network,,firewall,Test set,Portable code,Inverse kinematics,,Gene,tissue array analysis
+Output layer,,Firmware,Training set,Portable software,Jacobian matrix,,Gene Expression,tissue banking
+overfitting,,Forward secrecy,trigram,Procedural language,Joint,,Gene Therapy,tissue chips
+perceptron,,Hacker,Unstructured data,Program analysis,Joint Interpolated Motion,,Generic Drugs,tissue engineering 
+pre-trained model,,Hacktivist,unsupervised learning,Program repair,Joint Motion Type,,Generic Pharmaceutical,tissue microarrays
+proxy labels,,HTTP Secure,Validation set,Programming team,Joint Space,,Genetic Engineering,tissue microdissection
+random forest,,HTTPS,,Revision control,Kinematics,,Genomics,tissue models
+Rectified Linear Unit,,Human centred security,,Scripting language,Logistics,,Genotype,tumoroid
+recurrent neural network,,Identity check,,Scrum,Marine Robotics,,Habituation,Ventricular assist device
+reinforcement learning,,Identity theft,,Scrum development,Material Processing Robot,,Hormone,xenograft
+ReLU,,Information security,,Scrum master,Medical Robots,,Immunology,xenotransplantation
+RNN,,Insecure channel,,Singleton pattern,Mining Robotics,,Infectious Disease,
+scikit learn,,Insider threat,,Software bug,Motion Axis,,Infusion Kinetics,
+semi supervised learning,,keylogger,,Software deployment,Motion Planning,,Insulin,
+semi supervised machine learning,,malicious software,,Software development environment,Nanobot,,Kinase,
+sentiment analysis,,Malware,,Software development process,Neurorobotics,,Lyophilisation,
+sigmoid function,,Message authentication,,Software engineering,Offline programming,,Lyophiliser,
+squared hinge loss,,Message authentication code,,Source code,Path Planning,,Metabolic Diseases,
+stochastic gradient descent,,Multi factor authentication,,Source code management,Pathfinding,,Microbial Barrier,
+structural risk minimization,,National Cybersecurity Strategy,,Source control,PLC,,Molecular Diagnostics,
+supervised learning,,National Security Agency,,SQL,Program robot,,Mutagenesis,
+supervised machine learning,,Network security,,SVN,Programmable Logical Controller,,Neurology,
+Support Vector Machines,,NSA,,Symbolic execution,Rehabilitation Robotics,,Nonrenal Clearance,
+SVM,,Password protection,,Systems analyst,Revolute Joint,,Nucleic Acid,
+Tensor Processing Unit,,Password Weakness,,Systems developer,Robot,,Obstetrics,
+TensorBoard,,pen testing,,Systems specification,Robot controller,,Oncology,
+TensorFlow,,Phishing,,Test driven development,Robot Coordinate System,,Partial agonist ,
+TensorFlow Serving,,Piggyback programs,,UML,Robot dynamics,,Peripheral Neuropathy,
+test set,,Plaintext,,Unified Modeling Language,Robot Integrator,,Pharma,
+TPU,,Plaintext attack,,Unit testing,Robot joint,,Pharma Resources,
+Training set,,Privacy,,Version control,Robot kinematics,,Pharmaceutical Development,
+transfer learning,,Private data,,Visitor pattern,Robot motion planning,,Pharmaceutical Research,
+true negative,,Private key infrastructure,,Waterfall model,Robot programming,,Pharmaceuticals,
+true positive,,Public key infrastructure,,,Robot Programming Language,,Pharmaceutics,
+underfitting,,ransomware,,,,,Pharmacodynamics,
+unsupervised learning,,ReCAPTCHA,,,,,Pharmacogenetics,
+unsupervised machine learning,,Rootkit,,,,,Pharmacokinetics,
+validation set,,Routing security,,,,,Pharmacological,
+vanishing gradient problem,,Scareware,,,,,Pharmacology,
+Wasserstein loss,,Secure channel,,,,,Pharmacovigilance,
+,,Secure Sockets layer,,,,,Potency,
+,,Secure Sockets Layer certificate,,,,,Preclinical Studies,
+,,Secure system,,,,,Protein,
+,,Security engineering,,,,,Proteomics,
+,,Security policy,,,,,Radiology,
+,,Security token,,,,,Rheumatology,
+,,Session security,,,,,Therapeutics,
+,,Social engineering,,,,,Toxicology,
+,,Software security,,,,,Vaccination,
+,,Software Vulnerability,,,,,Vaccine,
+,,spear phishing ,,,,,White Blood Cell,
+,,Spoofing,,,,,Yeast Artificial Chromosome,
+,,spyware,,,,,Zoonosis,
+,,SQL Injection,,,,,,
+,,SSL certificate,,,,,,
+,,Symmetric encryption,,,,,,
+,,TLS,,,,,,
+,,TOR,,,,,,
+,,Transport layer security,,,,,,
+,,Trojan,,,,,,
+,,Trojan horse,,,,,,
+,,two factor authentication,,,,,,
+,,Unenciphered message,,,,,,
+,,Virtual Private Network,,,,,,
+,,Virtual Warfare,,,,,,
+,,access control,,,,,,
+,,Admin privilege,,,,,,
+,,Antivirus,,,,,,
+,,Antivirus software,,,,,,

@@ -8,16 +8,21 @@ from LIBRARIES.GuidedLDA import guidedlda
 from sklearn.feature_extraction.text import CountVectorizer
 from NLP.PREPROCESSING.preprocessor import Preprocessor
 from LOADERS.loader import Loader
+from MONGODB_PUSHERS.mongodb_pusher import MongoDbPusher
 
 class GuidedLda():
     def __init__(self):
         self.loader = Loader()
+        self.mongodb_pusher = MongoDbPusher()
         self.preprocessor = Preprocessor()
         self.data = None # dataframe with columns {ID, Description}.
         self.keywords = None # list of topic keywords
         self.num_topics = 0
         self.vectorizer = self.get_vectorizer(1, 1, 1, 1)
         self.model = None
+
+    def write_results(self, num_top_words, results_file):
+        raise NotImplementedError
 
     def load_keywords(self, keywords):
         print("Loading keywords...")

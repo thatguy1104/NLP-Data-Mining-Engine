@@ -7,11 +7,13 @@ import ssl
 from NLP.LDA.LDA import Lda
 from NLP.PREPROCESSING.preprocessor import Preprocessor
 from LOADERS.publication_loader import PublicationLoader
+from MONGODB_PUSHERS.mongodb_pusher import MongoDbPusher
 
 class IheLda(Lda):
     def __init__(self):
         self.preprocessor = Preprocessor()
         self.loader = PublicationLoader()
+        self.mongodb_pusher = MongoDbPusher()
         self.data = None # publication dataframe with columns {DOI, Description}.
         self.keywords = None # list of IHE-specific keywords.
         self.num_topics = 0
@@ -30,15 +32,6 @@ class IheLda(Lda):
         # eta = np.divide(eta, eta.sum(axis=0))
         return eta
 
-    def push_to_mongo(self, data):
-        client = pymongo.MongoClient("mongodb+srv://admin:admin@cluster0.hw8fo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", ssl_cert_reqs=ssl.CERT_NONE)
-        db = client.Scopus
-        col = db.IHEPrediction
-        col.drop()
-        key = value = data
-        col.update_one(data, {"$set": value}, upsert=True)
-        client.close()
-
     def write_results(self, corpus, num_top_words, results_file):
         data = {}
         data['Perplexity'] = self.model.log_perplexity(corpus)
@@ -53,7 +46,7 @@ class IheLda(Lda):
             doc_topics = ['({}, {:.1%})'.format(topic + 1, pr) for topic, pr in self.model.get_document_topics(c)]
             data['Document Topics'][str(d)] = doc_topics
 
-        self.push_to_mongo(data)
+        self.mongodb_pusher.ihe_prediction(data) # push to mongo.
         with open(results_file, 'w') as outfile:
             json.dump(data, outfile)
 

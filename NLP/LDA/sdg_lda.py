@@ -2,16 +2,17 @@ import time, datetime
 import json
 import pymongo
 import numpy as np
-import ssl
 
 from NLP.LDA.LDA import Lda
 from NLP.PREPROCESSING.module_preprocessor import ModuleCataloguePreprocessor
 from LOADERS.module_loader import ModuleLoader
+from MONGODB_PUSHERS.mongodb_pusher import MongoDbPusher
 
 class SdgLda(Lda):
     def __init__(self):
         self.preprocessor = ModuleCataloguePreprocessor()
         self.loader = ModuleLoader()
+        self.mongodb_pusher = MongoDbPusher()
         self.data = None # module-catalogue dataframe with columns {ModuleID, Description}.
         self.keywords = None # list of SDG-specific keywords.
         self.num_topics = 0
@@ -30,15 +31,6 @@ class SdgLda(Lda):
         # eta = np.divide(eta, eta.sum(axis=0))
         return eta
 
-    def push_to_mongo(self, data):
-        client = pymongo.MongoClient("mongodb+srv://admin:admin@cluster0.hw8fo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", ssl_cert_reqs=ssl.CERT_NONE)
-        db = client.Scopus
-        col = db.ModulePrediction
-        col.drop()
-        key = value = data
-        col.update_one(data, {"$set": value}, upsert=True)
-        client.close()
-
     def write_results(self, corpus, num_top_words, results_file):
         data = {}
         data['Perplexity'] = self.model.log_perplexity(corpus)
@@ -53,7 +45,7 @@ class SdgLda(Lda):
             doc_topics = ['({}, {:.1%})'.format(topic + 1, pr) for topic, pr in self.model.get_document_topics(c)]
             data['Document Topics'][str(d)] = doc_topics
 
-        self.push_to_mongo(data)
+        #self.mongodb_pusher.module_prediction(data) # push to mongo.
         with open(results_file, 'w') as outfile:
             json.dump(data, outfile)
 
@@ -74,7 +66,7 @@ class SdgLda(Lda):
         ts = time.time()
         startTime = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
 
-        num_modules = "MAX"
+        num_modules = 100
         keywords = "SDG_KEYWORDS/SDG_Keywords.csv"
         passes = 10
         iterations = 400
@@ -83,7 +75,8 @@ class SdgLda(Lda):
 
         pyldavis_html = "NLP/LDA/SDG_RESULTS/pyldavis.html"
         tsne_clusters_html = "NLP/LDA/SDG_RESULTS/tsne_clusters.html"
-        model = "NLP/LDA/SDG_RESULTS/model.pkl"
+        #model = "NLP/LDA/SDG_RESULTS/model.pkl"
+        model = "NLP/LDA/SDG_RESULTS/stupid_model.pkl"
         results = "NLP/LDA/SDG_RESULTS/training_results.json"
 
         self.load_dataset(num_modules)
@@ -95,7 +88,7 @@ class SdgLda(Lda):
         self.display_results(corpus, num_top_words, pyldavis_html, tsne_clusters_html)
 
         print("Saving results...")
-        self.write_results(corpus, num_top_words, results) # record current results.
+        #self.write_results(corpus, num_top_words, results) # record current results.
         self.serialize(model)
         
         print("Done.")
