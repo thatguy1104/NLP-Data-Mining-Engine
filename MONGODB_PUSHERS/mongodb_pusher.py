@@ -14,23 +14,23 @@ class MongoDbPusher():
         bar = '*' * filled_len + '-' * (bar_len - filled_len)
         sys.stdout.write('[%s] %s%s %s %s\r' %(bar, percents, '%', custom_text, suffix))
         sys.stdout.flush()
-
+        
     def ihe_prediction(self, data):
-        col = db.IHEPrediction
+        col = self.db.IHEPrediction
         col.drop()
         key = value = data
         col.update_one(data, {"$set": value}, upsert=True)
         self.client.close()
 
     def module_prediction(self, data):
-        col = db.ModulePrediction
+        col = self.db.ModulePrediction
         col.drop()
         key = value = data
         col.update_one(data, {"$set": value}, upsert=True)
         self.client.close()
 
     def matched_modules(self, data):
-        col = db.MatchedModules
+        col = self.db.MatchedModules
         col.drop()
         data_len = len(data)
         counter = 1
@@ -41,7 +41,7 @@ class MongoDbPusher():
         self.client.close()
 
     def matched_scopus(self, data):
-        col = db.MatchedScopus
+        col = self.db.MatchedScopus
         col.drop()
         data_len = len(data)
         counter = 1

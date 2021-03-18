@@ -117,8 +117,8 @@ class Lda():
         self.display_topic_words(num_top_words) # topic-word distribution.
         self.display_document_topics(corpus) # document-topic distribution.
 
-        #self.pyldavis(corpus, pyldavis_html) # pyLDAvis distance map.
-        #self.t_sne_cluster(corpus, t_sne_cluster_html) # t-SNE clustering.
+        self.pyldavis(corpus, pyldavis_html) # pyLDAvis distance map.
+        self.t_sne_cluster(corpus, t_sne_cluster_html) # t-SNE clustering.
 
     def write_results(self, corpus, num_top_words, results_file):
         raise NotImplementedError
