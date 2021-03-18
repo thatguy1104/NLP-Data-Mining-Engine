@@ -36,10 +36,8 @@ class MongoDbPusher():
         counter = 1
         for i in data:
             self.progress(counter, data_len, "Uploading MatchedModules to MongoDB")
-            key = value = data[i]
-            col.update_one(key, {"$set": value}, upsert=True)
-            #value = data[i]
-            #col.update_one({"Module_Name": data[i]["Module_Name"]}, {"$set": value}, upsert=True)
+            value = data[i]
+            col.update_one({"Module_ID": i}, {"$set": value}, upsert=True)
         self.client.close()
 
     def matched_scopus(self, data):
@@ -49,7 +47,8 @@ class MongoDbPusher():
         counter = 1
         for i in data:
             self.progress(counter, data_len, "Uploading MatchedScopus to MongoDB")
-            key = value = data[i]
-            col.update_one(key, {"$set": value}, upsert=True)
+            key = data[i]["DOI"]
+            value = data[i]
+            col.update_one({"DOI": key}, {"$set": value}, upsert=True)
             counter += 1
         self.client.close()
