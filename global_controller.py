@@ -52,7 +52,7 @@ def nlp_manager(run_LDA_SDG, run_LDA_IHE, run_GUIDED_LDA_SDG, run_GUIDED_LDA_IHE
     if predict_scopus_data:
         nlp_actions.predictScopus()
     if create_SVM_dataset:
-        nlp_actions.create_SVM_dataset()
+        nlp_actions.create_SDG_SVM_dataset(True, True)
     if run_SVM_SDG:
         nlp_actions.run_SVM_SDG()    
     if validate_model:
