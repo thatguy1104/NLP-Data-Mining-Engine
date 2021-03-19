@@ -1,7 +1,13 @@
+from MANAGERS.keywords_merger_manager import KEYWORDS_MERGER_SECTION
 from MANAGERS.loader_manager import LOADER_SECTION
 from MANAGERS.module_manager import MODULE_SECTION
 from MANAGERS.scopus_manager import SCOPUS_SECTION
 from MANAGERS.nlp_manager import NLP_SECTION
+
+def keywords_merger_manager(sdg_keywords):
+    keywords_merger_actions = KEYWORDS_MERGER_SECTION() 
+    if sdg_keywords:
+        keywords_merger_actions.merge_sdg_keywords()
 
 def loader_manager(modules, publications):
     loader_actions = LOADER_SECTION()
@@ -53,10 +59,11 @@ def nlp_manager(run_LDA_SDG, run_LDA_IHE, run_GUIDED_LDA_SDG, run_GUIDED_LDA_IHE
         nlp_actions.validate_LDA()
 
 def main():
+    keywords_merger_manager(sdg_keywords=False)
     loader_manager(modules=False, publications=False)
     module_manager(initialise=False, resetDB=False, scrape=False, updateStudentCount=False)
-    scopus_manager(scrape=False) 
-    nlp_manager(run_LDA_SDG=True, run_LDA_IHE=False, run_GUIDED_LDA_SDG=False, run_GUIDED_LDA_IHE=False, module_string_match=False,
+    scopus_manager(scrape=False)
+    nlp_manager(run_LDA_SDG=False, run_LDA_IHE=True, run_GUIDED_LDA_SDG=False, run_GUIDED_LDA_IHE=False, module_string_match=False,
                 scopus_string_match=False, predict_scopus_data=False, create_SVM_dataset=False, run_SVM_SDG=False, validate_model=False)
 
 
