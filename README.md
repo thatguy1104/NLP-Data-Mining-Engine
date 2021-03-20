@@ -1,15 +1,3 @@
-# UCL5 MieMie - NLP & Data Mining Engine
-
-## About
-Our engine will be used across UCL websites to scrape, map and generate classifiers with the intention of generating an overview of the extent of activity already taking place at UCL.
-
-The [project website](http://www.albert-mukhametov.info/web3/index.html) gives a greater overview of the challenges and design decisions that were made, implementation using the Python programming language and research undertaken.
-## Our Clients: 
-* Neel Desai - neel.desai.13@ucl.ac.uk 
-* Marilyn Aviles - marilyn.aviles@ucl.ac.uk 
-* Prof Ann Blandford - ann.blandford@ucl.ac.uk 
-* Dr. Simon Knowles - s.knowles@ucl.ac.uk
-
 ## Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 

@@ -3,7 +3,6 @@ import pymongo
 import ssl
 
 class MongoDbPusher():
-
     def __init__(self):
         self.client = pymongo.MongoClient("mongodb+srv://admin:admin@cluster0.hw8fo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", ssl_cert_reqs=ssl.CERT_NONE)
         self.db = self.client.Scopus

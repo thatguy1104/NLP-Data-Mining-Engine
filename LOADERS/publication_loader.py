@@ -9,7 +9,6 @@ from LOADERS.loader import Loader
 from bson import json_util
 
 class PublicationLoader(Loader):
-
     def __init__(self):
         self.client = pymongo.MongoClient("mongodb+srv://admin:admin@cluster0.hw8fo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", ssl_cert_reqs=ssl.CERT_NONE)
         self.db = self.client.Scopus

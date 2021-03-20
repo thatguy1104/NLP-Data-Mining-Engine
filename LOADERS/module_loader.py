@@ -11,7 +11,6 @@ from bson import json_util
 from LOADERS.loader import Loader
 
 class ModuleLoader(Loader):
-
     def __init__(self):
         self.data_file = "LOADERS/modules.pkl"
         self.prediction_path = "NLP/LDA/SDG_RESULTS/training_results.json"
