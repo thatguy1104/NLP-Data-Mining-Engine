@@ -58,7 +58,7 @@ class ScopusPrediction():
                 counter += 1
 
         print()
-        with open("NLP/MODEL_RESULTS/scopus_prediction_results.json", "w") as f:
+        with open("NLP/LDA/SDG_RESULTS/scopus_prediction_results.json", "w") as f:
             json.dump(results, f)
         client.close()
 

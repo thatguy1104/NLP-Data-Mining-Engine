@@ -58,37 +58,37 @@ class SdgSvmDataset():
         """
         results = pd.DataFrame(columns=['ID', 'Description', 'SDG']) # ID = Module_ID
         data = self.module_loader.load_prediction_results() # loads data from the ModulePrediction table in mongodb.
+        data = json.loads(json_util.dumps(data))
+        del data['_id']
 
-        for module in data:
-            module = json.loads(json_util.dumps(module)) # process mongodb response to a workable dictionary format.
-            doc_topics = module['Document Topics']
-            num_modules = len(doc_topics)
-            final_data = {}
-            counter = 0
-            for module_id in doc_topics:
-                self.progress(counter, num_modules, "Forming Modules Dataset for SVM...")
-                raw_weights = doc_topics[module_id]
-                weights = []
-                for i in range(len(raw_weights)):
-                    raw_weights[i] = raw_weights[i].replace('(', '').replace(')', '').replace('%', '').replace(' ', '').split(',')
-                    sdg_num = int(raw_weights[i][0])
-                    try:
-                        w = float(raw_weights[i][1])
-                    except:
-                        w = 0.0
-                    weights.append((sdg_num, w))
+        doc_topics = data['Document Topics']
+        num_modules = len(doc_topics)
+        final_data = {}
+        counter = 0
+        for module_id in doc_topics:
+            self.__progress(counter, num_modules, "Forming Modules Dataset for SVM...")
+            raw_weights = doc_topics[module_id]
+            weights = []
+            for i in range(len(raw_weights)):
+                raw_weights[i] = raw_weights[i].replace('(', '').replace(')', '').replace('%', '').replace(' ', '').split(',')
+                sdg_num = int(raw_weights[i][0])
+                try:
+                    w = float(raw_weights[i][1])
+                except:
+                    w = 0.0
+                weights.append((sdg_num, w))
 
-                sdg_weight_max = max(weights, key=lambda x: x[1]) # get tuple (sdg, weight) with the maximum weight.
+            sdg_weight_max = max(weights, key=lambda x: x[1]) # get tuple (sdg, weight) with the maximum weight.
 
-                if sdg_weight_max[1] >= self.threshold:
-                    # Set SDG tag of module to the SDG which has the maximum weight if its greater than the threshold value.
-                    row_df = pd.DataFrame([[module_id, self.get_module_description(module_id)[0][0], sdg_weight_max[0]]], columns=results.columns)
-                else:
-                    # Set SDG tag of module to None if the maximum weight is less than the threshold value.
-                    row_df = pd.DataFrame([[module_id, self.get_module_description(module_id)[0][0], None]], columns=results.columns)
-                
-                results = results.append(row_df, verify_integrity=True, ignore_index=True)
-                counter += 1
+            if sdg_weight_max[1] >= self.threshold:
+                # Set SDG tag of module to the SDG which has the maximum weight if its greater than the threshold value.
+                row_df = pd.DataFrame([[module_id, self.get_module_description(module_id), sdg_weight_max[0]]], columns=results.columns)
+            else:
+                # Set SDG tag of module to None if the maximum weight is less than the threshold value.
+                row_df = pd.DataFrame([[module_id, self.get_module_description(module_id), None]], columns=results.columns)
+            
+            results = results.append(row_df, verify_integrity=True, ignore_index=True)
+            counter += 1
                 
         return results
 
@@ -98,12 +98,17 @@ class SdgSvmDataset():
         """
         results = pd.DataFrame(columns=['ID', 'Description', 'SDG']) # ID = DOI
         data = self.publication_loader.load_prediction_results() # loads data from the PublicationPrediction table in mongodb.
+        data = json.loads(json_util.dumps(data))
 
         num_publications = data.count()
         final_data = {}
         counter = 0
+
         for doi in data:
-            self.progress(counter, num_publications, "Forming Publications Dataset for SVM...")
+            
+            del doi['_id']
+
+            self.__progress(counter, num_publications, "Forming Publications Dataset for SVM...")
             raw_weights = data[doi]
             num_sdgs = len(raw_weights) - 1 # subtract the title.
             weights = [0] * num_sdgs
@@ -137,9 +142,10 @@ class SdgSvmDataset():
             Serializes the resulting dataframe as a pickle file.
         """
         df = pd.DataFrame() # column format of dataframe is {ID, Description, SDG} where ID is either Module_ID or DOI.
-        if modules:
-            df = df.append(self.tag_modules())
+        # if modules:
+        #     df = df.append(self.tag_modules())
         if publications:
             df = df.append(self.tag_publications())
 
-        df.to_pickle(self.svm_dataset)
+        # df.to_pickle(self.svm_dataset)
+        print(df.head(100))

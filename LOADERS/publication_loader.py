@@ -75,6 +75,8 @@ class PublicationLoader(Loader):
             col = db.PublicationPrediction
             data = col.find(batch_size=10)
             client.close()
+
+            
             
         return data
 

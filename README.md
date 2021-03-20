@@ -15,8 +15,8 @@ The website gives a greater overview of the challenges and design decisions that
 * Dr. Simon Knowles - s.knowles@ucl.ac.uk
 ## Meet the Development Team
 * Albert Mukhametov - albert.mukhametov.19@ucl.ac.uk
-* Kareem Kermad - varun.wignarajah.19@ucl.ac.uk
-* Varun Wignarajah - kareem.kermad.19@ucl.ac.uk
+* Kareem Kermad - kareem.kermad.19@ucl.ac.uk
+* Varun Wignarajah - varun.wignarajah.19@ucl.ac.uk
 ## Viewing the Data Interface
 Data scraped and processed with an LDA NLP model using this tool can be visualised through our engine [web application](https://miemiedjangoapp.azurewebsites.net) and its code can be viewed [here](https://github.com/thatguy1104/MieMieDjango-Web-App.git).
 

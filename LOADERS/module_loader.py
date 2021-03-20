@@ -64,9 +64,9 @@ class ModuleLoader(Loader):
             client = pymongo.MongoClient(self.host, ssl_cert_reqs=ssl.CERT_NONE)
             db = client.Scopus
             col = db.ModulePrediction
-            data = col.find(batch_size=10)
+            data = col.find()
             client.close()
-
+            
         return data
 
     def load_string_matches_results(self):
