@@ -1,0 +1,697 @@
+{
+    "ok": true,
+    "departments": [
+        {
+            "department_id": "ISDAS_ADM",
+            "name": "Application Services, ISD"
+        },
+        {
+            "department_id": "ISDSS_ADM",
+            "name": "IT for Support Services, ISD"
+        },
+        {
+            "department_id": "QSION_BRN",
+            "name": "UCL Queen Square Institute of Neurology"
+        },
+        {
+            "department_id": "CHEMS_MAP",
+            "name": "Chemistry"
+        },
+        {
+            "department_id": "CENGN_ENG",
+            "name": "Chemical Engineering"
+        },
+        {
+            "department_id": "HRSDV_ADM",
+            "name": "Human Resources Division"
+        },
+        {
+            "department_id": "BENVF_FAC",
+            "name": "Faculty of the Built Environment"
+        },
+        {
+            "department_id": "SECUR_ENG",
+            "name": "Security and Crime Science"
+        },
+        {
+            "department_id": "DEANS_ADM",
+            "name": "Dean of Students' office"
+        },
+        {
+            "department_id": "ISDCP_ADM",
+            "name": "Change & Project Delivery Services, ISD"
+        },
+        {
+            "department_id": "INFST_ART",
+            "name": "Information Studies"
+        },
+        {
+            "department_id": "EUSPS_ART",
+            "name": "European Social and Political Studies"
+        },
+        {
+            "department_id": "REGST_ADM",
+            "name": "Registry and Academic Services"
+        },
+        {
+            "department_id": "BENGN_ENG",
+            "name": "Biochemical Engineering"
+        },
+        {
+            "department_id": "FINRA_ADM",
+            "name": "Finance Division, Research Administration"
+        },
+        {
+            "department_id": "FINPM_ADM",
+            "name": "Finance Division, Planning and Management Accounts"
+        },
+        {
+            "department_id": "CIVLG_ENG",
+            "name": "Civil, Environmental and Geomatic Engineering"
+        },
+        {
+            "department_id": "CORPC_ADM",
+            "name": "Corporate Communications"
+        },
+        {
+            "department_id": "LIBRY_ADM",
+            "name": "Library Services"
+        },
+        {
+            "department_id": "GATSB_LIF",
+            "name": "Gatsby Computational Neuroscience Unit"
+        },
+        {
+            "department_id": "MAPSF_FAC",
+            "name": "Faculty of Mathematical and Physical Sciences"
+        },
+        {
+            "department_id": "MAPFO_MAP",
+            "name": "Mathematical and Physical Sciences Faculty Office"
+        },
+        {
+            "department_id": "HEBRW_ART",
+            "name": "Hebrew and Jewish Studies"
+        },
+        {
+            "department_id": "SCITS_MAP",
+            "name": "Science and Technology Studies"
+        },
+        {
+            "department_id": "PHYSA_MAP",
+            "name": "Physics and Astronomy"
+        },
+        {
+            "department_id": "STATS_MAP",
+            "name": "Statistical Science"
+        },
+        {
+            "department_id": "LAWSD_LAW",
+            "name": "Laws"
+        },
+        {
+            "department_id": "ELECN_ENG",
+            "name": "Electronic and Electrical Engineering"
+        },
+        {
+            "department_id": "ISDMS_ADM",
+            "name": "Management Systems, ISD"
+        },
+        {
+            "department_id": "COMPS_ENG",
+            "name": "Computer Science"
+        },
+        {
+            "department_id": "SPACE_MAP",
+            "name": "Space and Climate Physics"
+        },
+        {
+            "department_id": "MECHN_ENG",
+            "name": "Mechanical Engineering"
+        },
+        {
+            "department_id": "STDNT_UCL",
+            "name": "All UCL Students"
+        },
+        {
+            "department_id": "ICOLL_NFA",
+            "name": "Intercollegiate Course"
+        },
+        {
+            "department_id": "PROVO_ADM",
+            "name": "Provost & President' Office"
+        },
+        {
+            "department_id": "ARTSF_FAC",
+            "name": "Faculty of Arts and Humanities"
+        },
+        {
+            "department_id": "SHSCF_FAC",
+            "name": "Faculty of Social and Historical Sciences"
+        },
+        {
+            "department_id": "POLSC_SHS",
+            "name": "Political Science"
+        },
+        {
+            "department_id": "ISDDV_ADM",
+            "name": "Information Services Division"
+        },
+        {
+            "department_id": "ISDIS_ADM",
+            "name": "Information Systems, ISD"
+        },
+        {
+            "department_id": "CASAN_BEN",
+            "name": "Centre for Advanced Spatial Analysis"
+        },
+        {
+            "department_id": "ENGSC_ENG",
+            "name": "Faculty of Engineering Sciences"
+        },
+        {
+            "department_id": "ARTFO_ART",
+            "name": "Arts and Humanities Faculty Office"
+        },
+        {
+            "department_id": "STUNI_NFA",
+            "name": "UCL Students' Union (Sabbatical Officers)"
+        },
+        {
+            "department_id": "AMERC_SHS",
+            "name": "Institute of the Americas"
+        },
+        {
+            "department_id": "DEVAR_ADM",
+            "name": "Development and Alumni Relations"
+        },
+        {
+            "department_id": "EPIHC_PHS",
+            "name": "Institute of Epidemiology and Health Care"
+        },
+        {
+            "department_id": "CANCR_MDS",
+            "name": "Cancer Institute"
+        },
+        {
+            "department_id": "EASTD_MDS",
+            "name": "Eastman Dental Institute"
+        },
+        {
+            "department_id": "INFEC_MDS",
+            "name": "Division of Infection and Immunity"
+        },
+        {
+            "department_id": "MEDCN_MDS",
+            "name": "Division of Medicine"
+        },
+        {
+            "department_id": "SURGS_MDS",
+            "name": "Division of Surgery and Interventional Science"
+        },
+        {
+            "department_id": "UCLMS_MDS",
+            "name": "UCL Medical School"
+        },
+        {
+            "department_id": "MDSCI_MDS",
+            "name": "Faculty of Medical Sciences"
+        },
+        {
+            "department_id": "BRSCI_BRN",
+            "name": "Faculty of Brain Sciences"
+        },
+        {
+            "department_id": "PHSCI_PHS",
+            "name": "Faculty of Population Health Sciences"
+        },
+        {
+            "department_id": "PSYLA_BRN",
+            "name": "Division of Psychology and Language Sciences"
+        },
+        {
+            "department_id": "EARIN_BRN",
+            "name": "Ear Institute"
+        },
+        {
+            "department_id": "NEURO_BRN",
+            "name": "Institute of Neurology"
+        },
+        {
+            "department_id": "WOMEN_PHS",
+            "name": "Institute for Women's Health"
+        },
+        {
+            "department_id": "OPHTH_BRN",
+            "name": "Institute of Ophthalmology"
+        },
+        {
+            "department_id": "CARDI_PHS",
+            "name": "Institute of Cardiovascular Science"
+        },
+        {
+            "department_id": "SLMSR_ADM",
+            "name": "School of Life and Medical Sciences Research Support Centre"
+        },
+        {
+            "department_id": "PHMCY_LIF",
+            "name": "School of Pharmacy"
+        },
+        {
+            "department_id": "ISDRS_ADM",
+            "name": "Research IT Services, ISD"
+        },
+        {
+            "department_id": "GLOBH_PHS",
+            "name": "Institute for Global Health"
+        },
+        {
+            "department_id": "BASCO_ART",
+            "name": "Arts and Sciences BASc"
+        },
+        {
+            "department_id": "SWNCB_LIF",
+            "name": "Sainsbury Wellcome Centre for Neural Circuits and Behaviour"
+        },
+        {
+            "department_id": "BMSCF_FAC",
+            "name": "Faculty of Biomedical Sciences"
+        },
+        {
+            "department_id": "HEINF_PHS",
+            "name": "Institute of Health Informatics"
+        },
+        {
+            "department_id": "MPHBE_ENG",
+            "name": "Medical Physics and Biomedical Engineering"
+        },
+        {
+            "department_id": "BSCPM_BEN",
+            "name": "Bartlett School of Construction and Project Management"
+        },
+        {
+            "department_id": "XXXX",
+            "name": "Unknown"
+        },
+        {
+            "department_id": "PRION_BRN",
+            "name": "Institute of Prion Diseases"
+        },
+        {
+            "department_id": "ICCAM_NFA",
+            "name": "Cambridge"
+        },
+        {
+            "department_id": "EISPS_ART",
+            "name": "European and International Social and Political Studies"
+        },
+        {
+            "department_id": "LIFEF_FAC",
+            "name": "Faculty of Life Sciences"
+        },
+        {
+            "department_id": "MUSCO_ADM",
+            "name": "Museums and Collections"
+        },
+        {
+            "department_id": "BSIPP_BEN",
+            "name": "Institute for Innovation and Public Purpose"
+        },
+        {
+            "department_id": "SASUOL_NFA",
+            "name": "School of Advanced Study"
+        },
+        {
+            "department_id": "LANIE_ART",
+            "name": "Centre for Languages and International Education"
+        },
+        {
+            "department_id": "UCL-Q_INT",
+            "name": "UCL Qatar"
+        },
+        {
+            "department_id": "FINDV_ADM",
+            "name": "Finance Division"
+        },
+        {
+            "department_id": "SHSFO_SHS",
+            "name": "Social and Historical Sciences Faculty Office"
+        },
+        {
+            "department_id": "ESTPP_ADM",
+            "name": "Property Management and Capital Projects, EFD"
+        },
+        {
+            "department_id": "ESTDV_ADM",
+            "name": "Estates and Facilities Division"
+        },
+        {
+            "department_id": "ESTAD_ADM",
+            "name": "Estates Administration, EFD"
+        },
+        {
+            "department_id": "STUNI_ADM",
+            "name": "UCL Students' Union"
+        },
+        {
+            "department_id": "ESTPM_ADM",
+            "name": "Property Maintenance and FM, EFD"
+        },
+        {
+            "department_id": "ESTPS_ADM",
+            "name": "Procurement Services, EFD"
+        },
+        {
+            "department_id": "ESTSA_ADM",
+            "name": "Security and Access Systems, EFD"
+        },
+        {
+            "department_id": "ESTSS_ADM",
+            "name": "Safety Services, EFD"
+        },
+        {
+            "department_id": "BSPLN_BEN",
+            "name": "Bartlett School of Planning"
+        },
+        {
+            "department_id": "RM_CLOSED",
+            "name": "Room Closed"
+        },
+        {
+            "department_id": "SELCS_ART",
+            "name": "School of European Languages, Culture and Society"
+        },
+        {
+            "department_id": "ISDLT_ADM",
+            "name": "Learning Teaching & Media Services, ISD"
+        },
+        {
+            "department_id": "BIOSC_LIF",
+            "name": "Division of Biosciences"
+        },
+        {
+            "department_id": "LMCBL_LIF",
+            "name": "Laboratory for Molecular Cell Biology"
+        },
+        {
+            "department_id": "LIFES_LIF",
+            "name": "Faculty of Life Sciences"
+        },
+        {
+            "department_id": "DEVPU_BEN",
+            "name": "Development Planning Unit"
+        },
+        {
+            "department_id": "ISDME_ADM",
+            "name": "Media Services, ISD"
+        },
+        {
+            "department_id": "EXWH",
+            "name": "Whittington Hospital NHS Trust"
+        },
+        {
+            "department_id": "ZZZZ",
+            "name": "Read Room Event Shares"
+        },
+        {
+            "department_id": "SSERS_ART",
+            "name": "SSEES - Russian"
+        },
+        {
+            "department_id": "SSEES_SES",
+            "name": "SSEES - School of Slavonic and East European Studies"
+        },
+        {
+            "department_id": "SSEEL_ART",
+            "name": "SSEES - East European Languages and Culture"
+        },
+        {
+            "department_id": "SSEHI_SHS",
+            "name": "SSEES - History"
+        },
+        {
+            "department_id": "SSESS_SHS",
+            "name": "SSEES - Social Sciences"
+        },
+        {
+            "department_id": "NATSC_MAP",
+            "name": "Natural Sciences"
+        },
+        {
+            "department_id": "ICIED_NFA",
+            "name": "Institute of Education"
+        },
+        {
+            "department_id": "ICIHR_NFA",
+            "name": "Institute of Historical Research"
+        },
+        {
+            "department_id": "EARTH_MAP",
+            "name": "Earth Sciences"
+        },
+        {
+            "department_id": "MATHS_MAP",
+            "name": "Mathematics"
+        },
+        {
+            "department_id": "ICWRB_NFA",
+            "name": "Warburg Institute"
+        },
+        {
+            "department_id": "ICBRK_NFA",
+            "name": "Birkbeck"
+        },
+        {
+            "department_id": "ICIMP_NFA",
+            "name": "Imperial College"
+        },
+        {
+            "department_id": "ICKCL_NFA",
+            "name": "Kings College"
+        },
+        {
+            "department_id": "ICLSE_NFA",
+            "name": "London School of Economics"
+        },
+        {
+            "department_id": "ICQMY_NFA",
+            "name": "Queen Mary"
+        },
+        {
+            "department_id": "CALTG_SHS",
+            "name": "Centre for the Advancement of Learning and Teaching"
+        },
+        {
+            "department_id": "ICSOA_NFA",
+            "name": "SOAS"
+        },
+        {
+            "department_id": "ICHTM_NFA",
+            "name": "London School of Hygiene and Tropical Medicine"
+        },
+        {
+            "department_id": "ANTHR_SHS",
+            "name": "Anthropology"
+        },
+        {
+            "department_id": "BSARC_BEN",
+            "name": "Bartlett School of Architecture"
+        },
+        {
+            "department_id": "ENGLS_ART",
+            "name": "English Language and Literature"
+        },
+        {
+            "department_id": "SLADE_ART",
+            "name": "Slade School of Fine Art"
+        },
+        {
+            "department_id": "GEOGR_SHS",
+            "name": "Geography"
+        },
+        {
+            "department_id": "GRKLT_ART",
+            "name": "Greek and Latin"
+        },
+        {
+            "department_id": "HISTR_SHS",
+            "name": "History"
+        },
+        {
+            "department_id": "HARTD_SHS",
+            "name": "History of Art"
+        },
+        {
+            "department_id": "PHILO_ART",
+            "name": "Philosophy"
+        },
+        {
+            "department_id": "ARCLG_SHS",
+            "name": "Institute of Archaeology"
+        },
+        {
+            "department_id": "ECONS_SHS",
+            "name": "Economics"
+        },
+        {
+            "department_id": "SOCRI_IOE",
+            "name": "Social Research Institute"
+        },
+        {
+            "department_id": "ICICS_NFA",
+            "name": "Institute of Commonwealth Studies"
+        },
+        {
+            "department_id": "ICCRT_NFA",
+            "name": "Courtauld Institute"
+        },
+        {
+            "department_id": "ICRHU_NFA",
+            "name": "Royal Holloway"
+        },
+        {
+            "department_id": "ICHEY_NFA",
+            "name": "Heythrop College"
+        },
+        {
+            "department_id": "ICGLD_NFA",
+            "name": "Goldsmiths College"
+        },
+        {
+            "department_id": "ICJEW_NFA",
+            "name": "London School of Jewish Studies"
+        },
+        {
+            "department_id": "ICLBS_NFA",
+            "name": "London Business School"
+        },
+        {
+            "department_id": "ICSTG_NFA",
+            "name": "St Georges"
+        },
+        {
+            "department_id": "ACADS_ADM",
+            "name": "Academic Services"
+        },
+        {
+            "department_id": "UCLEX_ADM",
+            "name": "External Affiliated Organisations"
+        },
+        {
+            "department_id": "STARS_ADM",
+            "name": "Student and Registry Services"
+        },
+        {
+            "department_id": "LANIE_IOE",
+            "name": "Centre for Languages and International Education"
+        },
+        {
+            "department_id": "STEPP_ENG",
+            "name": "Science, Technology, Engineering and Public Policy"
+        },
+        {
+            "department_id": "ICMDX_NFA",
+            "name": "Middlesex University"
+        },
+        {
+            "department_id": "PSYAT_BRN",
+            "name": "Division of Psychiatry"
+        },
+        {
+            "department_id": "BSEER_BEN",
+            "name": "Bartlett School of Environment, Energy and Resources"
+        },
+        {
+            "department_id": "LEARN_IOE",
+            "name": "Learning and Leadership"
+        },
+        {
+            "department_id": "SOCSC_IOE",
+            "name": "Social Science"
+        },
+        {
+            "department_id": "EDPAS_IOE",
+            "name": "Education, Practice and Society"
+        },
+        {
+            "department_id": "MANAG_ENG",
+            "name": "UCL School of Management"
+        },
+        {
+            "department_id": "DEVOF_ADM",
+            "name": "Development and Corporate Communications Office"
+        },
+        {
+            "department_id": "GOSCH_PHS",
+            "name": "UCL GOS Institute of Child Health"
+        },
+        {
+            "department_id": "ADVAN_ADM",
+            "name": "UCL Advances"
+        },
+        {
+            "department_id": "MUDIC_ART",
+            "name": "Centre for Multidisciplinary and Intercultural Inquiry"
+        },
+        {
+            "department_id": "IOCTM_PHS",
+            "name": "Institute of Clinical Trials and Methodology"
+        },
+        {
+            "department_id": "UCLAU_ENG",
+            "name": "UCL Australia"
+        },
+        {
+            "department_id": "CULCM_IOE",
+            "name": "Culture, Communication and Media"
+        },
+        {
+            "department_id": "CURPA_IOE",
+            "name": "Curriculum, Pedagogy and Assessment"
+        },
+        {
+            "department_id": "PSYHD_IOE",
+            "name": "Psychology and Human Development"
+        },
+        {
+            "department_id": "EDUCA_IOE",
+            "name": "UCL Institute of Education"
+        },
+        {
+            "department_id": "BSIGP_BEN",
+            "name": "Institute for Global Prosperity"
+        },
+        {
+            "department_id": "BSIDI_BEN",
+            "name": "Institute for Digital Innovation in the Built Environment"
+        },
+        {
+            "department_id": "BSREI_BEN",
+            "name": "Bartlett Real Estate Institute"
+        },
+        {
+            "department_id": "CMPLX_ENG",
+            "name": "Centre for Mathematics, Physics and Engineering in the Life Sciences and Experimental Biology"
+        },
+        {
+            "department_id": "EGAWH_PHS",
+            "name": "UCL Elizabeth Garrett Anderson Institute for Women\u2019s Health"
+        },
+        {
+            "department_id": "ICLAS_NFA",
+            "name": "Institute of Classical studies"
+        },
+        {
+            "department_id": "RADRE_MAP",
+            "name": "Institute for Risk and Disaster Reduction"
+        },
+        {
+            "department_id": "ICSAS_NFA",
+            "name": "School of Advanced Study"
+        },
+        {
+            "department_id": "MAPSC_MAP",
+            "name": "Faculty of Mathematical and Physical Sciences"
+        }
+    ]
+}
