@@ -1,5 +1,6 @@
 import time, datetime
 import pandas as pd
+import numpy as np
 
 from NLP.SVM.svm import Svm
 
@@ -21,10 +22,13 @@ class SdgSvm(Svm):
         """
             Predicts SDG from a list of preprocessed text.
         """
-        y_pred = self.sgd.predict(X)
-        for i in range(len(y_pred)):
-            if i % 10 == 0:
-                print('{}: SDG {}'.format(self.data['ID'], y_pred[i]))
+        indices = list(X.index)
+        y_pred = self.sgd_pipeline.predict(X)
+        for c, i in enumerate(indices):
+            if c % 100 == 0:
+                name = self.data.at[i, 'ID']
+                prediction = y_pred[c]
+                print('{}: SDG {}'.format(name, prediction))
 
     def run(self):
         """

@@ -61,14 +61,14 @@ class Svm():
             Trains the SVM model using stochastic gradient descent.
         """
         X = self.data['Description'].apply(self.tokenizer) # preprocess description.
-        y = self.data.iloc[:,0].astype('int') # form tag labels.
+        y = self.data.iloc[:,2].astype('int') # form tag labels.
 
         # Partition the dataset into 70% training set and 30% test set.
         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
 
         # Fit model with stochastic gradient descent.
-        self.sgd.fit(X_train, y_train)
-
+        self.sgd_pipeline.fit(X_train, y_train)
+        
         return X_train, X_test, y_train, y_test
 
     def predict(self, X):
@@ -82,7 +82,7 @@ class Svm():
             Prints the accuracy of the model on the test set, confusion matrix to evaluate the accuracy of classifications and builds 
             a report to demonstrate the main classification metrics.
         """
-        y_pred = self.sgd.predict(X_test)
+        y_pred = self.sgd_pipeline.predict(X_test)
         print('accuracy %s' % accuracy_score(y_pred, y_test))
         
         cm = confusion_matrix(y_test, y_pred)
