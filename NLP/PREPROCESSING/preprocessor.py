@@ -52,6 +52,14 @@ class Preprocessor():
         tokens = [self.lemmatize(token) for token in tokens]
         return tokens
 
+    def preprocess(self, text: str) -> str:
+        """
+            Helper function for preprocessing text by tokenizing and removing stopwords.
+        """
+        tokens = self.tokenize(text)
+        tokens = [token for token in tokens if token not in self.stopwords]
+        return " ".join(tokens)
+
     def preprocess_keyword(self, keyword: str):
         return ' '.join(self.tokenize(keyword))
 

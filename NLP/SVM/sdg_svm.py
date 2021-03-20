@@ -12,24 +12,24 @@ class SdgSvm(Svm):
     def __init__(self):
         super().__init__()
 
-    def write_results(self, results):
+    def write_results(self, results_file: str):
         """
             
         """
         return None
 
-    def predict(self, X):
+    def predict(self):
         """
-            Predicts SDG from a list of preprocessed text.
+            Predicts SDG from the preprocessed description text of the dataset.
         """
-        indices = list(X.index)
-        y_pred = self.sgd_pipeline.predict(X)
-        for c, i in enumerate(indices):
-            if c % 100 == 0:
-                name = self.data.at[i, 'ID']
-                prediction = y_pred[c]
-                print('{}: SDG {}'.format(name, prediction))
-    
+        X_description = self.dataset['Description'] # includes modules and publications that may contain a None tag.
+        X_id = self.dataset['ID']
+
+        y_pred = self.sgd_pipeline.predict(X_description)
+        for i in range(len(y_pred)):
+            if i % 50 == 0:
+                print('{}: SDG {}'.format(X_id[i], y_pred[i]))
+
     def run(self):
         """
             Trains the SVM model for clasifying SDGs using stochastic gradient descent.
@@ -53,11 +53,8 @@ class SdgSvm(Svm):
         print("Prediction report...")
         self.prediction_report(X_test, y_test)
 
-        print("Predicting training set...")
-        self.predict(X_train)
-
-        print("Predicting test set...")
-        self.predict(X_test)
+        print("Predicting dataset")
+        self.predict()
 
         print("Saving results...")
         self.write_results(results)

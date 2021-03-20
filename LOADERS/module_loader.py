@@ -65,8 +65,9 @@ class ModuleLoader(Loader):
             db = client.Scopus
             col = db.ModulePrediction
             data = col.find()
+            data = json.loads(json_util.dumps(data)) # process mongodb response to a workable dictionary format.
             client.close()
-            
+        
         return data
 
     def load_string_matches_results(self):

@@ -32,12 +32,11 @@ class ValidateLDA():
         results = {} # dictionary with DOI and SDG weights.
 
         for doi in data:
-            doi = json.loads(json_util.dumps(doi)) # process mongodb response to a workable dictionary format.
             del doi['_id']
-            weights = [0] * num_of_sdgs
+            weights = [0] * self.num_of_sdgs
             sdg_predictions = doi
             
-            for i in range(num_of_sdgs):
+            for i in range(self.num_of_sdgs):
                 sdg = str(i + 1)
                 try:
                     w = float(sdg_predictions[sdg])
@@ -59,11 +58,11 @@ class ValidateLDA():
             doi = json.loads(json_util.dumps(doi)) # process mongodb response to a workable dictionary format.
             del doi['_id']
             sdg_dict = doi['Related_SDG']
-            counts = [0] * num_of_sdgs
+            counts = [0] * self.num_of_sdgs
 
             for sdg, word_found_dict in sdg_dict.items():
                 sdg_match = re.search(r'\d(\d)?', sdg)
-                sdg_num = int(sdg_match.group()) if sdg_match is not None else num_of_sdgs
+                sdg_num = int(sdg_match.group()) if sdg_match is not None else self.num_of_sdgs
                 count = len(word_found_dict['Word_Found'])
                 counts[sdg_num - 1] = count
             
@@ -85,7 +84,7 @@ class ValidateLDA():
 
             for module_id in docTopics:
                 weights_tuples = docTopics[module_id]
-                weights = [0] * num_of_sdgs
+                weights = [0] * self.num_of_sdgs
 
                 for i in range(len(weights_tuples)):
                     weights_tuples[i] = weights_tuples[i].replace('(', '').replace(')', '').replace('%', '').replace(' ', '').split(',')
@@ -109,11 +108,11 @@ class ValidateLDA():
             module = json.loads(json_util.dumps(module)) # process mongodb response to a workable dictionary format.
             del module['_id']
             sdg_dict = module['Related_SDG']
-            counts = [0] * num_of_sdgs
+            counts = [0] * self.num_of_sdgs
 
             for sdg, word_found_dict in sdg_dict.items():
                 sdg_match = re.search(r'\d(\d)?', sdg)
-                sdg_num = int(sdg_match.group()) if sdg_match is not None else num_of_sdgs
+                sdg_num = int(sdg_match.group()) if sdg_match is not None else self.num_of_sdgs
                 count = len(word_found_dict['Word_Found'])
                 counts[sdg_num - 1] = count
             
@@ -145,7 +144,7 @@ class ValidateLDA():
             original_counts = count_data[key]
             counts = original_counts.copy()
             
-            for i in range(num_of_sdgs):
+            for i in range(self.num_of_sdgs):
                 if counts[i] == 0:
                     counts[i] = e
             counts_sum_inv = 1.0 / sum(counts)

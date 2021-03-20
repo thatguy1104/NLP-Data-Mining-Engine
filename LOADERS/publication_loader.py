@@ -74,9 +74,8 @@ class PublicationLoader(Loader):
             db = client.Scopus
             col = db.PublicationPrediction
             data = col.find(batch_size=10)
+            data = json.loads(json_util.dumps(data)) # process mongodb response to a workable dictionary format. 
             client.close()
-
-            
             
         return data
 
