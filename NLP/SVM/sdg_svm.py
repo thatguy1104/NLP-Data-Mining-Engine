@@ -29,7 +29,7 @@ class SdgSvm(Svm):
                 name = self.data.at[i, 'ID']
                 prediction = y_pred[c]
                 print('{}: SDG {}'.format(name, prediction))
-
+    
     def run(self):
         """
             Trains the SVM model for clasifying SDGs using stochastic gradient descent.

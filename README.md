@@ -18,8 +18,8 @@ The website gives a greater overview of the challenges and design decisions that
 * Kareem Kermad - kareem.kermad.19@ucl.ac.uk
 * Varun Wignarajah - varun.wignarajah.19@ucl.ac.uk
 ## Viewing the Data Interface
-Data scraped and processed with an LDA NLP model using this tool can be visualised through our engine [web application](https://miemiedjangoapp.azurewebsites.net) and its code can be viewed [here](https://github.com/thatguy1104/MieMieDjango-Web-App.git).
-
+* [Web Application](https://miemiedjangoapp.azurewebsites.net)
+* [Code](https://github.com/thatguy1104/MieMieDjango-Web-App.git)
 ## Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
@@ -61,32 +61,32 @@ Inside the function you will find the following 'managers':
 * nlp_manager(...)
 ```
 
-Each of the 'managers' is a call for a specific component within the engine. As parameters, each takes in a number of actions, which by default are all set to false:
+Each of the 'managers' is a call for a specific component within the engine. The following are default values that perform all major operations needed to update all the data.
 
 ```
 * keywords_merger_manager
     * sdg_keywords = False
 * loader_manager
-    * modules = False
-    * publications = False
+    * modules = True
+    * publications = True
 * module_manager
-    * initialise = False
+    * initialise = True
     * resetDB = False
     * scrape = False
-    * updateStudentCount = False
+    * updateStudentCount = True
 * scopus_manager
     * scrape = False
 * nlp_manager
-    * run_LDA_SDG = False
-    * run_LDA_IHE = False
+    * run_LDA_SDG = True
+    * run_LDA_IHE = True
     * run_GUIDED_LDA_SDG = False
     * run_GUIDED_LDA_IHE = False
-    * module_string_match = False
-    * scopus_string_match = False
-    * predict_scopus_data = False
-    * create_SVM_dataset = False
-    * run_SVM_SDG = False
-    * validate_model = False)
+    * module_string_match = True
+    * scopus_string_match = True
+    * predict_scopus_data = True
+    * create_SVM_dataset = True
+    * run_SVM_SDG = True
+    * validate_model = True
 ```
 The managers and their respective parameters are listed in chronological order. To run a single or multiple actions, it is required to set that parameter to True
 
@@ -96,8 +96,10 @@ The managers and their respective parameters are listed in chronological order. 
 * [Scopus API](https://dev.elsevier.com/api_docs.html) - Source for UCL publication data
 * [UCL Module Catalogue](https://www.ucl.ac.uk/module-catalogue) - Source for UCL module data
 
-## NLP Algorithms Used
+## NLP & Machine Learning Algorithms Used
 * [Latent Dirichlet Allocation (LDA)](https://jmlr.org/papers/volume3/blei03a/blei03a.pdf) - unsupervised topic modelling algorithm used to classify text in a document to a topic
+* [GuidedLDA](https://guidedlda.readthedocs.io/en/latest/) - implements latent Dirichlet allocation (LDA) using collapsed Gibbs sampling
+* [Support Vector Machine (SVM)](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.SGDClassifier.html) -  SVM linear classifier with SGD (Stochastic Gradient Descent) training
 ## Versioning
 For the versions available, see the [tags on this repository](https://github.com/UCLComputerScienceCOMP0016_2020_21_Team16/tags). 
 ## License

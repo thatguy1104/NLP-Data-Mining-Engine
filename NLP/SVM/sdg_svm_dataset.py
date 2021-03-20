@@ -59,7 +59,7 @@ class SdgSvmDataset():
         results = pd.DataFrame(columns=['ID', 'Description', 'SDG']) # ID = Module_ID
         data = self.module_loader.load_prediction_results() # loads data from the ModulePrediction table in mongodb.
         data = json.loads(json_util.dumps(data))
-        del data['_id']
+        # del data['_id']
 
         doc_topics = data['Document Topics']
         num_modules = len(doc_topics)
@@ -100,12 +100,12 @@ class SdgSvmDataset():
         data = self.publication_loader.load_prediction_results() # loads data from the PublicationPrediction table in mongodb.
         data = json.loads(json_util.dumps(data))
 
-        num_publications = data.count()
+        num_publications = len(data)
         final_data = {}
         counter = 0
 
         for doi in data:
-            
+            print(doi)
             del doi['_id']
 
             self.__progress(counter, num_publications, "Forming Publications Dataset for SVM...")
@@ -119,7 +119,7 @@ class SdgSvmDataset():
                 except:
                     w = 0.0
                 weights[i] = w
-        
+            
             weights = np.asarray(weights)
             sdg_max = weights.argmax() + 1 # gets SDG corresponding to the maximum weight.
             sdg_weight_max = weights[sdg_max - 1] # gets the maximum weight.
@@ -145,7 +145,7 @@ class SdgSvmDataset():
         # if modules:
         #     df = df.append(self.tag_modules())
         if publications:
-            df = df.append(self.tag_publications())
+            df = df.append(self.tag_publications(), verify_integrity=True, ignore_index=True)
 
         # df.to_pickle(self.svm_dataset)
         print(df.head(100))
