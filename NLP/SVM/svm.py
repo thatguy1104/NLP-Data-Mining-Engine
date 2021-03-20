@@ -8,8 +8,6 @@ from sklearn.linear_model import SGDClassifier
 from sklearn.pipeline import Pipeline
 from sklearn.metrics import classification_report, accuracy_score, confusion_matrix
 
-from NLP.PREPROCESSING.preprocessor import Preprocessor
-
 class Svm():
     """
         The abstract class for using the SVM linear classifier with SGD (Stochastic Gradient Descent) training.
@@ -17,36 +15,28 @@ class Svm():
 
     def __init__(self):
         """
-            Initializes the preprocessor, svm dataset, tags and sgd pipeline.
+            Initializes the svm dataset, tags and sgd pipeline.
         """
-        self.preprocessor = Preprocessor()
-        self.data = None # dataframe with columns {ID, Description, Tag}.
+        self.dataset = None # dataframe with columns {ID, Description, Tag}.
         self.tags = None # all possible tags for a document.
         self.sgd_pipeline = self.create_sgd_pipeline()
 
     def load_dataset(self, dataset):
         """
-            Loads the svm dataset with columns {ID, Description, Tag}.
+            Load the svm dataset with columns {ID, Description, Tag}.
         """
-        df = pd.read_pickle(dataset)
-        df = df.dropna()
-        self.data = df
+        print("Loading dataset...")
+        self.dataset = pd.read_pickle(dataset)
 
     def load_tags(self, tags):
         """
-            Loads the possible tags for classifying a particular document.
+            Load the possible tags for classifying a particular document.
         """
         self.tags = tags
 
-    def tokenizer(self, text):
-        """
-            Helper function for tokenizing text.
-        """
-        return " ".join(self.preprocessor.tokenize(text))
-
     def create_sgd_pipeline(self):
         """
-            Creates the pipeline for performing the following steps: 
+            Creates a pipeline for performing the following steps: 
                 - vectorizing text for a document.
                 - transforming counts to a TF-IDF representation.
                 - SGD classifier for fitting a linear model with stochastic gradient descent.
@@ -60,10 +50,12 @@ class Svm():
         """
             Trains the SVM model using stochastic gradient descent.
         """
-        X = self.data['Description'].apply(self.tokenizer) # preprocess description.
-        y = self.data.iloc[:,2].astype('int') # form tag labels.
+        df = self.dataset.dropna() # remove documents from dataset which don't contain a tag.
 
-        # Partition the dataset into 70% training set and 30% test set.
+        X = df['Description']
+        y = df.iloc[:,2].astype('int') # form tag labels.
+
+        # Partition the dataset into 70% for the training set and 30% for the test set.
         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
         
         # Fit model with stochastic gradient descent.
@@ -71,9 +63,9 @@ class Svm():
         
         return X_train, X_test, y_train, y_test
 
-    def predict(self, X):
+    def predict(self):
         """
-            Predicts tag from a list of preprocessed text.
+            Predicts tag from the preprocessed description text of the dataset.
         """
         raise NotImplementedError
 
@@ -91,13 +83,13 @@ class Svm():
         my_tags = self.tags
         print(classification_report(y_test, y_pred, target_names=my_tags))
 
-    def write_results(self, corpus, num_top_words, results_file):
+    def write_results(self, results_file: str):
         """
             Serializes the prediction results as a JSON file and pushes the data to MongoDB.
         """
         raise NotImplementedError
 
-    def serialize(self, model_pkl_file):
+    def serialize(self, model_pkl_file: str):
         """
             Serializes the Svm model as a pickle file.
         """
