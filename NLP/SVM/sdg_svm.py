@@ -12,6 +12,9 @@ class SdgSvm(Svm):
         super().__init__()
 
     def write_results(self, results):
+        """
+            
+        """
         return None
 
     def predict(self, X):

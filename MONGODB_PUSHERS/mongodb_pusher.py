@@ -4,14 +4,12 @@ import ssl
 
 class MongoDbPusher():
     def __init__(self):
-        self.client = pymongo.MongoClient("mongodb+srv://admin:admin@cluster0.hw8fo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", ssl_cert_reqs=ssl.CERT_NONE)
-        self.db = self.client.Scopus
+        self.host = "mongodb+srv://admin:admin@cluster0.hw8fo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 
     def __progress(self, count: int, total: int, custom_text: str, suffix='') -> None:
         """
             Visualises progress for a process given a current count and a total count
         """
-
         bar_len = 60
         filled_len = int(round(bar_len * count / float(total)))
         percents = round(100.0 * count / float(total), 1)
@@ -24,49 +22,53 @@ class MongoDbPusher():
             Update IHE model prediction cluster
             MongoDB cluster - IHEPrediction
         """
-
-        col = self.db.IHEPrediction
+        client = pymongo.MongoClient(self.host, ssl_cert_reqs=ssl.CERT_NONE)
+        db = client.Scopus
+        col = db.IHEPrediction
         col.drop()
         key = value = data
         col.update_one(data, {"$set": value}, upsert=True)
-        self.client.close()
+        client.close()
 
     def module_prediction(self, data) -> None:
         """
             Update Module model prediction cluster 
             MongoDB cluster - ModulePrediction
         """
-
-        col = self.db.ModulePrediction
+        client = pymongo.MongoClient(self.host, ssl_cert_reqs=ssl.CERT_NONE)
+        db = client.Scopus
+        col = db.ModulePrediction
         col.drop()
         key = value = data
         col.update_one(data, {"$set": value}, upsert=True)
-        self.client.close()
+        client.close()
 
     def matched_modules(self, data: dict) -> None:
         """
             Update module string matching cluster
             MongoDB cluster - MatchedModules
         """
-
-        col = self.db.MatchedModules
+        client = pymongo.MongoClient(self.host, ssl_cert_reqs=ssl.CERT_NONE)
+        db = client.Scopus
+        col = db.MatchedModules
         col.drop()
         data_len = len(data)
         counter = 1
-        for i in data:
+        for key in data:
             self.progress(counter, data_len, "Uploading MatchedModules to MongoDB")
-            value = data[i]
-            col.update_one({"Module_ID": i}, {"$set": value}, upsert=True)
+            value = data[key]
+            col.update_one({"Module_ID": key}, {"$set": value}, upsert=True)
             counter += 1
-        self.client.close()
+        client.close()
 
     def matched_scopus(self, data: dict) -> None:
         """
             Update publication string matching cluster
             MongoDB cluster - MatchedScopus
         """
-
-        col = self.db.MatchedScopus
+        client = pymongo.MongoClient(self.host, ssl_cert_reqs=ssl.CERT_NONE)
+        db = client.Scopus
+        col = db.MatchedScopus
         col.drop()
         data_len = len(data)
         counter = 1
@@ -76,4 +78,28 @@ class MongoDbPusher():
             value = data[i]
             col.update_one({"DOI": key}, {"$set": value}, upsert=True)
             counter += 1
-        self.client.close()
+        client.close()
+
+    def module_validation(self, data):
+        """
+            Update module validation cluster
+            MongoDB cluster - ModuleValidation
+        """
+        client = pymongo.MongoClient(self.host, ssl_cert_reqs=ssl.CERT_NONE)
+        db = client.Scopus
+        col = db.ModuleValidation
+        key = value = data
+        col.update(key, value, upsert=True)
+        client.close()
+
+    def scopus_validation(self, data):
+        """
+            Update scopus validation cluster
+            MongoDB cluster - ScopusValidation
+        """
+        client = pymongo.MongoClient(self.host, ssl_cert_reqs=ssl.CERT_NONE)
+        db = client.Scopus
+        col = db.ScopusValidation
+        key = value = data
+        col.update(key, value, upsert=True)
+        client.close()
