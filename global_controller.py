@@ -90,6 +90,6 @@ def main() -> None:
     scopus_manager(scrape=False)
     nlp_manager(run_LDA_SDG=False, run_LDA_IHE=False, run_GUIDED_LDA_SDG=False, run_GUIDED_LDA_IHE=False, module_string_match=False,
                 scopus_string_match=False, predict_scopus_data=False, create_SVM_dataset=True, run_SVM_SDG=False, validate_model=False)
-    
+
 if __name__ == "__main__":
     main()
