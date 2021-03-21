@@ -80,7 +80,7 @@ class MongoDbPusher():
             counter += 1
         client.close()
 
-    def module_validation(self, data):
+    def module_validation(self, data) -> None:
         """
             Update module validation cluster
             MongoDB cluster - ModuleValidation
@@ -92,7 +92,7 @@ class MongoDbPusher():
         col.update(key, value, upsert=True)
         client.close()
 
-    def scopus_validation(self, data):
+    def scopus_validation(self, data) -> None:
         """
             Update scopus validation cluster
             MongoDB cluster - ScopusValidation
@@ -100,6 +100,18 @@ class MongoDbPusher():
         client = pymongo.MongoClient(self.host, ssl_cert_reqs=ssl.CERT_NONE)
         db = client.Scopus
         col = db.ScopusValidation
+        key = value = data
+        col.update(key, value, upsert=True)
+        client.close()
+
+    def svm_sdg_predictions(self, data) -> None:
+        """
+            Update SDG predictions using SVM on modules and publications. 
+            MongoDB cluster - SvmSdgPredictions
+        """
+        client = pymongo.MongoClient(self.host, ssl_cert_reqs=ssl.CERT_NONE)
+        db = client.Scopus
+        col = db.SvmSdgPredictions
         key = value = data
         col.update(key, value, upsert=True)
         client.close()
