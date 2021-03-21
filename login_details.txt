@@ -1,0 +1,34 @@
+Login Details
+
+MongoDB
+	- Account (Albert’s Account → NEEDS MIGRATION)
+
+Microsoft Azure
+	- Account (Varun’s Student Account → NEEDS MIGRATION)
+
+	- Django Superuser
+		- Username: admin
+		- Password: e_Paswrd?!
+	- PostgreSQL
+		- ENGINE:   django.db.backends.postgresql
+		- NAME:     django_db_miemie_ucl
+		- HOST:     miemiedjangoapp.postgres.database.azure.com
+		- PORT:     5432
+		- USER:     miemie_admin@miemiedjangoapp
+		- PASSWORD: e_Paswrd?!
+	- SQL Server
+		- Server:   miemie.database.windows.net
+		- Database: MainDB
+		- Username: miemie_login
+		- Password: e_Paswrd?!
+		- Driver:   {ODBC Driver 17 for SQL Server}
+
+API Keys
+	- Scopus API
+		- Key: 		    	8736fba47309840ce67b66b716e2b8a5
+		- Instructions:     https://pybliometrics.readthedocs.io/en/stable/configuration.html
+		- Elsevier: 	    https://dev.elsevier.com/apikey/manage
+		- Change Directory: ~/.scopus/config.ini (For changing the key)
+	- UCL API
+		- Token: 	    	uclapi-1e6c06cea59cf57-a6c4f5e96678dc2-4548665203179d6-765442292e213d7
+		- Instructions:     https://uclapi.com/docs/
