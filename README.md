@@ -98,8 +98,8 @@ Each of the 'managers' is a call for a specific component within the engine. The
 * nlp_manager
     * run_LDA_SDG = True
     * run_LDA_IHE = True
-    * run_GUIDED_LDA_SDG = False -- (AVOID using for now)
-    * run_GUIDED_LDA_IHE = False -- (AVOID using for now)
+    * run_GUIDED_LDA_SDG = False -- (AVOID using, LDA produces higher accuracy results)
+    * run_GUIDED_LDA_IHE = False -- (AVOID using, LDA produces higher accuracy results)
     * module_string_match = True
     * scopus_string_match = True
     * predict_scopus_data = True
