@@ -1,25 +1,44 @@
 # UCL5 MieMie
-UCL5 MieMie is an NLP and data mining web scraping engine to be used across UCL.
-
+UCL5 MieMie is an Natural Language Processing (NLP), data mining and web scraping engine to be used across UCL through research and teaching.
 
 ## Brief Introduction
-Scrape, map and generate classifiers with the intention of generating an overview of the extent of activity already taking place at University College London through teaching and ongoing research.
+Our goal is to scrape, map and generate classifiers with the intention of generating an overview of activity taking place currently at University College London through teaching and ongoing research. 
+
+The project goals are split into 3 sections:
+* Perform keyword searches on Scopus research publications of UCL academics and researchers.
+* Map UCL modules to UN SDGs (United Nations Sustainable Development Goals).
+* Map UCL researchers to IHE (Institute of Healthcare Engineering) subject areas and areas of expertise.
+
+## Solution
+The solution is to design, tune and implement NLP (Natural Language Processing) and machine learning algorithms to classify text for a given set of topics, each of which is categorised using an extensive set of keywords. The classification, training results and validation are then interfaced on a Django web-application which allows for interactivity via keyword searches, visual interpretation of the data, NLP and SVM model predictions.
+
+#### Keyword Search
+Our Django web application allows for performing keyword searches across UCL modules and research publications.
+
+#### Sustainable Development Goals 
+For mapping UCL modules to UN SDGs, we first compile an extensive set of keywords for 17 SDGs, including Misc (general set of keywords for all SDGs). We then use GuidedLDA (semi-supervised Latent Dirichlet Allocation using collapsed Gibbs sampling) as a first-step to learn a much larger and more representative sdg-keyword distribution and module-sdg distribution. The module-sdg distribution results are used to extract the most related SDGs for particular modules, which are then used as labels for training a more sophisticated, supervised machine learning algorithm in the form of a Support Vector Machine (SVM).
+
+#### Institute of Healthcare Engineering
+For mapping UCL research publications to IHE areas of expertise, we use the same methodology described for our SDG mapping. This was more of a proof of concept, with the end-goal for future development in populating a bubble chart to classify subject areas and areas of expertise as bubbles with area proportional to the number of researchers. What we did was map UCL research publications to a subset of engienering areas of expertise.
 
 ## Project Website
-The website gives a greater overview of the challenges and design decisions that were made, implementation using the Python programming language and research undertaken. http://www.albert-mukhametov.info/web3/
+The [website](http://www.albert-mukhametov.info/web3/) gives a greater overview of the challenges and design decisions that were made, implementation using the Python programming language and research undertaken.
 
 ## Meet Our Clients
 * Neel Desai - neel.desai.13@ucl.ac.uk
 * Marilyn Aviles - marilyn.aviles@ucl.ac.uk
 * Prof. Ann Blandford - ann.blandford@ucl.ac.uk
 * Dr. Simon Knowles - s.knowles@ucl.ac.uk
+
 ## Meet the Development Team
-* Albert Mukhametov - albert.mukhametov.19@ucl.ac.uk
 * Kareem Kermad - kareem.kermad.19@ucl.ac.uk
+* Albert Mukhametov - albert.mukhametov.19@ucl.ac.uk
 * Varun Wignarajah - varun.wignarajah.19@ucl.ac.uk
+
 ## Viewing the Data Interface
 * [Web Application](https://miemiedjangoapp.azurewebsites.net)
-* [Code](https://github.com/thatguy1104/MieMieDjango-Web-App.git)
+* [Source Code](https://github.com/thatguy1104/MieMieDjango-Web-App.git)
+
 ## Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
@@ -79,8 +98,8 @@ Each of the 'managers' is a call for a specific component within the engine. The
 * nlp_manager
     * run_LDA_SDG = True
     * run_LDA_IHE = True
-    * run_GUIDED_LDA_SDG = False
-    * run_GUIDED_LDA_IHE = False
+    * run_GUIDED_LDA_SDG = False -- (AVOID using, LDA produces higher accuracy results)
+    * run_GUIDED_LDA_IHE = False -- (AVOID using, LDA produces higher accuracy results)
     * module_string_match = True
     * scopus_string_match = True
     * predict_scopus_data = True
