@@ -5,6 +5,7 @@ import pickle
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer, TfidfTransformer
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import SGDClassifier
+from sklearn.calibration import CalibratedClassifierCV
 from sklearn.pipeline import Pipeline
 from sklearn.metrics import classification_report, accuracy_score, confusion_matrix
 
@@ -26,7 +27,9 @@ class Svm():
             Load the svm dataset with columns {ID, Description, Tag}.
         """
         print("Loading dataset...")
-        self.dataset = pd.read_pickle(dataset)
+        df = pd.read_csv(dataset, index_col=[0])
+        df = df.drop(['index'], axis=1)
+        self.dataset = df
 
     def load_tags(self, tags):
         """
@@ -42,8 +45,8 @@ class Svm():
                 - SGD classifier for fitting a linear model with stochastic gradient descent.
         """
         sgd_pipeline = Pipeline([('vect', CountVectorizer()), 
-                            ('tfidf', TfidfTransformer()), 
-                            ('clf', SGDClassifier(loss='hinge', penalty='l2',alpha=1e-3, random_state=42, max_iter=100, tol=None))])
+                                ('tfidf', TfidfTransformer()), 
+                                ('clf', CalibratedClassifierCV(base_estimator=SGDClassifier(loss='hinge', penalty='l2', alpha=1e-3, random_state=42, max_iter=100, tol=None)))])
         return sgd_pipeline
 
     def train(self):
@@ -51,7 +54,6 @@ class Svm():
             Trains the SVM model using stochastic gradient descent.
         """
         df = self.dataset.dropna() # remove documents from dataset which don't contain a tag.
-
         X = df['Description']
         y = df.iloc[:,2].astype('int') # form tag labels.
 
@@ -63,29 +65,29 @@ class Svm():
         
         return X_train, X_test, y_train, y_test
 
-    def predict(self):
-        """
-            Predicts tag from the preprocessed description text of the dataset.
-        """
-        raise NotImplementedError
-
     def prediction_report(self, X_test, y_test):
         """
-            Prints the accuracy of the model on the test set, confusion matrix to evaluate the accuracy of classifications and builds 
+            Returns the accuracy of the model on the test set, confusion matrix to evaluate the accuracy of classifications and builds 
             a report to demonstrate the main classification metrics.
         """
         y_pred = self.sgd_pipeline.predict(X_test)
-        print('accuracy %s' % accuracy_score(y_pred, y_test))
-        
-        cm = confusion_matrix(y_test, y_pred)
-        print(cm)
 
-        my_tags = self.tags
-        print(classification_report(y_test, y_pred, target_names=my_tags))
+        accuracy = accuracy_score(y_pred, y_test)
+        cm = confusion_matrix(y_test, y_pred)
+        classification_metrics = classification_report(y_test, y_pred, target_names=self.tags)
+
+        return accuracy, cm, classification_metrics
 
     def write_results(self, results_file: str):
         """
             Serializes the prediction results as a JSON file and pushes the data to MongoDB.
+        """
+        raise NotImplementedError
+
+    def print_predictions(self):
+        """
+            Predicts tag for each document description in the dataset, including those in the training set, test set
+            and those not in either (because the tag is None).
         """
         raise NotImplementedError
 
