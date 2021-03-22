@@ -9,10 +9,16 @@ from LOADERS.loader import Loader
 from bson import json_util
 
 class PublicationLoader(Loader):
+    """
+        The concrete loader class for loading publication data from serialized JSON files, if they exist, otherwise from MongoDB.
+    """
+
     def __init__(self):
-        self.host = "mongodb+srv://admin:admin@cluster0.hw8fo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+        """
+            Initializes publications data file and the file path for scopus string matching results.
+        """
+        super().__init__()
         self.data_file = "LOADERS/publications.pkl"
-        self.prediction_path = "NLP/LDA/SDG_RESULTS/prediction_results.json"
         self.string_matches_path = "NLP/STRING_MATCH/SDG_RESULTS/scopus_matches.json"
 
     def combine_text_fields(self, publication: dict) -> str:
@@ -62,12 +68,12 @@ class PublicationLoader(Loader):
     
         return df
 
-    def load_prediction_results(self):
+    def load_lda_prediction_results(self):
         """
-            Loads publication SDG predictions from a serialised file, if it exists, otherwise from MongoDB
+            Loads publication SDG predictions for LDA from a serialised json file, if it exists, otherwise from MongoDB.
         """
-        if os.path.exists(self.prediction_path):
-            with open(self.prediction_path) as json_file:
+        if os.path.exists(self.lda_prediction_path):
+            with open(self.lda_prediction_path) as json_file:
                 data = json.load(json_file)
         else:
             client = pymongo.MongoClient(self.host, ssl_cert_reqs=ssl.CERT_NONE)
@@ -81,7 +87,7 @@ class PublicationLoader(Loader):
 
     def load_string_matches_results(self):
         """
-            Loads publication SDG keyword string match results from serialised file, if it exists, otherwise from MongoDB
+            Loads publication SDG keyword string matching results from a serialised file, if it exists, otherwise from MongoDB.
         """
         if os.path.exists(self.string_matches_path):
             with open(self.string_matches_path) as json_file:

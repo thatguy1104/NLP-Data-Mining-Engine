@@ -66,7 +66,7 @@ class SdgSvmDataset():
             Returns a dataframe with columns {ID, Description, SDG} for each module, where SDG is a class tag for training the SVM.
         """
         results = pd.DataFrame(columns=['ID', 'Description', 'SDG']) # ID = Module_ID
-        data = self.module_loader.load_prediction_results() # loads data from the ModulePrediction table in mongodb.
+        data = self.module_loader.load_lda_prediction_results() # loads data from the ModulePrediction table in mongodb.
 
         doc_topics = data['Document Topics']
         num_modules = len(doc_topics)
@@ -110,7 +110,7 @@ class SdgSvmDataset():
             Returns a dataframe with columns {ID, Description, SDG} for each publication, where SDG is a class tag for training the SVM.
         """
         results = pd.DataFrame(columns=['ID', 'Description', 'SDG']) # ID = DOI
-        data = self.publication_loader.load_prediction_results() # loads data from the PublicationPrediction table in mongodb.
+        data = self.publication_loader.load_lda_prediction_results() # loads data from the PublicationPrediction table in mongodb.
 
         num_publications = len(data)
         final_data = {}

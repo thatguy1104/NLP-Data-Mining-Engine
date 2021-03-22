@@ -44,7 +44,7 @@ def scopus_manager(scrape: bool) -> None:
 
 def nlp_manager(run_LDA_SDG: bool, run_LDA_IHE: bool, run_GUIDED_LDA_SDG: bool, run_GUIDED_LDA_IHE: bool,
                 module_string_match: bool, scopus_string_match: bool, predict_scopus_data: bool,
-                create_SVM_dataset: bool, run_SVM_SDG: bool, validate_model: bool) -> None:
+                create_SVM_dataset: bool, run_SVM_SDG: bool, validate_sdg_svm: bool) -> None:
     """
         Manager for NLP
         Actions: 
@@ -53,7 +53,7 @@ def nlp_manager(run_LDA_SDG: bool, run_LDA_IHE: bool, run_GUIDED_LDA_SDG: bool, 
             String match - for modules & publications
             Prediction for publication data (SDG classification)
             SVM - initialise dataset, run it for SDG
-            Validate LDA model against string matched assignment (for modules & publicatoins)
+            Validate Svm model against SDG string matching assignment (for modules & publicatoins)
     """
 
     nlp_actions = NLP_SECTION()
@@ -75,8 +75,8 @@ def nlp_manager(run_LDA_SDG: bool, run_LDA_IHE: bool, run_GUIDED_LDA_SDG: bool, 
         nlp_actions.create_SDG_SVM_dataset(True, True)
     if run_SVM_SDG:
         nlp_actions.run_SVM_SDG()    
-    if validate_model:
-        nlp_actions.validate_LDA()
+    if validate_sdg_svm:
+        nlp_actions.validate_SDG_SVM()
 
 def main() -> None:
     """
@@ -89,7 +89,7 @@ def main() -> None:
     module_manager(initialise=False, resetDB=False, scrape=False, updateStudentCount=False)
     scopus_manager(scrape=False)
     nlp_manager(run_LDA_SDG=False, run_LDA_IHE=False, run_GUIDED_LDA_SDG=False, run_GUIDED_LDA_IHE=False, module_string_match=False,
-                scopus_string_match=False, predict_scopus_data=False, create_SVM_dataset=False, run_SVM_SDG=True, validate_model=False)
+                scopus_string_match=True, predict_scopus_data=False, create_SVM_dataset=False, run_SVM_SDG=False, validate_sdg_svm=True)
     
 if __name__ == "__main__":
     main()

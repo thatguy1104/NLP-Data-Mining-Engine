@@ -6,7 +6,7 @@ class MongoDbPusher():
     def __init__(self):
         self.host = "mongodb+srv://admin:admin@cluster0.hw8fo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 
-    def __progress(self, count: int, total: int, custom_text: str, suffix='') -> None:
+    def progress(self, count: int, total: int, custom_text: str, suffix='') -> None:
         """
             Visualises progress for a process given a current count and a total count
         """
