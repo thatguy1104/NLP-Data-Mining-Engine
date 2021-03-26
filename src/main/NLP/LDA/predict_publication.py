@@ -1,0 +1,91 @@
+import os, sys
+import json
+import pickle
+import pandas as pd
+import gensim
+import pymongo
+from bson import json_util
+from src.main.LOADERS.publication_loader import PublicationLoader
+
+
+client = pymongo.MongoClient("mongodb+srv://admin:admin@cluster0.hw8fo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+db = client.Scopus
+col = db.PublicationPrediction
+class ScopusPrediction():
+    
+    def __init__(self):
+        self.publiction_data = pd.DataFrame(columns=['DOI', 'Title', 'Description'])
+        self.model_name = "src/main/NLP/LDA/SDG_RESULTS/model.pkl"
+        self.loader = PublicationLoader()
+
+    def __progress(self, count, total, custom_text, suffix=''):
+        bar_len = 60
+        filled_len = int(round(bar_len * count / float(total)))
+        percents = round(100.0 * count / float(total), 1)
+        bar = '*' * filled_len + '-' * (bar_len - filled_len)
+        sys.stdout.write('[%s] %s%s %s %s\r' % (bar, percents, '%', custom_text, suffix))
+        sys.stdout.flush()
+
+    def __writeToDB_Scopus(self, data):
+        value = data
+        col.update_one({"DOI": data["DOI"]}, {"$set": value}, upsert=True)
+
+    def make_predictions(self, limit):
+        results = {}
+        counter = 1
+        papers = self.publiction_data.head(limit) if limit else self.publiction_data
+        num_papers = len(papers)
+
+        with open(self.model_name, 'rb') as f:
+            lda = pickle.load(f)
+            for i in range(num_papers):
+                self.__progress(counter, num_papers, "Predicting...")
+                description = papers['Description'][i]
+
+                X_predicted = lda.vectorizer.transform([description])
+                C_predicted = gensim.matutils.Sparse2Corpus(X_predicted, documents_columns=False)
+                topic_distribution = lda.model.get_document_topics(C_predicted)
+
+                td = [x for x in topic_distribution]
+                td = td[0]
+                results[papers['DOI'][i]] = {}
+                for topic, pr in td:
+                    results[papers['DOI'][i]]['Title'] = papers['Title'][i]
+                    results[papers['DOI'][i]]['DOI'] = papers['DOI'][i]
+                    results[papers['DOI'][i]][str(topic + 1)] = str(pr)
+                
+                self.__writeToDB_Scopus(results[papers['DOI'][i]])
+                counter += 1
+
+        print()
+        with open("src/main/NLP/LDA/SDG_RESULTS/scopus_prediction_results.json", "w") as f:
+            json.dump(results, f)
+        client.close()
+
+    def load_publications(self):
+        data = self.loader.load_all()
+        for i in data:
+            i = json.loads(json_util.dumps(i))
+            abstract = data[i]["Abstract"]
+            doi = data[i]["DOI"]
+            if abstract and doi:
+                title = data[i]["Title"]
+                author_keywords = data[i]['AuthorKeywords']
+                index_keywords = data[i]['IndexKeywords']
+                subject_areas = data[i]['SubjectAreas']
+
+                concat_data_fields = title + " " + abstract
+                if author_keywords:
+                    concat_data_fields += " " + " ".join(author_keywords)
+                if index_keywords:
+                    concat_data_fields += " " + " ".join(index_keywords)
+                if subject_areas:
+                    subject_name = [x[0] for x in subject_areas]
+                    concat_data_fields += " " + " ".join(subject_name)
+                
+                row_df = pd.DataFrame([[doi, title, concat_data_fields]], columns=self.publiction_data.columns)
+                self.publiction_data = self.publiction_data.append(row_df, verify_integrity=True, ignore_index=True)
+
+    def predict(self):
+        self.load_publications()
+        self.make_predictions(limit=None)

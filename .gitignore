@@ -2,4 +2,4 @@
 .idea
 *.pkl
 venv
-NLP/STRING_MATCH/SDG_RESULTS/*
+src/main/NLP/STRING_MATCH/SDG_RESULTS/*
