@@ -11,7 +11,7 @@ import pymongo
 from typing import Optional, Union
 
 # from App.models import Publication
-f = open("src/main/SCOPUS/log.txt", "a")
+
 client = pymongo.MongoClient("mongodb+srv://admin:admin@cluster0.hw8fo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
 db = client.Scopus
 
@@ -19,6 +19,7 @@ class GetScopusData():
 
     def __init__(self):
         self.__rps_data_file = "src/main/SCOPUS/GIVEN_DATA_FILES/cleaned_RPS_export_2015.csv"
+        self.f = open("src/main/SCOPUS/log.txt", "a")
 
     def __progress(self, count: int, total: int, custom_text: str, suffix='') -> None:
         """
@@ -48,7 +49,7 @@ class GetScopusData():
         try:
         	scopus = ok.AbstractRetrieval(scopusID, view='FULL')
         except Exception as e:
-            f.write(str(e) + "--> Error occured. " + scopusID + "\n")
+            self.f.write(str(e) + "--> Error occured. " + scopusID + "\n")
             valid = False
             return "invalid"
         
@@ -225,11 +226,11 @@ class GetScopusData():
                 data_dict = self.getInfo(i)
                 if data_dict != "invalid":
                     self.__progress(counter, l, "scraping Scopus publications")
-                    f.write("Written " + str(counter) + "/" + str(l) + " files " + "DOI: " + i + "\n")
+                    self.f.write("Written " + str(counter) + "/" + str(l) + " files " + "DOI: " + i + "\n")
                     reformatted_data = self.__formatData(data_dict)
                     self.__pushToMongoDB(reformatted_data)
                     counter += 1
         print()
-        f.write("\nDONE")
-        f.close()
+        self.f.write("\nDONE")
+        self.f.close()
         client.close()
