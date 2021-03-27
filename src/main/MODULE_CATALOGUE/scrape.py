@@ -12,8 +12,7 @@ from typing import Tuple, Optional
 
 class UCL_Module_Catalogue():
 
-    def __init__(self):
-
+    def __initialise_db_connection(self):
         # SERVER LOGIN DETAILS
         self.server = 'miemie.database.windows.net'
         self.database = 'MainDB'
@@ -22,7 +21,8 @@ class UCL_Module_Catalogue():
         self.driver = '{ODBC Driver 17 for SQL Server}'
 
         # CONNECT TO DATABASE
-        self.myConnection = pyodbc.connect('DRIVER=' + self.driver + ';SERVER=' + self.server + ';PORT=1433;DATABASE=' + self.database + ';UID=' + self.username + ';PWD=' + self.password)
+        return pyodbc.connect('DRIVER=' + self.driver + ';SERVER=' + self.server + ';PORT=1433;DATABASE=' + self.database + ';UID=' + self.username + ';PWD=' + self.password)
+        
     
     def __progress(self, count: int, total: int, custom_text: str, suffix='') -> None:
         """
@@ -40,12 +40,14 @@ class UCL_Module_Catalogue():
         """
             Check whether a record for a given module exists in <Module_ID> database table
         """
-
-        cur = self.myConnection.cursor()
+        myConnection = self.__initialise_db_connection()
+        cur = myConnection.cursor()
         cur.execute("SELECT * FROM ModuleData WHERE Module_ID = (?)", (primaryKey))
         data = cur.fetchall()
         if len(data) == 0:
+            myConnection.close()
             return False
+        myConnection.close()
         return True
 
     def __scrape_modules(self) -> None:
@@ -147,8 +149,8 @@ class UCL_Module_Catalogue():
             Push a single module data to <ModuleData> database table.
             Data has to retain integrity (10 elements in a tuple: str, str, str, str, str, int, str, str, str, timestamp)
         """
-
-        cur = self.myConnection.cursor()
+        myConnection = self.__initialise_db_connection()
+        cur = myConnection.cursor()
         if not all_data:
             print("Not written --> too many requests") # DO NOT WRITE IF LIST IS EMPTY DUE TO TOO MANY REQUESTS
         else:
@@ -156,7 +158,8 @@ class UCL_Module_Catalogue():
             insertion = "INSERT INTO ModuleData(Department_Name, Department_ID, Module_Name, Module_ID, Faculty, Credit_Value, Module_Lead, Catalogue_Link, Description, Last_Updated) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
             cur.executemany(insertion, all_data)
 
-        self.myConnection.commit()
+        myConnection.commit()
+        myConnection.close()
         
     def run(self) -> None:
         """
@@ -166,5 +169,3 @@ class UCL_Module_Catalogue():
 
         self.__scrape_modules()
         print("Successully written to table <ModuleData> (db: {0})".format(self.database))
-        
-        self.myConnection.close()

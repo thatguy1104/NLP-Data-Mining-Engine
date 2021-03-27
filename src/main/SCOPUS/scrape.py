@@ -38,7 +38,7 @@ class GetScopusData():
         """
         return pd.read_csv(self.__rps_data_file)[columns] if not limit else pd.read_csv(self.__rps_data_file)[columns].head(limit)
 
-    def __getInfo(self, scopusID: str) -> dict:
+    def getInfo(self, scopusID: str) -> dict:
         """
             Extracts publication data from Scopus API.
             Checks for data field existence, accumulates and returns the resulting dictionary.
@@ -222,7 +222,7 @@ class GetScopusData():
         counter = 1
         for i in data:
             if counter < 9000:
-                data_dict = self.__getInfo(i)
+                data_dict = self.getInfo(i)
                 if data_dict != "invalid":
                     self.__progress(counter, l, "scraping Scopus publications")
                     f.write("Written " + str(counter) + "/" + str(l) + " files " + "DOI: " + i + "\n")
