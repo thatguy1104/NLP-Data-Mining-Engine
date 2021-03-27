@@ -71,7 +71,7 @@ class UCL_Module_Catalogue():
                 catalogueLink = data[i]['Link']
 
                 if not self.__checkIfExists(moduleID):
-                    title, mod_id, fac, dep, cred_val, name_lead, description = self.__get_module_data(catalogueLink, moduleID)
+                    title, mod_id, fac, dep, cred_val, name_lead, description = self.get_module_data(catalogueLink, moduleID)
                     try:
                         cred_val = int(cred_val)
                     except:
@@ -83,7 +83,7 @@ class UCL_Module_Catalogue():
 
                 lim += 1
 
-    def __get_module_data(self, link: str, module_id: str) -> Optional[Tuple[str, str, str, str, str, str, str]]:
+    def get_module_data(self, link: str, module_id: str) -> Optional[Tuple[str, str, str, str, str, str, str]]:
         """
             Uses Beautiful soup to scrape data from module catalogue.
             Clean, process and organise data fields into appropriate data structure.

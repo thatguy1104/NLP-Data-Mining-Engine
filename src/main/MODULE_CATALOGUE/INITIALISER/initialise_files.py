@@ -6,7 +6,7 @@ class Initialiser():
 
     def __init__(self):
         self.__initial_link = "https://www.ucl.ac.uk/module-catalogue/modules/" # UCL Module catalogue link
-        self.__token = "uclapi-1e6c06cea59cf57-a6c4f5e96678dc2-4548665203179d6-765442292e213d7" # UCL API token
+        self.token = "uclapi-1e6c06cea59cf57-a6c4f5e96678dc2-4548665203179d6-765442292e213d7" # UCL API token
 
     def __init_Departments(self) -> None:
         """
@@ -14,7 +14,7 @@ class Initialiser():
             Populate <departments.json> files
         """
 
-        params = {"token": self.__token}
+        params = {"token": self.token}
         data = requests.get("https://uclapi.com/timetable/data/departments", params=params).json()
         with open('src/main/MODULE_CATALOGUE/INITIALISER/departments.json', 'w') as outfile:
             json.dump(data, outfile)
@@ -49,7 +49,7 @@ class Initialiser():
                 depID = data[i]['department_id'] # Construct a list for each department
                 depName = data[i]['name']
 
-                params = {"token": self.__token, "department": depID}
+                params = {"token": self.token, "department": depID}
                 resp = requests.get("https://uclapi.com/timetable/data/modules", params=params)
 
                 valid = True
