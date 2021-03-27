@@ -1,8 +1,8 @@
-from src.main.MANAGERS.keywords_merger_manager import KEYWORDS_MERGER_SECTION
-from src.main.MANAGERS.loader_manager import LOADER_SECTION
-from src.main.MANAGERS.module_manager import MODULE_SECTION
-from src.main.MANAGERS.scopus_manager import SCOPUS_SECTION
-from src.main.MANAGERS.nlp_manager import NLP_SECTION
+from main.MANAGERS.keywords_merger_manager import KEYWORDS_MERGER_SECTION
+from main.MANAGERS.loader_manager import LOADER_SECTION
+from main.MANAGERS.module_manager import MODULE_SECTION
+from main.MANAGERS.scopus_manager import SCOPUS_SECTION
+from main.MANAGERS.nlp_manager import NLP_SECTION
 
 def keywords_merger_manager(sdg_keywords: bool) -> None:
     keywords_merger_actions = KEYWORDS_MERGER_SECTION() 
@@ -80,8 +80,8 @@ def nlp_manager(run_LDA_SDG: bool, run_LDA_IHE: bool, run_GUIDED_LDA_SDG: bool, 
 
 def main() -> None:
     """
-        Controller for loader_manager, module_manager, scopus_manager, nlp_manager
-        Specify boolean (true / false) for an action to perform
+        Controller for keyword_merger_manager loader_manager, module_manager, scopus_manager, nlp_manager
+        Specify boolean (true / false) to perform specified action
     """
     
     keywords_merger_manager(sdg_keywords=False)
@@ -89,7 +89,7 @@ def main() -> None:
     module_manager(initialise=False, resetDB=False, scrape=False, updateStudentCount=False)
     scopus_manager(scrape=False)
     nlp_manager(run_LDA_SDG=False, run_LDA_IHE=False, run_GUIDED_LDA_SDG=False, run_GUIDED_LDA_IHE=False, module_string_match=False,
-                scopus_string_match=False, predict_scopus_data=False, create_SVM_dataset=False, run_SVM_SDG=False, validate_sdg_svm=True)
+                scopus_string_match=False, predict_scopus_data=False, create_SVM_dataset=False, run_SVM_SDG=False, validate_sdg_svm=False)
     
 if __name__ == "__main__":
     main()

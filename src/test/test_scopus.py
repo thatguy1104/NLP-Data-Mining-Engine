@@ -7,3 +7,11 @@ class ScopusTest(unittest.TestCase):
         test_obj = GetScopusData()
         result = test_obj.getInfo("non existent doi")
         self.assertEqual(result, "invalid", "Error expected")
+
+    def test_doi_retrieval(self):
+        test_obj = GetScopusData()
+        limit = 10
+        result = test_obj.getDOIs(["DOI"], limit)
+        self.assertEqual(len(result), limit, "Expects dataframe of equal size")
+
+        

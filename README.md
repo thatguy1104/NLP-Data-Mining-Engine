@@ -117,6 +117,11 @@ Each of the 'managers' is a call for a specific component within the engine. The
 ```
 The managers and their respective parameters are listed in chronological order. To run a single or multiple actions, it is required to set that parameter to True
 
+## Running Tests
+Ensure you are in the global project directory and run the following command to execute all unit tests:
+```
+python3 -m unittest discover src/test -p 'test_*.py'
+```
 
 ## Data Sources Scraped
 * [UCL API](https://uclapi.com/docs/) - UCL Department details

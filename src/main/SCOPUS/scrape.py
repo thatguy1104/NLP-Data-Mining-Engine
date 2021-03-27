@@ -32,7 +32,7 @@ class GetScopusData():
         sys.stdout.write('[%s] %s%s %s %s\r' % (bar, percents, '%', custom_text, suffix))
         sys.stdout.flush()
 
-    def __getDOIs(self, columns: list, limit: int = None) -> pd.DataFrame:
+    def getDOIs(self, columns: list, limit: int = None) -> pd.DataFrame:
         """
             Read RPS extract into a Pandas DataFrame
         """
@@ -129,7 +129,7 @@ class GetScopusData():
             Aids in optimisation by reduction of a number of API calls, preventing quota burnout.
         """
 
-        one_researcher = self.__getDOIs(["DOI"], limit)
+        one_researcher = self.getDOIs(["DOI"], limit)
         doi_list = list(one_researcher["DOI"])
         doi = set(doi_list)
         result = set()
