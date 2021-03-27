@@ -1,5 +1,6 @@
 *__pycache__
 .idea
+.vscode
 *.pkl
 venv
 src/main/NLP/STRING_MATCH/SDG_RESULTS/*
