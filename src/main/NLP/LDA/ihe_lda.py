@@ -4,10 +4,10 @@ import pymongo
 import numpy as np
 import ssl
 
-from src.main.NLP.LDA.LDA import Lda
-from src.main.NLP.PREPROCESSING.preprocessor import Preprocessor
-from src.main.LOADERS.publication_loader import PublicationLoader
-from src.main.MONGODB_PUSHERS.mongodb_pusher import MongoDbPusher
+from main.NLP.LDA.LDA import Lda
+from main.NLP.PREPROCESSING.preprocessor import Preprocessor
+from main.LOADERS.publication_loader import PublicationLoader
+from main.MONGODB_PUSHERS.mongodb_pusher import MongoDbPusher
 
 class IheLda(Lda):
     """

@@ -3,9 +3,9 @@ import json
 import pandas as pd
 import pymongo
 
-from src.main.LOADERS.publication_loader import PublicationLoader
-from src.main.MONGODB_PUSHERS.mongodb_pusher import MongoDbPusher
-from src.main.NLP.PREPROCESSING.preprocessor import Preprocessor
+from main.LOADERS.publication_loader import PublicationLoader
+from main.MONGODB_PUSHERS.mongodb_pusher import MongoDbPusher
+from main.NLP.PREPROCESSING.preprocessor import Preprocessor
 
 class ScopusStringMatch():
     

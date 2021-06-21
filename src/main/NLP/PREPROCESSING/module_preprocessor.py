@@ -4,7 +4,7 @@ from gensim.utils import simple_preprocess
 from nltk.stem import WordNetLemmatizer, SnowballStemmer
 from nltk.stem.porter import re
 
-from src.main.NLP.PREPROCESSING.preprocessor import Preprocessor
+from main.NLP.PREPROCESSING.preprocessor import Preprocessor
 
 class ModuleCataloguePreprocessor(Preprocessor):
     """

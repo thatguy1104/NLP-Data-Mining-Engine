@@ -6,10 +6,10 @@ import pymongo
 import enum
 from bson import json_util
 
-from src.main.LOADERS.loader import Loader
-from src.main.LOADERS.module_loader import ModuleLoader
-from src.main.LOADERS.publication_loader import PublicationLoader
-from src.main.MONGODB_PUSHERS.mongodb_pusher import MongoDbPusher
+from main.LOADERS.loader import Loader
+from main.LOADERS.module_loader import ModuleLoader
+from main.LOADERS.publication_loader import PublicationLoader
+from main.MONGODB_PUSHERS.mongodb_pusher import MongoDbPusher
 
 class Dataset(enum.Enum):
     MODULE = 1

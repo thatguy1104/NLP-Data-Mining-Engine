@@ -3,9 +3,9 @@ import pandas as pd
 import numpy as np
 import json
 
-from src.main.NLP.SVM.svm import Svm
-from src.main.MONGODB_PUSHERS.mongodb_pusher import MongoDbPusher
-from src.main.NLP.PREPROCESSING.preprocessor import Preprocessor
+from main.NLP.SVM.svm import Svm
+from main.MONGODB_PUSHERS.mongodb_pusher import MongoDbPusher
+from main.NLP.PREPROCESSING.preprocessor import Preprocessor
 
 class SdgSvm(Svm):
     """

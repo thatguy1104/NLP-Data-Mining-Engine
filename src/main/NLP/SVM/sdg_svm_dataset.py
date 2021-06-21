@@ -7,10 +7,10 @@ import sys
 import pymongo
 from bson import json_util
 
-from src.main.LOADERS.module_loader import ModuleLoader
-from src.main.LOADERS.publication_loader import PublicationLoader
-from src.main.NLP.PREPROCESSING.preprocessor import Preprocessor
-from src.main.NLP.PREPROCESSING.module_preprocessor import ModuleCataloguePreprocessor
+from main.LOADERS.module_loader import ModuleLoader
+from main.LOADERS.publication_loader import PublicationLoader
+from main.NLP.PREPROCESSING.preprocessor import Preprocessor
+from main.NLP.PREPROCESSING.module_preprocessor import ModuleCataloguePreprocessor
 
 class SdgSvmDataset():
     """
