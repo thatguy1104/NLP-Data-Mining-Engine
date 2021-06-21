@@ -1,9 +1,6 @@
 from main.NLP.LDA.sdg_lda import SdgLda
 from main.NLP.LDA.ihe_lda import IheLda
 
-from main.NLP.GUIDED_LDA.sdg_guided_lda import SdgGuidedLda
-from main.NLP.GUIDED_LDA.ihe_guided_lda import IheGuidedLda
-
 from main.NLP.STRING_MATCH.module_match import ModuleStringMatch
 from main.NLP.STRING_MATCH.scopus_match import ScopusStringMatch
 
@@ -27,17 +24,6 @@ class NLP_SECTION():
         """
         IheLda().run()
 
-    def run_GUIDED_LDA_SDG(self) -> None:
-        """
-            Runs GuidedLDA model training for Module SDG classification
-        """
-        SdgGuidedLda().run()
-
-    def run_GUIDED_LDA_IHE(self) -> None:
-        """
-            Runs GuidedLDA model training for Publications SDG classification
-        """
-        IheGuidedLda().run()
 
     def module_string_match(self) -> None:
         """

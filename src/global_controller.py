@@ -61,10 +61,6 @@ def nlp_manager(run_LDA_SDG: bool, run_LDA_IHE: bool, run_GUIDED_LDA_SDG: bool, 
         nlp_actions.run_LDA_SDG()
     if run_LDA_IHE:
         nlp_actions.run_LDA_IHE()
-    if run_GUIDED_LDA_SDG:
-        nlp_actions.run_GUIDED_LDA_SDG()
-    if run_GUIDED_LDA_IHE:
-        nlp_actions.run_GUIDED_LDA_IHE()
     if module_string_match:
         nlp_actions.module_string_match()
     if scopus_string_match:
