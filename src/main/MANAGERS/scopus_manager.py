@@ -1,4 +1,4 @@
-from src.main.SCOPUS.scrape import GetScopusData
+from main.SCOPUS.scrape import GetScopusData
 
 class SCOPUS_SECTION():
 

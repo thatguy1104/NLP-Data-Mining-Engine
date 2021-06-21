@@ -16,9 +16,15 @@ Microsoft Azure
 		- PORT:     5432
 		- USER:     miemie_admin@miemiedjangoapp
 		- PASSWORD: e_Paswrd?!
-	- SQL Server
+	- SQL Server 1
 		- Server:   miemie.database.windows.net
 		- Database: MainDB
+		- Username: miemie_login
+		- Password: e_Paswrd?!
+		- Driver:   {ODBC Driver 17 for SQL Server}
+	- SQL Server 2
+		- Server:   summermiemieservver.database.windows.net
+		- Database: summermiemiedb
 		- Username: miemie_login
 		- Password: e_Paswrd?!
 		- Driver:   {ODBC Driver 17 for SQL Server}
@@ -32,3 +38,4 @@ API Keys
 	- UCL API
 		- Token: 	    	uclapi-1e6c06cea59cf57-a6c4f5e96678dc2-4548665203179d6-765442292e213d7
 		- Instructions:     https://uclapi.com/docs/
+		

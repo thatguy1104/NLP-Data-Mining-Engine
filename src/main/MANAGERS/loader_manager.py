@@ -1,5 +1,5 @@
-from src.main.LOADERS.module_loader import ModuleLoader
-from src.main.LOADERS.publication_loader import PublicationLoader
+from main.LOADERS.module_loader import ModuleLoader
+from main.LOADERS.publication_loader import PublicationLoader
 
 class LOADER_SECTION():
 

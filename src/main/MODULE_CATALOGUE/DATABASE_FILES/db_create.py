@@ -2,8 +2,8 @@ import pyodbc
 
 class Create_ModuleData():
     def __init__(self):
-        self.server = 'miemie.database.windows.net'
-        self.database = 'MainDB'
+        self.server = 'summermiemieservver.database.windows.net'
+        self.database = 'summermiemiedb'
         self.username = 'miemie_login'
         self.password = 'e_Paswrd?!'
         self.driver = '{ODBC Driver 17 for SQL Server}'

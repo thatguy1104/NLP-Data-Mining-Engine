@@ -6,8 +6,9 @@ import pandas as pd
 
 def getMySQL():
     # SERVER LOGIN DETAILS
-    server = 'miemie.database.windows.net'
-    database = 'MainDB'
+    
+    server = 'summermiemieservver.database.windows.net'
+    database = 'summermiemiedb'
     username = 'miemie_login'
     password = 'e_Paswrd?!'
     driver = '{ODBC Driver 17 for SQL Server}'
@@ -18,8 +19,8 @@ def getMySQL():
     return myConnection
 
 def getPostgres_modules():
-    con = psycopg2.connect(database='django_db_miemie_ucl', user='miemie_admin@miemiedjangoapp',
-                           host='miemiedjangoapp.postgres.database.azure.com', password='e_Paswrd?!', port='5432')
+    con = psycopg2.connect(database='summermiemiepostgre', user='miemie_admin@summermiemie',
+                           host='summermiemie.postgres.database.azure.com', password='e_Paswrd?!', port='5432')
     cur = con.cursor()
     cur.execute("""
         select  id
@@ -33,7 +34,7 @@ def getPostgres_modules():
             ,"Description"
             ,"Credit_Value"
             ,"assignedSDG"
-            from public."App_module"
+            from public."app_module"
     """)
     result = cur.fetchall()
     return result

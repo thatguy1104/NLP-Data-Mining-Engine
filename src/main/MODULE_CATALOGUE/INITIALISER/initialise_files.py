@@ -51,7 +51,7 @@ class Initialiser():
 
                 params = {"token": self.token, "department": depID}
                 resp = requests.get("https://uclapi.com/timetable/data/modules", params=params)
-
+                
                 valid = True
                 try:
                     resp = resp.json()

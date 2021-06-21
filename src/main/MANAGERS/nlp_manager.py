@@ -1,17 +1,17 @@
-from src.main.NLP.LDA.sdg_lda import SdgLda
-from src.main.NLP.LDA.ihe_lda import IheLda
+from main.NLP.LDA.sdg_lda import SdgLda
+from main.NLP.LDA.ihe_lda import IheLda
 
-from src.main.NLP.GUIDED_LDA.sdg_guided_lda import SdgGuidedLda
-from src.main.NLP.GUIDED_LDA.ihe_guided_lda import IheGuidedLda
+from main.NLP.GUIDED_LDA.sdg_guided_lda import SdgGuidedLda
+from main.NLP.GUIDED_LDA.ihe_guided_lda import IheGuidedLda
 
-from src.main.NLP.STRING_MATCH.module_match import ModuleStringMatch
-from src.main.NLP.STRING_MATCH.scopus_match import ScopusStringMatch
+from main.NLP.STRING_MATCH.module_match import ModuleStringMatch
+from main.NLP.STRING_MATCH.scopus_match import ScopusStringMatch
 
-from src.main.NLP.LDA.predict_publication import ScopusPrediction
-from src.main.NLP.VALIDATION.validate_sdg_svm import ValidateSdgSvm
+from main.NLP.LDA.predict_publication import ScopusPrediction
+from main.NLP.VALIDATION.validate_sdg_svm import ValidateSdgSvm
 
-from src.main.NLP.SVM.sdg_svm_dataset import SdgSvmDataset
-from src.main.NLP.SVM.sdg_svm import SdgSvm
+from main.NLP.SVM.sdg_svm_dataset import SdgSvmDataset
+from main.NLP.SVM.sdg_svm import SdgSvm
 
 class NLP_SECTION():
 
