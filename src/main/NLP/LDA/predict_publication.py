@@ -5,7 +5,7 @@ import pandas as pd
 import gensim
 import pymongo
 from bson import json_util
-from src.main.LOADERS.publication_loader import PublicationLoader
+from main.LOADERS.publication_loader import PublicationLoader
 
 
 client = pymongo.MongoClient("mongodb+srv://admin:admin@cluster0.hw8fo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")

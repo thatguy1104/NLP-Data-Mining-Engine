@@ -5,7 +5,7 @@ import os
 import pandas as pd
 import pickle
 
-from src.main.LOADERS.loader import Loader
+from main.LOADERS.loader import Loader
 from bson import json_util
 
 class PublicationLoader(Loader):

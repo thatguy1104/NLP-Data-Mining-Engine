@@ -3,10 +3,10 @@ import json
 import pymongo
 import numpy as np
 
-from src.main.NLP.LDA.LDA import Lda
-from src.main.NLP.PREPROCESSING.module_preprocessor import ModuleCataloguePreprocessor
-from src.main.LOADERS.module_loader import ModuleLoader
-from src.main.MONGODB_PUSHERS.mongodb_pusher import MongoDbPusher
+from main.NLP.LDA.LDA import Lda
+from main.NLP.PREPROCESSING.module_preprocessor import ModuleCataloguePreprocessor
+from main.LOADERS.module_loader import ModuleLoader
+from main.MONGODB_PUSHERS.mongodb_pusher import MongoDbPusher
 
 class SdgLda(Lda):
     """

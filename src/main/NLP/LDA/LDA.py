@@ -5,9 +5,9 @@ import pickle
 import gensim
 import nltk
 
-from src.main.NLP.PREPROCESSING.preprocessor import Preprocessor
-from src.main.LOADERS.loader import Loader
-from src.main.MONGODB_PUSHERS.mongodb_pusher import MongoDbPusher
+from main.NLP.PREPROCESSING.preprocessor import Preprocessor
+from main.LOADERS.loader import Loader
+from main.MONGODB_PUSHERS.mongodb_pusher import MongoDbPusher
 
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 

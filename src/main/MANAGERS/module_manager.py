@@ -1,8 +1,8 @@
-from src.main.MODULE_CATALOGUE.scrape import UCL_Module_Catalogue
-from src.main.MODULE_CATALOGUE.INITIALISER.initialise_files import Initialiser
-from src.main.MODULE_CATALOGUE.STUDENTS_PER_MOD.processPush import UpdateStudentsPerModule
-from src.main.MODULE_CATALOGUE.DATABASE_FILES.db_create import Create_ModuleData
-from src.main.MODULE_CATALOGUE.DATABASE_FILES.db_reset import Reset_ModuleData
+from main.MODULE_CATALOGUE.scrape import UCL_Module_Catalogue
+from main.MODULE_CATALOGUE.INITIALISER.initialise_files import Initialiser
+from main.MODULE_CATALOGUE.STUDENTS_PER_MOD.processPush import UpdateStudentsPerModule
+from main.MODULE_CATALOGUE.DATABASE_FILES.db_create import Create_ModuleData
+from main.MODULE_CATALOGUE.DATABASE_FILES.db_reset import Reset_ModuleData
 
 class MODULE_SECTION():
 

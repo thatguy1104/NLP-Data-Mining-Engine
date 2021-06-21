@@ -4,10 +4,10 @@ import numpy as np
 import pymongo
 import ssl
 
-from src.main.NLP.GUIDED_LDA.guided_LDA import GuidedLda
-from src.main.NLP.PREPROCESSING.module_preprocessor import ModuleCataloguePreprocessor
-from src.main.LOADERS.module_loader import ModuleLoader
-from src.main.MONGODB_PUSHERS.mongodb_pusher import MongoDbPusher
+from main.NLP.GUIDED_LDA.guided_LDA import GuidedLda
+from main.NLP.PREPROCESSING.module_preprocessor import ModuleCataloguePreprocessor
+from main.LOADERS.module_loader import ModuleLoader
+from main.MONGODB_PUSHERS.mongodb_pusher import MongoDbPusher
 
 class SdgGuidedLda(GuidedLda):
     """

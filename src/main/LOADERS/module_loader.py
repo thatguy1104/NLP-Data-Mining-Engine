@@ -7,7 +7,7 @@ import pickle
 import pyodbc
 from typing import Optional, Union
 
-from src.main.LOADERS.loader import Loader
+from main.LOADERS.loader import Loader
 from bson import json_util
 
 class ModuleLoader(Loader):

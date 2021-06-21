@@ -3,12 +3,10 @@ import pandas as pd
 import numpy as np
 import pickle
 
-from LIBRARIES.GuidedLDA import guidedlda
-
 from sklearn.feature_extraction.text import CountVectorizer
-from src.main.NLP.PREPROCESSING.preprocessor import Preprocessor
-from src.main.LOADERS.loader import Loader
-from src.main.MONGODB_PUSHERS.mongodb_pusher import MongoDbPusher
+from main.NLP.PREPROCESSING.preprocessor import Preprocessor
+from main.LOADERS.loader import Loader
+from main.MONGODB_PUSHERS.mongodb_pusher import MongoDbPusher
 
 class GuidedLda():
     """
