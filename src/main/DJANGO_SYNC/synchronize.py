@@ -159,7 +159,10 @@ class Synchronizer():
     def __update_postgres_data(self, data_sdg:dict, title:str) -> None:
         con = psycopg2.connect(database='summermiemiepostgre', user='miemie_admin@summermiemie', host='summermiemie.postgres.database.azure.com', password='e_Paswrd?!', port='5432')
         cur = con.cursor()
-        cur.execute("""UPDATE public."app_publication" SET "assignedSDG" '{0}' WHERE title = '{1}'""".format(data_sdg, title))
+        cur.execute(
+            """UPDATE public."app_publication" SET "assignedSDG" = """ + "\"" + str(data_sdg) + "\"" + " WHERE title = " + "\'" + title + "\'")
+        
+
         con.commit()
 
         cur.close()
