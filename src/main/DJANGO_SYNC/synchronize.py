@@ -172,22 +172,27 @@ class Synchronizer():
     def __update_postgres_data(self, data_sdg:dict, title:str) -> None:
         con = psycopg2.connect(database='summermiemiepostgre', user='miemie_admin@summermiemie', host='summermiemie.postgres.database.azure.com', password='e_Paswrd?!', port='5432')
         cur = con.cursor()
-        test_string = str(data_sdg)
 
         #Replace some instances of the single quotes in the JSON file to 2* single quotes so it can be parsed by PostgreSQL
+        query_string = str(data_sdg).replace("{'", "{''").replace("': '", "'': ''").replace("', '", "'', ''").replace("': {", "'': {").replace("Similarity'", "Similarity''").replace("'SDG_Keyword_Counts'", "''SDG_Keyword_Counts''").replace("'ColorRed'", "''ColorRed''").replace("'ColorGreen'", "''ColorGreen''").replace("'ColorBlue'", "''ColorBlue''").replace("'StringCount'", "''StringCount''").replace("'ModelResult'", "''ModelResult'").replace("''IHE'", "''IHE''").replace("'IHE_Prediction'", "''IHE_Prediction'").replace("''SVM'", "''SVM''").replace("'SVM_Prediction'", "''SVM_Prediction'").replace("'''}", "''''}")
+        query_string = json.dumps(query_string)
+        for x in range(1, 19):
+            replace_string = "('" + str(x) + "'"
+            updated_string = "(" + str(x)
+            query_string = query_string.replace(replace_string, updated_string)
+        print(query_string)
         cur.execute(
-            'UPDATE public.app_publication SET \"assignedSDG\" = \'{}\' WHERE title = \'{}\''.format(json.loads(json.dumps("\"" + str(data_sdg).replace("{'", "{''").replace("': '", "'': ''").replace("', '", "'', ''").replace("': {", "'': {").replace("Similarity'", "Similarity''").replace("'SDG_Keyword_Counts'", "''SDG_Keyword_Counts''").replace("'ColorRed'", "''ColorRed''").replace("'ColorGreen'", "''ColorGreen''").replace("'ColorBlue'", "''ColorBlue''").replace("'StringCount'", "''StringCount''").replace("'ModelResult'", "''ModelResult'").replace("''IHE'", "''IHE''").replace("'IHE_Prediction'", "''IHE_Prediction'").replace("''SVM'", "''SVM''").replace("'SVM_Prediction'", "''SVM_Prediction'").replace("'''}", "''''}") + "\"")), title)
+            'UPDATE public.app_publication SET \"assignedSDG\" = \'{}\' WHERE title = \'{}\''.format(json.loads(json.dumps(query_string)), title)
         )
-
         con.commit()
-
         cur.close()
 
-    def __loadSDG_Data_PUBLICATION(self) -> None:
-        data_, svm_predictions, scopusValidation, ihePrediction = self.__acquireData(limit=1)
+    def __loadSDG_Data_PUBLICATION(self, limit) -> None:
+        data_, svm_predictions, scopusValidation, ihePrediction = self.__acquireData(limit)
         count = 1
         l = len(data_)
-        
+        print()
+
         for i in data_:
             self.__progress(count, l, "synching SDG + IHE with Django")
             count += 1
@@ -222,13 +227,10 @@ class Synchronizer():
                     self.__create_column_postgres_table()
 
                 self.__update_postgres_data(publication_SDG_assignments, data_[i]['Title'])
-                
-                print(data_[i]['Title'])
-
+        print()
 
     def run(self):
-        self.__loadSDG_Data_PUBLICATION()
-        
+        self.__loadSDG_Data_PUBLICATION(limit=0)
         self.client.close()
 
 
