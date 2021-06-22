@@ -1,3 +1,4 @@
+import sys
 import json
 import pymongo
 import psycopg2
@@ -13,6 +14,18 @@ class Synchronizer():
     def __init__(self):
         self.host = "mongodb+srv://admin:admin@cluster0.hw8fo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
         self.client = pymongo.MongoClient(self.host)
+
+    def __progress(self, count: int, total: int, custom_text: str, suffix='') -> None:
+        """
+            Visualises progress for a process given a current count and a total count
+        """
+
+        bar_len = 60
+        filled_len = int(round(bar_len * count / float(total)))
+        percents = round(100.0 * count / float(total), 1)
+        bar = '*' * filled_len + '-' * (bar_len - filled_len)
+        sys.stdout.write('[%s] %s%s %s %s\r' %(bar, percents, '%', custom_text, suffix))
+        sys.stdout.flush()
 
     def __getPublicationPrediction(self, limit:int = None) -> dict:
         db = self.client.Scopus
@@ -159,9 +172,13 @@ class Synchronizer():
     def __update_postgres_data(self, data_sdg:dict, title:str) -> None:
         con = psycopg2.connect(database='summermiemiepostgre', user='miemie_admin@summermiemie', host='summermiemie.postgres.database.azure.com', password='e_Paswrd?!', port='5432')
         cur = con.cursor()
-        # cur.execute("""UPDATE public."app_publication" SET "assignedSDG" = """ + "\"" + str(data_sdg) + "\"" + " WHERE title = " + "\'" + title + "\'")
+        test_string = str(data_sdg)
+
+        #Replace some instances of the single quotes in the JSON file to 2* single quotes so it can be parsed by PostgreSQL
         cur.execute(
-            "UPDATE public.app_publication SET \"assignedSDG\" = \"assignedSDG\" || '{0}' WHERE title = '{1}';".format(str(data_sdg).replace("\'", ""), title))
+            'UPDATE public.app_publication SET \"assignedSDG\" = \'{}\' WHERE title = \'{}\''.format(json.loads(json.dumps("\"" + str(data_sdg).replace("{'", "{''").replace("': '", "'': ''").replace("', '", "'', ''").replace("': {", "'': {").replace("Similarity'", "Similarity''").replace("'SDG_Keyword_Counts'", "''SDG_Keyword_Counts''").replace("'ColorRed'", "''ColorRed''").replace("'ColorGreen'", "''ColorGreen''").replace("'ColorBlue'", "''ColorBlue''").replace("'StringCount'", "''StringCount''").replace("'ModelResult'", "''ModelResult'").replace("''IHE'", "''IHE''").replace("'IHE_Prediction'", "''IHE_Prediction'").replace("''SVM'", "''SVM''").replace("'SVM_Prediction'", "''SVM_Prediction'").replace("'''}", "''''}") + "\"")), title)
+        )
+
         con.commit()
 
         cur.close()
@@ -169,9 +186,10 @@ class Synchronizer():
     def __loadSDG_Data_PUBLICATION(self) -> None:
         data_, svm_predictions, scopusValidation, ihePrediction = self.__acquireData(limit=1)
         count = 1
+        l = len(data_)
         
         for i in data_:
-            # print("Writing", count, "/", len(data_))
+            self.__progress(count, l, "synching SDG + IHE with Django")
             count += 1
             publication_SDG_assignments = data_[i]
             calc_highest = []
@@ -203,27 +221,14 @@ class Synchronizer():
                 if len(postgre_publication) < 4:
                     self.__create_column_postgres_table()
 
-                # with open('oke.json', 'w') as outfile:
-                #     json.dump(publication_SDG_assignments, outfile)
-                #     return
-                # self.__update_postgres_data(publication_SDG_assignments, data_[i]['Title'])
+                self.__update_postgres_data(publication_SDG_assignments, data_[i]['Title'])
+                
+                print(data_[i]['Title'])
 
-            # print(i['Title'])
-            # self.__update_postgres_data(publication_SDG_assignments, data_[i]['Title'])
 
     def run(self):
-        # self.__loadSDG_Data_PUBLICATION()
-        t = "Outcomes following surgery in subgroups of comatose and very elderly patients with chronic subdural hematoma"
-        publ = self.__getPostgres_modules(title=t)
-        print(len(publ))
-        id_, title, data, assigned = publ[0], publ[1], publ[2], publ[3]
-        print(publ[3])
-
-        with open('oke.json') as f:
-            r = json.load(f)
+        self.__loadSDG_Data_PUBLICATION()
         
-        self.__update_postgres_data(r, t)
-
         self.client.close()
 
 
