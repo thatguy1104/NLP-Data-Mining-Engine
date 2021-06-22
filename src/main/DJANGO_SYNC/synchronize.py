@@ -159,9 +159,13 @@ class Synchronizer():
     def __update_postgres_data(self, data_sdg:dict, title:str) -> None:
         con = psycopg2.connect(database='summermiemiepostgre', user='miemie_admin@summermiemie', host='summermiemie.postgres.database.azure.com', password='e_Paswrd?!', port='5432')
         cur = con.cursor()
+        print(str(data_sdg))
+        test_string = str(data_sdg)
+
+        #Replace some instances of the single quotes in the JSON file to 2* single quotes so it can be parsed by PostgreSQL
         cur.execute(
-            """UPDATE public."app_publication" SET "assignedSDG" = """ + "\"" + str(data_sdg) + "\"" + " WHERE title = " + "\'" + title + "\'")
-        
+            'UPDATE public.app_publication SET \"assignedSDG\" = \'{}\' WHERE title = \'{}\''.format(json.loads(json.dumps("\"" + str(data_sdg).replace("{'", "{''").replace("': '", "'': ''").replace("', '", "'', ''").replace("': {", "'': {").replace("Similarity'", "Similarity''").replace("'SDG_Keyword_Counts'", "''SDG_Keyword_Counts''").replace("'ColorRed'", "''ColorRed''").replace("'ColorGreen'", "''ColorGreen''").replace("'ColorBlue'", "''ColorBlue''").replace("'StringCount'", "''StringCount''").replace("'ModelResult'", "''ModelResult'").replace("''IHE'", "''IHE''").replace("'IHE_Prediction'", "''IHE_Prediction'").replace("''SVM'", "''SVM''").replace("'SVM_Prediction'", "''SVM_Prediction'").replace("'''}", "''''}") + "\"")), title)
+        )
 
         con.commit()
 
@@ -219,6 +223,7 @@ class Synchronizer():
         print(len(publ))
         id_, title, data, assigned = publ[0], publ[1], publ[2], publ[3]
         print(publ[3])
+
 
         with open('oke.json') as f:
             r = json.load(f)
