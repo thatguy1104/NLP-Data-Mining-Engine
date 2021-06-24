@@ -62,23 +62,47 @@ class Synchronizer():
         del data[0]['_id']
         return data[0]
 
-    def __acquireData(self, limit: int) -> Tuple[dict, dict, dict, dict]:
+    def __getModulePrediction(self, limit: int = None) -> dict:
+        db = self.client.Scopus
+        col = db.ModulePrediction
+        data = col.find().limit(limit)
+        del data[0]['_id']
+        return data[0]
+
+    def __getModuleValidation(self, limit: int = None) -> dict:
+        db = self.client.Scopus
+        col = db.ModuleValidation
+        data = col.find().limit(limit)
+        del data[0]['_id']
+        return data[0]
+
+    def __acquireData(self, pubPred, svmSdgPred, scopVal, ihePred, modPred, modVal, limit: int) -> Tuple[dict, dict, dict, dict]:
         scopusPrediction_path = "PublicationPrediction"
         svm_sdg_predictions_path = "SvmSdgPredictions"
         scopusValidationSDG_path = "ScopusValidation"
         iheScopusPrediction_path = "IHEPrediction"
+        data_, svm_predictions, scopusValidation, ihePrediction, module_predictions, module_val = [], [], [], [], [], []
 
-        data_ = self.__getPublicationPrediction(limit)
-        print("Acquired scopus predictions")
-        svm_predictions = self.__getSvmSdgPredictions(limit)
-        print("Acquired svm sdg predictions")
-        scopusValidation = self.__getScopusValidation(limit)
-        print("Acquired scopus validation")
-        ihePrediction = self.__getIHEPrediction(limit)
-        print("Acquired ihe predictions")
+        if pubPred:
+            data_ = self.__getPublicationPrediction(limit)
+            print("Acquired scopus predictions")
+        if svmSdgPred:
+            svm_predictions = self.__getSvmSdgPredictions(limit)
+            print("Acquired svm sdg predictions")
+        if scopVal:
+            scopusValidation = self.__getScopusValidation(limit)
+            print("Acquired scopus validation")
+        if ihePred:
+            ihePrediction = self.__getIHEPrediction(limit)
+            print("Acquired ihe predictions")
+        if modPred:
+            module_predictions = self.__getModulePrediction(limit)
+            print("Acquired module predictions")
+        if modVal:
+            module_val = self.__getModuleValidation(limit)
+            print("Acquired module validation")
 
-        # return data_
-        return data_, svm_predictions, scopusValidation, ihePrediction
+        return data_, svm_predictions, scopusValidation, ihePrediction, module_predictions, module_val
 
     def __pseudocolor(self, val: float, minval: int, maxval: int) -> Tuple[int, int, int]:
         h = (float(val-minval) / (maxval-minval)) * 120
@@ -169,7 +193,7 @@ class Synchronizer():
         con.commit()
         con.close()
 
-    def __update_postgres_data(self, data_sdg:dict, title:str) -> None:
+    def __update_postgres_data_publications(self, data_sdg:dict, title:str) -> None:
         con = psycopg2.connect(database='summermiemiepostgre', user='miemie_admin@summermiemie', host='summermiemie.postgres.database.azure.com', password='e_Paswrd?!', port='5432')
         cur = con.cursor()
 
@@ -187,14 +211,32 @@ class Synchronizer():
         con.commit()
         cur.close()
 
+    def __update_postgres_data_modules(self, data_sdg: dict, module_id: str) -> None:
+        con = psycopg2.connect(database='summermiemiepostgre', user='miemie_admin@summermiemie',
+                               host='summermiemie.postgres.database.azure.com', password='e_Paswrd?!', port='5432')
+        cur = con.cursor()
+
+        #Replace some instances of the single quotes in the JSON file to 2* single quotes so it can be parsed by PostgreSQL
+        # query_string = str(data_sdg).replace("{'", "{''").replace("': '", "'': ''").replace("', '", "'', ''").replace("': {", "'': {").replace("Similarity'", "Similarity''").replace("'SDG_Keyword_Counts'", "''SDG_Keyword_Counts''").replace("'ColorRed'", "''ColorRed''").replace("'ColorGreen'", "''ColorGreen''").replace("'ColorBlue'", "''ColorBlue''").replace("'StringCount'", "''StringCount''").replace("'ModelResult'", "''ModelResult'").replace("''IHE'", "''IHE''").replace("'IHE_Prediction'", "''IHE_Prediction'").replace("''SVM'", "''SVM''").replace("'SVM_Prediction'", "''SVM_Prediction'").replace("'''}", "''''}")
+        query_string = str(data_sdg).replace("'", "''")
+        query_string = json.dumps(query_string)
+        cur.execute(
+            'UPDATE public.app_module SET \"assignedSDG\" = \'{}\' WHERE Module_ID = \'{}\''.format(json.loads(json.dumps(query_string)), module_id)
+        )
+
+        string = dict(query_string)
+        print(type(query_string))
+        # con.commit()
+        cur.close()
+
     def __loadSDG_Data_PUBLICATION(self, limit) -> None:
-        data_, svm_predictions, scopusValidation, ihePrediction = self.__acquireData(limit)
+        data_, svm_predictions, scopusValidation, ihePrediction, module_predictions, module_validation = self.__acquireData(True, True, True, True, False, False, limit)
         count = 1
         l = len(data_)
         print()
 
         for i in data_:
-            self.__progress(count, l, "synching SDG + IHE with Django")
+            self.__progress(count, l, "synching Publications SDG + IHE with Django")
             count += 1
             publication_SDG_assignments = data_[i]
             calc_highest = []
@@ -226,11 +268,43 @@ class Synchronizer():
                 if len(postgre_publication) < 4:
                     self.__create_column_postgres_table()
 
-                self.__update_postgres_data(publication_SDG_assignments, data_[i]['Title'])
+                self.__update_postgres_data_publications(publication_SDG_assignments, data_[i]['Title'])
+        print()
+
+    def __loadSDG_Data_MODULES(self, limit) -> None:
+        data_, svm_predictions, scopusValidation, ihePrediction, module_predictions, module_validation = self.__acquireData(False, True, False, False, True, True, limit)
+        count, l = 1, len(module_predictions['Document Topics'])
+        print()
+
+
+        for module in module_predictions['Document Topics']:
+            # self.__progress(count, l, "synching Module SDG with Django")
+            weights = module_predictions['Document Topics'][module]
+            module_SDG_assignments = {}
+            module_SDG_assignments["Module_ID"] = module
+            module_SDG_assignments["Validation"] = module_validation[module]
+            
+            w = []
+            for i in range(len(weights)):
+                weights[i] = weights[i].replace('(', '').replace(')', '').replace('%', '').replace(' ', '').split(',')
+                sdgNum = weights[i][0]
+                module_SDG_assignments[sdgNum] = float(weights[i][1])
+                w.append((sdgNum, float(weights[i][1])))
+
+            if module_SDG_assignments["Validation"]:
+                module_SDG_assignments['ModelResult'] = ",".join(self.__thresholdAnalyse(w, threshold=lda_threshold))
+                normalised = self.__normalise(module_SDG_assignments["Validation"]['SDG_Keyword_Counts'])
+                module_SDG_assignments['StringResult'] = ",".join(self.__thresholdAnalyse(normalised, threshold=lda_threshold))
+                module_SDG_assignments['SVM'], module_SDG_assignments['SVM_Prediction'] = self.__getSVM_predictions(svm_predictions['Module'], module)
+
+                self.__update_postgres_data_modules(module_SDG_assignments, module)
+                print("synched the following module:", module)
+            count += 1
         print()
 
     def run(self):
-        self.__loadSDG_Data_PUBLICATION(limit=0)
+        # self.__loadSDG_Data_PUBLICATION(limit=0)
+        self.__loadSDG_Data_MODULES(limit=0)
         self.client.close()
 
 
