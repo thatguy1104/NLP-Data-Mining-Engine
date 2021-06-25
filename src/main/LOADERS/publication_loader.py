@@ -56,7 +56,7 @@ class PublicationLoader(Loader):
         """
         with open(self.data_file, "rb") as input_file:
             data = pickle.load(input_file)
-        data = dict(list(data.items())[:count]) if isinstance(count, int) else data
+        data = data[:count] if isinstance(count, int) else data
         
         df = pd.DataFrame(columns=["DOI", "Title", "Description"])
         for publication in data:

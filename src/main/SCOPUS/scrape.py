@@ -10,16 +10,14 @@ import os
 import pymongo
 from typing import Optional, Union
 
-# from App.models import Publication
-
 client = pymongo.MongoClient("mongodb+srv://admin:admin@cluster0.hw8fo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
 db = client.Scopus
 
 class GetScopusData():
 
     def __init__(self):
-        self.__rps_data_file = "src/main/SCOPUS/GIVEN_DATA_FILES/cleaned_RPS_export_2015.csv"
-        self.f = open("src/main/SCOPUS/log.txt", "a")
+        self.__rps_data_file = "main/SCOPUS/GIVEN_DATA_FILES/cleaned_RPS_export_2015.csv"
+        self.f = open("main/SCOPUS/log.txt", "a")
 
     def __progress(self, count: int, total: int, custom_text: str, suffix='') -> None:
         """
@@ -205,9 +203,9 @@ class GetScopusData():
             MongoDB: Collection - Scopus, Cluster - Data
         """
         
-        col = db.Data
-        key = value = data
-        col.update(key, value, upsert=True)
+        if data:
+            col = db.Data
+            col.update({'DOI': data['DOI']}, data, upsert=True)
 
     def createAllFiles(self, limit: int) -> None:
         """
@@ -219,16 +217,18 @@ class GetScopusData():
 
         data = self.__cleanerFileReadings(limit=limit)
         l = len(data)
+        scraping_limit_API = 9000
         
         counter = 1
         for i in data:
-            if counter < 9000:
+            if counter < scraping_limit_API:
                 data_dict = self.getInfo(i)
                 if data_dict != "invalid":
-                    self.__progress(counter, l, "scraping Scopus publications")
+                    self.__progress(counter, scraping_limit_API, "scraping Scopus publications")
                     self.f.write("Written " + str(counter) + "/" + str(l) + " files " + "DOI: " + i + "\n")
                     reformatted_data = self.__formatData(data_dict)
                     self.__pushToMongoDB(reformatted_data)
+                    break
                     counter += 1
         print()
         self.f.write("\nDONE")

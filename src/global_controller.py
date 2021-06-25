@@ -77,7 +77,7 @@ def nlp_manager(run_LDA_SDG: bool, run_LDA_IHE: bool, run_GUIDED_LDA_SDG: bool, 
 
 def sync_manager(synchronize_mongogb: bool) -> None:
     """
-        
+
     """
 
     sync_actions = SYNC_SECTION()

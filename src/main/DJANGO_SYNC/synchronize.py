@@ -138,8 +138,9 @@ class Synchronizer():
         return validPerc
 
     def __getIHE_predictions(self, data_: dict, publication: dict) -> Tuple[list, str]:
-        result = [0] * 9
         lst = data_['Document Topics'][publication]
+        result = [0] * len(lst)
+        
         for i in lst:
             cleaner = i.replace("(", "").replace(")", "").replace("%", "").split(',')
             topic_num = int(cleaner[0])
@@ -209,18 +210,10 @@ class Synchronizer():
         con = psycopg2.connect(database='summermiemiepostgre', user='miemie_admin@summermiemie',
                                host='summermiemie.postgres.database.azure.com', password='e_Paswrd?!', port='5432')
         cur = con.cursor()
-
-        #Replace some instances of the single quotes in the JSON file to 2* single quotes so it can be parsed by PostgreSQL
-        # query_string = str(data_sdg).replace("{'", "{''").replace("': '", "'': ''").replace("', '", "'', ''").replace("': {", "'': {").replace("Similarity'", "Similarity''").replace("'SDG_Keyword_Counts'", "''SDG_Keyword_Counts''").replace("'ColorRed'", "''ColorRed''").replace("'ColorGreen'", "''ColorGreen''").replace("'ColorBlue'", "''ColorBlue''").replace("'StringCount'", "''StringCount''").replace("'ModelResult'", "''ModelResult'").replace("''IHE'", "''IHE''").replace("'IHE_Prediction'", "''IHE_Prediction'").replace("''SVM'", "''SVM''").replace("'SVM_Prediction'", "''SVM_Prediction'").replace("'''}", "''''}")
-        query_string = str(data_sdg).replace("'", "''")
-        query_string = json.dumps(query_string)
         cur.execute(
-            'UPDATE public.app_module SET \"assignedSDG\" = \'{}\' WHERE Module_ID = \'{}\''.format(json.loads(json.dumps(query_string)), module_id)
+            'UPDATE public.app_module SET \"assignedSDG\" = \'{}\' WHERE "Module_ID" = \'{}\''.format(json.dumps(data_sdg), module_id)
         )
-
-        string = dict(query_string)
-        print(type(query_string))
-        # con.commit()
+        con.commit()
         cur.close()
 
     def __loadSDG_Data_PUBLICATION(self, limit) -> None:
@@ -270,12 +263,16 @@ class Synchronizer():
         count, l = 1, len(module_predictions['Document Topics'])
         print()
 
-
         for module in module_predictions['Document Topics']:
-            # self.__progress(count, l, "synching Module SDG with Django")
+            self.__progress(count, l, "synching Module SDG with Django")
             weights = module_predictions['Document Topics'][module]
             module_SDG_assignments = {}
             module_SDG_assignments["Module_ID"] = module
+
+            similarityRGB = module_validation[module]['Similarity']
+            module_validation[module]['ColorRed'], module_validation[module]['ColorGreen'], module_validation[module]['ColorBlue'] = self.__pseudocolor(similarityRGB*100, 0, 100)
+            module_validation[module]['StringCount'] = self.__normalise(module_validation[module]['SDG_Keyword_Counts'])
+
             module_SDG_assignments["Validation"] = module_validation[module]
             
             w = []
@@ -292,12 +289,10 @@ class Synchronizer():
                 module_SDG_assignments['SVM'], module_SDG_assignments['SVM_Prediction'] = self.__getSVM_predictions(svm_predictions['Module'], module)
 
                 self.__update_postgres_data_modules(module_SDG_assignments, module)
-                print("synched the following module:", module)
             count += 1
         print()
 
     def run(self, limit):
         # self.__loadSDG_Data_PUBLICATION(limit)
-        # self.__loadSDG_Data_MODULES(limit)
-        print("DONNNEEE")
+        self.__loadSDG_Data_MODULES(limit)
         self.client.close()
