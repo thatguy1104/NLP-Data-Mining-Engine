@@ -196,18 +196,12 @@ class Synchronizer():
     def __update_postgres_data_publications(self, data_sdg:dict, title:str) -> None:
         con = psycopg2.connect(database='summermiemiepostgre', user='miemie_admin@summermiemie', host='summermiemie.postgres.database.azure.com', password='e_Paswrd?!', port='5432')
         cur = con.cursor()
-
-        #Replace some instances of the single quotes in the JSON file to 2* single quotes so it can be parsed by PostgreSQL
-        query_string = str(data_sdg).replace("{'", "{''").replace("': '", "'': ''").replace("', '", "'', ''").replace("': {", "'': {").replace("Similarity'", "Similarity''").replace("'SDG_Keyword_Counts'", "''SDG_Keyword_Counts''").replace("'ColorRed'", "''ColorRed''").replace("'ColorGreen'", "''ColorGreen''").replace("'ColorBlue'", "''ColorBlue''").replace("'StringCount'", "''StringCount''").replace("'ModelResult'", "''ModelResult'").replace("''IHE'", "''IHE''").replace("'IHE_Prediction'", "''IHE_Prediction'").replace("''SVM'", "''SVM''").replace("'SVM_Prediction'", "''SVM_Prediction'").replace("'''}", "''''}")
-        query_string = json.dumps(query_string)
-        for x in range(1, 19):
-            replace_string = "('" + str(x) + "'"
-            updated_string = "(" + str(x)
-            query_string = query_string.replace(replace_string, updated_string)
-        print(query_string)
+        
+        print(title.replace("'", "''"))
         cur.execute(
-            'UPDATE public.app_publication SET \"assignedSDG\" = \'{}\' WHERE title = \'{}\''.format(json.loads(json.dumps(query_string)), title)
+            'UPDATE public.app_publication SET \"assignedSDG\" = \'{}\' WHERE title = \'{}\''.format(json.dumps(data_sdg), title.replace("'", "''"))
         )
+
         con.commit()
         cur.close()
 
