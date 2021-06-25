@@ -18,8 +18,8 @@ class PublicationLoader(Loader):
             Initializes publications data file and the file path for scopus string matching results.
         """
         super().__init__()
-        self.data_file = "src/main/LOADERS/publications.pkl"
-        self.string_matches_path = "src/main/NLP/STRING_MATCH/SDG_RESULTS/scopus_matches.json"
+        self.data_file = "main/LOADERS/publications.pkl"
+        self.string_matches_path = "main/NLP/STRING_MATCH/SDG_RESULTS/scopus_matches.json"
 
     def combine_text_fields(self, publication: dict) -> str:
         """

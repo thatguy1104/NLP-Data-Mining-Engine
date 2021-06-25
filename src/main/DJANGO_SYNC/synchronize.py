@@ -302,11 +302,8 @@ class Synchronizer():
             count += 1
         print()
 
-    def run(self):
-        # self.__loadSDG_Data_PUBLICATION(limit=0)
-        self.__loadSDG_Data_MODULES(limit=0)
+    def run(self, limit):
+        # self.__loadSDG_Data_PUBLICATION(limit)
+        # self.__loadSDG_Data_MODULES(limit)
+        print("DONNNEEE")
         self.client.close()
-
-
-obj = Synchronizer()
-obj.run()

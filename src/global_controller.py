@@ -3,6 +3,7 @@ from main.MANAGERS.loader_manager import LOADER_SECTION
 from main.MANAGERS.module_manager import MODULE_SECTION
 from main.MANAGERS.scopus_manager import SCOPUS_SECTION
 from main.MANAGERS.nlp_manager import NLP_SECTION
+from main.MANAGERS.synchronizer_manager import SYNC_SECTION
 
 def keywords_merger_manager(sdg_keywords: bool) -> None:
     keywords_merger_actions = KEYWORDS_MERGER_SECTION() 
@@ -74,6 +75,15 @@ def nlp_manager(run_LDA_SDG: bool, run_LDA_IHE: bool, run_GUIDED_LDA_SDG: bool, 
     if validate_sdg_svm:
         nlp_actions.validate_SDG_SVM()
 
+def sync_manager(synchronize_mongogb: bool) -> None:
+    """
+        
+    """
+
+    sync_actions = SYNC_SECTION()
+    if synchronize_mongogb:
+        sync_actions.synchronize_mongogb()
+
 def main() -> None:
     """
         Controller for keyword_merger_manager loader_manager, module_manager, scopus_manager, nlp_manager
@@ -84,8 +94,9 @@ def main() -> None:
     loader_manager(modules=False, publications=False)
     module_manager(initialise=False, resetDB=False, scrape=False, updateStudentCount=False)
     scopus_manager(scrape=False)
-    nlp_manager(run_LDA_SDG=False, run_LDA_IHE=False, run_GUIDED_LDA_SDG=False, run_GUIDED_LDA_IHE=False, module_string_match=False,
+    nlp_manager(run_LDA_SDG=False, run_LDA_IHE=True, run_GUIDED_LDA_SDG=False, run_GUIDED_LDA_IHE=False, module_string_match=False,
                 scopus_string_match=False, predict_scopus_data=False, create_SVM_dataset=False, run_SVM_SDG=False, validate_sdg_svm=False)
-    
+    sync_manager(synchronize_mongogb=False)
+
 if __name__ == "__main__":
     main()

@@ -15,7 +15,7 @@ class ScopusPrediction():
     
     def __init__(self):
         self.publiction_data = pd.DataFrame(columns=['DOI', 'Title', 'Description'])
-        self.model_name = "src/main/NLP/LDA/SDG_RESULTS/model.pkl"
+        self.model_name = "main/NLP/LDA/SDG_RESULTS/model.pkl"
         self.loader = PublicationLoader()
 
     def __progress(self, count, total, custom_text, suffix=''):

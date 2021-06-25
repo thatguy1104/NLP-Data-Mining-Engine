@@ -155,7 +155,7 @@ class UCL_Module_Catalogue():
             print("Not written --> too many requests") # DO NOT WRITE IF LIST IS EMPTY DUE TO TOO MANY REQUESTS
         else:
             # Execute insertion into database table <ModuleData>
-            insertion = "INSERT INTO ModuleData(Department_Name, Department_ID, Module_Name, Module_ID, Faculty, Credit_Value, Module_Lead, Catalogue_Link, Description, Last_Updated) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+            insertion = "INSERT INTO ModuleData(Department_Name, Department_ID, Module_Name, Module_ID, Faculty, Credit_Value, Module_Lead, Catalogue_Link, Module_Description, Last_Updated) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
             cur.executemany(insertion, all_data)
 
         myConnection.commit()

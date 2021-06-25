@@ -96,17 +96,17 @@ class SdgLda(Lda):
         # Training parameters.
         num_modules = "MAX"
         # SDG-specific keywords.
-        keywords = "src/main/SDG_KEYWORDS/SDG_Keywords.csv"
+        keywords = "main/SDG_KEYWORDS/SDG_Keywords.csv"
         passes = 10
         iterations = 400
         chunksize = 6000
         num_top_words = 20
 
         # SDG results files.
-        pyldavis_html = "src/main/NLP/LDA/SDG_RESULTS/pyldavis.html"
-        tsne_clusters_html = "src/main/NLP/LDA/SDG_RESULTS/tsne_clusters.html"
-        model = "src/main/NLP/LDA/SDG_RESULTS/model.pkl"
-        results = "src/main/NLP/LDA/SDG_RESULTS/training_results.json"
+        pyldavis_html = "main/NLP/LDA/SDG_RESULTS/pyldavis.html"
+        tsne_clusters_html = "main/NLP/LDA/SDG_RESULTS/tsne_clusters.html"
+        model = "main/NLP/LDA/SDG_RESULTS/model.pkl"
+        results = "main/NLP/LDA/SDG_RESULTS/training_results.json"
 
         self.load_dataset(num_modules)
         self.load_keywords(keywords)

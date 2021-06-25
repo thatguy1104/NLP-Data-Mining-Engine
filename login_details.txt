@@ -11,10 +11,10 @@ Microsoft Azure
 		- Password: e_Paswrd?!
 	- PostgreSQL
 		- ENGINE:   django.db.backends.postgresql
-		- NAME:     django_db_miemie_ucl
-		- HOST:     miemiedjangoapp.postgres.database.azure.com
+		- NAME:     summermiemiepostgre
+		- HOST:     summermiemie.postgres.database.azure.com
 		- PORT:     5432
-		- USER:     miemie_admin@miemiedjangoapp
+		- USER:     miemie_admin@summermiemie
 		- PASSWORD: e_Paswrd?!
 	- SQL Server 1
 		- Server:   miemie.database.windows.net
@@ -26,11 +26,11 @@ Microsoft Azure
 		- Server:   summermiemieservver.database.windows.net
 		- Database: summermiemiedb
 		- Username: miemie_login
-		- Password: e_Paswrd?!
+		- Password: 
 		- Driver:   {ODBC Driver 17 for SQL Server}
 
 API Keys
-	- Scopus API
+	- Scopus APIe_Paswrd?!
 		- Key: 		    	8736fba47309840ce67b66b716e2b8a5
 		- Instructions:     https://pybliometrics.readthedocs.io/en/stable/configuration.html
 		- Elsevier: 	    https://dev.elsevier.com/apikey/manage

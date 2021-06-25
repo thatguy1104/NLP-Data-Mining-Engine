@@ -20,16 +20,16 @@ class ModuleLoader(Loader):
             Initializes modules data file and the file path for module string matching results.
         """
         super().__init__()
-        self.data_file = "src/main/LOADERS/modules.pkl"
-        self.string_matches_path = "src/main/NLP/STRING_MATCH/SDG_RESULTS/module_matches.json"
+        self.data_file = "main/LOADERS/modules.pkl"
+        self.string_matches_path = "main/NLP/STRING_MATCH/SDG_RESULTS/module_matches.json"
 
     def get_modules_db(self, num_modules: Union[int, str]) -> pd.DataFrame:
         """
             Returns either all modules, or if specified, a number of modules
         """
         # SERVER LOGIN DETAILS
-        server = 'miemie.database.windows.net'
-        database = 'MainDB'
+        server = 'summermiemieservver.database.windows.net'
+        database = 'summermiemiedb'
         username = 'miemie_login'
         password = 'e_Paswrd?!'
         driver = '{ODBC Driver 17 for SQL Server}'
@@ -39,10 +39,12 @@ class ModuleLoader(Loader):
 
         if num_modules == "MAX":
             # Load all modules.
-            df = pd.read_sql_query("SELECT Module_Name, Module_ID, Description FROM [dbo].[ModuleData]", myConnection)
+            df = pd.read_sql_query(
+                "SELECT Module_Name, Module_ID, Module_Description FROM [dbo].[ModuleData]", myConnection)
         else:
             # Load given number of modules.
-            df = pd.read_sql_query("SELECT TOP (%d) Module_Name, Module_ID, Description FROM [dbo].[ModuleData]" % int(num_modules), myConnection)
+            df = pd.read_sql_query("SELECT TOP (%d) Module_Name, Module_ID, Module_Description FROM [dbo].[ModuleData]" % int(
+                num_modules), myConnection)
 
         myConnection.commit()
         return df
@@ -50,14 +52,14 @@ class ModuleLoader(Loader):
     def load(self, count: int) -> pd.DataFrame:
         """
             Loads module data from pickled file.
-            Returns Pandas DataFrame with columns: 'Module_ID' and 'Description'.
+            Returns Pandas DataFrame with columns: 'Module_ID' and 'Module_Description'.
         """
         with open(self.data_file, "rb") as input_file:
             data = pickle.load(input_file)
 
         data = data.dropna()
         data = data.head(count) if isinstance(count, int) else data
-        return pd.DataFrame(data=data, columns=["Module_ID", "Description"])
+        return pd.DataFrame(data=data, columns=["Module_ID", "Module_Description"])
 
     def load_lda_prediction_results(self):
         """
