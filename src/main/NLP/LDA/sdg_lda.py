@@ -118,6 +118,7 @@ class SdgLda(Lda):
 
         print("Saving results...")
         self.write_results(corpus, num_top_words, results)
+        self.push_html_postgre("main/NLP/LDA/SDG_RESULTS/pyldavis.html", "main/NLP/LDA/SDG_RESULTS/tsne_clusters.html", "sdg")
         self.serialize(model)
         
         print("Done.")

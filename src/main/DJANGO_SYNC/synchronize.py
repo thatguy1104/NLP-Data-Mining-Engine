@@ -1,7 +1,7 @@
 import sys
 import json
-import pymongo
 import psycopg2
+import pymongo
 import ssl
 from bson import json_util
 from colorsys import hsv_to_rgb
@@ -198,11 +198,9 @@ class Synchronizer():
         con = psycopg2.connect(database='summermiemiepostgre', user='miemie_admin@summermiemie', host='summermiemie.postgres.database.azure.com', password='e_Paswrd?!', port='5432')
         cur = con.cursor()
         
-        print(title.replace("'", "''"))
         cur.execute(
             'UPDATE public.app_publication SET \"assignedSDG\" = \'{}\' WHERE title = \'{}\''.format(json.dumps(data_sdg), title.replace("'", "''"))
         )
-
         con.commit()
         cur.close()
 
@@ -292,7 +290,8 @@ class Synchronizer():
             count += 1
         print()
 
+
     def run(self, limit):
-        # self.__loadSDG_Data_PUBLICATION(limit)
+        self.__loadSDG_Data_PUBLICATION(limit)
         self.__loadSDG_Data_MODULES(limit)
         self.client.close()

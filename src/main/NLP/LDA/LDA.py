@@ -4,6 +4,7 @@ import logging
 import pickle
 import gensim
 import nltk
+import pymongo
 
 from main.NLP.PREPROCESSING.preprocessor import Preprocessor
 from main.LOADERS.loader import Loader
@@ -41,6 +42,24 @@ class Lda():
             Serializes the topic-word and document-topic distributions as a JSON file and pushes the data to MongoDB.
         """
         raise NotImplementedError
+
+    def push_html_postgre(self, pylda_path, tsne_path, choice):
+        with open(pylda_path, "r", encoding='utf-8') as f:
+            pylda_html_contents = f.read()
+        with open(tsne_path, "r", encoding='utf-8') as f:
+            tsne_html_contents = f.read()
+
+        client = pymongo.MongoClient("mongodb+srv://admin:admin@cluster0.hw8fo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+        db = client.Scopus
+        col = db.Visualisations
+
+        title_end = "ihe" if choice == "ihe" else "sdg"
+
+        data = {
+            "PyLDA_"+title_end: pylda_html_contents,
+            "TSNE_"+title_end: tsne_html_contents
+        }
+        col.update_one(data, {'$set': data}, upsert=True)
 
     def serialize(self, model_pkl_file: str):
         """

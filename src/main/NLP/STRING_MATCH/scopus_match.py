@@ -35,7 +35,7 @@ class ScopusStringMatch():
 
         resulting_data = {}
         counter = 0
-        keywords = self.preprocessor.preprocess_keywords("SDG_KEYWORDS/SDG_Keywords.csv")
+        keywords = self.preprocessor.preprocess_keywords("main/SDG_KEYWORDS/SDG_Keywords.csv")
         num_publications = len(data)
         num_keywords = len(keywords)
 

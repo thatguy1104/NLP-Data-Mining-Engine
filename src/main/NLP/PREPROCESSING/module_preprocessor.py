@@ -30,7 +30,7 @@ class ModuleCataloguePreprocessor(Preprocessor):
         """
             UCL module-catalogue stopwords handpicked and preprocessed.
         """
-        df = pd.read_csv("src/main/MODULE_CATALOGUE/module_catalogue_stopwords.csv", index_col=False)['Stopwords']
+        df = pd.read_csv("main/MODULE_CATALOGUE/module_catalogue_stopwords.csv", index_col=False)['Stopwords']
         preprocessed_stopwords = [self.lemmatize(stopword) for stopword in list(df)] 
         return set(preprocessed_stopwords)
 

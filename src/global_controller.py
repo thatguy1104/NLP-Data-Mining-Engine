@@ -75,14 +75,17 @@ def nlp_manager(run_LDA_SDG: bool, run_LDA_IHE: bool, run_GUIDED_LDA_SDG: bool, 
     if validate_sdg_svm:
         nlp_actions.validate_SDG_SVM()
 
-def sync_manager(synchronize_mongogb: bool) -> None:
+def sync_manager(synchronize_raw_mongodb, synchronize_mongodb: bool) -> None:
     """
-
+        Synchronizes raw scraped data (modules + publications) with Django's PostgreSQL
+        Synchronizes processed validation & prediction (modules + publications) with Django's PostgreSQL
     """
 
     sync_actions = SYNC_SECTION()
-    if synchronize_mongogb:
-        sync_actions.synchronize_mongogb()
+    if synchronize_raw_mongodb:
+        sync_actions.synchronize_mongo_PREMODEL()
+    if synchronize_mongodb:
+        sync_actions.synchronize_mongodb_POSTMODEL()
 
 def main() -> None:
     """
@@ -91,12 +94,12 @@ def main() -> None:
     """
     
     keywords_merger_manager(sdg_keywords=False)
-    loader_manager(modules=False, publications=False)
+    loader_manager(modules=False, publications=False) # Needs to be done after each scrape
     module_manager(initialise=False, resetDB=False, scrape=False, updateStudentCount=False)
     scopus_manager(scrape=False)
-    nlp_manager(run_LDA_SDG=False, run_LDA_IHE=True, run_GUIDED_LDA_SDG=False, run_GUIDED_LDA_IHE=False, module_string_match=False,
+    nlp_manager(run_LDA_SDG=False, run_LDA_IHE=False, run_GUIDED_LDA_SDG=False, run_GUIDED_LDA_IHE=False, module_string_match=False,
                 scopus_string_match=False, predict_scopus_data=False, create_SVM_dataset=False, run_SVM_SDG=False, validate_sdg_svm=False)
-    sync_manager(synchronize_mongogb=False)
+    sync_manager(synchronize_raw_mongodb=True, synchronize_mongodb=False)
 
 if __name__ == "__main__":
     main()
