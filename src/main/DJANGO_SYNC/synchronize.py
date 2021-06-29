@@ -182,7 +182,7 @@ class Synchronizer():
     def __getPostgres_modules(self, title:str):
         con = psycopg2.connect(database='summermiemiepostgre', user='miemie_admin@summermiemie', host='summermiemie.postgres.database.azure.com', password='e_Paswrd?!', port='5432')
         cur = con.cursor()
-        cur.execute("""select id, title, data, "assignedSDG" from public."app_publication" where title = '""" + title + "'")
+        cur.execute("""select id, title, data, "assignedSDG" from public."app_publication" where title = '""" + title.replace("'", "''") + "'")
         result = cur.fetchall()
         con.close()
         return result[0]
@@ -199,7 +199,7 @@ class Synchronizer():
         cur = con.cursor()
         
         cur.execute(
-            'UPDATE public.app_publication SET \"assignedSDG\" = \'{}\' WHERE title = \'{}\''.format(json.dumps(data_sdg), title.replace("'", "''"))
+            'UPDATE public.app_publication SET \"assignedSDG\" = \'{}\' WHERE title = \'{}\''.format(json.dumps(data_sdg).replace("'", "''"), title.replace("'", "''"))
         )
         con.commit()
         cur.close()
