@@ -194,6 +194,18 @@ class Synchronizer():
         con.commit()
         con.close()
 
+    def __retrieve_postgres_data_publications_ihe(self, title:str):
+        con = psycopg2.connect(database='summermiemiepostgre', user='miemie_admin@summermiemie', host='summermiemie.postgres.database.azure.com', password='e_Paswrd?!', port='5432')
+        cur = con.cursor()
+
+        cur.execute(
+            'SELECT "assignedSDG" FROM public.app_publication WHERE title = \'' + title.replace("'", "''") + '\''
+        )
+        result = cur.fetchone()[0]
+        cur.close()
+
+        return json.loads(json.dumps(result))
+
     def __update_postgres_data_publications(self, data_sdg:dict, title:str) -> None:
         con = psycopg2.connect(database='summermiemiepostgre', user='miemie_admin@summermiemie', host='summermiemie.postgres.database.azure.com', password='e_Paswrd?!', port='5432')
         cur = con.cursor()
@@ -221,9 +233,9 @@ class Synchronizer():
         print()
 
         for i in data_:
-            self.__progress(count, l, "synching Publications SDG + IHE with Django")
+            self.__progress(count, l, "syncing Publications SDG with Django")
             count += 1
-            publication_SDG_assignments = data_[i]
+            publication_data = self.__retrieve_postgres_data_publications_ihe(data_[i]['Title'])
             calc_highest = []
             for j in range(18):
                 try:
@@ -239,21 +251,31 @@ class Synchronizer():
                 if weight >= lda_threshold:
                     validWeights.append(sdg)
 
-            publication_SDG_assignments['DOI'] = i
-            publication_SDG_assignments["Validation"] = self.__getPublication_validation(scopusValidation, i)
-            publication_SDG_assignments['ModelResult'] = ",".join(validWeights)
-            publication_SDG_assignments['IHE'], publication_SDG_assignments['IHE_Prediction'] = self.__getIHE_predictions(ihePrediction, i)
-            publication_SDG_assignments['SVM'], publication_SDG_assignments['SVM_Prediction'] = self.__getSVM_predictions(svm_predictions['Publication'], i)
+            publication_data['DOI'] = i
+            publication_data["Validation"] = self.__getPublication_validation(scopusValidation, i)
+            publication_data['ModelResult'] = ",".join(validWeights)
+            publication_data['SVM'], publication_data['SVM_Prediction'] = self.__getSVM_predictions(svm_predictions['Publication'], i)
 
-            if publication_SDG_assignments["Validation"]['SDG_Keyword_Counts']:
-                normalised = self.__normalise(publication_SDG_assignments["Validation"]['SDG_Keyword_Counts'])
-                publication_SDG_assignments['StringResult'] = ",".join(self.__thresholdAnalyse(normalised, threshold=lda_threshold))
-
+            if publication_data["Validation"]['SDG_Keyword_Counts']:
+                normalised = self.__normalise(publication_data["Validation"]['SDG_Keyword_Counts'])
+                publication_data['StringResult'] = ",".join(self.__thresholdAnalyse(normalised, threshold=lda_threshold))
                 postgre_publication = self.__getPostgres_modules(title=data_[i]['Title'])
                 if len(postgre_publication) < 4:
                     self.__create_column_postgres_table()
 
-                self.__update_postgres_data_publications(publication_SDG_assignments, data_[i]['Title'])
+                self.__update_postgres_data_publications(publication_data, data_[i]['Title'])
+        print()
+
+    def __load_IHE_Data(self, limit) -> None:
+        data_, svm_predictions, scopusValidation, ihePrediction, module_predictions, module_validation = self.__acquireData(True, False, False, True, False, False, limit)
+        count, l = 1, len(data_)
+        print()
+        for i in data_:
+            self.__progress(count, l, "syncing IHE with Django")
+            count += 1
+            publication_data = self.__retrieve_postgres_data_publications_ihe(data_[i]['Title'])
+            publication_data['IHE'], publication_data['IHE_Prediction'] = self.__getIHE_predictions(ihePrediction, i)
+            self.__update_postgres_data_publications(publication_data, data_[i]['Title'])
         print()
 
     def __loadSDG_Data_MODULES(self, limit) -> None:
@@ -294,4 +316,5 @@ class Synchronizer():
     def run(self, limit):
         self.__loadSDG_Data_PUBLICATION(limit)
         self.__loadSDG_Data_MODULES(limit)
+        self.__load_IHE_Data(limit)
         self.client.close()
