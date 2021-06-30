@@ -1,4 +1,3 @@
-# from configparser import ConfigParser
 import configparser
 
 def get_details(field, detail):

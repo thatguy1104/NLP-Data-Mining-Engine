@@ -100,6 +100,7 @@ class IheLda(Lda):
         num_publications = "MAX"
         # IHE-specific keywords.
         keywords = "main/IHE_KEYWORDS/ihe_keywords.csv"
+        # keywords = "main/IHE_KEYWORDS/ihe_keywords_2.csv"
 
         passes = 10
         iterations = 400
@@ -114,12 +115,12 @@ class IheLda(Lda):
 
         self.load_dataset(num_publications)
         self.load_keywords(keywords)
-        self.num_topics = 10
+        self.num_topics = 9
         
         print("Training...")
         corpus = self.train(passes, iterations, chunksize)
         self.display_results(corpus, num_top_words, pyldavis_html, tsne_clusters_html)
-
+        
         print("Saving results...")
         self.write_results(corpus, num_top_words, results)
         self.push_html_postgre("main/NLP/LDA/IHE_RESULTS/pyldavis.html", "main/NLP/LDA/IHE_RESULTS/tsne_clusters.html", "ihe")
