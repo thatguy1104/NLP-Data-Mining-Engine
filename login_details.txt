@@ -18,7 +18,7 @@ Microsoft Azure
 		- PASSWORD: e_Paswrd?!
 	- SQL Server 1
 		- Server:   miemie.database.windows.net
-		- Database: MainDB
+		- Database: MainDBr
 		- Username: miemie_login
 		- Password: e_Paswrd?!
 		- Driver:   {ODBC Driver 17 for SQL Server}
@@ -26,8 +26,11 @@ Microsoft Azure
 		- Server:   summermiemieservver.database.windows.net
 		- Database: summermiemiedb
 		- Username: miemie_login
-		- Password: 
+		- Password: e_Paswrd?!
 		- Driver:   {ODBC Driver 17 for SQL Server}
+	- tableau
+		password: e_Paswrd?!1
+
 
 API Keys
 	- Scopus APIe_Paswrd?!
