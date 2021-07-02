@@ -13,21 +13,21 @@ calibration layer,Cytosine,Brute force attack,data engineer,Code documentation,B
 classification model,Deoxyribonuclease,Catfishing,Data governance,Code refactoring,Cartesian coordinate Robot,Biomedical Engineering,Antibody Production,cell microarrays,Cell based medicinal product
 confusion matrix,deoxyribonucleic acid,Cipher,Data lake,Code smells,Climbing Robots,Biopharmaceutical,Bacteria,cell sorting,Cell culture
 convolutional filter,DNA,ciphertext,Data mining,Code style,Cloud robotics,Bioreactor,Bioassay,Cell therapy,Cell therapy
-convolutional layer,DNA fingerprinting,Clickjacking,Data modeling,Data modeling,Cobots,Biosensor,Bioavailability,cell-based imaging,Ex vivo
-convolutional neural network,DNA polymerase,Cloud security,Data pool,Database management system,Cognitive Control Architectures,Carlson Curve,Biologics,cellular engineering,extracorporeal
-decision tree,DNA sequencing,Computer Network Attack,data science,Debugging,Cognitive Modeling,Cell Culture,Biopharmaceutics,cellular imaging,Gene therapy
-deep neural network,Enzyme,Computer virus,Data Set,Delta debugging,Collaborative Robot,Cell Line,Bioreactor,cellular models,Genotype
-dimension reduction,Gel electrophoresis,Computer worm,Data visualization,Design patterns,Collision Avoidance,Cell Strain,Biotech,cellular reprogramming,Heterologous use
+convolutional layer,DNA fingerprinting,Clickjacking,Data modeling,Data modeling,Cobots,Biosensor,Bioavailability,cell-based imaging,extracorporeal
+convolutional neural network,DNA polymerase,Cloud security,Data pool,Database management system,Cognitive Control Architectures,Carlson Curve,Biologics,cellular engineering,Gene therapy
+decision tree,DNA sequencing,Computer Network Attack,data science,Debugging,Cognitive Modeling,Cell Culture,Biopharmaceutics,cellular imaging,Genotype
+deep neural network,Enzyme,Computer virus,Data Set,Delta debugging,Collaborative Robot,Cell Line,Bioreactor,cellular models,Heterologous use
+dimension reduction,Gel electrophoresis,Computer worm,Data visualization,Design patterns,Collision Avoidance,Cell Strain,Biotech,cellular reprogramming,Heterotopic
 DQN,Gene expression,Credit Card Fraud,Data Warehouse,Docker,"Compliant Robot
-",Cell Therapy,Biotransformation,cryobiology,Heterotopic
-empirical risk minimization,Genetic engineering,Crimeware,Data wrangling,Event driven language,Controlled robot,Chassis,Biotranslocation,cryonics,Homologous use
-epsilon greedy policy,Genotype,Crypojacking,dataset,Executable code,Controlled robot dynamics,Clinical Trial,Body weight,flow cytometry,Homotopic
-exploding gradient problem,Guanine,cryptographic system,Deep Learning,Explicit declaration,Cyborgs,Codon,Carcinogenicity,genotype tissue expression,In vitro
-false negative,Immunoglobulin,Cryptography,divisive clustering,Firebase,Cylindrical coordinate Robot,DNA,Central Nervous System,human tissue engineered product,In vivo
-false positive,Meiosis,Cryptosystem,feature engineering,Full stack developer,Developmental Robotics,DNA Synthesis,Chemotherapy,hybridoma,Therapy
-feature engineering,Messenger RNA,Cyber Crime,feature extraction,Git,Domestic Robotics,Drug Delivery,Cheng-Prusoff equation,image cytometry,Tissue
-feature extraction,Mitosis,Cyber security,feature set,Github,Downtime,Drug Product,Chromatography,immortalizing oncogene,Xenogeneic
-feature set,mRNA,Cyber Terrorism,feature vector,Haskell,Embodied Cognitive Science,Engineering Biology,Clinical Design,immunohistochemistry,Xenograft
+",Cell Therapy,Biotransformation,cryobiology,Homologous use
+empirical risk minimization,Genetic engineering,Crimeware,Data wrangling,Event driven language,Controlled robot,Chassis,Biotranslocation,cryonics,Homotopic
+epsilon greedy policy,Genotype,Crypojacking,dataset,Executable code,Controlled robot dynamics,Clinical Trial,Body weight,flow cytometry,Tissue
+exploding gradient problem,Guanine,cryptographic system,Deep Learning,Explicit declaration,Cyborgs,Codon,Carcinogenicity,genotype tissue expression,Xenogeneic
+false negative,Immunoglobulin,Cryptography,divisive clustering,Firebase,Cylindrical coordinate Robot,DNA,Central Nervous System,human tissue engineered product,Xenograft
+false positive,Meiosis,Cryptosystem,feature engineering,Full stack developer,Developmental Robotics,DNA Synthesis,Chemotherapy,hybridoma,
+feature engineering,Messenger RNA,Cyber Crime,feature extraction,Git,Domestic Robotics,Drug Delivery,Cheng-Prusoff equation,image cytometry,
+feature extraction,Mitosis,Cyber security,feature set,Github,Downtime,Drug Product,Chromatography,immortalizing oncogene,
+feature set,mRNA,Cyber Terrorism,feature vector,Haskell,Embodied Cognitive Science,Engineering Biology,Clinical Design,immunohistochemistry,
 feature vector,Mutagen,Cyber Warfare,Hadoop,High level language,End effector,Fermentation,Clinical Supply,Laser Capture Microdissection,
 federated learning,Nuclease,cyberattack,imbalanced dataset,Human computer interface,Epigenetic Robotics,Fermentor,Clinical Therapeutic Index,laser tweezers,
 feedforward neural network,Peptide,cyberespionage,Machine learning engineer,IDE,Evolutionary Robotics,Gene Drive,Concentration response curve,microdissection,
