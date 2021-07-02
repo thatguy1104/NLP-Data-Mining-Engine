@@ -65,7 +65,7 @@ class IheLda(Lda):
             data['Document Topics'][str(d)] = doc_topics
 
         # Push data to MongoDB and serialize as JSON file.
-        MongoDbPusher().ihe_prediction(data)
+        # MongoDbPusher().ihe_prediction(data)
         
         with open(results_file, 'w') as outfile:
             json.dump(data, outfile)
@@ -97,7 +97,7 @@ class IheLda(Lda):
         startTime = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
 
         # Training parameters.
-        num_publications = "MAX"
+        num_publications = 10000
         # IHE-specific keywords.
         keywords = "main/IHE_KEYWORDS/ihe_keywords.csv"
         # keywords = "main/IHE_KEYWORDS/ihe_keywords_2.csv"
@@ -115,7 +115,7 @@ class IheLda(Lda):
 
         self.load_dataset(num_publications)
         self.load_keywords(keywords)
-        self.num_topics = 9
+        self.num_topics = 10
         
         print("Training...")
         corpus = self.train(passes, iterations, chunksize)
@@ -123,7 +123,7 @@ class IheLda(Lda):
         
         print("Saving results...")
         self.write_results(corpus, num_top_words, results)
-        self.push_html_postgre("main/NLP/LDA/IHE_RESULTS/pyldavis.html", "main/NLP/LDA/IHE_RESULTS/tsne_clusters.html", "ihe")
-        self.serialize(model)
+        # self.push_html_postgre("main/NLP/LDA/IHE_RESULTS/pyldavis.html", "main/NLP/LDA/IHE_RESULTS/tsne_clusters.html", "ihe")
+        # self.serialize(model)
 
         print("Done.")

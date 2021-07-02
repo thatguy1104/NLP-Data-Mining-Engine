@@ -1,6 +1,6 @@
 from main.DJANGO_SYNC.synchronize import Synchronizer
 from main.DJANGO_SYNC.raw_synchronize import RawSynchronizer
-
+from main.DJANGO_SYNC.bubble_sync import BubbleMongoSync
 
 class SYNC_SECTION():
 
@@ -17,4 +17,11 @@ class SYNC_SECTION():
         """
         obj = Synchronizer()
         obj.run(limit=0)
+
+    def synchronize_mongodb_BUBBLE(self) -> None:
+        """
+            Synchronize SDG & IHE page data containing computed validation and predictions
+        """
+        obj = BubbleMongoSync()
+        obj.run()
 

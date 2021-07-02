@@ -52,7 +52,7 @@ class RawSynchronizer():
         con = psycopg2.connect(database='summermiemiepostgre', user='miemie_admin@summermiemie', host='summermiemie.postgres.database.azure.com', password='e_Paswrd?!', port='5432')
         cur = con.cursor()
 
-        c, l = 0, 34697
+        c, l = 0, 100000
         for i in data:
             self.__progress(c, l, "Syncing scraped publications to Django")
             del i['_id']

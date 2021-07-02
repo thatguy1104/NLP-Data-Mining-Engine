@@ -221,7 +221,7 @@ class Synchronizer():
                                host='summermiemie.postgres.database.azure.com', password='e_Paswrd?!', port='5432')
         cur = con.cursor()
         cur.execute(
-            'UPDATE public.app_module SET \"assignedSDG\" = \'{}\' WHERE "Module_ID" = \'{}\''.format(json.dumps(data_sdg), module_id)
+            'UPDATE public.app_module SET "fullName" = \'{}\' WHERE "Module_ID" = \'{}\''.format(json.dumps(data_sdg), module_id)
         )
         con.commit()
         cur.close()
@@ -313,7 +313,7 @@ class Synchronizer():
         print()
 
     def run(self, limit):
-        # self.__loadSDG_Data_PUBLICATION(limit)
+        self.__loadSDG_Data_PUBLICATION(limit)
         self.__loadSDG_Data_MODULES(limit)
         self.__load_IHE_Data(limit)
         self.client.close()

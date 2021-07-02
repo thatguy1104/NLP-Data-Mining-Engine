@@ -75,7 +75,8 @@ def nlp_manager(run_LDA_SDG: bool, run_LDA_IHE: bool,
     if validate_sdg_svm:
         nlp_actions.validate_SDG_SVM()
 
-def sync_manager(synchronize_raw_mongodb: bool, synchronize_mongodb: bool) -> None:
+
+def sync_manager(synchronize_raw_mongodb: bool, synchronize_mongodb: bool, synchronize_bubble: bool) -> None:
     """
         Synchronizes raw scraped data (modules + publications) with Django's PostgreSQL
         Synchronizes processed validation & prediction (modules + publications) with Django's PostgreSQL
@@ -86,6 +87,8 @@ def sync_manager(synchronize_raw_mongodb: bool, synchronize_mongodb: bool) -> No
         sync_actions.synchronize_mongo_PREMODEL()
     if synchronize_mongodb:
         sync_actions.synchronize_mongodb_POSTMODEL()
+    if synchronize_bubble:
+        sync_actions.synchronize_mongodb_BUBBLE()
 
 def main() -> None:
     """
@@ -99,7 +102,7 @@ def main() -> None:
     scopus_manager(scrape=False)
     nlp_manager(run_LDA_SDG=False, run_LDA_IHE=True, module_string_match=False, scopus_string_match=False,
                 predict_scopus_data=False, create_SVM_dataset=False, run_SVM_SDG=False, validate_sdg_svm=False)
-    sync_manager(synchronize_raw_mongodb=False, synchronize_mongodb=False)
+    sync_manager(synchronize_raw_mongodb=False, synchronize_mongodb=False, synchronize_bubble=False)
 
 if __name__ == "__main__":
     main()
