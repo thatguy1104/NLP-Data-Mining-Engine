@@ -52,30 +52,7 @@ class RawSynchronizer():
         con = psycopg2.connect(database='summermiemiepostgre', user='miemie_admin@summermiemie', host='summermiemie.postgres.database.azure.com', password='e_Paswrd?!', port='5432')
         cur = con.cursor()
 
-        c, l = 0, 100000
-        for i in data:
-            self.__progress(c, l, "Syncing scraped publications to Django")
-            del i['_id']
-            title = i['Title'] = i['Title'].replace("\'", "\'\'")
-
-            if i['Abstract']:
-                i['Abstract'] = i['Abstract'].replace("\'", "\'\'")
-            if i['Source']:
-                i['Source'] = i['Source'].replace("\'", "\'\'")
-            if i['AuthorData']:
-                for key, val in i['AuthorData'].items():
-                    if val['Name']:
-                        val['Name'] = val['Name'].replace("\'", "\'\'")
-                    if val['AffiliationName']:
-                        val['AffiliationName'] = val['AffiliationName'].replace("\'", "\'\'")
-            if i['IndexKeywords']:
-                for index, val in enumerate(i['IndexKeywords']):
-                    i['IndexKeywords'][index] = val.replace("\'", "\'\'")
-            if i['AuthorKeywords']:
-                for index, val in enumerate(i['AuthorKeywords']):
-                    i['AuthorKeywords'][index] = val.replace("\'", "\'\'")
-
-            blank_dict = {
+        blank_dict = {
             '1': '', '2': '', '3': '', '4': '', '5': '', '6': '',
             '7': '', '8': '', '9': '', '10': '', '11': '', '12': '',
             '13': '', '14': '', '15': '', '16': '', '17': '', '18': '',
@@ -96,9 +73,37 @@ class RawSynchronizer():
             'SVM_Prediction': ''
         }
 
-            query = """INSERT INTO public.app_publication (title, data, \"assignedSDG\") VALUES ('{0}', '{1}', '{2}') ON CONFLICT (title) DO NOTHING""".format(title, json.dumps(i), json.dumps(blank_dict))
-            cur.execute(query)
-            con.commit()
+        c, l = 0, 90000
+        for i in data:
+            self.__progress(c, l, "Syncing scraped publications to Django")
+            del i['_id']
+            title = i['Title'] = i['Title'].replace("\'", "\'\'")
+
+            cur.execute("SELECT exists (SELECT 1 FROM public.app_publication WHERE title = \'{}\' LIMIT 1)".format(title))
+            existing_pub = cur.fetchone()[0]
+
+            if not existing_pub:
+                if i['Abstract']:
+                    i['Abstract'] = i['Abstract'].replace("\'", "\'\'")
+                if i['Source']:
+                    i['Source'] = i['Source'].replace("\'", "\'\'")
+                if i['AuthorData']:
+                    for key, val in i['AuthorData'].items():
+                        if val['Name']:
+                            val['Name'] = val['Name'].replace("\'", "\'\'")
+                        if val['AffiliationName']:
+                            val['AffiliationName'] = val['AffiliationName'].replace("\'", "\'\'")
+                if i['IndexKeywords']:
+                    for index, val in enumerate(i['IndexKeywords']):
+                        i['IndexKeywords'][index] = val.replace("\'", "\'\'")
+                if i['AuthorKeywords']:
+                    for index, val in enumerate(i['AuthorKeywords']):
+                        i['AuthorKeywords'][index] = val.replace("\'", "\'\'")
+
+
+                query = """INSERT INTO public.app_publication (title, data, \"assignedSDG\") VALUES ('{0}', '{1}', '{2}') ON CONFLICT (title) DO NOTHING""".format(title, json.dumps(i), json.dumps(blank_dict))
+                cur.execute(query)
+                con.commit()
             c += 1
         print()
         client.close()
@@ -106,4 +111,4 @@ class RawSynchronizer():
 
     def run(self):
         self.__update_publications_from_mongo()
-        self.__update_module_from_mysql()
+        # self.__update_module_from_mysql()
