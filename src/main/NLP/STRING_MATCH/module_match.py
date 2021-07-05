@@ -36,7 +36,7 @@ class ModuleStringMatch():
     
         resulting_data = {}
         counter = 0
-        keywords = self.preprocessor.preprocess_keywords("SDG_KEYWORDS/SDG_Keywords.csv")
+        keywords = self.preprocessor.preprocess_keywords("main/SDG_KEYWORDS/SDG_Keywords.csv")
         stopwords = self.preprocessor.stopwords
         num_modules = len(data)
         num_keywords = len(keywords)
@@ -49,8 +49,8 @@ class ModuleStringMatch():
             module_name = data["Module_Name"][i]
             module_description = ""
             # Descriptions for some modules are absent, checker statement is needed
-            if data["Description"][i]:
-                module_description = data["Description"][i]
+            if data["Module_Description"][i]:
+                module_description = data["Module_Description"][i]
 
             module_text = module_name + " " + module_description
             module_text = " ".join(self.preprocessor.tokenize(module_text)) # preprocess module text.
@@ -72,7 +72,7 @@ class ModuleStringMatch():
         self.mongodb_pusher.matched_modules(resulting_data) # push the processed data to MongoDB
         print()
         # Record the same data locally, acts as a backup
-        with open('src/main/NLP/STRING_MATCH/SDG_RESULTS/module_matches.json', 'w') as outfile:
+        with open('main/NLP/STRING_MATCH/SDG_RESULTS/module_matches.json', 'w') as outfile:
             json.dump(resulting_data, outfile)
     
     def run(self) -> None:

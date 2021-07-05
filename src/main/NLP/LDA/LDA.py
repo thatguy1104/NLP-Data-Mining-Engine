@@ -125,8 +125,8 @@ class Lda():
             the model.
         """
         logging.basicConfig(format='%(asctime)s : %(levelname)s : %(message)s', level=logging.INFO)
-
-        X = self.vectorizer.fit_transform(self.data.Description) # map description to a document-count matrix.
+        # map description to a document-count matrix.
+        X = self.vectorizer.fit_transform(self.data['Description'])
         corpus = gensim.matutils.Sparse2Corpus(X, documents_columns=False) # transform sparse matrix as a gensim corpus. 
         id2word = dict((v, k) for k, v in self.vectorizer.vocabulary_.items())
 

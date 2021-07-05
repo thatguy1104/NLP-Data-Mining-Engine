@@ -92,12 +92,12 @@ class SdgSvm(Svm):
         ts = time.time()
         startTime = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
         
-        svm_dataset = "src/main/NLP/SVM/dataset.csv"
+        svm_dataset = "main/NLP/SVM/dataset.csv"
         tags = ['SDG {}'.format(i) for i in range(1, 19)] # SDG tags.
 
         # SDG results files.
-        model = "src/main/NLP/SVM/SDG_RESULTS/model.pkl"
-        results = "src/main/NLP/SVM/SDG_RESULTS/training_results.json"
+        model = "main/NLP/SVM/SDG_RESULTS/model.pkl"
+        results = "main/NLP/SVM/SDG_RESULTS/training_results.json"
 
         self.load_dataset(svm_dataset)
         self.load_tags(tags)

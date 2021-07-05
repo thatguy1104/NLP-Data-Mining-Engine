@@ -110,5 +110,5 @@ class RawSynchronizer():
         con.close()
 
     def run(self):
+        self.__update_module_from_mysql()
         self.__update_publications_from_mongo()
-        # self.__update_module_from_mysql()

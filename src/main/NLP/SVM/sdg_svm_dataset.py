@@ -27,7 +27,7 @@ class SdgSvmDataset():
         self.publication_loader = PublicationLoader()
         self.module_preprocessor = ModuleCataloguePreprocessor()
         self.publication_preprocessor = Preprocessor()
-        self.svm_dataset = "src/main/NLP/SVM/SVM_dataset.pkl"
+        self.svm_dataset = "main/NLP/SVM/SVM_dataset.pkl"
         self.num_sdgs = 18
         self.df_modules = self.module_loader.load("MAX") # dataframe with columns {Module_ID, Description}.
         self.df_publications = self.publication_loader.load("MAX") # dataframe with columns {DOI, Title, Description}.
@@ -50,7 +50,7 @@ class SdgSvmDataset():
         
         # search for row in dataframe by Module_ID.
         df = self.df_modules.loc[self.df_modules["Module_ID"] == module_id]
-        return None if len(df) == 0 else df["Description"].values[0]
+        return None if len(df) == 0 else df["Module_Description"].values[0]
 
     def get_publication_description(self, doi: str):
         """

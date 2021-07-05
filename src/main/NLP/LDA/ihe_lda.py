@@ -99,8 +99,8 @@ class IheLda(Lda):
         # Training parameters.
         num_publications = 10000
         # IHE-specific keywords.
-        keywords = "main/IHE_KEYWORDS/ihe_keywords.csv"
-        # keywords = "main/IHE_KEYWORDS/ihe_keywords_2.csv"
+        # keywords = "main/IHE_KEYWORDS/ihe_keywords.csv"
+        keywords = "main/IHE_KEYWORDS/ihe_keywords2.csv"
 
         passes = 10
         iterations = 400

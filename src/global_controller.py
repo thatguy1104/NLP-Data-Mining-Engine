@@ -100,9 +100,15 @@ def main() -> None:
     loader_manager(modules=False, publications=False) # Needs to be done after each scrape
     module_manager(initialise=False, resetDB=False, scrape=False, updateStudentCount=False)
     scopus_manager(scrape=False)
-    nlp_manager(run_LDA_SDG=False, run_LDA_IHE=True, module_string_match=False, scopus_string_match=False,
+
+    nlp_manager(run_LDA_SDG=False, run_LDA_IHE=False, module_string_match=False, scopus_string_match=False,
                 predict_scopus_data=False, create_SVM_dataset=False, run_SVM_SDG=False, validate_sdg_svm=False)
-    sync_manager(synchronize_raw_mongodb=False, synchronize_mongodb=False, synchronize_bubble=False)
+    sync_manager(synchronize_raw_mongodb=False, synchronize_mongodb=False, synchronize_bubble=True)
 
 if __name__ == "__main__":
     main()
+
+    """
+        to run: run_LDA_IHE
+        left: synchronize_bubble
+    """

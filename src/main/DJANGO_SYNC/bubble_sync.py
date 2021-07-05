@@ -77,33 +77,40 @@ class BubbleMongoSync():
             c += 1
         print()
 
+    def __userprofile_exists(self, link: str) -> bool:
+        cur = self.con.cursor()
+        query = """SELECT EXISTS (SELECT "scopusLink" from public.app_userprofileact WHERE "scopusLink" = \'{0}\')""".format(link)
+        cur.execute(query)
+        return len(cur.fetchall()) != 0
+
     def __update_userprofiles(self, pubs: dict) -> None:
         cur = self.con.cursor()
         c = 0
         l = len(pubs)
 
         for pub in pubs:
-            author_data = pub[0]['AuthorData']
             link = pub[0]['Link']
 
             self.__progress(c, l, "Updating app_userprofileact")
 
-            if 'IHE_Prediction' in pub[1] and author_data:
-                ihe_prediction = pub[1]['IHE_Prediction']
-                for author_id, author_details in author_data.items():
-                    name = author_details['Name']
-                    affiliation = author_details['AffiliationName']
+            if not self.__userprofile_exists(link):
+                author_data = pub[0]['AuthorData']
+                if 'IHE_Prediction' in pub[1] and author_data:
+                    ihe_prediction = pub[1]['IHE_Prediction']
+                    for author_id, author_details in author_data.items():
+                        name = author_details['Name']
+                        affiliation = author_details['AffiliationName']
 
-                    if author_data is not None and author_id is not None and name is not None:
-                        if affiliation: affiliation = affiliation.replace("'", "''")
-                        if name: name = name.replace("'", "''")
-                        
-                        
-                        cur.execute(
-                        """
-                            INSERT INTO public.app_userprofileact (\"fullName\", \"scopusLink\", affiliation, author_id) VALUES(\'{0}\', \'{1}\', \'{2}\', {3}) ON CONFLICT (author_id) DO UPDATE SET "fullName" = \'{4}\', "scopusLink" = \'{5}\', affiliation = \'{6}\', author_id = \'{7}\'
-                        """.format(name, link, affiliation, author_id, name, link, affiliation, author_id))
-                self.con.commit()
+                        if author_data is not None and author_id is not None and name is not None:
+                            if affiliation: affiliation = affiliation.replace("'", "''")
+                            if name: name = name.replace("'", "''")
+                            
+                            
+                            cur.execute(
+                            """
+                                INSERT INTO public.app_userprofileact (\"fullName\", \"scopusLink\", affiliation, author_id) VALUES(\'{0}\', \'{1}\', \'{2}\', {3}) ON CONFLICT (author_id) DO UPDATE SET "fullName" = \'{4}\', "scopusLink" = \'{5}\', affiliation = \'{6}\', author_id = \'{7}\'
+                            """.format(name, link, affiliation, author_id, name, link, affiliation, author_id))
+                    self.con.commit()
             c += 1
 
     def __create_bubble_data(self, pubs: list) -> dict:

@@ -128,9 +128,9 @@ class ValidateSdgSvm():
         scopus_results = self.validate(Dataset.PUBLICATION, svm_predictions)
 
         # Serialize validation results as JSON file.
-        with open('src/main/NLP/VALIDATION/SDG_RESULTS/module_validation.json', 'w') as outfile:
+        with open('main/NLP/VALIDATION/SDG_RESULTS/module_validation.json', 'w') as outfile:
             json.dump(module_results, outfile)
-        with open('src/main/NLP/VALIDATION/SDG_RESULTS/scopus_validation.json', 'w') as outfile:
+        with open('main/NLP/VALIDATION/SDG_RESULTS/scopus_validation.json', 'w') as outfile:
             json.dump(scopus_results, outfile)
 
         # Push validation results to MongoDB.

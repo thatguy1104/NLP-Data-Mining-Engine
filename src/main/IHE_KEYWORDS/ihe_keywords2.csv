@@ -1,0 +1,118 @@
+AI and Machine Learning,Bioinformatics,Cybersecurity,Data Sciences,Software Engineering,Robotics,Synthetic Biology,Pharmacology and pharmaceuticals,Tissue Engineering,Regenerative Medicine
+activation function,Amino acid,access control,bag of words,Agile development,Actuator,Active Pharmaceutical Ingredient,Active Immunity,artificial cells,Tissue engineering
+active learning,Anticodon,Admin privilege,Bayes Theorem,Agile methods,Agent Based Systems,Antibody,Active Site,artificial chromosomes,Cell transplantation
+agglomerative clustering,Antigen,Antivirus,Bayesian network,Alpha testing,Agricultural Automation,Antigen,Adverse Drug Reaction,Artificial organ,Artificial organs
+artificial general intelligence,Bioinformatics,Antivirus software,Behavioural analytics,Anti patterns,Assembly Robot,Artemisinin,Agonist,Bacterial artificial chromosome,Bioartificial organs
+artificial intelligence,Carboxyl group,Asymmetric encryption,Big data,Apache Subversion,Automaton,Autoimmune Disease,Allergic Response,biobanking,tissue components
+augmented reality,cDNA,Authenticated encryption,bigram,Automated program repair,Autonomous Agents,Biobricks,Allergy,biological specimen banks,Noncellular components
+backpropagation,Chromatin,Backdoor,data analysis,Beta testing,Autonomous systems,Bioeconomy,Allosteric modulator,biorepository,Regenerative medicine
+Bayesian neural network,Chromosome,block cipher,Data analyst,Bytecode,Autonomous Technology,Biofuel,Analgesic,biospecimen,Allogeneic
+binary classification,Codon,Botnet,Data analytics,Class diagram,Autonomous vehicle,Biohacking,Anesthetic,cell assays,Allograft
+bounding box,Cytoplasm,Browser fingerprinting,data augmentation,Code bug,Autonomous Vehicle Navigation,Biologic,Antibiotic,cell chips,Autograft
+calibration layer,Cytosine,Brute force attack,data engineer,Code documentation,Bionics,Biological Engineering,Antibody,cell fusion,Autologous
+classification model,Deoxyribonuclease,Catfishing,Data governance,Code refactoring,Cartesian coordinate Robot,Biomedical Engineering,Antibody Production,cell microarrays,Cell based medicinal product
+confusion matrix,deoxyribonucleic acid,Cipher,Data lake,Code smells,Climbing Robots,Biopharmaceutical,Bacteria,cell sorting,Cell culture
+convolutional filter,DNA,ciphertext,Data mining,Code style,Cloud robotics,Bioreactor,Bioassay,Cell therapy,Cell therapy
+convolutional layer,DNA fingerprinting,Clickjacking,Data modeling,Data modeling,Cobots,Biosensor,Bioavailability,cell-based imaging,extracorporeal
+convolutional neural network,DNA polymerase,Cloud security,Data pool,Database management system,Cognitive Control Architectures,Carlson Curve,Biologics,cellular engineering,Gene therapy
+decision tree,DNA sequencing,Computer Network Attack,data science,Debugging,Cognitive Modeling,Cell Culture,Biopharmaceutics,cellular imaging,Genotype
+deep neural network,Enzyme,Computer virus,Data Set,Delta debugging,Collaborative Robot,Cell Line,Bioreactor,cellular models,Heterologous use
+dimension reduction,Gel electrophoresis,Computer worm,Data visualization,Design patterns,Collision Avoidance,Cell Strain,Biotech,cellular reprogramming,Heterotopic
+DQN,Gene expression,Credit Card Fraud,Data Warehouse,Docker,"Compliant Robot
+",Cell Therapy,Biotransformation,cryobiology,Homologous use
+empirical risk minimization,Genetic engineering,Crimeware,Data wrangling,Event driven language,Controlled robot,Chassis,Biotranslocation,cryonics,Homotopic
+epsilon greedy policy,Genotype,Crypojacking,dataset,Executable code,Controlled robot dynamics,Clinical Trial,Body weight,flow cytometry,Tissue
+exploding gradient problem,Guanine,cryptographic system,Deep Learning,Explicit declaration,Cyborgs,Codon,Carcinogenicity,genotype tissue expression,Xenogeneic
+false negative,Immunoglobulin,Cryptography,divisive clustering,Firebase,Cylindrical coordinate Robot,DNA,Central Nervous System,human tissue engineered product,Xenograft
+false positive,Meiosis,Cryptosystem,feature engineering,Full stack developer,Developmental Robotics,DNA Synthesis,Chemotherapy,hybridoma,Admixed embryo
+feature engineering,Messenger RNA,Cyber Crime,feature extraction,Git,Domestic Robotics,Drug Delivery,Cheng-Prusoff equation,image cytometry,Blastocyst
+feature extraction,Mitosis,Cyber security,feature set,Github,Downtime,Drug Product,Chromatography,immortalizing oncogene,stem cell
+feature set,mRNA,Cyber Terrorism,feature vector,Haskell,Embodied Cognitive Science,Engineering Biology,Clinical Design,immunohistochemistry,Cryopreservation
+feature vector,Mutagen,Cyber Warfare,Hadoop,High level language,End effector,Fermentation,Clinical Supply,Laser Capture Microdissection,Cytoplasmichybridembryos
+federated learning,Nuclease,cyberattack,imbalanced dataset,Human computer interface,Epigenetic Robotics,Fermentor,Clinical Therapeutic Index,laser tweezers,embryonic stem cell
+feedforward neural network,Peptide,cyberespionage,Machine learning engineer,IDE,Evolutionary Robotics,Gene Drive,Concentration response curve,microdissection,Foetal stem cell
+FFN,Peptide bond,Cybersecurity,machine learning model,Implicit declaration,Factory Automation,Gene Expression,Contamination,microimaging,Mesenchymal stem cell
+fully connected layer,Polymerase chain reaction,data breach,Markov Chain,Independent testing,Field Robots,Gene Therapy,Dealthcare,micromanipulation,Somatic stem cell
+GAN,rDNA,Data encryption,matplotlib,Intermediate code,Force Feedback,Genetic Engineering,Dentistry,microtissues,Somatic cell nuclear transfer
+generative adversarial network,restriction endonuclease,Data protection,naive Bayes classifier,Interpreter,Forward Kinematic Solution,Genetically Modified Organism,Desensitization,nuclear transfer,
+gradient descent,Restriction enzyme,DDoS Attack,neural network,Jackson Structured Programming,Forward Kinematics,Genome,Dissolution Time,optical trapping,
+hyperparameter,RNA,Decipher,PageRank,Java,Gripper,Glycosylation,DNA,optical tweezers,
+input layer,Transfer RNA,Denial of service,pivot table,JavaScript,Haptic feedback,Immunotherapy,DNA Sequence,organotypic,
+Kernel Support Vector Machines,tRNA,Diffie Hellman key exchange,posterior distribution,JUnit,Human centered Automation,Kozak Sequence,Dose,organotypic models,
+latent dirichlet allocation,,digital forensics,predictive analytics,Machine code,Human centered Robotics,Metabolite,Dose-Duration Curve,plasmid,
+learning rate,,Digital signatures,predictive modeling,Module library,Human robot,Molecular targeted drug,Drug Delivery,Regenerative medicine,
+LSTM,,Distributed Denial of Service,Predictive Modelling,Mutation testing,Humanoid,Nucleic Acids,Electrophoresis,Scar tissue,
+machine learning,,DOS,preprocessing,NoSQL,Humanoid Robot Systems,,Emergency Medicine,single cell analysis,
+model training,,Encipher,Prior distribution,Object oriented design,Industrial robot,,Endocrinology,site-directed mutagenesis,
+multinomial classification,,Encrypted web traffic,Reinforcement learning,Object-oriented language,Intelligent robot,,Enzyme,small intestinal submucosa,
+natural language processing,,Encryption,supervised learning,Pair programming,Intelligent systems,,Ethical Pharmaceutical,Stem cell,
+natural language understanding,,Fileless Malware,support vector machine,Penetration testing,Intelligent Transportation Systems,,Food and Drug Administration,synthetic lethal screening,
+neural network,,firewall,Test set,Portable code,Inverse kinematics,,Gene,tissue array analysis,
+Output layer,,Firmware,Training set,Portable software,Jacobian matrix,,Gene Expression,tissue banking,
+overfitting,,Forward secrecy,trigram,Procedural language,Joint,,Gene Therapy,tissue chips,
+perceptron,,Hacker,Unstructured data,Program analysis,Joint Interpolated Motion,,Generic Drugs,tissue engineering ,
+pre-trained model,,Hacktivist,unsupervised learning,Program repair,Joint Motion Type,,Generic Pharmaceutical,tissue microarrays,
+proxy labels,,HTTP Secure,Validation set,Programming team,Joint Space,,Genetic Engineering,tissue microdissection,
+random forest,,HTTPS,,Revision control,Kinematics,,Genomics,tissue models,
+Rectified Linear Unit,,Human centred security,,Scripting language,Logistics,,Genotype,tumoroid,
+recurrent neural network,,Identity check,,Scrum,Marine Robotics,,Habituation,Ventricular assist device,
+reinforcement learning,,Identity theft,,Scrum development,Material Processing Robot,,Hormone,xenograft,
+ReLU,,Information security,,Scrum master,Medical Robots,,Immunology,xenotransplantation,
+RNN,,Insecure channel,,Singleton pattern,Mining Robotics,,Infectious Disease,,
+scikit learn,,Insider threat,,Software bug,Motion Axis,,Infusion Kinetics,,
+semi supervised learning,,keylogger,,Software deployment,Motion Planning,,Insulin,,
+semi supervised machine learning,,malicious software,,Software development environment,Nanobot,,Kinase,,
+sentiment analysis,,Malware,,Software development process,Neurorobotics,,Lyophilisation,,
+sigmoid function,,Message authentication,,Software engineering,Offline programming,,Lyophiliser,,
+squared hinge loss,,Message authentication code,,Source code,Path Planning,,Metabolic Diseases,,
+stochastic gradient descent,,Multi factor authentication,,Source code management,Pathfinding,,Microbial Barrier,,
+structural risk minimization,,National Cybersecurity Strategy,,Source control,PLC,,Molecular Diagnostics,,
+supervised learning,,National Security Agency,,SQL,Program robot,,Mutagenesis,,
+supervised machine learning,,Network security,,SVN,Programmable Logical Controller,,Neurology,,
+Support Vector Machines,,NSA,,Symbolic execution,Rehabilitation Robotics,,Nonrenal Clearance,,
+SVM,,Password protection,,Systems analyst,Revolute Joint,,Nucleic Acid,,
+Tensor Processing Unit,,Password Weakness,,Systems developer,Robot,,Obstetrics,,
+TensorBoard,,pen testing,,Systems specification,Robot controller,,Oncology,,
+TensorFlow,,Phishing,,Test driven development,Robot Coordinate System,,Partial agonist ,,
+TensorFlow Serving,,Piggyback programs,,UML,Robot dynamics,,Peripheral Neuropathy,,
+test set,,Plaintext,,Unified Modeling Language,Robot Integrator,,Pharma,,
+TPU,,Plaintext attack,,Unit testing,Robot joint,,Pharma Resources,,
+Training set,,Privacy,,Version control,Robot kinematics,,Pharmaceutical Development,,
+transfer learning,,Private data,,Visitor pattern,Robot motion planning,,Pharmaceutical Research,,
+true negative,,Private key infrastructure,,Waterfall model,Robot programming,,Pharmaceuticals,,
+true positive,,Public key infrastructure,,,Robot Programming Language,,Pharmaceutics,,
+underfitting,,ransomware,,,,,Pharmacodynamics,,
+unsupervised learning,,ReCAPTCHA,,,,,Pharmacogenetics,,
+unsupervised machine learning,,Rootkit,,,,,Pharmacokinetics,,
+validation set,,Routing security,,,,,Pharmacological,,
+vanishing gradient problem,,Scareware,,,,,Pharmacology,,
+Wasserstein loss,,Secure channel,,,,,Pharmacovigilance,,
+,,Secure Sockets layer,,,,,Potency,,
+,,Secure Sockets Layer certificate,,,,,Preclinical Studies,,
+,,Secure system,,,,,Protein,,
+,,Security engineering,,,,,Proteomics,,
+,,Security policy,,,,,Radiology,,
+,,Security token,,,,,Rheumatology,,
+,,Session security,,,,,Therapeutics,,
+,,Social engineering,,,,,Toxicology,,
+,,Software security,,,,,Vaccination,,
+,,Software Vulnerability,,,,,Vaccine,,
+,,spear phishing ,,,,,White Blood Cell,,
+,,Spoofing,,,,,Yeast Artificial Chromosome,,
+,,spyware,,,,,Zoonosis,,
+,,SQL Injection,,,,,,,
+,,SSL certificate,,,,,,,
+,,Symmetric encryption,,,,,,,
+,,TLS,,,,,,,
+,,TOR,,,,,,,
+,,Transport layer security,,,,,,,
+,,Trojan,,,,,,,
+,,Trojan horse,,,,,,,
+,,two factor authentication,,,,,,,
+,,Unenciphered message,,,,,,,
+,,Virtual Private Network,,,,,,,
+,,Virtual Warfare,,,,,,,
+,,access control,,,,,,,
+,,Admin privilege,,,,,,,
+,,Antivirus,,,,,,,
+,,Antivirus software,,,,,,,

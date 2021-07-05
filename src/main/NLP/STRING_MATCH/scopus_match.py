@@ -59,7 +59,7 @@ class ScopusStringMatch():
         self.mongodb_pusher.matched_scopus(resulting_data) # push the processed data to MongoDB
         print()
         # Record the same data locally, acts as a backup
-        with open('src/main/NLP/STRING_MATCH/SDG_RESULTS/scopus_matches.json', 'w') as outfile:
+        with open('main/NLP/STRING_MATCH/SDG_RESULTS/scopus_matches.json', 'w') as outfile:
             json.dump(resulting_data, outfile)
         
     def run(self):

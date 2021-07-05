@@ -15,8 +15,8 @@ class Loader():
             and scopus research publications.
         """
         self.host = "mongodb+srv://admin:admin@cluster0.hw8fo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
-        self.lda_prediction_path = "src/main/NLP/LDA/SDG_RESULTS/training_results.json"
-        self.svm_prediction_path = "src/main/NLP/SVM/SDG_RESULTS/training_results.json"
+        self.lda_prediction_path = "main/NLP/LDA/SDG_RESULTS/training_results.json"
+        self.svm_prediction_path = "main/NLP/SVM/SDG_RESULTS/training_results.json"
 
     def load(self, count):
         """
