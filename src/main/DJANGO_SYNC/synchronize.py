@@ -1,7 +1,10 @@
+from main.NLP.PREPROCESSING.preprocessor import Preprocessor
+
 import sys
 import json
 import psycopg2
 import pymongo
+import pandas as pd
 import ssl
 from bson import json_util
 from colorsys import hsv_to_rgb
@@ -14,6 +17,7 @@ class Synchronizer():
     def __init__(self):
         self.host = "mongodb+srv://admin:admin@cluster0.hw8fo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
         self.client = pymongo.MongoClient(self.host)
+        self.preprocessor = Preprocessor()
 
     def __progress(self, count: int, total: int, custom_text: str, suffix='') -> None:
         """
@@ -199,9 +203,9 @@ class Synchronizer():
         cur = con.cursor()
 
         cur.execute(
-            'SELECT "assignedSDG" FROM public.app_publication WHERE title = \'' + title.replace("'", "''") + '\''
+            'SELECT "data", "assignedSDG" FROM public.app_publication WHERE title = \'' + title.replace("'", "''") + '\''
         )
-        result = cur.fetchone()[0]
+        result = cur.fetchall()
         cur.close()
 
         return json.loads(json.dumps(result))
@@ -235,7 +239,7 @@ class Synchronizer():
         for i in data_:
             self.__progress(count, l, "syncing Publications SDG with Django")
             count += 1
-            publication_data = self.__retrieve_postgres_data_publications_ihe(data_[i]['Title'])
+            publication_data = self.__retrieve_postgres_data_publications_ihe(data_[i]['Title'])[0][1]
             calc_highest = []
             for j in range(18):
                 try:
@@ -266,15 +270,46 @@ class Synchronizer():
                 self.__update_postgres_data_publications(publication_data, data_[i]['Title'])
         print()
 
+    def __stringmatch_approach(self, title: str, keywords) -> None:
+        paper = self.__retrieve_postgres_data_publications_ihe(title)[0][0]
+
+        # Concat publication text-based data
+        text_data = paper['Title']
+
+        if paper['Abstract']:
+            text_data += " " + paper['Abstract']
+        if paper['AuthorKeywords']:
+            for word in paper['AuthorKeywords']:
+                text_data += " " + word
+        if paper['IndexKeywords']:
+            for word in paper['IndexKeywords']:
+                text_data += " " + word
+
+        text_data = self.preprocessor.tokenize(text_data)
+        
+        result_string_list = []
+        for topic, words in enumerate(keywords):
+            for word in words:
+                if word in text_data and topic not in result_string_list:
+                    result_string_list.append((str(topic+1)))
+        
+        result = ','.join(result_string_list)
+        return result
+
     def __load_IHE_Data(self, limit) -> None:
         data_, svm_predictions, scopusValidation, ihePrediction, module_predictions, module_validation = self.__acquireData(True, False, False, True, False, False, limit)
+        ihe_approach_keywords = pd.read_csv("main/IHE_KEYWORDS/approaches.csv")
+        ihe_approach_keywords = ihe_approach_keywords.dropna()
+        ihe_approach_keywords = self.preprocessor.preprocess_keywords("main/IHE_KEYWORDS/approaches.csv")
+
         count, l = 1, len(data_)
         print()
         for i in data_:
             self.__progress(count, l, "syncing IHE with Django")
             count += 1
-            publication_data = self.__retrieve_postgres_data_publications_ihe(data_[i]['Title'])
+            publication_data = self.__retrieve_postgres_data_publications_ihe(data_[i]['Title'])[0][1]
             publication_data['IHE'], publication_data['IHE_Prediction'] = self.__getIHE_predictions(ihePrediction, i)
+            publication_data['IHE_Approach_String'] = self.__stringmatch_approach(data_[i]['Title'], ihe_approach_keywords)
             self.__update_postgres_data_publications(publication_data, data_[i]['Title'])
         print()
 
@@ -312,8 +347,45 @@ class Synchronizer():
             count += 1
         print()
 
+    def __update_columns(self) -> None:
+        approach_headers = pd.read_csv('main/IHE_KEYWORDS/updated_approaches.csv', nrows=0).columns.tolist()
+        speciality_headers = pd.read_csv('main/IHE_KEYWORDS/ihe_keywords2.csv', nrows=0).columns.tolist()
+        color_id = 1
+
+        con = psycopg2.connect(database='summermiemiepostgre', user='miemie_admin@summermiemie', host='summermiemie.postgres.database.azure.com', password='e_Paswrd?!', port='5432')
+        cur = con.cursor()
+        cur.execute('TRUNCATE public.app_specialtyact, public.app_approachact RESTART IDENTITY CASCADE')
+        con.commit()
+
+        for speciality in speciality_headers:
+            cur.execute("INSERT INTO public.app_specialtyact(name, color_id) VALUES(\'{0}\', {1})".format(speciality, color_id))
+        
+        for approach in approach_headers:
+            cur.execute("INSERT INTO public.app_approachact(name) VALUES(\'{0}\')".format(approach))
+        
+        con.commit()
+        cur.close()
+
+    def __clear_approach_spec(self, limit: int) -> None:
+        data_, svm_predictions, scopusValidation, ihePrediction, module_predictions, module_validation = self.__acquireData(True, False, False, True, False, False, limit)
+        l = len(data_)
+        count = 1
+        print()
+        for i in data_:
+            print("Doing", count, "/", l)
+            count += 1
+            publication_data = self.__retrieve_postgres_data_publications_ihe(data_[i]['Title'])[0][1]
+            publication_data['IHE'], publication_data['IHE_Prediction'] = self.__getIHE_predictions(ihePrediction, i)
+            publication_data['IHE_Approach_String'] = ''
+            self.__update_postgres_data_publications(publication_data, data_[i]['Title'])
+        print()
+
     def run(self, limit):
-        self.__loadSDG_Data_PUBLICATION(limit)
-        self.__loadSDG_Data_MODULES(limit)
+        limit = 1000
+        # self.__update_columns()
+        # self.__clear_approach_spec(limit)
+
+        # self.__loadSDG_Data_PUBLICATION(limit)
+        # self.__loadSDG_Data_MODULES(limit)
         self.__load_IHE_Data(limit)
         self.client.close()

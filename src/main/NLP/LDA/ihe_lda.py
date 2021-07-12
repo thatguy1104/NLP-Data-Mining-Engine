@@ -2,6 +2,7 @@ import time, datetime
 import json
 import pymongo
 import numpy as np
+import pandas as pd
 import ssl
 
 from main.NLP.LDA.LDA import Lda
@@ -65,7 +66,7 @@ class IheLda(Lda):
             data['Document Topics'][str(d)] = doc_topics
 
         # Push data to MongoDB and serialize as JSON file.
-        # MongoDbPusher().ihe_prediction(data)
+        MongoDbPusher().ihe_prediction(data)
         
         with open(results_file, 'w') as outfile:
             json.dump(data, outfile)
@@ -115,7 +116,7 @@ class IheLda(Lda):
 
         self.load_dataset(num_publications)
         self.load_keywords(keywords)
-        self.num_topics = 10
+        self.num_topics = len(pd.read_csv(keywords, nrows=0).columns.tolist())
         
         print("Training...")
         corpus = self.train(passes, iterations, chunksize)
@@ -123,7 +124,7 @@ class IheLda(Lda):
         
         print("Saving results...")
         self.write_results(corpus, num_top_words, results)
-        # self.push_html_postgre("main/NLP/LDA/IHE_RESULTS/pyldavis.html", "main/NLP/LDA/IHE_RESULTS/tsne_clusters.html", "ihe")
+        self.push_html_postgre("main/NLP/LDA/IHE_RESULTS/pyldavis.html", "main/NLP/LDA/IHE_RESULTS/tsne_clusters.html", "ihe")
         # self.serialize(model)
 
         print("Done.")

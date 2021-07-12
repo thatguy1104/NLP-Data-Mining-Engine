@@ -1,8 +1,9 @@
 import psycopg2
 import json
 import sys
+import itertools
+from itertools import permutations, chain
 
-DEFAULT_APPROACH = 1
 
 class BubbleMongoSync():
     
@@ -105,7 +106,6 @@ class BubbleMongoSync():
                             if affiliation: affiliation = affiliation.replace("'", "''")
                             if name: name = name.replace("'", "''")
                             
-                            
                             cur.execute(
                             """
                                 INSERT INTO public.app_userprofileact (\"fullName\", \"scopusLink\", affiliation, author_id) VALUES(\'{0}\', \'{1}\', \'{2}\', {3}) ON CONFLICT (author_id) DO UPDATE SET "fullName" = \'{4}\', "scopusLink" = \'{5}\', affiliation = \'{6}\', author_id = \'{7}\'
@@ -113,13 +113,24 @@ class BubbleMongoSync():
                     self.con.commit()
             c += 1
 
+    def __convert_lists(self, str_approach: str, str_speciality: str) -> list:
+        list_1 = str_approach.split(',')
+        list_2 = str_speciality.split(',')
+        unique_combinations = []
+        permut = itertools.permutations(list_1, len(list_2))
+        for comb in permut:
+            zipped = zip(comb, list_2)
+            unique_combinations.append(list(zipped))
+
+        r = list(chain.from_iterable(unique_combinations))
+        return list(dict.fromkeys(r))
+        
     def __create_bubble_data(self, pubs: list) -> dict:
         approach_list = self.__retrieve_approaches()
         specialty_list = self.__retrieve_specialities()
         colors = self.__retrieve_colours()
 
         new_bubble = {}
-
         
         for i in approach_list:
             for j in specialty_list:
@@ -129,19 +140,24 @@ class BubbleMongoSync():
 
         for pub in pubs:
             author_data = pub[0]['AuthorData']
-            approach = DEFAULT_APPROACH
+            approach = '1'
+            if 'IHE_Approach_String' in pub[1] and pub[1]['IHE_Approach_String'] != '':
+                approach = pub[1]['IHE_Approach_String']
+            
             speciality = pub[1]['IHE_Prediction']
 
             if speciality != '':
-                for author_id, author_details in author_data.items():
-                    name = author_details['Name']
-                    new_bubble[str((approach, int(speciality)))]['list_of_people'].append(author_id)
+                x_y_coordinates = self.__convert_lists(approach, speciality)
+
+                for position in x_y_coordinates:
+                    for author_id, author_details in author_data.items():
+                        name = author_details['Name']
+                        new_bubble[str((int(position[0]), int(position[1])))]['list_of_people'].append(author_id)
 
         self.__update_bubbles(new_bubble)
 
-
     def run(self) -> None:
         data_publications  = self.__retrieve_publications(limit=None)
-        self.__update_userprofiles(data_publications)
-        # self.__create_bubble_data(data_publications)
+        self.__create_bubble_data(data_publications)
+        # self.__update_userprofiles(data_publications)
         self.con.close()
