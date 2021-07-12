@@ -1,3 +1,9 @@
-General,Critical Care,Internal Medicine,Kidney Disease,Metabolism,Respiratory,Sexual Health,Cardiovascular,Surgery,Mobility,Oncology,Life Sciences,Maternal & Child Health,Infectious Disease,Mental Health,Pharmacy,Senses,Neuro,Wellbeing
-,Critical Care,Internal Medicine,Kidney Disease,Metabolism,Respiratory,Sexual Health,Cardiovascular,Surgery,Mobility,Oncology,Life Sciences,Maternal & Child Health,Infectious Disease,Mental Health,Pharmacy,Senses,Neuro,Wellbeing
-,Noncritical care,,,,,,,,,,,,,,,,,
+Generic Health Relevance,Blood,Cancer and Neoplasms,Cardiovascular,Congenital Disorders,Ear,Eye,Infection,Inflammatory and Immune System,Injuries and Accidents,Mental Health,Metabolic and Endocrine (including Diabetes),Musculoskeletal,Neurological,Oral and Gastrointestinal,Renal and Urogenital,Reproductive Health and Childbirth,Respiratory,Skin,Stroke,Disputed Aetiology
+,Blood,Cancer,Cardiovascular,Birth defect,Ear,Eye,Infection,Inflammatory,Injuries,Mental health,Metabolic,Musculoskeletal,Neurological,Oral,Renal,Reproductive health,Respiratory,Skin,Stroke,Aetiology
+,,Neoplasms,,Congenital anomaly,Auricle,Oculus,Contagion,Immune system,Injury,,Endocrine,,Neurologic,Gastrointestinal,Urogenital,Childbirth,,Tegument,Apoplexy,Disputed aetiology
+,,Malignant neoplastic disease,,Congenital defect,Pinna,Optic,,Immunity,Hurt,,Diabetes,,,GI,Nephritic,Accouchement,,Cutis,Cerebrovascular accident,
+,,Genus cancer,,Congenital disorder,,Eyeball,,,Harm,,Metabolous,,,,,Procreative,,,CVA,
+,,Tumor,,Congenital abnormality,,,,,Trauma,,Hormone,,,,,Birth,,,,
+,,Tumour,,,,,,,Accident,,Endocrine gland,,,,,Childbearing,,,,
+,,Neoplasm,,,,,,,Wound,,Ductless gland,,,,,,,,,
+,,,,,,,,,,,Endocrinal,,,,,,,,,
