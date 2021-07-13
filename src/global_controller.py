@@ -4,6 +4,7 @@ from main.MANAGERS.module_manager import MODULE_SECTION
 from main.MANAGERS.scopus_manager import SCOPUS_SECTION
 from main.MANAGERS.nlp_manager import NLP_SECTION
 from main.MANAGERS.synchronizer_manager import SYNC_SECTION
+import os
 
 def keywords_merger_manager(sdg_keywords: bool) -> None:
     keywords_merger_actions = KEYWORDS_MERGER_SECTION() 
@@ -107,6 +108,7 @@ def main() -> None:
                  synchronize_mongodb=True, synchronize_bubble=False)
 
 if __name__ == "__main__":
+    os.chdir('/src')
     main()
 
     """
