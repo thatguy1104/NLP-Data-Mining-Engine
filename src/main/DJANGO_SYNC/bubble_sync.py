@@ -101,6 +101,9 @@ class BubbleMongoSync():
                     for author_id, author_details in author_data.items():
                         name = author_details['Name']
                         affiliation = author_details['AffiliationName']
+                        affiliation_id = ""
+                        if author_details['AffiliationID']:
+                            affiliation_id = author_details['AffiliationID']
 
                         if author_data is not None and author_id is not None and name is not None:
                             if affiliation: affiliation = affiliation.replace("'", "''")
@@ -108,8 +111,9 @@ class BubbleMongoSync():
                             
                             cur.execute(
                             """
-                                INSERT INTO public.app_userprofileact (\"fullName\", \"scopusLink\", affiliation, author_id) VALUES(\'{0}\', \'{1}\', \'{2}\', {3}) ON CONFLICT (author_id) DO UPDATE SET "fullName" = \'{4}\', "scopusLink" = \'{5}\', affiliation = \'{6}\', author_id = \'{7}\'
-                            """.format(name, link, affiliation, author_id, name, link, affiliation, author_id))
+                                INSERT INTO public.app_userprofileact (\"fullName\", \"scopusLink\", affiliation, affiliationID, author_id) VALUES(\'{0}\', \'{1}\', \'{2}\', \'{3}\', {4})
+                                ON CONFLICT (author_id) DO UPDATE SET "fullName" = \'{5}\', "scopusLink" = \'{6}\', affiliation = \'{7}\', affiliationID = \'{8}\', author_id = \'{9}\'
+                            """.format(name, link, affiliation, affiliation_id, author_id, name, link, affiliation, affiliation_id, author_id))
                     self.con.commit()
             c += 1
 
@@ -158,6 +162,6 @@ class BubbleMongoSync():
 
     def run(self) -> None:
         data_publications  = self.__retrieve_publications(limit=None)
-        self.__create_bubble_data(data_publications)
-        # self.__update_userprofiles(data_publications)
+        # self.__create_bubble_data(data_publications)
+        self.__update_userprofiles(data_publications)
         self.con.close()

@@ -5,6 +5,8 @@ from main.MANAGERS.scopus_manager import SCOPUS_SECTION
 from main.MANAGERS.nlp_manager import NLP_SECTION
 from main.MANAGERS.synchronizer_manager import SYNC_SECTION
 
+import sys
+
 def keywords_merger_manager(sdg_keywords: bool) -> None:
     keywords_merger_actions = KEYWORDS_MERGER_SECTION() 
     if sdg_keywords:
@@ -43,9 +45,7 @@ def scopus_manager(scrape: bool) -> None:
     if scrape:
         scopus_actions.scrapeAllPublications()
 
-def nlp_manager(run_LDA_SDG: bool, run_LDA_IHE: bool,
-                module_string_match: bool, scopus_string_match: bool, predict_scopus_data: bool,
-                create_SVM_dataset: bool, run_SVM_SDG: bool, validate_sdg_svm: bool) -> None:
+def nlp_manager(nlp_dictionary: dict) -> None:
     """
         Manager for NLP
         Actions: 
@@ -58,57 +58,89 @@ def nlp_manager(run_LDA_SDG: bool, run_LDA_IHE: bool,
     """
 
     nlp_actions = NLP_SECTION()
-    if run_LDA_SDG:
+    if nlp_dictionary["run_LDA_SDG"]:
         nlp_actions.run_LDA_SDG()
-    if run_LDA_IHE:
+    if nlp_dictionary["run_LDA_IHE"]:
         nlp_actions.run_LDA_IHE()
-    if module_string_match:
+    if nlp_dictionary["module_string_match"]:
         nlp_actions.module_string_match()
-    if scopus_string_match:
+    if nlp_dictionary["scopus_string_match"]:
         nlp_actions.scopus_string_match()
-    if predict_scopus_data:
+    if nlp_dictionary["predict_scopus_data"]:
         nlp_actions.predictScopus()
-    if create_SVM_dataset:
+    if nlp_dictionary["create_SVM_dataset"]:
         nlp_actions.create_SDG_SVM_dataset(True, True)
-    if run_SVM_SDG:
+    if nlp_dictionary["run_SVM_SDG"]:
         nlp_actions.run_SVM_SDG()    
-    if validate_sdg_svm:
+    if nlp_dictionary["validate_sdg_svm"]:
         nlp_actions.validate_SDG_SVM()
 
-
-def sync_manager(synchronize_raw_mongodb: bool, synchronize_mongodb: bool, synchronize_bubble: bool) -> None:
+def sync_manager(sync_dictionary: dict) -> None:
     """
         Synchronizes raw scraped data (modules + publications) with Django's PostgreSQL
         Synchronizes processed validation & prediction (modules + publications) with Django's PostgreSQL
     """
 
     sync_actions = SYNC_SECTION()
-    if synchronize_raw_mongodb:
+    if sync_dictionary["synchronize_raw_mongodb"]:
         sync_actions.synchronize_mongo_PREMODEL()
-    if synchronize_mongodb:
+    if sync_dictionary["synchronize_mongodb"]:
         sync_actions.synchronize_mongodb_POSTMODEL()
-    if synchronize_bubble:
+    if sync_dictionary["synchronize_bubble"]:
         sync_actions.synchronize_mongodb_BUBBLE()
 
-def main() -> None:
+def main(nlp_dictionary: dict, sync_dictionary: dict) -> None:
     """
         Controller for keyword_merger_manager loader_manager, module_manager, scopus_manager, nlp_manager
         Specify boolean (true / false) to perform specified action
     """
-    
+
     keywords_merger_manager(sdg_keywords=False)
     loader_manager(modules=False, publications=False) # Needs to be done after each scrape
     module_manager(initialise=False, resetDB=False, scrape=False, updateStudentCount=False)
     scopus_manager(scrape=False)
 
-    nlp_manager(run_LDA_SDG=False, run_LDA_IHE=False, module_string_match=False, scopus_string_match=False,
-                predict_scopus_data=False, create_SVM_dataset=False, run_SVM_SDG=False, validate_sdg_svm=False)
-    sync_manager(synchronize_raw_mongodb=False,
-                 synchronize_mongodb=True, synchronize_bubble=False)
+    nlp_manager(nlp_dictionary)
+    sync_manager(sync_dictionary)
 
 if __name__ == "__main__":
-    main()
+    args = sys.argv[1:]
+    if len(args) > 3: sys.exit("Error: Too many arguments")
 
-    """
-        to run: run_LDA_IHE on the whole dataset (98k+)
-    """
+    nlp_dictionary = {
+        "run_LDA_SDG": False,
+        "run_LDA_IHE": False,
+        "module_string_match": False,
+        "scopus_string_match": False,
+        "predict_scopus_data": False,
+        "create_SVM_dataset": False,
+        "run_SVM_SDG": False,
+        "validate_sdg_svm": False,
+    }
+    sync_dictionary = {
+        "synchronize_raw_mongodb": False,
+        "synchronize_mongodb": False,
+        "synchronize_bubble": False,
+    }
+
+    if args[0] == "NLP": nlp_dictionary[args[1]] = True
+    elif args[0] == "SYNC": sync_dictionary[args[1]] = True
+    else: sys.exit("Error: Invalid arguments")
+    main(nlp_dictionary, sync_dictionary)
+
+"""
+    python3 global_controller.py NLP run_LDA_SDG
+    python3 global_controller.py NLP run_LDA_IHE
+    python3 global_controller.py NLP module_string_match
+    python3 global_controller.py NLP scopus_string_match
+    python3 global_controller.py NLP predict_scopus_data
+    python3 global_controller.py NLP create_SVM_dataset
+    python3 global_controller.py NLP run_SVM_SDG
+    python3 global_controller.py NLP validate_sdg_svm
+"""
+
+"""
+    python3 global_controller.py SYNC synchronize_raw_mongodb
+    python3 global_controller.py SYNC synchronize_mongodb
+    python3 global_controller.py SYNC synchronize_bubble
+"""
