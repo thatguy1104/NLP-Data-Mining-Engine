@@ -108,7 +108,8 @@ def main() -> None:
                  synchronize_mongodb=True, synchronize_bubble=False)
 
 if __name__ == "__main__":
-    os.chdir('/src')
+    print(os.getcwd())
+    # os.chdir('/src')
     main()
 
     """
