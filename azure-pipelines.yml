@@ -1,7 +1,7 @@
 # Python package
 
 trigger:
-- master
+- manual
 
 pool:
 
