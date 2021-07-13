@@ -31,6 +31,7 @@ steps:
       nltk.download('averaged_perceptron_tagger')
       import os
       os.chdir(os.getcwd() + '/src')
+      os.getcwd()
   displayName: 'Library downloaders and change directory'
 
 # - script: |
@@ -40,5 +41,5 @@ steps:
 - task: PythonScript@0
   inputs:
     scriptSource: 'filePath'
-    scriptPath: 'src/global_controller.py'
+    scriptPath: 'global_controller.py'
   displayName: 'Run global controller'
