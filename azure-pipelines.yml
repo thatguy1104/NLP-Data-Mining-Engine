@@ -29,9 +29,13 @@ steps:
       import nltk
       nltk.download('stopwords')
   displayName: 'Library downloaders'
+
+- script: |
+    cd src
+  displayName: 'Change directory into src'
   
 - task: PythonScript@0
   inputs:
     scriptSource: 'filePath'
-    scriptPath: 'src/global_controller.py'
-  displayName: 'Running main'
+    scriptPath: 'global_controller.py'
+  displayName: 'Run global controller'
