@@ -34,10 +34,11 @@ steps:
 - script: |
     cd src
     pwd
+    python global_controller.py
   displayName: 'Change directory into src'
   
-- task: PythonScript@0
-  inputs:
-    scriptSource: 'filePath'
-    scriptPath: 'global_controller.py'
-  displayName: 'Run global controller'
+# - task: PythonScript@0
+#   inputs:
+#     scriptSource: 'filePath'
+#     scriptPath: 'global_controller.py'
+#   displayName: 'Run global controller'
