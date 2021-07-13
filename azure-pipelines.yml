@@ -28,7 +28,10 @@ steps:
     script: |
       import nltk
       nltk.download('stopwords')
-  displayName: 'Library downloaders'
+      nltk.download('averaged_perceptron_tagger')
+      import os
+      os.chdir(os.getcwd() + '/src')
+  displayName: 'Library downloaders and change directory'
 
 # - script: |
 #     cd src
