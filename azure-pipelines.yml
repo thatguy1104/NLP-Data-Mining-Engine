@@ -31,17 +31,10 @@ steps:
       nltk.download('averaged_perceptron_tagger')
   displayName: 'Library downloaders'
 
-- task: PythonScript@0
-  inputs:
-    scriptSource: 'inline'
-    script: |
-      import os
-      os.chdir(os.getcwd() + '/src')
-      print(os.getcwd())
-  displayName: 'Change directory'
-# - script: |
-#     cd src
-#   displayName: 'Change directory into src'
+- script: |
+    cd src
+    pwd
+  displayName: 'Change directory into src'
   
 - task: PythonScript@0
   inputs:
