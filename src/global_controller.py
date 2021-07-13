@@ -109,7 +109,7 @@ def main() -> None:
 
 if __name__ == "__main__":
     print(os.getcwd())
-    # os.chdir('/src')
+    os.chdir(os.getcwd() + '/src')
     main()
 
     """
