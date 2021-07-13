@@ -34,7 +34,7 @@ steps:
 
 - script: |
     cd src
-    python global_controller.py
+    python global_controller.py $(arg)
   displayName: 'Run global controller'
   
 # - task: PythonScript@0
