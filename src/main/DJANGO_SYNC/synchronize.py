@@ -301,7 +301,7 @@ class Synchronizer():
         ihe_approach_keywords = pd.read_csv("main/IHE_KEYWORDS/approaches.csv")
         ihe_approach_keywords = ihe_approach_keywords.dropna()
         ihe_approach_keywords = self.preprocessor.preprocess_keywords("main/IHE_KEYWORDS/approaches.csv")
-
+        
         count, l = 1, len(data_)
         print()
         for i in data_:
@@ -366,22 +366,8 @@ class Synchronizer():
         con.commit()
         cur.close()
 
-    def __clear_approach_spec(self, limit: int) -> None:
-        data_, svm_predictions, scopusValidation, ihePrediction, module_predictions, module_validation = self.__acquireData(True, False, False, True, False, False, limit)
-        l = len(data_)
-        count = 1
-        print()
-        for i in data_:
-            print("Doing", count, "/", l)
-            count += 1
-            publication_data = self.__retrieve_postgres_data_publications_ihe(data_[i]['Title'])[0][1]
-            publication_data['IHE'], publication_data['IHE_Prediction'] = self.__getIHE_predictions(ihePrediction, i)
-            publication_data['IHE_Approach_String'] = ''
-            self.__update_postgres_data_publications(publication_data, data_[i]['Title'])
-        print()
-
     def run(self, limit):
-        limit = 1000
+        limit = 10000
         # self.__update_columns()
         # self.__clear_approach_spec(limit)
 

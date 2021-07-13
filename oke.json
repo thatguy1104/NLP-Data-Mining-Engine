@@ -1,0 +1,1691 @@
+[
+    [
+        {
+            "DOI": "10.1016/0370-2693(95)00980-Y",
+            "EID": "2-s2.0-0000717472",
+            "_id": {
+                "$oid": "6045b419a53ef8cad300eb0b"
+            },
+            "Link": "https://www.scopus.com/inward/record.uri?partnerID=HzOxMe3b&scp=0000717472&origin=inward",
+            "Year": 1995,
+            "Issue": 4,
+            "Title": "Measurements of the b baryon lifetime",
+            "Art.No": None,
+            "Source": "Phys Lett Sect B Nucl Elem Part High-Energy Phys",
+            "Volume": "357",
+            "CitedBy": 26,
+            "PageEnd": 698,
+            "Abstract": "Using about 1.5 million hadronic Z decays recorded with the aleph detector, the lifetime of the b baryons has been measured using two independent data samples. From a maximum likelihood fit to the impact parameter distribution of leptons in 519 Λℓ- combinations containing a b baryon sample of 290 decays, the measured b baryon lifetime is τb-baryon = 1.05-0.11 +0.12(stat)±0.09(syst) ps. The lifetime of the Λb 0 baryon from a maximum likelihood fit to the proper time distribution of 58 Λc +ℓ- candidates containing a Λb 0 sample of 44 decays, is τΛb 0 = 1.02-0.18 +0.23(stat) ± 0.06(syst) ps. © 1995.",
+            "PageStart": 685,
+            "AuthorData": {
+                "6602437385": {
+                    "Name": "Letho M.",
+                    "AuthorID": "6602437385",
+                    "AffiliationID": "60001881",
+                    "AffiliationName": None
+                },
+                "6602578085": {
+                    "Name": "Courault F.",
+                    "AuthorID": "6602578085",
+                    "AffiliationID": "60073296, 60106017, 60000383",
+                    "AffiliationName": "Laboratoire de l"Accélérateur Linéaire, Université de Paris-Sud, IN2P3-CNRS"}, "6602969756": {"Name": "Rosado-Schlosser A.", "AuthorID": "6602969756", "AffiliationID": "60008743", "AffiliationName": None}, "6603224250": {"Name": "Bujosa G.", "AuthorID": "6603224250", "AffiliationID": "60102127,
+                    60025995", "AffiliationName": "Centre de Physique des Particules, Faculté des Sciences de Luminy, IN2P3-CNRS"}, "6603500517": {"Name": "Gotzhein C.", "AuthorID": "6603500517", "AffiliationID": "60008743", "AffiliationName": None}, "6603752330": {"Name": "Thulasidas M.", "AuthorID": "6603752330", "AffiliationID": "60102127,
+                    60025995", "AffiliationName": "Centre de Physique des Particules, Faculté des Sciences de Luminy, IN2P3-CNRS"}, "6701833984": {"Name": "Nachtman J.M.", "AuthorID": "6701833984", "AffiliationID": "60032179", "AffiliationName": None}, "7003291511": {"Name": "Zobernig G.", "AuthorID": "7003291511", "AffiliationID": "60032179", "AffiliationName": None}, "7003377546": {"Name": "Girone M.", "AuthorID": "7003377546", "AffiliationID": "60114715", "AffiliationName": "Dipartimento di Fisica, INFN Sezione di Bari"}, "7003473243": {"Name": "Putzer A.", "AuthorID": "7003473243", "AffiliationID": "60016908", "AffiliationName": "Institut für Hochenergiephysik, Universität Heidelberg, Germany16 16 Supported by the Bundesministerium für Forschung und Technologie"}, "7003582675": {"Name": "Maley P.", "AuthorID": "7003582675", "AffiliationID": "60023254", "AffiliationName": None}, "7003585911": {"Name": "Payre P.", "AuthorID": "7003585911", "AffiliationID": "60102127,
+                    60025995", "AffiliationName": "Centre de Physique des Particules, Faculté des Sciences de Luminy, IN2P3-CNRS"}, "7003721935": {"Name": "Simopoulou E.", "AuthorID": "7003721935", "AffiliationID": "60001104", "AffiliationName": "Nuclear Research Center Demokritos (NRCD)"}, "7003872760": {"Name": "Lütjens G.", "AuthorID": "7003872760", "AffiliationID": "60008743", "AffiliationName": None}, "7003899377": {"Name": "De Bonis I.", "AuthorID": "7003899377", "AffiliationID": "60025995,
+                    60025171", "AffiliationName": "Laboratoire de Physique des Particules (LAPP), IN2P3-CNRS"}, "7003946866": {"Name": "Quast G.", "AuthorID": "7003946866", "AffiliationID": "60031216", "AffiliationName": None}, "7004053403": {"Name": "Veillet J.J.", "AuthorID": "7004053403", "AffiliationID": "60073296,
+                    60106017,
+                    60000383", "AffiliationName": "Laboratoire de l"Accélérateur Linéaire, Université de Paris-Sud, IN2P3-CNRS"
+                },
+                "7004149934": {
+                    "Name": "Kneringer E.",
+                    "AuthorID": "7004149934",
+                    "AffiliationID": "60009999",
+                    "AffiliationName": None
+                },
+                "7004172339": {
+                    "Name": "Binnie D.M.",
+                    "AuthorID": "7004172339",
+                    "AffiliationID": "60015150",
+                    "AffiliationName": None
+                },
+                "7004191326": {
+                    "Name": "Combley F.",
+                    "AuthorID": "7004191326",
+                    "AffiliationID": "60001881",
+                    "AffiliationName": None
+                },
+                "7004197449": {
+                    "Name": "Wotschack J.",
+                    "AuthorID": "7004197449",
+                    "AffiliationID": "60019778",
+                    "AffiliationName": "European Laboratory for Particle Physics (CERN)"
+                },
+                "7004337661": {
+                    "Name": "Oest T.",
+                    "AuthorID": "7004337661",
+                    "AffiliationID": "60019778",
+                    "AffiliationName": "European Laboratory for Particle Physics (CERN)"
+                },
+                "7004353179": {
+                    "Name": "Renk B.",
+                    "AuthorID": "7004353179",
+                    "AffiliationID": "60031216",
+                    "AffiliationName": None
+                },
+                "7004379668": {
+                    "Name": "Blondel A.",
+                    "AuthorID": "7004379668",
+                    "AffiliationID": "60013425, 60025995",
+                    "AffiliationName": "Laboratoire de Physique Nucléaire et des Hautes Energies, Ecole Polytechnique, IN2P3-CNRS"
+                },
+                "7004413851": {
+                    "Name": "Hagelberg R.",
+                    "AuthorID": "7004413851",
+                    "AffiliationID": "60019778",
+                    "AffiliationName": "European Laboratory for Particle Physics (CERN)"
+                },
+                "7004422831": {
+                    "Name": "Dorris S.J.",
+                    "AuthorID": "7004422831",
+                    "AffiliationID": "60001490",
+                    "AffiliationName": None
+                },
+                "7004443465": {
+                    "Name": "Männer W.",
+                    "AuthorID": "7004443465",
+                    "AffiliationID": "60008743",
+                    "AffiliationName": None
+                },
+                "7004446925": {
+                    "Name": "Gelao G.",
+                    "AuthorID": "7004446925",
+                    "AffiliationID": "60114715",
+                    "AffiliationName": "Dipartimento di Fisica, INFN Sezione di Bari"
+                },
+                "7004529719": {
+                    "Name": "Litke A.M.",
+                    "AuthorID": "7004529719",
+                    "AffiliationID": "60085982, 60024941",
+                    "AffiliationName": None
+                },
+                "7004558074": {
+                    "Name": "Scarr J.M.",
+                    "AuthorID": "7004558074",
+                    "AffiliationID": "60001490",
+                    "AffiliationName": None
+                },
+                "7004580398": {
+                    "Name": "Apollonio M.",
+                    "AuthorID": "7004580398",
+                    "AffiliationID": "60018363, 60021660",
+                    "AffiliationName": "Dipartimento di Fisica, Università di Trieste, INFN Sezione di Trieste"
+                },
+                "7004647768": {
+                    "Name": "Goy C.",
+                    "AuthorID": "7004647768",
+                    "AffiliationID": "60025995, 60025171",
+                    "AffiliationName": "Laboratoire de Physique des Particules (LAPP), IN2P3-CNRS"
+                },
+                "7004821600": {
+                    "Name": "Tomalin I.R.",
+                    "AuthorID": "7004821600",
+                    "AffiliationID": "60019778",
+                    "AffiliationName": "European Laboratory for Particle Physics (CERN)"
+                },
+                "7004912890": {
+                    "Name": "Sloan T.",
+                    "AuthorID": "7004912890",
+                    "AffiliationID": "60023643",
+                    "AffiliationName": None
+                },
+                "7005036116": {
+                    "Name": "Teubert F.",
+                    "AuthorID": "7005036116",
+                    "AffiliationID": "60023020, 60019232",
+                    "AffiliationName": None
+                },
+                "7005154151": {
+                    "Name": "O"Shea V.", "AuthorID": "7005154151", "AffiliationID": "60001490", "AffiliationName": None}, "7005209312": {"Name": "Capon G.", "AuthorID": "7005209312", "AffiliationID": "60016340", "AffiliationName": "Laboratori Nazionali dell"INFN (LNF-INFN)"
+                },
+                "7005240663": {
+                    "Name": "Cerutti F.",
+                    "AuthorID": "7005240663",
+                    "AffiliationID": "60020595",
+                    "AffiliationName": None
+                },
+                "7005276734": {
+                    "Name": "Schlatter D.",
+                    "AuthorID": "7005276734",
+                    "AffiliationID": "60019778",
+                    "AffiliationName": "European Laboratory for Particle Physics (CERN)"
+                },
+                "7005348581": {
+                    "Name": "Wachsmuth H.",
+                    "AuthorID": "7005348581",
+                    "AffiliationID": "60019778",
+                    "AffiliationName": "European Laboratory for Particle Physics (CERN)"
+                },
+                "7005353545": {
+                    "Name": "Minard M.N.",
+                    "AuthorID": "7005353545",
+                    "AffiliationID": "60025995, 60025171",
+                    "AffiliationName": "Laboratoire de Physique des Particules (LAPP), IN2P3-CNRS"
+                },
+                "7005362651": {
+                    "Name": "Ghez P.",
+                    "AuthorID": "7005362651",
+                    "AffiliationID": "60025995, 60025171",
+                    "AffiliationName": "Laboratoire de Physique des Particules (LAPP), IN2P3-CNRS"
+                },
+                "7005389586": {
+                    "Name": "Lehraus I.",
+                    "AuthorID": "7005389586",
+                    "AffiliationID": "60019778",
+                    "AffiliationName": "European Laboratory for Particle Physics (CERN)"
+                },
+                "7005398566": {
+                    "Name": "Bencivenni G.",
+                    "AuthorID": "7005398566",
+                    "AffiliationID": "60016340",
+                    "AffiliationName": "Laboratori Nazionali dell"INFN (LNF-INFN)"}, "7005505759": {"Name": "Falvard A.", "AuthorID": "7005505759", "AffiliationID": "60138718,
+                    60138276,
+                    60025995", "AffiliationName": "Laboratoire de Physique Corpusculaire, Université Blaise Pascal, IN2P3-CNRS, Clermont-Ferrand"}, "7005541400": {"Name": "Decamp D.", "AuthorID": "7005541400", "AffiliationID": "60025995,
+                    60025171", "AffiliationName": "Laboratoire de Physique des Particules (LAPP), IN2P3-CNRS"}, "7005657167": {"Name": "Dydak F.", "AuthorID": "7005657167", "AffiliationID": "60008743", "AffiliationName": None}, "7005664080": {"Name": "Engelhardt A.", "AuthorID": "7005664080", "AffiliationID": "60019778", "AffiliationName": "European Laboratory for Particle Physics (CERN)"}, "7005679107": {"Name": "Diaconu C.", "AuthorID": "7005679107", "AffiliationID": "60102127,
+                    60025995", "AffiliationName": "Centre de Physique des Particules, Faculté des Sciences de Luminy, IN2P3-CNRS"}, "7005863934": {"Name": "Iaselli G.", "AuthorID": "7005863934", "AffiliationID": "60114715", "AffiliationName": "Dipartimento di Fisica, INFN Sezione di Bari"}, "7005889205": {"Name": "Ruggieri F.", "AuthorID": "7005889205", "AffiliationID": "60114715", "AffiliationName": "Dipartimento di Fisica, INFN Sezione di Bari"}, "7005894315": {"Name": "Mannocchi G.", "AuthorID": "7005894315", "AffiliationID": "60016340", "AffiliationName": "Laboratori Nazionali dell"INFN (LNF-INFN)"
+                },
+                "7005962889": {
+                    "Name": "Schmelling M.",
+                    "AuthorID": "7005962889",
+                    "AffiliationID": "60019778",
+                    "AffiliationName": "European Laboratory for Particle Physics (CERN)"
+                },
+                "7005986413": {
+                    "Name": "Ajaltouni Z.",
+                    "AuthorID": "7005986413",
+                    "AffiliationID": "60138718, 60138276, 60025995",
+                    "AffiliationName": "Laboratoire de Physique Corpusculaire, Université Blaise Pascal, IN2P3-CNRS, Clermont-Ferrand"
+                },
+                "7006000490": {
+                    "Name": "Mato P.",
+                    "AuthorID": "7006000490",
+                    "AffiliationID": "60019778",
+                    "AffiliationName": "European Laboratory for Particle Physics (CERN)"
+                },
+                "7006000735": {
+                    "Name": "Moneta L.",
+                    "AuthorID": "7006000735",
+                    "AffiliationID": "60015150",
+                    "AffiliationName": None
+                },
+                "7006019836": {
+                    "Name": "Videau I.",
+                    "AuthorID": "7006019836",
+                    "AffiliationID": "60073296, 60106017, 60000383",
+                    "AffiliationName": "Laboratoire de l"Accélérateur Linéaire, Université de Paris-Sud, IN2P3-CNRS"}, "7006123756": {"Name": "Dietl H.", "AuthorID": "7006123756", "AffiliationID": "60008743", "AffiliationName": None}, "7006179855": {"Name": "Forty R.W.", "AuthorID": "7006179855", "AffiliationID": "60019778", "AffiliationName": "European Laboratory for Particle Physics (CERN)"}, "7006272136": {"Name": "Messineo A.", "AuthorID": "7006272136", "AffiliationID": "60030674,
+                    60113665,
+                    60028868", "AffiliationName": "Dipartimento di Fisica dell"Università, INFN Sezione di Pisa, e Scuola Normale Superiore"
+                },
+                "7006430964": {
+                    "Name": "Rossignol J.M.",
+                    "AuthorID": "7006430964",
+                    "AffiliationID": "60138718, 60138276, 60025995",
+                    "AffiliationName": "Laboratoire de Physique Corpusculaire, Université Blaise Pascal, IN2P3-CNRS, Clermont-Ferrand"
+                },
+                "7006485458": {
+                    "Name": "Janot P.",
+                    "AuthorID": "7006485458",
+                    "AffiliationID": "60019778",
+                    "AffiliationName": "European Laboratory for Particle Physics (CERN)"
+                },
+                "7006571392": {
+                    "Name": "Tejessy W.",
+                    "AuthorID": "7006571392",
+                    "AffiliationID": "60019778",
+                    "AffiliationName": "European Laboratory for Particle Physics (CERN)"
+                },
+                "7006606892": {
+                    "Name": "Henrard P.",
+                    "AuthorID": "7006606892",
+                    "AffiliationID": "60138718, 60138276, 60025995",
+                    "AffiliationName": "Laboratoire de Physique Corpusculaire, Université Blaise Pascal, IN2P3-CNRS, Clermont-Ferrand"
+                },
+                "7006608793": {
+                    "Name": "Minten A.",
+                    "AuthorID": "7006608793",
+                    "AffiliationID": "60019778",
+                    "AffiliationName": "European Laboratory for Particle Physics (CERN)"
+                },
+                "7006637167": {
+                    "Name": "Perlas J.A.",
+                    "AuthorID": "7006637167",
+                    "AffiliationID": "60023020, 60019232",
+                    "AffiliationName": None
+                },
+                "7006702310": {
+                    "Name": "Ranjard F.",
+                    "AuthorID": "7006702310",
+                    "AffiliationID": "60019778",
+                    "AffiliationName": "European Laboratory for Particle Physics (CERN)"
+                },
+                "7006757636": {
+                    "Name": "Jousset J.",
+                    "AuthorID": "7006757636",
+                    "AffiliationID": "60138718, 60138276, 60025995",
+                    "AffiliationName": "Laboratoire de Physique Corpusculaire, Université Blaise Pascal, IN2P3-CNRS, Clermont-Ferrand"
+                },
+                "7006793907": {
+                    "Name": "Chiarella V.",
+                    "AuthorID": "7006793907",
+                    "AffiliationID": "60016340",
+                    "AffiliationName": "Laboratori Nazionali dell"INFN (LNF-INFN)"}, "7006820740": {"Name": "Creanza D.", "AuthorID": "7006820740", "AffiliationID": "60114715", "AffiliationName": "Dipartimento di Fisica, INFN Sezione di Bari"}, "7006839088": {"Name": "Pietrzyk B.", "AuthorID": "7006839088", "AffiliationID": "60025995,
+                    60025171", "AffiliationName": "Laboratoire de Physique des Particules (LAPP), IN2P3-CNRS"}, "7007004208": {"Name": "Fernandez-Bosman M.", "AuthorID": "7007004208", "AffiliationID": "60023020,
+                    60019232", "AffiliationName": None}, "7007057809": {"Name": "Farilla A.", "AuthorID": "7007057809", "AffiliationID": "60114715", "AffiliationName": "Dipartimento di Fisica, INFN Sezione di Bari"}, "7007059559": {"Name": "Stacey A.M.", "AuthorID": "7007059559", "AffiliationID": "60015150", "AffiliationName": None}, "7007084382": {"Name": "Chmeissani M.", "AuthorID": "7007084382", "AffiliationID": "60023020,
+                    60019232", "AffiliationName": None}, "7101707295": {"Name": "de Palma M.", "AuthorID": "7101707295", "AffiliationID": "60114715", "AffiliationName": "Dipartimento di Fisica, INFN Sezione di Bari"}, "7102274048": {"Name": "Sander H.G.", "AuthorID": "7102274048", "AffiliationID": "60031216", "AffiliationName": None}, "7102305417": {"Name": "Norton P.R.", "AuthorID": "7102305417", "AffiliationID": "60023254", "AffiliationName": None}, "7102422627": {"Name": "Maggi M.", "AuthorID": "7102422627", "AffiliationID": "60019778", "AffiliationName": "European Laboratory for Particle Physics (CERN)"}, "7102479035": {"Name": "Selvaggi G.", "AuthorID": "7102479035", "AffiliationID": "60114715", "AffiliationName": "Dipartimento di Fisica, INFN Sezione di Bari"}, "7102533686": {"Name": "Cattaneo M.", "AuthorID": "7102533686", "AffiliationID": "60019778", "AffiliationName": "European Laboratory for Particle Physics (CERN)"}, "7102559636": {"Name": "Alemany R.", "AuthorID": "7102559636", "AffiliationID": "60073296,
+                    60106017,
+                    60000383", "AffiliationName": "Laboratoire de l"Accélérateur Linéaire, Université de Paris-Sud, IN2P3-CNRS"
+                },
+                "7102576082": {
+                    "Name": "Pacheco A.",
+                    "AuthorID": "7102576082",
+                    "AffiliationID": "60023020, 60019232",
+                    "AffiliationName": None
+                },
+                "7102717675": {
+                    "Name": "Lutz G.",
+                    "AuthorID": "7102717675",
+                    "AffiliationID": "60008743",
+                    "AffiliationName": None
+                },
+                "7103039706": {
+                    "Name": "Pascual A.",
+                    "AuthorID": "7103039706",
+                    "AffiliationID": "60023020, 60019232",
+                    "AffiliationName": None
+                },
+                "7103219883": {
+                    "Name": "Kluge E.E.",
+                    "AuthorID": "7103219883",
+                    "AffiliationID": "60016908",
+                    "AffiliationName": "Institut für Hochenergiephysik, Universität Heidelberg, Germany16 16 Supported by the Bundesministerium für Forschung und Technologie"
+                },
+                "7103238784": {
+                    "Name": "Knobloch J.",
+                    "AuthorID": "7103238784",
+                    "AffiliationID": "60019778",
+                    "AffiliationName": "European Laboratory for Particle Physics (CERN)"
+                },
+                "7103371618": {
+                    "Name": "Delfino M.",
+                    "AuthorID": "7103371618",
+                    "AffiliationID": "60002092",
+                    "AffiliationName": None
+                },
+                "7201639423": {
+                    "Name": "Crespo J.M.",
+                    "AuthorID": "7201639423",
+                    "AffiliationID": "60023020, 60019232",
+                    "AffiliationName": None
+                },
+                "7202041613": {
+                    "Name": "Maggi G.",
+                    "AuthorID": "7202041613",
+                    "AffiliationID": "60114715",
+                    "AffiliationName": "Dipartimento di Fisica, INFN Sezione di Bari"
+                },
+                "7202759084": {
+                    "Name": "Blair G.A.",
+                    "AuthorID": "7202759084",
+                    "AffiliationID": "60020595",
+                    "AffiliationName": None
+                },
+                "7203045807": {
+                    "Name": "Booth C.N.",
+                    "AuthorID": "7203045807",
+                    "AffiliationID": "60001881",
+                    "AffiliationName": None
+                },
+                "7402003207": {
+                    "Name": "Nilsson B.S.",
+                    "AuthorID": "7402003207",
+                    "AffiliationID": "60017041",
+                    "AffiliationName": "Niels Bohr Institute, Denmark9 9 Supported by the Danish Natural Science Research"
+                },
+                "7402179162": {
+                    "Name": "Fernandez E.",
+                    "AuthorID": "7402179162",
+                    "AffiliationID": "60023020, 60019232",
+                    "AffiliationName": None
+                },
+                "7402459968": {
+                    "Name": "Frank M.",
+                    "AuthorID": "7402459968",
+                    "AffiliationID": "60019778",
+                    "AffiliationName": "European Laboratory for Particle Physics (CERN)"
+                },
+                "7402813941": {
+                    "Name": "Xu R.",
+                    "AuthorID": "7402813941",
+                    "AffiliationID": "60073479, 60019499, 60027631",
+                    "AffiliationName": "Institute of High-Energy Physics, Academia Sinica, People"s Republic of China8 8 Supported by the National Science Foundation of China"}, "7404092178": {"Name": "Martin E.B.", "AuthorID": "7404092178", "AffiliationID": "60019778", "AffiliationName": "European Laboratory for Particle Physics (CERN)"}, "7410186688": {"Name": "Smith K.", "AuthorID": "7410186688", "AffiliationID": "60001490", "AffiliationName": None}, "8083003800": {"Name": "Silvestris L.", "AuthorID": "8083003800", "AffiliationID": "60114715", "AffiliationName": "Dipartimento di Fisica, INFN Sezione di Bari"}, "8368123900": {"Name": "Assmann R.", "AuthorID": "8368123900", "AffiliationID": "60008743", "AffiliationName": None}, "8546457000": {"Name": "Rousseau D.", "AuthorID": "8546457000", "AffiliationID": "60102127,
+                    60025995", "AffiliationName": "Centre de Physique des Particules, Faculté des Sciences de Luminy, IN2P3-CNRS"}, "8677295200": {"Name": "Zhang L.", "AuthorID": "8677295200", "AffiliationID": "60073479,
+                    60019499,
+                    60027631", "AffiliationName": "Institute of High-Energy Physics, Academia Sinica, People"s Republic of China8 8 Supported by the National Science Foundation of China"
+                },
+                "8697482800": {
+                    "Name": "Dissertori G.",
+                    "AuthorID": "8697482800",
+                    "AffiliationID": "60009999",
+                    "AffiliationName": None
+                },
+                "8719356400": {
+                    "Name": "Kroha H.",
+                    "AuthorID": "8719356400",
+                    "AffiliationID": "60008743",
+                    "AffiliationName": None
+                },
+                "9041662300": {
+                    "Name": "Rougé A.",
+                    "AuthorID": "9041662300",
+                    "AffiliationID": "60013425, 60025995",
+                    "AffiliationName": "Laboratoire de Physique Nucléaire et des Hautes Energies, Ecole Polytechnique, IN2P3-CNRS"
+                },
+                "11640299700": {
+                    "Name": "McNeil M.A.",
+                    "AuthorID": "11640299700",
+                    "AffiliationID": "60085982, 60024941",
+                    "AffiliationName": None
+                },
+                "12755748500": {
+                    "Name": "Raine C.",
+                    "AuthorID": "12755748500",
+                    "AffiliationID": "60001490",
+                    "AffiliationName": None
+                },
+                "12759000900": {
+                    "Name": "Natali S.",
+                    "AuthorID": "12759000900",
+                    "AffiliationID": "60114715",
+                    "AffiliationName": "Dipartimento di Fisica, INFN Sezione di Bari"
+                },
+                "14045516300": {
+                    "Name": "Nuzzo S.",
+                    "AuthorID": "14045516300",
+                    "AffiliationID": "60114715",
+                    "AffiliationName": "Dipartimento di Fisica, INFN Sezione di Bari"
+                },
+                "14422388800": {
+                    "Name": "Padilla C.",
+                    "AuthorID": "14422388800",
+                    "AffiliationID": "60023020, 60019232",
+                    "AffiliationName": None
+                },
+                "14628146400": {
+                    "Name": "Aubert J.J.",
+                    "AuthorID": "14628146400",
+                    "AffiliationID": "60102127, 60025995",
+                    "AffiliationName": "Centre de Physique des Particules, Faculté des Sciences de Luminy, IN2P3-CNRS"
+                },
+                "14628448300": {
+                    "Name": "Campana P.",
+                    "AuthorID": "14628448300",
+                    "AffiliationID": "60016340",
+                    "AffiliationName": "Laboratori Nazionali dell"INFN (LNF-INFN)"}, "14628654900": {"Name": "Felici G.", "AuthorID": "14628654900", "AffiliationID": "60016340", "AffiliationName": "Laboratori Nazionali dell"INFN (LNF-INFN)"
+                },
+                "14629173000": {
+                    "Name": "Nikolic I.",
+                    "AuthorID": "14629173000",
+                    "AffiliationID": "60073296, 60106017, 60000383",
+                    "AffiliationName": "Laboratoire de l"Accélérateur Linéaire, Université de Paris-Sud, IN2P3-CNRS"}, "14629490400": {"Name": "Siotis I.", "AuthorID": "14629490400", "AffiliationID": "60001104", "AffiliationName": "Nuclear Research Center Demokritos (NRCD)"}, "14630220200": {"Name": "Gregorio A.", "AuthorID": "14630220200", "AffiliationID": "60030674,
+                    60113665,
+                    60028868", "AffiliationName": "Dipartimento di Fisica dell"Università, INFN Sezione di Pisa, e Scuola Normale Superiore"
+                },
+                "16020503000": {
+                    "Name": "Zeitnitz C.",
+                    "AuthorID": "16020503000",
+                    "AffiliationID": "60031216",
+                    "AffiliationName": None
+                },
+                "22974870800": {
+                    "Name": "Hansen J.R.",
+                    "AuthorID": "22974870800",
+                    "AffiliationID": "60017041",
+                    "AffiliationName": "Niels Bohr Institute, Denmark9 9 Supported by the Danish Natural Science Research"
+                },
+                "24297347100": {
+                    "Name": "Werner S.",
+                    "AuthorID": "24297347100",
+                    "AffiliationID": "60016908",
+                    "AffiliationName": "Institut für Hochenergiephysik, Universität Heidelberg, Germany16 16 Supported by the Bundesministerium für Forschung und Technologie"
+                },
+                "24298185700": {
+                    "Name": "Ganis G.",
+                    "AuthorID": "24298185700",
+                    "AffiliationID": "60008743",
+                    "AffiliationName": None
+                },
+                "24299438600": {
+                    "Name": "Perret P.",
+                    "AuthorID": "24299438600",
+                    "AffiliationID": "60138718, 60138276, 60025995",
+                    "AffiliationName": "Laboratoire de Physique Corpusculaire, Université Blaise Pascal, IN2P3-CNRS, Clermont-Ferrand"
+                },
+                "24300044900": {
+                    "Name": "Scott I.J.",
+                    "AuthorID": "24300044900",
+                    "AffiliationID": "60032179",
+                    "AffiliationName": None
+                },
+                "24315436700": {
+                    "Name": "Bologna G.",
+                    "AuthorID": "24315436700",
+                    "AffiliationID": "60016340",
+                    "AffiliationName": "Laboratori Nazionali dell"INFN (LNF-INFN)"}, "24375945000": {"Name": "Zito G.", "AuthorID": "24375945000", "AffiliationID": "60114715", "AffiliationName": "Dipartimento di Fisica, INFN Sezione di Bari"}, "24473045500": {"Name": "Giorgi M.A.", "AuthorID": "24473045500", "AffiliationID": "60030674,
+                    60113665,
+                    60028868", "AffiliationName": "Dipartimento di Fisica dell"Università, INFN Sezione di Pisa, e Scuola Normale Superiore"
+                },
+                "24567208900": {
+                    "Name": "Wolf G.",
+                    "AuthorID": "24567208900",
+                    "AffiliationID": "60008743",
+                    "AffiliationName": None
+                },
+                "24788097100": {
+                    "Name": "Proriol J.",
+                    "AuthorID": "24788097100",
+                    "AffiliationID": "60138718, 60138276, 60025995",
+                    "AffiliationName": "Laboratoire de Physique Corpusculaire, Université Blaise Pascal, IN2P3-CNRS, Clermont-Ferrand"
+                },
+                "26023298500": {
+                    "Name": "Huang X.",
+                    "AuthorID": "26023298500",
+                    "AffiliationID": "60073479, 60019499, 60027631",
+                    "AffiliationName": "Institute of High-Energy Physics, Academia Sinica, People"s Republic of China8 8 Supported by the National Science Foundation of China"}, "26643128200": {"Name": "Johnson R.P.", "AuthorID": "26643128200", "AffiliationID": "60085982,
+                    60024941", "AffiliationName": None}, "27172364100": {"Name": "Kim H.Y.", "AuthorID": "27172364100", "AffiliationID": "60085982,
+                    60024941", "AffiliationName": None}, "29867458600": {"Name": "Rolandi L.", "AuthorID": "29867458600", "AffiliationID": "60019778", "AffiliationName": "European Laboratory for Particle Physics (CERN)"}, "32767443500": {"Name": "Bauer C.", "AuthorID": "32767443500", "AffiliationID": "60008743", "AffiliationName": None}, "34572203900": {"Name": "Pater J.R.", "AuthorID": "34572203900", "AffiliationID": "60019778", "AffiliationName": "European Laboratory for Particle Physics (CERN)"}, "34767849000": {"Name": "Bosisio L.", "AuthorID": "34767849000", "AffiliationID": "60018363,
+                    60021660", "AffiliationName": "Dipartimento di Fisica, Università di Trieste, INFN Sezione di Trieste"}, "34768001400": {"Name": "Emery S.", "AuthorID": "34768001400", "AffiliationID": "60007816,
+                    60106257", "AffiliationName": None}, "34768301300": {"Name": "Le Diberder F.", "AuthorID": "34768301300", "AffiliationID": "60073296,
+                    60106017,
+                    60000383", "AffiliationName": "Laboratoire de l"Accélérateur Linéaire, Université de Paris-Sud, IN2P3-CNRS"
+                },
+                "35201936700": {
+                    "Name": "Thompson J.C.",
+                    "AuthorID": "35201936700",
+                    "AffiliationID": "60023254",
+                    "AffiliationName": None
+                },
+                "35226921900": {
+                    "Name": "Batignani G.",
+                    "AuthorID": "35226921900",
+                    "AffiliationID": "60030674, 60113665, 60028868",
+                    "AffiliationName": "Dipartimento di Fisica dell"Università, INFN Sezione di Pisa, e Scuola Normale Superiore"}, "35226954400": {"Name": "Becker U.", "AuthorID": "35226954400", "AffiliationID": "60016908", "AffiliationName": "Institut für Hochenergiephysik, Universität Heidelberg, Germany16 16 Supported by the Bundesministerium für Forschung und Technologie"}, "35226955000": {"Name": "Azzurri P.", "AuthorID": "35226955000", "AffiliationID": "60030674,
+                    60113665,
+                    60028868", "AffiliationName": "Dipartimento di Fisica dell"Università, INFN Sezione di Pisa, e Scuola Normale Superiore"
+                },
+                "35226959500": {
+                    "Name": "Antonelli A.",
+                    "AuthorID": "35226959500",
+                    "AffiliationID": "60016340",
+                    "AffiliationName": "Laboratori Nazionali dell"INFN (LNF-INFN)"}, "35226977200": {"Name": "Bonneaud G.", "AuthorID": "35226977200", "AffiliationID": "60013425,
+                    60025995", "AffiliationName": "Laboratoire de Physique Nucléaire et des Hautes Energies, Ecole Polytechnique, IN2P3-CNRS"}, "35226981800": {"Name": "Bonvicini G.", "AuthorID": "35226981800", "AffiliationID": "60019778", "AffiliationName": "European Laboratory for Particle Physics (CERN)"}, "35226990500": {"Name": "Calderini G.", "AuthorID": "35226990500", "AffiliationID": "60030674,
+                    60113665,
+                    60028868", "AffiliationName": "Dipartimento di Fisica dell"Università, INFN Sezione di Pisa, e Scuola Normale Superiore"
+                },
+                "35227008200": {
+                    "Name": "Beuselinck R.",
+                    "AuthorID": "35227008200",
+                    "AffiliationID": "60015150",
+                    "AffiliationName": None
+                },
+                "35227025500": {
+                    "Name": "Ciocci M.A.",
+                    "AuthorID": "35227025500",
+                    "AffiliationID": "60030674, 60113665, 60028868",
+                    "AffiliationName": "Dipartimento di Fisica dell"Università, INFN Sezione di Pisa, e Scuola Normale Superiore"}, "35227041600": {"Name": "Cordier A.", "AuthorID": "35227041600", "AffiliationID": "60073296,
+                    60106017,
+                    60000383", "AffiliationName": "Laboratoire de l"Accélérateur Linéaire, Université de Paris-Sud, IN2P3-CNRS"
+                },
+                "35227042600": {
+                    "Name": "Colaleo A.",
+                    "AuthorID": "35227042600",
+                    "AffiliationID": "60114715",
+                    "AffiliationName": "Dipartimento di Fisica, INFN Sezione di Bari"
+                },
+                "35227049400": {
+                    "Name": "Cassel D.",
+                    "AuthorID": "35227049400",
+                    "AffiliationID": "60019778",
+                    "AffiliationName": "European Laboratory for Particle Physics (CERN)"
+                },
+                "35227088300": {
+                    "Name": "Colling D.J.",
+                    "AuthorID": "35227088300",
+                    "AffiliationID": "60015150",
+                    "AffiliationName": None
+                },
+                "35227145000": {
+                    "Name": "Foà L.",
+                    "AuthorID": "35227145000",
+                    "AffiliationID": "60030674, 60113665, 60028868",
+                    "AffiliationName": "Dipartimento di Fisica dell"Università, INFN Sezione di Pisa, e Scuola Normale Superiore"}, "35227146800": {"Name": "Forti F.", "AuthorID": "35227146800", "AffiliationID": "60030674,
+                    60113665,
+                    60028868", "AffiliationName": "Dipartimento di Fisica dell"Università, INFN Sezione di Pisa, e Scuola Normale Superiore"
+                },
+                "35227165600": {
+                    "Name": "Ferguson D.P.S.",
+                    "AuthorID": "35227165600",
+                    "AffiliationID": "60032179",
+                    "AffiliationName": None
+                },
+                "35227176800": {
+                    "Name": "Duflot L.",
+                    "AuthorID": "35227176800",
+                    "AffiliationID": "60073296, 60106017, 60000383",
+                    "AffiliationName": "Laboratoire de l"Accélérateur Linéaire, Université de Paris-Sud, IN2P3-CNRS"}, "35227185800": {"Name": "Ferrante I.", "AuthorID": "35227185800", "AffiliationID": "60030674,
+                    60113665,
+                    60028868", "AffiliationName": "Dipartimento di Fisica dell"Università, INFN Sezione di Pisa, e Scuola Normale Superiore"
+                },
+                "35227191400": {
+                    "Name": "Efthymiopoulos I.",
+                    "AuthorID": "35227191400",
+                    "AffiliationID": "60023020, 60019232",
+                    "AffiliationName": None
+                },
+                "35227261300": {
+                    "Name": "Gay P.",
+                    "AuthorID": "35227261300",
+                    "AffiliationID": "60138718, 60138276, 60025995",
+                    "AffiliationName": "Laboratoire de Physique Corpusculaire, Université Blaise Pascal, IN2P3-CNRS, Clermont-Ferrand"
+                },
+                "35227262500": {
+                    "Name": "Guicheney C.",
+                    "AuthorID": "35227262500",
+                    "AffiliationID": "60138718, 60138276, 60025995",
+                    "AffiliationName": "Laboratoire de Physique Corpusculaire, Université Blaise Pascal, IN2P3-CNRS, Clermont-Ferrand"
+                },
+                "35227271100": {
+                    "Name": "Grupen C.",
+                    "AuthorID": "35227271100",
+                    "AffiliationID": "60024260",
+                    "AffiliationName": None
+                },
+                "35227278400": {
+                    "Name": "Grivaz J.F.",
+                    "AuthorID": "35227278400",
+                    "AffiliationID": "60073296, 60106017, 60000383",
+                    "AffiliationName": "Laboratoire de l"Accélérateur Linéaire, Université de Paris-Sud, IN2P3-CNRS"}, "35227281300": {"Name": "Green M.G.", "AuthorID": "35227281300", "AffiliationID": "60020595", "AffiliationName": None}, "35227306900": {"Name": "Gobbo B.", "AuthorID": "35227306900", "AffiliationID": "60018363,
+                    60021660", "AffiliationName": "Dipartimento di Fisica, Università di Trieste, INFN Sezione di Trieste"}, "35227370700": {"Name": "Jacquet M.", "AuthorID": "35227370700", "AffiliationID": "60073296,
+                    60106017,
+                    60000383", "AffiliationName": "Laboratoire de l"Accélérateur Linéaire, Université de Paris-Sud, IN2P3-CNRS"
+                },
+                "35227374900": {
+                    "Name": "Jakobs K.",
+                    "AuthorID": "35227374900",
+                    "AffiliationID": "60008743",
+                    "AffiliationName": None
+                },
+                "35227377500": {
+                    "Name": "Jaffe D.E.",
+                    "AuthorID": "35227377500",
+                    "AffiliationID": "60002092",
+                    "AffiliationName": None
+                },
+                "35227385900": {
+                    "Name": "Jacobsen R.",
+                    "AuthorID": "35227385900",
+                    "AffiliationID": "60019778",
+                    "AffiliationName": "European Laboratory for Particle Physics (CERN)"
+                },
+                "35227388700": {
+                    "Name": "Harton J.L.",
+                    "AuthorID": "35227388700",
+                    "AffiliationID": "60032179",
+                    "AffiliationName": None
+                },
+                "35227524200": {
+                    "Name": "Ligabue F.",
+                    "AuthorID": "35227524200",
+                    "AffiliationID": "60030674, 60113665, 60028868",
+                    "AffiliationName": "Dipartimento di Fisica dell"Università, INFN Sezione di Pisa, e Scuola Normale Superiore"}, "35227528800": {"Name": "Lemaire M.C.", "AuthorID": "35227528800", "AffiliationID": "60007816,
+                    60106257", "AffiliationName": None}, "35227566400": {"Name": "Kyriakis A.", "AuthorID": "35227566400", "AffiliationID": "60001104", "AffiliationName": "Nuclear Research Center Demokritos (NRCD)"}, "35227603300": {"Name": "Locci E.", "AuthorID": "35227603300", "AffiliationID": "60007816,
+                    60106257", "AffiliationName": None}, "35227609900": {"Name": "Lusiani A.", "AuthorID": "35227609900", "AffiliationID": "60030674,
+                    60113665,
+                    60028868", "AffiliationName": "Dipartimento di Fisica dell"Università, INFN Sezione di Pisa, e Scuola Normale Superiore"
+                },
+                "35227633100": {
+                    "Name": "Markou C.",
+                    "AuthorID": "35227633100",
+                    "AffiliationID": "60019778",
+                    "AffiliationName": "European Laboratory for Particle Physics (CERN)"
+                },
+                "35227721200": {
+                    "Name": "Hanke P.",
+                    "AuthorID": "35227721200",
+                    "AffiliationID": "60016908",
+                    "AffiliationName": "Institut für Hochenergiephysik, Universität Heidelberg, Germany16 16 Supported by the Bundesministerium für Forschung und Technologie"
+                },
+                "35227759900": {
+                    "Name": "Monteil S.",
+                    "AuthorID": "35227759900",
+                    "AffiliationID": "60138718, 60138276, 60025995",
+                    "AffiliationName": "Laboratoire de Physique Corpusculaire, Université Blaise Pascal, IN2P3-CNRS, Clermont-Ferrand"
+                },
+                "35227760300": {
+                    "Name": "Parrini G.",
+                    "AuthorID": "35227760300",
+                    "AffiliationID": "60021859, 60113678",
+                    "AffiliationName": "Dipartimento di Fisica, Università di Firenze, INFN Sezione di Firenze"
+                },
+                "35227785300": {
+                    "Name": "Pallin D.",
+                    "AuthorID": "35227785300",
+                    "AffiliationID": "60138718, 60138276, 60025995",
+                    "AffiliationName": "Laboratoire de Physique Corpusculaire, Université Blaise Pascal, IN2P3-CNRS, Clermont-Ferrand"
+                },
+                "35227845800": {
+                    "Name": "Rizzo G.",
+                    "AuthorID": "35227845800",
+                    "AffiliationID": "60030674, 60113665, 60028868",
+                    "AffiliationName": "Dipartimento di Fisica dell"Università, INFN Sezione di Pisa, e Scuola Normale Superiore"}, "35227863300": {"Name": "Rander J.", "AuthorID": "35227863300", "AffiliationID": "60007816,
+                    60106257", "AffiliationName": None}, "35227889700": {"Name": "Podlyski F.", "AuthorID": "35227889700", "AffiliationID": "60138718,
+                    60138276,
+                    60025995", "AffiliationName": "Laboratoire de Physique Corpusculaire, Université Blaise Pascal, IN2P3-CNRS, Clermont-Ferrand"}, "35227935800": {"Name": "Rosowsky A.", "AuthorID": "35227935800", "AffiliationID": "60007816,
+                    60106257", "AffiliationName": None}, "35227980900": {"Name": "Schmidt M.", "AuthorID": "35227980900", "AffiliationID": "60016908", "AffiliationName": "Institut für Hochenergiephysik, Universität Heidelberg, Germany16 16 Supported by the Bundesministerium für Forschung und Technologie"}, "35227983700": {"Name": "Schwindling J.", "AuthorID": "35227983700", "AffiliationID": "60007816,
+                    60106257", "AffiliationName": None}, "35227987700": {"Name": "Schune M.H.", "AuthorID": "35227987700", "AffiliationID": "60073296,
+                    60106017,
+                    60000383", "AffiliationName": "Laboratoire de l"Accélérateur Linéaire, Université de Paris-Sud, IN2P3-CNRS"
+                },
+                "35228024100": {
+                    "Name": "Spagnolo P.",
+                    "AuthorID": "35228024100",
+                    "AffiliationID": "60030674, 60113665, 60028868",
+                    "AffiliationName": "Dipartimento di Fisica dell"Università, INFN Sezione di Pisa, e Scuola Normale Superiore"}, "35228068400": {"Name": "Talby M.", "AuthorID": "35228068400", "AffiliationID": "60102127,
+                    60025995", "AffiliationName": "Centre de Physique des Particules, Faculté des Sciences de Luminy, IN2P3-CNRS"}, "35228070400": {"Name": "Verderi M.", "AuthorID": "35228070400", "AffiliationID": "60013425,
+                    60025995", "AffiliationName": "Laboratoire de Physique Nucléaire et des Hautes Energies, Ecole Polytechnique, IN2P3-CNRS"}, "35228073100": {"Name": "Walsh J.", "AuthorID": "35228073100", "AffiliationID": "60030674,
+                    60113665,
+                    60028868", "AffiliationName": "Dipartimento di Fisica dell"Università, INFN Sezione di Pisa, e Scuola Normale Superiore"
+                },
+                "35228074900": {
+                    "Name": "Thompson A.S.",
+                    "AuthorID": "35228074900",
+                    "AffiliationID": "60001490",
+                    "AffiliationName": None
+                },
+                "35228077300": {
+                    "Name": "Tenchini R.",
+                    "AuthorID": "35228077300",
+                    "AffiliationID": "60030674, 60113665, 60028868",
+                    "AffiliationName": "Dipartimento di Fisica dell"Università, INFN Sezione di Pisa, e Scuola Normale Superiore"}, "35228255200": {"Name": "Zhao W.", "AuthorID": "35228255200", "AffiliationID": "60073479,
+                    60019499,
+                    60027631", "AffiliationName": "Institute of High-Energy Physics, Academia Sinica, People"s Republic of China8 8 Supported by the National Science Foundation of China"
+                },
+                "35228283200": {
+                    "Name": "Wanke R.",
+                    "AuthorID": "35228283200",
+                    "AffiliationID": "60031216",
+                    "AffiliationName": None
+                },
+                "35231679900": {
+                    "Name": "Wu S.L.",
+                    "AuthorID": "35231679900",
+                    "AffiliationID": "60032179",
+                    "AffiliationName": None
+                },
+                "35271010300": {
+                    "Name": "Bozzi C.",
+                    "AuthorID": "35271010300",
+                    "AffiliationID": "60030674, 60113665, 60028868",
+                    "AffiliationName": "Dipartimento di Fisica dell"Università, INFN Sezione di Pisa, e Scuola Normale Superiore"}, "35277076300": {"Name": "Hu H.", "AuthorID": "35277076300", "AffiliationID": "60032179", "AffiliationName": None}, "35277544600": {"Name": "Zhang J.", "AuthorID": "35277544600", "AffiliationID": "60073479,
+                    60019499,
+                    60027631", "AffiliationName": "Institute of High-Energy Physics, Academia Sinica, People"s Republic of China8 8 Supported by the National Science Foundation of China"
+                },
+                "35285715700": {
+                    "Name": "Marinelli N.",
+                    "AuthorID": "35285715700",
+                    "AffiliationID": "60114715",
+                    "AffiliationName": "Dipartimento di Fisica, INFN Sezione di Bari"
+                },
+                "35314472700": {
+                    "Name": "Barres A.",
+                    "AuthorID": "35314472700",
+                    "AffiliationID": "60138718, 60138276, 60025995",
+                    "AffiliationName": "Laboratoire de Physique Corpusculaire, Université Blaise Pascal, IN2P3-CNRS, Clermont-Ferrand"
+                },
+                "35314476800": {
+                    "Name": "Benchouk C.",
+                    "AuthorID": "35314476800",
+                    "AffiliationID": "60102127, 60025995",
+                    "AffiliationName": "Centre de Physique des Particules, Faculté des Sciences de Luminy, IN2P3-CNRS"
+                },
+                "35314477300": {
+                    "Name": "Bencheikh A.M.",
+                    "AuthorID": "35314477300",
+                    "AffiliationID": "60102127, 60025995",
+                    "AffiliationName": "Centre de Physique des Particules, Faculté des Sciences de Luminy, IN2P3-CNRS"
+                },
+                "35314478300": {
+                    "Name": "Ariztizabal F.",
+                    "AuthorID": "35314478300",
+                    "AffiliationID": "60023020, 60019232",
+                    "AffiliationName": None
+                },
+                "35314481300": {
+                    "Name": "Armstrong S.R.",
+                    "AuthorID": "35314481300",
+                    "AffiliationID": "60032179",
+                    "AffiliationName": None
+                },
+                "35314492000": {
+                    "Name": "Bardadin-Otwinowska M.",
+                    "AuthorID": "35314492000",
+                    "AffiliationID": "60138718, 60138276, 60025995",
+                    "AffiliationName": "Laboratoire de Physique Corpusculaire, Université Blaise Pascal, IN2P3-CNRS, Clermont-Ferrand"
+                },
+                "35314524400": {
+                    "Name": "Boswell R.",
+                    "AuthorID": "35314524400",
+                    "AffiliationID": "60001881",
+                    "AffiliationName": None
+                },
+                "35314524600": {
+                    "Name": "Brodbeck T.J.",
+                    "AuthorID": "35314524600",
+                    "AffiliationID": "60023643",
+                    "AffiliationName": None
+                },
+                "35314525800": {
+                    "Name": "Brient J.C.",
+                    "AuthorID": "35314525800",
+                    "AffiliationID": "60013425, 60025995",
+                    "AffiliationName": "Laboratoire de Physique Nucléaire et des Hautes Energies, Ecole Polytechnique, IN2P3-CNRS"
+                },
+                "35314526600": {
+                    "Name": "Boucrot J.",
+                    "AuthorID": "35314526600",
+                    "AffiliationID": "60073296, 60106017, 60000383",
+                    "AffiliationName": "Laboratoire de l"Accélérateur Linéaire, Université de Paris-Sud, IN2P3-CNRS"}, "35314527200": {"Name": "Callot O.", "AuthorID": "35314527200", "AffiliationID": "60073296,
+                    60106017,
+                    60000383", "AffiliationName": "Laboratoire de l"Accélérateur Linéaire, Université de Paris-Sud, IN2P3-CNRS"
+                },
+                "35314527400": {
+                    "Name": "Bonissent A.",
+                    "AuthorID": "35314527400",
+                    "AffiliationID": "60102127, 60025995",
+                    "AffiliationName": "Centre de Physique des Particules, Faculté des Sciences de Luminy, IN2P3-CNRS"
+                },
+                "35314527700": {
+                    "Name": "Böhrer A.",
+                    "AuthorID": "35314527700",
+                    "AffiliationID": "60024260",
+                    "AffiliationName": None
+                },
+                "35314528700": {
+                    "Name": "Bourdon P.",
+                    "AuthorID": "35314528700",
+                    "AffiliationID": "60013425, 60025995",
+                    "AffiliationName": "Laboratoire de Physique Nucléaire et des Hautes Energies, Ecole Polytechnique, IN2P3-CNRS"
+                },
+                "35314532900": {
+                    "Name": "Bloch-Devaux B.",
+                    "AuthorID": "35314532900",
+                    "AffiliationID": "60007816, 60106257",
+                    "AffiliationName": None
+                },
+                "35314534400": {
+                    "Name": "Candlin D.J.",
+                    "AuthorID": "35314534400",
+                    "AffiliationID": "60027272",
+                    "AffiliationName": "Department of Physics, University of Edinburgh, Edinburgh, United Kingdom10 10 Supported by the UK Particle Physics and Astronomy Research"
+                },
+                "35314534600": {
+                    "Name": "Boyer C.",
+                    "AuthorID": "35314534600",
+                    "AffiliationID": "60138718, 60138276, 60025995",
+                    "AffiliationName": "Laboratoire de Physique Corpusculaire, Université Blaise Pascal, IN2P3-CNRS, Clermont-Ferrand"
+                },
+                "35314541700": {
+                    "Name": "Blum W.",
+                    "AuthorID": "35314541700",
+                    "AffiliationID": "60008743",
+                    "AffiliationName": None
+                },
+                "35314543700": {
+                    "Name": "Bowdery C.K.",
+                    "AuthorID": "35314543700",
+                    "AffiliationID": "60023643",
+                    "AffiliationName": None
+                },
+                "35314548400": {
+                    "Name": "Braun O.",
+                    "AuthorID": "35314548400",
+                    "AffiliationID": "60016908",
+                    "AffiliationName": "Institut für Hochenergiephysik, Universität Heidelberg, Germany16 16 Supported by the Bundesministerium für Forschung und Technologie"
+                },
+                "35314569100": {
+                    "Name": "Casper D.",
+                    "AuthorID": "35314569100",
+                    "AffiliationID": "60025995, 60025171",
+                    "AffiliationName": "Laboratoire de Physique des Particules (LAPP), IN2P3-CNRS"
+                },
+                "35314572000": {
+                    "Name": "Cartwright S.",
+                    "AuthorID": "35314572000",
+                    "AffiliationID": "60001881",
+                    "AffiliationName": None
+                },
+                "35314578800": {
+                    "Name": "Colas P.",
+                    "AuthorID": "35314578800",
+                    "AffiliationID": "60007816, 60106257",
+                    "AffiliationName": None
+                },
+                "35314584300": {
+                    "Name": "Corden M.",
+                    "AuthorID": "35314584300",
+                    "AffiliationID": "60002092",
+                    "AffiliationName": None
+                },
+                "35314588300": {
+                    "Name": "Comas P.",
+                    "AuthorID": "35314588300",
+                    "AffiliationID": "60019778",
+                    "AffiliationName": "European Laboratory for Particle Physics (CERN)"
+                },
+                "35314600700": {
+                    "Name": "Carr J.",
+                    "AuthorID": "35314600700",
+                    "AffiliationID": "60102127, 60025995",
+                    "AffiliationName": "Centre de Physique des Particules, Faculté des Sciences de Luminy, IN2P3-CNRS"
+                },
+                "35314635600": {
+                    "Name": "Dornan P.J.",
+                    "AuthorID": "35314635600",
+                    "AffiliationID": "60015150",
+                    "AffiliationName": None
+                },
+                "35314637900": {
+                    "Name": "Fearnley T.",
+                    "AuthorID": "35314637900",
+                    "AffiliationID": "60017041",
+                    "AffiliationName": "Niels Bohr Institute, Denmark9 9 Supported by the Danish Natural Science Research"
+                },
+                "35314639400": {
+                    "Name": "Edgecock T.R.",
+                    "AuthorID": "35314639400",
+                    "AffiliationID": "60023254",
+                    "AffiliationName": None
+                },
+                "35314649400": {
+                    "Name": "Feng Z.",
+                    "AuthorID": "35314649400",
+                    "AffiliationID": "60032179",
+                    "AffiliationName": None
+                },
+                "35314651100": {
+                    "Name": "Etienne F.",
+                    "AuthorID": "35314651100",
+                    "AffiliationID": "60102127, 60025995",
+                    "AffiliationName": "Centre de Physique des Particules, Faculté des Sciences de Luminy, IN2P3-CNRS"
+                },
+                "35314668800": {
+                    "Name": "Duarte H.",
+                    "AuthorID": "35314668800",
+                    "AffiliationID": "60007816, 60106257",
+                    "AffiliationName": None
+                },
+                "35314683600": {
+                    "Name": "Giannini G.",
+                    "AuthorID": "35314683600",
+                    "AffiliationID": "60018363, 60021660",
+                    "AffiliationName": "Dipartimento di Fisica, Università di Trieste, INFN Sezione di Trieste"
+                },
+                "35314685100": {
+                    "Name": "Grahl J.",
+                    "AuthorID": "35314685100",
+                    "AffiliationID": "60032179",
+                    "AffiliationName": None
+                },
+                "35314685700": {
+                    "Name": "Girtler P.",
+                    "AuthorID": "35314685700",
+                    "AffiliationID": "60009999",
+                    "AffiliationName": None
+                },
+                "35314687600": {
+                    "Name": "Greene A.M.",
+                    "AuthorID": "35314687600",
+                    "AffiliationID": "60031216",
+                    "AffiliationName": None
+                },
+                "35314692900": {
+                    "Name": "Galla A.",
+                    "AuthorID": "35314692900",
+                    "AffiliationID": "60031216",
+                    "AffiliationName": None
+                },
+                "35314695300": {
+                    "Name": "Georgiopoulos C.",
+                    "AuthorID": "35314695300",
+                    "AffiliationID": "60002092",
+                    "AffiliationName": None
+                },
+                "35314698500": {
+                    "Name": "Geweniger C.",
+                    "AuthorID": "35314698500",
+                    "AffiliationID": "60016908",
+                    "AffiliationName": "Institut für Hochenergiephysik, Universität Heidelberg, Germany16 16 Supported by the Bundesministerium für Forschung und Technologie"
+                },
+                "35314699200": {
+                    "Name": "Halley A.W.",
+                    "AuthorID": "35314699200",
+                    "AffiliationID": "60001490",
+                    "AffiliationName": None
+                },
+                "35314702800": {
+                    "Name": "Graefe G.",
+                    "AuthorID": "35314702800",
+                    "AffiliationID": "60016908",
+                    "AffiliationName": "Institut für Hochenergiephysik, Universität Heidelberg, Germany16 16 Supported by the Bundesministerium für Forschung und Technologie"
+                },
+                "35314706500": {
+                    "Name": "González S.",
+                    "AuthorID": "35314706500",
+                    "AffiliationID": "60032179",
+                    "AffiliationName": None
+                },
+                "35314717700": {
+                    "Name": "Gaitan V.",
+                    "AuthorID": "35314717700",
+                    "AffiliationID": "60023020, 60019232",
+                    "AffiliationName": None
+                },
+                "35314752200": {
+                    "Name": "Harvey J.",
+                    "AuthorID": "35314752200",
+                    "AffiliationID": "60019778",
+                    "AffiliationName": "European Laboratory for Particle Physics (CERN)"
+                },
+                "35314756400": {
+                    "Name": "Hepp V.",
+                    "AuthorID": "35314756400",
+                    "AffiliationID": "60016908",
+                    "AffiliationName": "Institut für Hochenergiephysik, Universität Heidelberg, Germany16 16 Supported by the Bundesministerium für Forschung und Technologie"
+                },
+                "35314764300": {
+                    "Name": "Hughes G.",
+                    "AuthorID": "35314764300",
+                    "AffiliationID": "60023643",
+                    "AffiliationName": None
+                },
+                "35314765300": {
+                    "Name": "Hayes O.J.",
+                    "AuthorID": "35314765300",
+                    "AffiliationID": "60032179",
+                    "AffiliationName": None
+                },
+                "35314823000": {
+                    "Name": "Koksal A.",
+                    "AuthorID": "35314823000",
+                    "AffiliationID": "60001881",
+                    "AffiliationName": None
+                },
+                "35314824600": {
+                    "Name": "Knowles I.G.",
+                    "AuthorID": "35314824600",
+                    "AffiliationID": "60001490",
+                    "AffiliationName": None
+                },
+                "35314826300": {
+                    "Name": "Laurelli P.",
+                    "AuthorID": "35314826300",
+                    "AffiliationID": "60016340",
+                    "AffiliationName": "Laboratori Nazionali dell"INFN (LNF-INFN)"}, "35314827700": {"Name": "Kuhn D.", "AuthorID": "35314827700", "AffiliationID": "60009999", "AffiliationName": None}, "35314828500": {"Name": "Lefrançois J.", "AuthorID": "35314828500", "AffiliationID": "60073296,
+                    60106017,
+                    60000383", "AffiliationName": "Laboratoire de l"Accélérateur Linéaire, Université de Paris-Sud, IN2P3-CNRS"
+                },
+                "35314835500": {
+                    "Name": "Lançon E.",
+                    "AuthorID": "35314835500",
+                    "AffiliationID": "60007816, 60106257",
+                    "AffiliationName": None
+                },
+                "35314835800": {
+                    "Name": "Konstantinidis N.",
+                    "AuthorID": "35314835800",
+                    "AffiliationID": "60015150",
+                    "AffiliationName": None
+                },
+                "35314891400": {
+                    "Name": "Minguet-Rodriguez J.",
+                    "AuthorID": "35314891400",
+                    "AffiliationID": "60024260",
+                    "AffiliationName": None
+                },
+                "35314894400": {
+                    "Name": "Medcalf T.",
+                    "AuthorID": "35314894400",
+                    "AffiliationID": "60020595",
+                    "AffiliationName": None
+                },
+                "35314898900": {
+                    "Name": "McNamara P.A.",
+                    "AuthorID": "35314898900",
+                    "AffiliationID": "60032179",
+                    "AffiliationName": None
+                },
+                "35314917600": {
+                    "Name": "Lynch J.G.",
+                    "AuthorID": "35314917600",
+                    "AffiliationID": "60001490",
+                    "AffiliationName": None
+                },
+                "35314919000": {
+                    "Name": "Lutters G.",
+                    "AuthorID": "35314919000",
+                    "AffiliationID": "60024260",
+                    "AffiliationName": None
+                },
+                "35314937300": {
+                    "Name": "Meinhard H.",
+                    "AuthorID": "35314937300",
+                    "AffiliationID": "60019778",
+                    "AffiliationName": "European Laboratory for Particle Physics (CERN)"
+                },
+                "35314947800": {
+                    "Name": "Newton W.M.",
+                    "AuthorID": "35314947800",
+                    "AffiliationID": "60001881",
+                    "AffiliationName": None
+                },
+                "35314951000": {
+                    "Name": "Orteu S.",
+                    "AuthorID": "35314951000",
+                    "AffiliationID": "60023020, 60019232",
+                    "AffiliationName": None
+                },
+                "35314953200": {
+                    "Name": "Murtas G.P.",
+                    "AuthorID": "35314953200",
+                    "AffiliationID": "60016340",
+                    "AffiliationName": "Laboratori Nazionali dell"INFN (LNF-INFN)"}, "35314953600": {"Name": "Passalacqua L.", "AuthorID": "35314953600", "AffiliationID": "60013425,
+                    60025995", "AffiliationName": "Laboratoire de Physique Nucléaire et des Hautes Energies, Ecole Polytechnique, IN2P3-CNRS"}, "35314961100": {"Name": "Orejudos W.", "AuthorID": "35314961100", "AffiliationID": "60032179", "AffiliationName": None}, "35314962000": {"Name": "Montret J.C.", "AuthorID": "35314962000", "AffiliationID": "60138718,
+                    60138276,
+                    60025995", "AffiliationName": "Laboratoire de Physique Corpusculaire, Université Blaise Pascal, IN2P3-CNRS, Clermont-Ferrand"}, "35314963600": {"Name": "Musolino G.", "AuthorID": "35314963600", "AffiliationID": "60073296,
+                    60106017,
+                    60000383", "AffiliationName": "Laboratoire de l"Accélérateur Linéaire, Université de Paris-Sud, IN2P3-CNRS"
+                },
+                "35314964800": {
+                    "Name": "Parsons M.I.",
+                    "AuthorID": "35314964800",
+                    "AffiliationID": "60027272",
+                    "AffiliationName": "Department of Physics, University of Edinburgh, Edinburgh, United Kingdom10 10 Supported by the UK Particle Physics and Astronomy Research"
+                },
+                "35314973000": {
+                    "Name": "Moser H.G.",
+                    "AuthorID": "35314973000",
+                    "AffiliationID": "60008743",
+                    "AffiliationName": None
+                },
+                "35314976700": {
+                    "Name": "Moutoussi A.",
+                    "AuthorID": "35314976700",
+                    "AffiliationID": "60015150",
+                    "AffiliationName": None
+                },
+                "35314978400": {
+                    "Name": "Morton W.T.",
+                    "AuthorID": "35314978400",
+                    "AffiliationID": "60001490",
+                    "AffiliationName": None
+                },
+                "35314979900": {
+                    "Name": "Nicod D.",
+                    "AuthorID": "35314979900",
+                    "AffiliationID": "60102127, 60025995",
+                    "AffiliationName": "Centre de Physique des Particules, Faculté des Sciences de Luminy, IN2P3-CNRS"
+                },
+                "35314992600": {
+                    "Name": "Palazzi P.",
+                    "AuthorID": "35314992600",
+                    "AffiliationID": "60019778",
+                    "AffiliationName": "European Laboratory for Particle Physics (CERN)"
+                },
+                "35315017000": {
+                    "Name": "Ragusa F.",
+                    "AuthorID": "35315017000",
+                    "AffiliationID": "60018363, 60021660",
+                    "AffiliationName": "Dipartimento di Fisica, Università di Trieste, INFN Sezione di Trieste"
+                },
+                "35315017200": {
+                    "Name": "Rensing P.",
+                    "AuthorID": "35315017200",
+                    "AffiliationID": "60019778",
+                    "AffiliationName": "European Laboratory for Particle Physics (CERN)"
+                },
+                "35315017300": {
+                    "Name": "Rudolph G.",
+                    "AuthorID": "35315017300",
+                    "AffiliationID": "60009999",
+                    "AffiliationName": None
+                },
+                "35315017400": {
+                    "Name": "Rivera F.",
+                    "AuthorID": "35315017400",
+                    "AffiliationID": "60024260",
+                    "AffiliationName": None
+                },
+                "35315019100": {
+                    "Name": "Pepe-Altarelli M.",
+                    "AuthorID": "35315019100",
+                    "AffiliationID": "60016340",
+                    "AffiliationName": "Laboratori Nazionali dell"INFN (LNF-INFN)"}, "35315020100": {"Name": "Rankin C.", "AuthorID": "35315020100", "AffiliationID": "60001881", "AffiliationName": None}, "35315020700": {"Name": "Rothberg J.", "AuthorID": "35315020700", "AffiliationID": "60015481", "AffiliationName": "Experimental Elementary Particle Physics, University of Washington"}, "35315023200": {"Name": "Rumpf M.", "AuthorID": "35315023200", "AffiliationID": "60013425,
+                    60025995", "AffiliationName": "Laboratoire de Physique Nucléaire et des Hautes Energies, Ecole Polytechnique, IN2P3-CNRS"}, "35315024600": {"Name": "Perez P.", "AuthorID": "35315024600", "AffiliationID": "60007816,
+                    60106257", "AffiliationName": None}, "35315025000": {"Name": "Saadi Y.", "AuthorID": "35315025000", "AffiliationID": "60032179", "AffiliationName": None}, "35315027900": {"Name": "Perrodo P.", "AuthorID": "35315027900", "AffiliationID": "60020595", "AffiliationName": None}, "35315028000": {"Name": "Raab J.", "AuthorID": "35315028000", "AffiliationID": "60031216", "AffiliationName": None}, "35315028400": {"Name": "Saadi F.", "AuthorID": "35315028400", "AffiliationID": "60138718,
+                    60138276,
+                    60025995", "AffiliationName": "Laboratoire de Physique Corpusculaire, Université Blaise Pascal, IN2P3-CNRS, Clermont-Ferrand"}, "35315029500": {"Name": "Roussarie A.", "AuthorID": "35315029500", "AffiliationID": "60007816,
+                    60106257", "AffiliationName": None}, "35315033500": {"Name": "Renardy J.F.", "AuthorID": "35315033500", "AffiliationID": "60007816,
+                    60106257", "AffiliationName": None}, "35315038800": {"Name": "Reeves P.", "AuthorID": "35315038800", "AffiliationID": "60001490", "AffiliationName": None}, "35315071900": {"Name": "Sanchez F.", "AuthorID": "35315071900", "AffiliationID": "60023020,
+                    60019232", "AffiliationName": None}, "35315072600": {"Name": "Sedgbeer J.K.", "AuthorID": "35315072600", "AffiliationID": "60015150", "AffiliationName": None}, "35315073700": {"Name": "Settles R.", "AuthorID": "35315073700", "AffiliationID": "60008743", "AffiliationName": None}, "35315076900": {"Name": "Steinberger J.", "AuthorID": "35315076900", "AffiliationID": "60030674,
+                    60113665,
+                    60028868", "AffiliationName": "Dipartimento di Fisica dell"Università, INFN Sezione di Pisa, e Scuola Normale Superiore"
+                },
+                "35315077200": {
+                    "Name": "Schuller J.P.",
+                    "AuthorID": "35315077200",
+                    "AffiliationID": "60007816, 60106257",
+                    "AffiliationName": None
+                },
+                "35315081200": {
+                    "Name": "Stenzel H.",
+                    "AuthorID": "35315081200",
+                    "AffiliationID": "60016908",
+                    "AffiliationName": "Institut für Hochenergiephysik, Universität Heidelberg, Germany16 16 Supported by the Bundesministerium für Forschung und Technologie"
+                },
+                "35315086200": {
+                    "Name": "Saraiva P.",
+                    "AuthorID": "35315086200",
+                    "AffiliationID": "60024260",
+                    "AffiliationName": None
+                },
+                "35315087100": {
+                    "Name": "Sommer J.",
+                    "AuthorID": "35315087100",
+                    "AffiliationID": "60016908",
+                    "AffiliationName": "Institut für Hochenergiephysik, Universität Heidelberg, Germany16 16 Supported by the Bundesministerium für Forschung und Technologie"
+                },
+                "35315087600": {
+                    "Name": "Seywerd H.",
+                    "AuthorID": "35315087600",
+                    "AffiliationID": "60008743",
+                    "AffiliationName": None
+                },
+                "35315088500": {
+                    "Name": "Stephan F.",
+                    "AuthorID": "35315088500",
+                    "AffiliationID": "60024260",
+                    "AffiliationName": None
+                },
+                "35315095700": {
+                    "Name": "San Martin G.",
+                    "AuthorID": "35315095700",
+                    "AffiliationID": "60015150",
+                    "AffiliationName": None
+                },
+                "35315125400": {
+                    "Name": "Si Mohand D.",
+                    "AuthorID": "35315125400",
+                    "AffiliationID": "60007816, 60106257",
+                    "AffiliationName": None
+                },
+                "35315135600": {
+                    "Name": "Turnbull R.M.",
+                    "AuthorID": "35315135600",
+                    "AffiliationID": "60001490",
+                    "AffiliationName": None
+                },
+                "35315137400": {
+                    "Name": "Thompson L.F.",
+                    "AuthorID": "35315137400",
+                    "AffiliationID": "60001881",
+                    "AffiliationName": None
+                },
+                "35315137900": {
+                    "Name": "Videau H.",
+                    "AuthorID": "35315137900",
+                    "AffiliationID": "60013425, 60025995",
+                    "AffiliationName": "Laboratoire de Physique Nucléaire et des Hautes Energies, Ecole Polytechnique, IN2P3-CNRS"
+                },
+                "35315141500": {
+                    "Name": "ten Have I.",
+                    "AuthorID": "35315141500",
+                    "AffiliationID": "60001490",
+                    "AffiliationName": None
+                },
+                "35315141700": {
+                    "Name": "Venturi A.",
+                    "AuthorID": "35315141700",
+                    "AffiliationID": "60019778",
+                    "AffiliationName": "European Laboratory for Particle Physics (CERN)"
+                },
+                "35315144300": {
+                    "Name": "Strong J.A.",
+                    "AuthorID": "35315144300",
+                    "AffiliationID": "60020595",
+                    "AffiliationName": None
+                },
+                "35315146900": {
+                    "Name": "Vannini C.",
+                    "AuthorID": "35315146900",
+                    "AffiliationID": "60030674, 60113665, 60028868",
+                    "AffiliationName": "Dipartimento di Fisica dell"Università, INFN Sezione di Pisa, e Scuola Normale Superiore"}, "35315148800": {"Name": "Thorn S.", "AuthorID": "35315148800", "AffiliationID": "60001490", "AffiliationName": None}, "35315153600": {"Name": "Vallage B.", "AuthorID": "35315153600", "AffiliationID": "60007816,
+                    60106257", "AffiliationName": None}, "35315158400": {"Name": "Thomson F.", "AuthorID": "35315158400", "AffiliationID": "60001490", "AffiliationName": None}, "35315160700": {"Name": "Trabelsi A.", "AuthorID": "35315160700", "AffiliationID": "60007816,
+                    60106257", "AffiliationName": None}, "35315166400": {"Name": "Triggiani G.", "AuthorID": "35315166400", "AffiliationID": "60030674,
+                    60113665,
+                    60028868", "AffiliationName": "Dipartimento di Fisica dell"Università, INFN Sezione di Pisa, e Scuola Normale Superiore"
+                },
+                "35315174800": {
+                    "Name": "Tittel K.",
+                    "AuthorID": "35315174800",
+                    "AffiliationID": "60016908",
+                    "AffiliationName": "Institut für Hochenergiephysik, Universität Heidelberg, Germany16 16 Supported by the Bundesministerium für Forschung und Technologie"
+                },
+                "35315176600": {
+                    "Name": "Valassi A.",
+                    "AuthorID": "35315176600",
+                    "AffiliationID": "60013425, 60025995",
+                    "AffiliationName": "Laboratoire de Physique Nucléaire et des Hautes Energies, Ecole Polytechnique, IN2P3-CNRS"
+                },
+                "35315206300": {
+                    "Name": "Wunsch M.",
+                    "AuthorID": "35315206300",
+                    "AffiliationID": "60016908",
+                    "AffiliationName": "Institut für Hochenergiephysik, Universität Heidelberg, Germany16 16 Supported by the Bundesministerium für Forschung und Technologie"
+                },
+                "35315211000": {
+                    "Name": "Witzeling W.",
+                    "AuthorID": "35315211000",
+                    "AffiliationID": "60019778",
+                    "AffiliationName": "European Laboratory for Particle Physics (CERN)"
+                },
+                "35315216200": {
+                    "Name": "Yamartino J.M.",
+                    "AuthorID": "35315216200",
+                    "AffiliationID": "60032179",
+                    "AffiliationName": None
+                },
+                "35315220100": {
+                    "Name": "Whelan E.P.",
+                    "AuthorID": "35315220100",
+                    "AffiliationID": "60023643",
+                    "AffiliationName": None
+                },
+                "35315221900": {
+                    "Name": "Wiedenmann W.",
+                    "AuthorID": "35315221900",
+                    "AffiliationID": "60019778",
+                    "AffiliationName": "European Laboratory for Particle Physics (CERN)"
+                },
+                "35315228700": {
+                    "Name": "Wildish T.",
+                    "AuthorID": "35315228700",
+                    "AffiliationID": "60019778",
+                    "AffiliationName": "European Laboratory for Particle Physics (CERN)"
+                },
+                "35315250600": {
+                    "Name": "Zachariadou K.",
+                    "AuthorID": "35315250600",
+                    "AffiliationID": "60001104",
+                    "AffiliationName": "Nuclear Research Center Demokritos (NRCD)"
+                },
+                "35350562900": {
+                    "Name": "Carpinelli M.",
+                    "AuthorID": "35350562900",
+                    "AffiliationID": "60030674, 60113665, 60028868",
+                    "AffiliationName": "Dipartimento di Fisica dell"Università, INFN Sezione di Pisa, e Scuola Normale Superiore"}, "35350563300": {"Name": "Kozanecki W.", "AuthorID": "35350563300", "AffiliationID": "60007816,
+                    60106257", "AffiliationName": None}, "35352142900": {"Name": "Garrido L.", "AuthorID": "35352142900", "AffiliationID": "60023020,
+                    60019232", "AffiliationName": None}, "35354983800": {"Name": "Richter R.", "AuthorID": "35354983800", "AffiliationID": "60008743", "AffiliationName": None}, "35355338200": {"Name": "Davier M.", "AuthorID": "35355338200", "AffiliationID": "60073296,
+                    60106017,
+                    60000383", "AffiliationName": "Laboratoire de l"Accélérateur Linéaire, Université de Paris-Sud, IN2P3-CNRS"
+                },
+                "35355952300": {
+                    "Name": "Hansen J.B.",
+                    "AuthorID": "35355952300",
+                    "AffiliationID": "60017041",
+                    "AffiliationName": "Niels Bohr Institute, Denmark9 9 Supported by the Danish Natural Science Research"
+                },
+                "35495374500": {
+                    "Name": "Crawford G.",
+                    "AuthorID": "35495374500",
+                    "AffiliationID": "60023643",
+                    "AffiliationName": None
+                },
+                "35563009700": {
+                    "Name": "Michel B.",
+                    "AuthorID": "35563009700",
+                    "AffiliationID": "60138718, 60138276, 60025995",
+                    "AffiliationName": "Laboratoire de Physique Corpusculaire, Université Blaise Pascal, IN2P3-CNRS, Clermont-Ferrand"
+                },
+                "35589749100": {
+                    "Name": "Edwards M.",
+                    "AuthorID": "35589749100",
+                    "AffiliationID": "60023254",
+                    "AffiliationName": None
+                },
+                "35829891600": {
+                    "Name": "Heusse P.",
+                    "AuthorID": "35829891600",
+                    "AffiliationID": "60073296, 60106017, 60000383",
+                    "AffiliationName": "Laboratoire de l"Accélérateur Linéaire, Université de Paris-Sud, IN2P3-CNRS"}, "35830024800": {"Name": "Stierlin U.", "AuthorID": "35830024800", "AffiliationID": "60008743", "AffiliationName": None}, "36012866700": {"Name": "Park H.J.", "AuthorID": "36012866700", "AffiliationID": "60073296,
+                    60106017,
+                    60000383", "AffiliationName": "Laboratoire de l"Accélérateur Linéaire, Université de Paris-Sud, IN2P3-CNRS"
+                },
+                "36038584600": {
+                    "Name": "Lees J.P.",
+                    "AuthorID": "36038584600",
+                    "AffiliationID": "60025995, 60025171",
+                    "AffiliationName": "Laboratoire de Physique des Particules (LAPP), IN2P3-CNRS"
+                },
+                "36122489500": {
+                    "Name": "Cameron W.",
+                    "AuthorID": "36122489500",
+                    "AffiliationID": "60015150",
+                    "AffiliationName": None
+                },
+                "36122710100": {
+                    "Name": "Foster F.",
+                    "AuthorID": "36122710100",
+                    "AffiliationID": "60023643",
+                    "AffiliationName": None
+                },
+                "36122735300": {
+                    "Name": "Finch A.J.",
+                    "AuthorID": "36122735300",
+                    "AffiliationID": "60023643",
+                    "AffiliationName": None
+                },
+                "36124218200": {
+                    "Name": "Wasserbaech S.",
+                    "AuthorID": "36124218200",
+                    "AffiliationID": "60015481",
+                    "AffiliationName": "Experimental Elementary Particle Physics, University of Washington"
+                },
+                "36146839700": {
+                    "Name": "Colrain P.",
+                    "AuthorID": "36146839700",
+                    "AffiliationID": "60023643",
+                    "AffiliationName": None
+                },
+                "36147320100": {
+                    "Name": "Gambino D.",
+                    "AuthorID": "36147320100",
+                    "AffiliationID": "60030674, 60113665, 60028868",
+                    "AffiliationName": "Dipartimento di Fisica dell"Università, INFN Sezione di Pisa, e Scuola Normale Superiore"}, "36148883000": {"Name": "Zheng M.", "AuthorID": "36148883000", "AffiliationID": "60032179", "AffiliationName": None}, "37093955500": {"Name": "Schmitt M.", "AuthorID": "37093955500", "AffiliationID": "60032179", "AffiliationName": None}, "38762508700": {"Name": "Verdini P.G.", "AuthorID": "38762508700", "AffiliationID": "60030674,
+                    60113665,
+                    60028868", "AffiliationName": "Dipartimento di Fisica dell"Università, INFN Sezione di Pisa, e Scuola Normale Superiore"
+                },
+                "39262155100": {
+                    "Name": "Mir L.M.",
+                    "AuthorID": "39262155100",
+                    "AffiliationID": "60020595",
+                    "AffiliationName": None
+                },
+                "46161635700": {
+                    "Name": "Walsh A.M.",
+                    "AuthorID": "46161635700",
+                    "AffiliationID": "60032179",
+                    "AffiliationName": None
+                },
+                "46361101700": {
+                    "Name": "Cowan G.",
+                    "AuthorID": "46361101700",
+                    "AffiliationID": "60024260",
+                    "AffiliationName": None
+                },
+                "55107853700": {
+                    "Name": "Miquel R.",
+                    "AuthorID": "55107853700",
+                    "AffiliationID": "60019778",
+                    "AffiliationName": "European Laboratory for Particle Physics (CERN)"
+                },
+                "55116333600": {
+                    "Name": "Bettarini S.",
+                    "AuthorID": "55116333600",
+                    "AffiliationID": "60030674, 60113665, 60028868",
+                    "AffiliationName": "Dipartimento di Fisica dell"Università, INFN Sezione di Pisa, e Scuola Normale Superiore"}, "55147564800": {"Name": "Jost B.", "AuthorID": "55147564800", "AffiliationID": "60019778", "AffiliationName": "European Laboratory for Particle Physics (CERN)"}, "55239594600": {"Name": "Ciulli V.", "AuthorID": "55239594600", "AffiliationID": "60030674,
+                    60113665,
+                    60028868", "AffiliationName": "Dipartimento di Fisica dell"Università, INFN Sezione di Pisa, e Scuola Normale Superiore"
+                },
+                "55325102700": {
+                    "Name": "Dawson I.",
+                    "AuthorID": "55325102700",
+                    "AffiliationID": "60001881",
+                    "AffiliationName": None
+                },
+                "55341264400": {
+                    "Name": "Martinez M.",
+                    "AuthorID": "55341264400",
+                    "AffiliationID": "60023020, 60019232",
+                    "AffiliationName": None
+                },
+                "55402559400": {
+                    "Name": "Bagliesi G.",
+                    "AuthorID": "55402559400",
+                    "AffiliationID": "60030674, 60113665, 60028868",
+                    "AffiliationName": "Dipartimento di Fisica dell"Università, INFN Sezione di Pisa, e Scuola Normale Superiore"}, "55475102200": {"Name": "Williams M.I.", "AuthorID": "55475102200", "AffiliationID": "60023643", "AffiliationName": None}, "55538168200": {"Name": "Focardi E.", "AuthorID": "55538168200", "AffiliationID": "60021859,
+                    60113678", "AffiliationName": "Dipartimento di Fisica, Università di Firenze, INFN Sezione di Firenze"}, "55545239900": {"Name": "Lutz A.M.", "AuthorID": "55545239900", "AffiliationID": "60073296,
+                    60106017,
+                    60000383", "AffiliationName": "Laboratoire de l"Accélérateur Linéaire, Université de Paris-Sud, IN2P3-CNRS"
+                },
+                "55638952600": {
+                    "Name": "Bossi F.",
+                    "AuthorID": "55638952600",
+                    "AffiliationID": "60016340",
+                    "AffiliationName": "Laboratori Nazionali dell"INFN (LNF-INFN)"}, "55663520500": {"Name": "Denis R.S.", "AuthorID": "55663520500", "AffiliationID": "60008743", "AffiliationName": None}, "55726760400": {"Name": "Romano F.", "AuthorID": "55726760400", "AffiliationID": "60114715", "AffiliationName": "Dipartimento di Fisica, INFN Sezione di Bari"}, "55868660200": {"Name": "Murtas F.", "AuthorID": "55868660200", "AffiliationID": "60016340", "AffiliationName": "Laboratori Nazionali dell"INFN (LNF-INFN)"
+                },
+                "55957278700": {
+                    "Name": "Calvet D.",
+                    "AuthorID": "55957278700",
+                    "AffiliationID": "60102127, 60025995",
+                    "AffiliationName": "Centre de Physique des Particules, Faculté des Sciences de Luminy, IN2P3-CNRS"
+                },
+                "56024254100": {
+                    "Name": "Kleinknecht K.",
+                    "AuthorID": "56024254100",
+                    "AffiliationID": "60031216",
+                    "AffiliationName": None
+                },
+                "56029882700": {
+                    "Name": "Tonelli G.",
+                    "AuthorID": "56029882700",
+                    "AffiliationID": "60030674, 60113665, 60028868",
+                    "AffiliationName": "Dipartimento di Fisica dell"Università, INFN Sezione di Pisa, e Scuola Normale Superiore"}, "56129630000": {"Name": "Lin J.", "AuthorID": "56129630000", "AffiliationID": "60073479,
+                    60019499,
+                    60027631", "AffiliationName": "Institute of High-Energy Physics, Academia Sinica, People"s Republic of China8 8 Supported by the National Science Foundation of China"
+                },
+                "56181407300": {
+                    "Name": "Gao Y.S.",
+                    "AuthorID": "56181407300",
+                    "AffiliationID": "60032179",
+                    "AffiliationName": None
+                },
+                "56209989300": {
+                    "Name": "Coyle P.",
+                    "AuthorID": "56209989300",
+                    "AffiliationID": "60019778",
+                    "AffiliationName": "European Laboratory for Particle Physics (CERN)"
+                },
+                "56233925800": {
+                    "Name": "Dell"Orso R.", "AuthorID": "56233925800", "AffiliationID": "60030674,
+                    60113665,
+                    60028868", "AffiliationName": "Dipartimento di Fisica dell"Università, INFN Sezione di Pisa, e Scuola Normale Superiore"
+                },
+                "56243167900": {
+                    "Name": "Bellantoni L.",
+                    "AuthorID": "56243167900",
+                    "AffiliationID": "60032179",
+                    "AffiliationName": None
+                },
+                "56247599000": {
+                    "Name": "Abt I.",
+                    "AuthorID": "56247599000",
+                    "AffiliationID": "60008743",
+                    "AffiliationName": None
+                },
+                "56272264500": {
+                    "Name": "Abbaneo D.",
+                    "AuthorID": "56272264500",
+                    "AffiliationID": "60030674, 60113665, 60028868",
+                    "AffiliationName": "Dipartimento di Fisica dell"Università, INFN Sezione di Pisa, e Scuola Normale Superiore"}, "56276184000": {"Name": "Rensch B.", "AuthorID": "56276184000", "AffiliationID": "60016908", "AffiliationName": "Institut für Hochenergiephysik, Universität Heidelberg, Germany16 16 Supported by the Bundesministerium für Forschung und Technologie"}, "56438617700": {"Name": "Hansen P.H.", "AuthorID": "56438617700", "AffiliationID": "60017041", "AffiliationName": "Niels Bohr Institute, Denmark9 9 Supported by the Danish Natural Science Research"}, "56448147800": {"Name": "Elmer P.", "AuthorID": "56448147800", "AffiliationID": "60032179", "AffiliationName": None}, "56448183900": {"Name": "Palla F.", "AuthorID": "56448183900", "AffiliationID": "60023020,
+                    60019232", "AffiliationName": None}, "56448239800": {"Name": "Giassi A.", "AuthorID": "56448239800", "AffiliationID": "60030674,
+                    60113665,
+                    60028868", "AffiliationName": "Dipartimento di Fisica dell"Università, INFN Sezione di Pisa, e Scuola Normale Superiore"
+                },
+                "56586606600": {
+                    "Name": "Wu X.",
+                    "AuthorID": "56586606600",
+                    "AffiliationID": "60032179",
+                    "AffiliationName": None
+                },
+                "56681756500": {
+                    "Name": "Brandt S.",
+                    "AuthorID": "56681756500",
+                    "AffiliationID": "60024260",
+                    "AffiliationName": None
+                },
+                "56892654900": {
+                    "Name": "Drevermann H.",
+                    "AuthorID": "56892654900",
+                    "AffiliationID": "60019778",
+                    "AffiliationName": "European Laboratory for Particle Physics (CERN)"
+                },
+                "56923809100": {
+                    "Name": "Vayaki A.",
+                    "AuthorID": "56923809100",
+                    "AffiliationID": "60001104",
+                    "AffiliationName": "Nuclear Research Center Demokritos (NRCD)"
+                },
+                "56973580800": {
+                    "Name": "Ranieri A.",
+                    "AuthorID": "56973580800",
+                    "AffiliationID": "60114715",
+                    "AffiliationName": "Dipartimento di Fisica, INFN Sezione di Bari"
+                },
+                "56978532600": {
+                    "Name": "Hansen J.D.",
+                    "AuthorID": "56978532600",
+                    "AffiliationID": "60017041",
+                    "AffiliationName": "Niels Bohr Institute, Denmark9 9 Supported by the Danish Natural Science Research"
+                },
+                "56978809800": {
+                    "Name": "Haywood S.",
+                    "AuthorID": "56978809800",
+                    "AffiliationID": "60023254",
+                    "AffiliationName": None
+                },
+                "56978875400": {
+                    "Name": "Simion S.",
+                    "AuthorID": "56978875400",
+                    "AffiliationID": "60073296, 60106017, 60000383",
+                    "AffiliationName": "Laboratoire de l"Accélérateur Linéaire, Université de Paris-Sud, IN2P3-CNRS"}, "56983188100": {"Name": "Clifft R.W.", "AuthorID": "56983188100", "AffiliationID": "60023254", "AffiliationName": None}, "56983190700": {"Name": "Botterill D.R.", "AuthorID": "56983190700", "AffiliationID": "60023254", "AffiliationName": None}, "56988867900": {"Name": "Sanguinetti G.", "AuthorID": "56988867900", "AffiliationID": "60030674,
+                    60113665,
+                    60028868", "AffiliationName": "Dipartimento di Fisica dell"Università, INFN Sezione di Pisa, e Scuola Normale Superiore"
+                },
+                "56988985800": {
+                    "Name": "Sciabà A.",
+                    "AuthorID": "56988985800",
+                    "AffiliationID": "60030674, 60113665, 60028868",
+                    "AffiliationName": "Dipartimento di Fisica dell"Università, INFN Sezione di Pisa, e Scuola Normale Superiore"}, "57010241900": {"Name": "Fantechi R.", "AuthorID": "57010241900", "AffiliationID": "60030674,
+                    60113665,
+                    60028868", "AffiliationName": "Dipartimento di Fisica dell"Università, INFN Sezione di Pisa, e Scuola Normale Superiore"
+                },
+                "57190136566": {
+                    "Name": "Xue S.",
+                    "AuthorID": "57190136566",
+                    "AffiliationID": "60073479, 60019499, 60027631",
+                    "AffiliationName": "Institute of High-Energy Physics, Academia Sinica, People"s Republic of China8 8 Supported by the National Science Foundation of China"}, "57193569370": {"Name": "Feigl E.", "AuthorID": "57193569370", "AffiliationID": "60024260", "AffiliationName": None}, "57194604072": {"Name": "Pusztaszeri J.F.", "AuthorID": "57194604072", "AffiliationID": "60019778", "AffiliationName": "European Laboratory for Particle Physics (CERN)"}, "57195594601": {"Name": "Tempesta P.", "AuthorID": "57195594601", "AffiliationID": "60114715", "AffiliationName": "Dipartimento di Fisica, INFN Sezione di Bari"}, "57195769131": {"Name": "Della Marina R.", "AuthorID": "57195769131", "AffiliationID": "60018363,
+                    60021660", "AffiliationName": "Dipartimento di Fisica, Università di Trieste, INFN Sezione di Trieste"}, "57197752409": {"Name": "Bryant L.M.", "AuthorID": "57197752409", "AffiliationID": "60020595", "AffiliationName": None}, "57197752420": {"Name": "Betteridge A.P.", "AuthorID": "57197752420", "AffiliationID": "60020595", "AffiliationName": None}, "57197850261": {"Name": "Wang T.", "AuthorID": "57197850261", "AffiliationID": "60073479,
+                    60019499,
+                    60027631", "AffiliationName": "Institute of High-Energy Physics, Academia Sinica, People"s Republic of China8 8 Supported by the National Science Foundation of China"
+                },
+                "57198018037": {
+                    "Name": "Odier P.",
+                    "AuthorID": "57198018037",
+                    "AffiliationID": "60025995, 60025171",
+                    "AffiliationName": "Laboratoire de Physique des Particules (LAPP), IN2P3-CNRS"
+                },
+                "57199842711": {
+                    "Name": "Park I.C.",
+                    "AuthorID": "57199842711",
+                    "AffiliationID": "60073296, 60106017, 60000383",
+                    "AffiliationName": "Laboratoire de l"Accélérateur Linéaire, Université de Paris-Sud, IN2P3-CNRS"}, "57201125789": {"Name": "Sharma V.", "AuthorID": "57201125789", "AffiliationID": "60032179", "AffiliationName": None}, "57202521255": {"Name": "Taylor G.", "AuthorID": "57202521255", "AffiliationID": "60085982,
+                    60024941", "AffiliationName": None}, "57203237985": {"Name": "Schneider O.", "AuthorID": "57203237985", "AffiliationID": "60019778", "AffiliationName": "European Laboratory for Particle Physics (CERN)"}, "57203902223": {"Name": "Raso G.", "AuthorID": "57203902223", "AffiliationID": "60114715", "AffiliationName": "Dipartimento di Fisica, INFN Sezione di Bari"}, "57204289714": {"Name": "Smolik L.", "AuthorID": "57204289714", "AffiliationID": "60024260", "AffiliationName": None}, "57205534109": {"Name": "Marx B.", "AuthorID": "57205534109", "AffiliationID": "60007816,
+                    60106257", "AffiliationName": None}, "57206476260": {"Name": "Marrocchesi P.S.", "AuthorID": "57206476260", "AffiliationID": "60030674,
+                    60113665,
+                    60028868", "AffiliationName": "Dipartimento di Fisica dell"Università, INFN Sezione di Pisa, e Scuola Normale Superiore"
+                },
+                "57206499331": {
+                    "Name": "Bertin V.",
+                    "AuthorID": "57206499331",
+                    "AffiliationID": "60023254",
+                    "AffiliationName": None
+                },
+                "57206591913": {
+                    "Name": "Gao Y.",
+                    "AuthorID": "57206591913",
+                    "AffiliationID": "60020595",
+                    "AffiliationName": None
+                },
+                "57207185575": {
+                    "Name": "Pan Y.B.",
+                    "AuthorID": "57207185575",
+                    "AffiliationID": "60032179",
+                    "AffiliationName": None
+                },
+                "57207908063": {
+                    "Name": "Turk J.D.",
+                    "AuthorID": "57207908063",
+                    "AffiliationID": "60032179",
+                    "AffiliationName": None
+                },
+                "57209818105": {
+                    "Name": "Johnson D.L.",
+                    "AuthorID": "57209818105",
+                    "AffiliationID": "60020595",
+                    "AffiliationName": None
+                },
+                "57209820140": {
+                    "Name": "Kim D.W.",
+                    "AuthorID": "57209820140",
+                    "AffiliationID": "60073296, 60106017, 60000383",
+                    "AffiliationName": "Laboratoire de l"Accélérateur Linéaire, Université de Paris-Sud, IN2P3-CNRS"}, "57212719470": {"Name": "Beddall A.", "AuthorID": "57212719470", "AffiliationID": "60001881", "AffiliationName": None}, "57212869132": {"Name": "Smith M.G.", "AuthorID": "57212869132", "AffiliationID": "60001490", "AffiliationName": None}, "57212967504": {"Name": "Xie Y.", "AuthorID": "57212967504", "AffiliationID": "60073479,
+                    60019499,
+                    60027631", "AffiliationName": "Institute of High-Energy Physics, Academia Sinica, People"s Republic of China8 8 Supported by the National Science Foundation of China"
+                },
+                "57213913949": {
+                    "Name": "Brown D.",
+                    "AuthorID": "57213913949",
+                    "AffiliationID": "60008743",
+                    "AffiliationName": None
+                },
+                "57217504461": {
+                    "Name": "Tanaka R.",
+                    "AuthorID": "57217504461",
+                    "AffiliationID": "60013425, 60025995",
+                    "AffiliationName": "Laboratoire de Physique Nucléaire et des Hautes Energies, Ecole Polytechnique, IN2P3-CNRS"
+                },
+                "57218540876": {
+                    "Name": "Nash J.",
+                    "AuthorID": "57218540876",
+                    "AffiliationID": "60015150",
+                    "AffiliationName": None
+                },
+                "57220447232": {
+                    "Name": "Buskulic D.",
+                    "AuthorID": "57220447232",
+                    "AffiliationID": "60025995, 60025171",
+                    "AffiliationName": "Laboratoire de Physique des Particules (LAPP), IN2P3-CNRS"
+                },
+                "57220660840": {
+                    "Name": "Ouyang Q.",
+                    "AuthorID": "57220660840",
+                    "AffiliationID": "60073479, 60019499, 60027631",
+                    "AffiliationName": "Institute of High-Energy Physics, Academia Sinica, People"s Republic of China8 8 Supported by the National Science Foundation of China"}}, "OpenAccess": 2, "DocumentType": "Journal", "SubjectAreas": [["Nuclear and High Energy Physics", "PHYS", "3106"]], "IndexKeywords": None, "AuthorKeywords": None, "PublicationStage": None}, {"IHE": [1.8, 1.8, 1.8, 1.8, 85.6, 1.8, 1.8, 1.8, 1.8], "IHE_Prediction": "5", "IHE_Approach_String": ""}]]
