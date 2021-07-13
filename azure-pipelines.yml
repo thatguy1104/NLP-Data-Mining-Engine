@@ -29,11 +29,16 @@ steps:
       import nltk
       nltk.download('stopwords')
       nltk.download('averaged_perceptron_tagger')
+  displayName: 'Library downloaders'
+
+- task: PythonScript@0
+  inputs:
+    scriptSource: 'inline'
+    script: |
       import os
       os.chdir(os.getcwd() + '/src')
-      os.getcwd()
-  displayName: 'Library downloaders and change directory'
-
+      print(os.getcwd())
+  displayName: 'Change directory'
 # - script: |
 #     cd src
 #   displayName: 'Change directory into src'
