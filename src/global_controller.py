@@ -104,12 +104,10 @@ def main() -> None:
     nlp_manager(run_LDA_SDG=False, run_LDA_IHE=False, module_string_match=False, scopus_string_match=False,
                 predict_scopus_data=False, create_SVM_dataset=False, run_SVM_SDG=False, validate_sdg_svm=False)
     sync_manager(synchronize_raw_mongodb=False,
-                 synchronize_mongodb=False, synchronize_bubble=False)
+                 synchronize_mongodb=True, synchronize_bubble=False)
 
 if __name__ == "__main__":
     main()
-
-    print("Hello world, it ran!!!!")
 
     """
         to run: run_LDA_IHE on the whole dataset (98k+)

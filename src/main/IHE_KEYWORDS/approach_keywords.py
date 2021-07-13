@@ -4,9 +4,9 @@ import csv
 def get_keywords(word:str):
     keyword_list = []
     for ss in wn.synsets(word):
-            for keywords in ss.lemma_names():
-                if keywords.lower() != word:
-                    keyword_list.append(keywords.lower())
+        for keywords in ss.lemma_names():
+            if keywords.lower() != word:
+                keyword_list.append(keywords.lower())
 
     return keyword_list
 
