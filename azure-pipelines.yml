@@ -20,6 +20,10 @@ steps:
 - script: |
     python -m pip install --upgrade pip
     pip install -r requirements.txt
+    python
+    import nltk
+    nltk.download('stopwords')
+    exit()
   displayName: 'Install dependencies'
   
 - task: PythonScript@0
