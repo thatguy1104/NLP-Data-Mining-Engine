@@ -64,7 +64,7 @@ class MongoDbPusher():
     def matched_scopus(self, data: dict) -> None:
         """
             Update publication string matching cluster
-            MongoDB cluster - MatchedScopus
+            MongoDB cluster - 
         """
         client = pymongo.MongoClient(self.host, ssl_cert_reqs=ssl.CERT_NONE)
         db = client.Scopus

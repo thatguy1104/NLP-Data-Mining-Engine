@@ -94,28 +94,31 @@ class BubbleMongoSync():
 
             self.__progress(c, l, "Updating app_userprofileact")
 
-            if not self.__userprofile_exists(link):
-                author_data = pub[0]['AuthorData']
-                if 'IHE_Prediction' in pub[1] and author_data:
-                    ihe_prediction = pub[1]['IHE_Prediction']
-                    for author_id, author_details in author_data.items():
-                        name = author_details['Name']
-                        affiliation = author_details['AffiliationName']
-                        affiliation_id = ""
-                        if author_details['AffiliationID']:
-                            affiliation_id = author_details['AffiliationID']
-
-                        if author_data is not None and author_id is not None and name is not None:
-                            if affiliation: affiliation = affiliation.replace("'", "''")
-                            if name: name = name.replace("'", "''")
-                            
-                            cur.execute(
-                            """
-                                INSERT INTO public.app_userprofileact (\"fullName\", \"scopusLink\", affiliation, affiliationID, author_id) VALUES(\'{0}\', \'{1}\', \'{2}\', \'{3}\', {4})
-                                ON CONFLICT (author_id) DO UPDATE SET "fullName" = \'{5}\', "scopusLink" = \'{6}\', affiliation = \'{7}\', affiliationID = \'{8}\', author_id = \'{9}\'
-                            """.format(name, link, affiliation, affiliation_id, author_id, name, link, affiliation, affiliation_id, author_id))
-                    self.con.commit()
+            # if not self.__userprofile_exists(link):
+            author_data = pub[0]['AuthorData']
+            if 'IHE_Prediction' in pub[1] and author_data:
+                ihe_prediction = pub[1]['IHE_Prediction']
+                for author_id, author_details in author_data.items():
+                    name = author_details['Name']
+                    affiliation = author_details['AffiliationName']
+                    affiliation_id = ""
+                    if author_details['AffiliationID']:
+                        affiliation_id = author_details['AffiliationID'].replace(' ', '')
+                    
+                    if author_data is not None and author_id is not None and name is not None:
+                    #     if affiliation: affiliation = affiliation.replace("'", "''")
+                    #     if name: name = name.replace("'", "''")
+                        cur.execute("""
+                            UPDATE public.app_userprofileact SET "affiliationID" = \'{0}\' WHERE author_id = \'{1}\'
+                        """.format(affiliation_id, author_id))
+                        # cur.execute(
+                        # """
+                        #     INSERT INTO public.app_userprofileact (\"fullName\", \"scopusLink\", affiliation, "affiliationID", author_id) VALUES(\'{0}\', \'{1}\', \'{2}\', \'{3}\', {4})
+                        #     ON CONFLICT (author_id) DO UPDATE SET "fullName" = \'{5}\', "scopusLink" = \'{6}\', affiliation = \'{7}\', "affiliationID" = \'{8}\', author_id = \'{9}\'
+                        # """.format(name, link, affiliation, affiliation_id, author_id, name, link, affiliation, affiliation_id, author_id))
+                self.con.commit()
             c += 1
+        print()
 
     def __convert_lists(self, str_approach: str, str_speciality: str) -> list:
         list_1 = str_approach.split(',')

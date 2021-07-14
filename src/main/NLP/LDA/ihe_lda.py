@@ -113,7 +113,7 @@ class IheLda(Lda):
         tsne_clusters_html = "main/NLP/LDA/IHE_RESULTS/tsne_clusters.html"
         model = "main/NLP/LDA/IHE_RESULTS/model.pkl"
         results = "main/NLP/LDA/IHE_RESULTS/training_results.json"
-
+        
         self.load_dataset(num_publications)
         self.load_keywords(keywords)
         self.num_topics = len(pd.read_csv(keywords, nrows=0).columns.tolist())

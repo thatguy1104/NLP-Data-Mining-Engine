@@ -269,7 +269,7 @@ class Synchronizer():
 
                 self.__update_postgres_data_publications(publication_data, data_[i]['Title'])
         print()
-
+    
     def __stringmatch_approach(self, title: str, keywords) -> None:
         paper = self.__retrieve_postgres_data_publications_ihe(title)[0][0]
 
@@ -367,7 +367,7 @@ class Synchronizer():
         cur.close()
 
     def run(self, limit):
-        limit = 10000
+        limit = 0
         # self.__update_columns()
         # self.__clear_approach_spec(limit)
 

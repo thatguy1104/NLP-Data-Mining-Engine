@@ -54,7 +54,7 @@ class ScopusStringMatch():
                 if len(sdg_occurences[sdg]["Word_Found"]) == 0:
                     sdg_occurences.pop(sdg, None) # clear out empty occurences
 
-                resulting_data[doi] = {"DOI": doi, "PublicationInfo": publication, "Related_SDG": sdg_occurences}
+                resulting_data[doi] = {"DOI": doi, "Related_SDG": sdg_occurences}
         print()
         self.mongodb_pusher.matched_scopus(resulting_data) # push the processed data to MongoDB
         print()
