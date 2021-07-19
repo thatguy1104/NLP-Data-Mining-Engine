@@ -15,7 +15,7 @@ def get_args():
     return num_publications, ucl_only, approach
 
 def get_results():
-    with open('main/NLP/LDA/IHE_RESULTS/training_results_separate.json') as json_file:
+    with open('src/main/NLP/LDA/IHE_RESULTS/training_results_separate_004_35.json') as json_file:
         results = json.load(json_file)
     return results
 
@@ -84,7 +84,7 @@ def generate_csv(data:dict, cols:list):
     df = pd.DataFrame(data)
     print(df)
 
-    df.to_csv("IHE_Case_Study_separate.csv", encoding='utf-8', index=False)
+    df.to_csv("IHE_Case_Study_004_35.csv", encoding='utf-8', index=False)
 
 def main():
     num_publications, ucl_only, approach = get_args()

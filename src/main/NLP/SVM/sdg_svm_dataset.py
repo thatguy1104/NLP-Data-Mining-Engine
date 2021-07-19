@@ -27,7 +27,7 @@ class SdgSvmDataset():
         self.publication_loader = PublicationLoader()
         self.module_preprocessor = ModuleCataloguePreprocessor()
         self.publication_preprocessor = Preprocessor()
-        self.svm_dataset = "main/NLP/SVM/SVM_dataset.pkl"
+        self.svm_dataset = "main/NLP/SVM/SVM_dataset_sdg.pkl"
         self.num_sdgs = 18
         self.df_modules = self.module_loader.load("MAX") # dataframe with columns {Module_ID, Description}.
         self.df_publications = self.publication_loader.load("MAX") # dataframe with columns {DOI, Title, Description}.
@@ -149,7 +149,7 @@ class SdgSvmDataset():
 
         return results
 
-    def run(self, modules: bool, publications: bool):
+    def run(self, modules: bool, publications: bool) -> None:
         """
             Tags the modules and/or publications with their most related SDG, if related to one at all, and combines them into a single dataframe.
             Serializes the resulting dataframe as a pickle file.

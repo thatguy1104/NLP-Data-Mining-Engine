@@ -68,13 +68,17 @@ def nlp_manager(nlp_dictionary: dict) -> None:
         nlp_actions.scopus_string_match()
     if nlp_dictionary["predict_scopus_data"]:
         nlp_actions.predictScopus()
-    if nlp_dictionary["create_SVM_dataset"]:
+    if nlp_dictionary["create_SDG_SVM_dataset"]:
         nlp_actions.create_SDG_SVM_dataset(True, True)
+    if nlp_dictionary["create_IHE_SVM_dataset"]:
+        nlp_actions.create_IHE_SVM_dataset()
     if nlp_dictionary["run_SVM_SDG"]:
-        nlp_actions.run_SVM_SDG()    
+        nlp_actions.run_SVM_SDG()
+    if nlp_dictionary["run_SVM_IHE"]:
+        nlp_actions.run_SVM_IHE()
     if nlp_dictionary["validate_sdg_svm"]:
         nlp_actions.validate_SDG_SVM()
-
+    
 def sync_manager(sync_dictionary: dict) -> None:
     """
         Synchronizes raw scraped data (modules + publications) with Django's PostgreSQL
@@ -113,8 +117,10 @@ if __name__ == "__main__":
         "module_string_match": False,
         "scopus_string_match": False,
         "predict_scopus_data": False,
-        "create_SVM_dataset": False,
+        "create_SDG_SVM_dataset": False,
+        "create_IHE_SVM_dataset": False,
         "run_SVM_SDG": False,
+        "run_SVM_IHE": False,
         "validate_sdg_svm": False,
     }
     sync_dictionary = {
@@ -134,8 +140,10 @@ if __name__ == "__main__":
     python3 global_controller.py NLP module_string_match
     python3 global_controller.py NLP scopus_string_match
     python3 global_controller.py NLP predict_scopus_data
-    python3 global_controller.py NLP create_SVM_dataset
+    python3 global_controller.py NLP create_SDG_SVM_dataset
+    python3 global_controller.py NLP create_IHE_SVM_dataset
     python3 global_controller.py NLP run_SVM_SDG
+    python3 global_controller.py NLP run_SVM_IHE
     python3 global_controller.py NLP validate_sdg_svm
 """
 
@@ -143,4 +151,6 @@ if __name__ == "__main__":
     python3 global_controller.py SYNC synchronize_raw_mongodb
     python3 global_controller.py SYNC synchronize_mongodb
     python3 global_controller.py SYNC synchronize_bubble
+
+    python3 src/main/NLP/LDA/IHE_RESULTS/analyse_results.py
 """

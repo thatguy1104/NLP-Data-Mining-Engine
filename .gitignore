@@ -5,3 +5,4 @@
 venv
 src/main/NLP/STRING_MATCH/SDG_RESULTS/*
 src/main/SCOPUS/log.txt
+*.txt

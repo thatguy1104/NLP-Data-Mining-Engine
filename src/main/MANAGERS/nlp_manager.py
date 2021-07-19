@@ -8,7 +8,9 @@ from main.NLP.LDA.predict_publication import ScopusPrediction
 from main.NLP.VALIDATION.validate_sdg_svm import ValidateSdgSvm
 
 from main.NLP.SVM.sdg_svm_dataset import SdgSvmDataset
+from main.NLP.SVM.ihe_svm_dataset import IheSvmDataset
 from main.NLP.SVM.sdg_svm import SdgSvm
+from main.NLP.SVM.ihe_svm import IheSvm
 
 class NLP_SECTION():
 
@@ -61,4 +63,14 @@ class NLP_SECTION():
         """
         SdgSvm().run()
 
+    def create_IHE_SVM_dataset(self) -> None:
+        """
+            Runs SVM model training for Modules & Publications SDG classification
+        """
+        IheSvmDataset().run()
 
+    def run_SVM_IHE(self) -> None:
+        """
+            Runs SVM model training for Modules & Publications SDG classification
+        """
+        IheSvm().run()
