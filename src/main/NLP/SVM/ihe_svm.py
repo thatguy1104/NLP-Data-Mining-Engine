@@ -83,6 +83,14 @@ class IheSvm(Svm):
             print('IHE probabilities = {}'.format(y_pred[i]))
             print('IHE = {}'.format(np.argmax(y_pred) + 1))
 
+    def make_text_predictions(self, text, preprocessor):
+        """
+            Predicts probabilities of SDGs given any random text input.
+        """
+        text = preprocessor.preprocess(text)
+        y_pred = self.sgd_pipeline.predict_proba([text])
+        return y_pred
+
     def run(self):
         """
             Trains the SVM model for clasifying SDGs using stochastic gradient descent.
@@ -92,7 +100,7 @@ class IheSvm(Svm):
 
         svm_dataset = "main/NLP/SVM/SVM_dataset_ihe.csv"
         
-        tags = ['IHE {}'.format(i) for i in range(1, 9)]  # IHE tags.
+        tags = ['IHE {}'.format(i) for i in range(1, 11)]  # IHE tags.
 
         # SDG results files.
         model = "main/NLP/SVM/IHE_RESULTS/model.pkl"

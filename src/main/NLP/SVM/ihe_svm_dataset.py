@@ -28,9 +28,9 @@ class IheSvmDataset():
         self.publication_preprocessor = Preprocessor()
         self.svm_dataset = "main/NLP/SVM/SVM_dataset_ihe.csv"
         # dataframe with columns {DOI, Title, Description}.
-        self.df_publications = self.publication_loader.load(10000)
+        self.df_publications = self.publication_loader.load("MAX")
 
-        with open("main/NLP/LDA/IHE_RESULTS/training_results_combined.json") as json_file:
+        with open("main/NLP/LDA/IHE_RESULTS/training_results.json") as json_file:
            self.data = json.load(json_file)
         self.num_ihes = len(self.data['Topic Words'])
 

@@ -26,7 +26,7 @@ class IheLda(Lda):
         self.data = None # publication dataframe with columns {DOI, Description}.
         self.keywords = None # list of IHE-specific keywords.
         self.num_topics = 0
-        self.vectorizer = self.get_vectorizer(1, 3, 0.0005, 0.35)
+        self.vectorizer = self.get_vectorizer(1, 3, 1, 0.2)
         self.model = None
 
     def create_eta(self, priors: dict, eta_dictionary: dict):
@@ -98,7 +98,7 @@ class IheLda(Lda):
         startTime = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
 
         # Training parameters.
-        num_publications = 30000
+        num_publications = 10000
         # IHE-specific keywords.
         # keywords = "main/IHE_KEYWORDS/ihe_keywords.csv"
         keywords = "main/IHE_KEYWORDS/ihe_keywords2.csv"
@@ -113,7 +113,7 @@ class IheLda(Lda):
         pyldavis_html = "main/NLP/LDA/IHE_RESULTS/pyldavis.html"
         tsne_clusters_html = "main/NLP/LDA/IHE_RESULTS/tsne_clusters.html"
         model = "main/NLP/LDA/IHE_RESULTS/model.pkl"
-        results = "main/NLP/LDA/IHE_RESULTS/training_results_separate_0001_35.json"
+        results = "main/NLP/LDA/IHE_RESULTS/training_results.json"
         
         self.load_dataset(num_publications)
         self.load_keywords(keywords)
