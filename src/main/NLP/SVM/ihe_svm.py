@@ -83,13 +83,16 @@ class IheSvm(Svm):
             print('IHE probabilities = {}'.format(y_pred[i]))
             print('IHE = {}'.format(np.argmax(y_pred) + 1))
 
-    def make_text_predictions(self, text, preprocessor):
+    def make_text_predictions(self):
         """
             Predicts probabilities of SDGs given any random text input.
         """
-        text = preprocessor.preprocess(text)
-        y_pred = self.sgd_pipeline.predict_proba([text])
-        return y_pred
+        df_publications = self.publication_loader.load("MAX")
+        print(len(self.dataset))
+        
+        # text = preprocessor.preprocess(text)
+        # y_pred = self.sgd_pipeline.predict_proba([text])
+        # return y_pred
 
     def run(self):
         """
@@ -109,17 +112,20 @@ class IheSvm(Svm):
         self.load_dataset(svm_dataset)
         self.load_tags(tags)
 
-        print("Training...")
-        X_train, X_test, y_train, y_test = self.train()
+        # print("Training...")
+        # X_train, X_test, y_train, y_test = self.train()
 
-        print("Prediction report...")
-        self.print_prediction_report(X_test, y_test)
+        # print("Prediction report...")
+        # self.print_prediction_report(X_test, y_test)
 
-        print("Predicting dataset")
-        self.print_predictions()
+        # print("Predicting dataset")
+        # self.print_predictions()
 
-        print("Saving results...")
-        self.write_results(X_test, y_test, results)
-        self.serialize(model)
+        # print("Saving results...")
+        # self.write_results(X_test, y_test, results)
+        # self.serialize(model)
+
+        print("Classifying the rest of publications")
+        self.make_text_predictions()
 
         print("Done.")

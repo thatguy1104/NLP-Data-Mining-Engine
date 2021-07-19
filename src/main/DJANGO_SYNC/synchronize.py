@@ -308,8 +308,8 @@ class Synchronizer():
             self.__progress(count, l, "syncing IHE with Django")
             count += 1
             publication_data = self.__retrieve_postgres_data_publications_ihe(data_[i]['Title'])[0][1]
-            publication_data['IHE'], publication_data['IHE_Prediction'] = self.__getIHE_predictions(ihePrediction, i)
-            publication_data['IHE_Approach_String'] = self.__stringmatch_approach(data_[i]['Title'], ihe_approach_keywords)
+            # publication_data['IHE'], publication_data['IHE_Prediction'] = self.__getIHE_predictions(ihePrediction, i)
+            # publication_data['IHE_Approach_String'] = self.__stringmatch_approach(data_[i]['Title'], ihe_approach_keywords)
             self.__update_postgres_data_publications(publication_data, data_[i]['Title'])
         print()
 
