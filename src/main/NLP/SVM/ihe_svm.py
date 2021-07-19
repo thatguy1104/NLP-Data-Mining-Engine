@@ -46,7 +46,7 @@ class IheSvm(Svm):
             data['Publication'][x_id] = probabilities.tolist()
 
         # Push data to MongoDB and serialize as JSON file.
-        MongoDbPusher().svm_sdg_predictions(data)
+        # MongoDbPusher().svm_sdg_predictions(data)
         with open(results_file, 'w') as outfile:
             json.dump(data, outfile)
 
@@ -92,7 +92,7 @@ class IheSvm(Svm):
 
         svm_dataset = "main/NLP/SVM/SVM_dataset_ihe.csv"
         
-        tags = ['IHE {}'.format(i) for i in range(1, 10)]  # SDG tags.
+        tags = ['IHE {}'.format(i) for i in range(1, 9)]  # IHE tags.
 
         # SDG results files.
         model = "main/NLP/SVM/IHE_RESULTS/model.pkl"
@@ -101,17 +101,17 @@ class IheSvm(Svm):
         self.load_dataset(svm_dataset)
         self.load_tags(tags)
 
-        # print("Training...")
-        # X_train, X_test, y_train, y_test = self.train()
+        print("Training...")
+        X_train, X_test, y_train, y_test = self.train()
 
-        # print("Prediction report...")
-        # self.print_prediction_report(X_test, y_test)
+        print("Prediction report...")
+        self.print_prediction_report(X_test, y_test)
 
-        # print("Predicting dataset")
-        # self.print_predictions()
+        print("Predicting dataset")
+        self.print_predictions()
 
-        # print("Saving results...")
-        # self.write_results(X_test, y_test, results)
-        # self.serialize(model)
+        print("Saving results...")
+        self.write_results(X_test, y_test, results)
+        self.serialize(model)
 
         print("Done.")

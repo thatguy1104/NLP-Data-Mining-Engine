@@ -31,7 +31,7 @@ class Svm():
         df = df.drop(['index'], axis=1)
         self.dataset = df
 
-        print(df)
+        # print(df)
 
     def load_tags(self, tags):
         """

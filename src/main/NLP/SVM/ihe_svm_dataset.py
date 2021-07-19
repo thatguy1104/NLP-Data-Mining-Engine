@@ -30,7 +30,7 @@ class IheSvmDataset():
         # dataframe with columns {DOI, Title, Description}.
         self.df_publications = self.publication_loader.load(10000)
 
-        with open("main/NLP/LDA/IHE_RESULTS/training_results.json") as json_file:
+        with open("main/NLP/LDA/IHE_RESULTS/training_results_combined.json") as json_file:
            self.data = json.load(json_file)
         self.num_ihes = len(self.data['Topic Words'])
 
@@ -61,7 +61,6 @@ class IheSvmDataset():
         """
         results = pd.DataFrame(columns=['ID', 'Description', 'IHE'])  # ID = DOI
         
-
         num_publications = len(self.data['Document Topics'])
         final_data = {}
         counter = 0
@@ -71,14 +70,15 @@ class IheSvmDataset():
             raw_weights = self.data['Document Topics'][doi]
             weights = [0] * self.num_ihes
             for i in range(self.num_ihes):
-                sdg_num = str(i + 1)
+                ihe_num = str(i + 1)
+                weight = raw_weights[i][4:-2]
                 try:
                     # convert probabilities in the range [0,1] to percentages.
-                    w = float(raw_weights[sdg_num]) * 100.0
+                    w = float(weight)
                 except:
                     w = 0.0
                 weights[i] = w
-
+            
             weights = np.asarray(weights)
             # gets SDG corresponding to the maximum weight.
             ihe_max = weights.argmax() + 1
