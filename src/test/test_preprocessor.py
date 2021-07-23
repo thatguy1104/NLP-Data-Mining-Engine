@@ -1,7 +1,7 @@
 import unittest
 import string
-from src.main.NLP.PREPROCESSING.preprocessor import Preprocessor
-from src.main.NLP.PREPROCESSING.module_preprocessor import ModuleCataloguePreprocessor
+from main.NLP.PREPROCESSING.preprocessor import Preprocessor
+from main.NLP.PREPROCESSING.module_preprocessor import ModuleCataloguePreprocessor
 
 class PreprocessorTest(unittest.TestCase):
 

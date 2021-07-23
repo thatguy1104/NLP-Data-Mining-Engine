@@ -1,3 +1,5 @@
+from main.CONFIG_READER.read import get_details
+
 import psycopg2
 import json
 import sys
@@ -8,7 +10,13 @@ from itertools import permutations, chain
 class BubbleMongoSync():
     
     def __init__(self):
-        self.con = psycopg2.connect(database='summermiemiepostgre', user='miemie_admin@summermiemie', host='summermiemie.postgres.database.azure.com', password='e_Paswrd?!', port='5432')
+        self.postgre_database = get_details("POSTGRESQL", "database")
+        self.postgre_user = get_details("POSTGRESQL", "username")
+        self.postgre_host = get_details("POSTGRESQL", "host")
+        self.postgre_password = get_details("POSTGRESQL", "password")
+        self.postgre_port = get_details("POSTGRESQL", "port")
+
+        self.con = psycopg2.connect(database=self.postgre_database, user=self.postgre_user, host=self.postgre_host, password=self.postgre_password, port=self.postgre_port)
 
     def __progress(self, count: int, total: int, custom_text: str, suffix='') -> None:
         """
@@ -84,10 +92,19 @@ class BubbleMongoSync():
         cur.execute(query)
         return len(cur.fetchall()) != 0
 
+    def __query_affiliated_authors(self):
+        cur = self.con.cursor()
+        query = """select  author_id from public.app_userprofileact where \"affiliationID\" = \'\'"""
+        cur.execute(query)
+        return cur.fetchall()
+
     def __update_userprofiles(self, pubs: dict) -> None:
         cur = self.con.cursor()
         c = 0
         l = len(pubs)
+
+        identified_authors = self.__query_affiliated_authors()
+        identified_authors = [i[0] for i in identified_authors]
 
         for pub in pubs:
             link = pub[0]['Link']
@@ -99,18 +116,19 @@ class BubbleMongoSync():
             if 'IHE_Prediction' in pub[1] and author_data:
                 ihe_prediction = pub[1]['IHE_Prediction']
                 for author_id, author_details in author_data.items():
-                    name = author_details['Name']
-                    affiliation = author_details['AffiliationName']
-                    affiliation_id = ""
-                    if author_details['AffiliationID']:
-                        affiliation_id = author_details['AffiliationID'].replace(' ', '')
-                    
-                    if author_data is not None and author_id is not None and name is not None:
-                    #     if affiliation: affiliation = affiliation.replace("'", "''")
-                    #     if name: name = name.replace("'", "''")
-                        cur.execute("""
-                            UPDATE public.app_userprofileact SET "affiliationID" = \'{0}\' WHERE author_id = \'{1}\'
-                        """.format(affiliation_id, author_id))
+                    if author_id in identified_authors:
+                        name = author_details['Name']
+                        affiliation = author_details['AffiliationName']
+                        affiliation_id = ""
+                        if author_details['AffiliationID']:
+                            affiliation_id = author_details['AffiliationID'].replace(' ', '')
+                        
+                        if author_data is not None and author_id is not None and name is not None:
+                        #     if affiliation: affiliation = affiliation.replace("'", "''")
+                        #     if name: name = name.replace("'", "''")
+                            cur.execute("""
+                                UPDATE public.app_userprofileact SET "affiliationID" = \'{0}\' WHERE author_id = \'{1}\'
+                            """.format(affiliation_id, author_id))
                         # cur.execute(
                         # """
                         #     INSERT INTO public.app_userprofileact (\"fullName\", \"scopusLink\", affiliation, "affiliationID", author_id) VALUES(\'{0}\', \'{1}\', \'{2}\', \'{3}\', {4})
@@ -164,7 +182,7 @@ class BubbleMongoSync():
         self.__update_bubbles(new_bubble)
 
     def run(self) -> None:
-        data_publications  = self.__retrieve_publications(limit=None)
+        data_publications  = self.__retrieve_publications(limit=0)
         # self.__create_bubble_data(data_publications)
         self.__update_userprofiles(data_publications)
         self.con.close()

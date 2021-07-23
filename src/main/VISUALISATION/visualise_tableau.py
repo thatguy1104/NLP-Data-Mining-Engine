@@ -2,25 +2,31 @@ import psycopg2
 import pyodbc
 import sys
 import pandas as pd
+from main.CONFIG_READER.read import get_details
 
+
+server = get_details("SQL_SERVER", "server")
+database = get_details("SQL_SERVER", "database")
+username = get_details("SQL_SERVER", "username")
+password = get_details("SQL_SERVER", "password")
+driver = get_details("SQL_SERVER", "driver")
+
+postgre_database = get_details("POSTGRESQL", "database")
+postgre_user = get_details("POSTGRESQL", "username")
+postgre_host = get_details("POSTGRESQL", "host")
+postgre_password = get_details("POSTGRESQL", "password")
+postgre_port = get_details("POSTGRESQL", "port")
 
 def getMySQL():
-    # SERVER LOGIN DETAILS
-    
-    server = 'summermiemieservver.database.windows.net'
-    database = 'summermiemiedb'
-    username = 'miemie_login'
-    password = 'e_Paswrd?!'
-    driver = '{ODBC Driver 17 for SQL Server}'
-
     # CONNECT TO DATABASE
     myConnection = pyodbc.connect('DRIVER=' + driver + ';SERVER=' + server +
                                   ';PORT=1433;DATABASE=' + database + ';UID=' + username + ';PWD=' + password)
     return myConnection
 
 def getPostgres_modules():
-    con = psycopg2.connect(database='summermiemiepostgre', user='miemie_admin@summermiemie',
-                           host='summermiemie.postgres.database.azure.com', password='e_Paswrd?!', port='5432')
+    con = psycopg2.connect(database=postgre_database, user=postgre_user,
+                           host=postgre_host, password=postgre_password, port=postgre_port)
+
     cur = con.cursor()
     cur.execute("""
         select  id

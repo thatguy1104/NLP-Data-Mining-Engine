@@ -26,7 +26,7 @@ class IheLda(Lda):
         self.data = None # publication dataframe with columns {DOI, Description}.
         self.keywords = None # list of IHE-specific keywords.
         self.num_topics = 0
-        self.vectorizer = self.get_vectorizer(1, 3, 1, 0.2)
+        self.vectorizer = self.get_vectorizer(1, 3, 1, 0.1)
         self.model = None
 
     def create_eta(self, priors: dict, eta_dictionary: dict):
@@ -69,7 +69,7 @@ class IheLda(Lda):
             json.dump(data, outfile)
 
         # Push data to MongoDB and serialize as JSON file.
-        # MongoDbPusher().ihe_prediction(data)        
+        MongoDbPusher().ihe_prediction(data)        
 
     def display_topic_words(self, num_top_words: int):
         """
@@ -98,10 +98,10 @@ class IheLda(Lda):
         startTime = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
 
         # Training parameters.
-        num_publications = 10000
+        num_publications = 30000
         # IHE-specific keywords.
         # keywords = "main/IHE_KEYWORDS/ihe_keywords.csv"
-        keywords = "main/IHE_KEYWORDS/ihe_keywords2.csv"
+        keywords = "main/IHE_KEYWORDS/ihe_keywords_regmed_tisseng.csv"
         # keywords = "main/IHE_KEYWORDS/ihe_keywords2_combined.csv"
 
         passes = 10
@@ -125,7 +125,7 @@ class IheLda(Lda):
         
         print("Saving results...")
         self.write_results(corpus, num_top_words, results)
-        # self.push_html_postgre("main/NLP/LDA/IHE_RESULTS/pyldavis.html", "main/NLP/LDA/IHE_RESULTS/tsne_clusters.html", "ihe")
-        # self.serialize(model)
+        self.push_html_postgre("main/NLP/LDA/IHE_RESULTS/pyldavis.html", "main/NLP/LDA/IHE_RESULTS/tsne_clusters.html", "ihe")
+        self.serialize(model)
 
         print("Done.")

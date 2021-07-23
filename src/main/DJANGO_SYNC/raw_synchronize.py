@@ -1,3 +1,4 @@
+from main.CONFIG_READER.read import get_details
 import pymongo
 import psycopg2
 import pyodbc
@@ -5,6 +6,19 @@ import json
 import sys
 
 class RawSynchronizer():
+    
+    def __init__(self):
+        self.server = get_details("SQL_SERVER", "server")
+        self.database = get_details("SQL_SERVER", "database")
+        self.username = get_details("SQL_SERVER", "username")
+        self.password = get_details("SQL_SERVER", "password")
+        self.driver = get_details("SQL_SERVER", "driver")
+
+        self.postgre_database = get_details("POSTGRESQL", "database")
+        self.postgre_user = get_details("POSTGRESQL", "username")
+        self.postgre_host = get_details("POSTGRESQL", "host")
+        self.postgre_password = get_details("POSTGRESQL", "password")
+        self.postgre_port = get_details("POSTGRESQL", "port")
 
     def __progress(self, count: int, total: int, custom_text: str, suffix='') -> None:
         """
@@ -20,19 +34,14 @@ class RawSynchronizer():
         sys.stdout.flush()
 
     def __get_mysql_module_data(self) -> list:
-        server = 'summermiemieservver.database.windows.net'
-        database = 'summermiemiedb'
-        username = 'miemie_login'
-        password = 'e_Paswrd?!'
-        driver = '{ODBC Driver 17 for SQL Server}'
-        myConnection = pyodbc.connect('DRIVER=' + driver + ';SERVER=' + server +';PORT=1433;DATABASE=' + database + ';UID=' + username + ';PWD=' + password)
+        myConnection = pyodbc.connect('DRIVER=' + self.driver + ';SERVER=' + self.server + ';PORT=1433;DATABASE=' + self.database + ';UID=' + self.username + ';PWD=' + self.password)
         curr = myConnection.cursor()
         curr.execute("SELECT * FROM [dbo].[ModuleData]")
         return curr.fetchall()
 
     def __update_module_from_mysql(self) -> None:
         data = self.__get_mysql_module_data()
-        con = psycopg2.connect(database='summermiemiepostgre', user='miemie_admin@summermiemie', host='summermiemie.postgres.database.azure.com', password='e_Paswrd?!', port='5432')
+        con = psycopg2.connect(database=self.postgre_database, user=self.postgre_user, host=self.postgre_host, password=self.postgre_password, port=self.postgre_port)
         cur = con.cursor()
         c = 1
         for i in data:
@@ -42,6 +51,7 @@ class RawSynchronizer():
             con.commit()
             c += 1
         cur.close()
+        print()
 
     def __update_publications_from_mongo(self) -> None:
         client = pymongo.MongoClient("mongodb+srv://admin:admin@cluster0.hw8fo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
@@ -79,7 +89,7 @@ class RawSynchronizer():
             del i['_id']
             title = i['Title'] = i['Title'].replace("\'", "\'\'")
 
-            cur.execute("SELECT exists (SELECT 1 FROM public.app_publication WHERE title = \'{}\' LIMIT 1)".format(title))
+            cur.execute("SELECT exists (SELECT 1 FROM public.app_publication WHERE title = \'{}\')".format(title))
             existing_pub = cur.fetchone()[0]
 
             if not existing_pub:

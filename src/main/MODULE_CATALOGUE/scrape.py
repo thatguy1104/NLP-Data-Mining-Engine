@@ -166,6 +166,6 @@ class UCL_Module_Catalogue():
             Controller method for self
             Organises scraping & database pushing
         """
-
+        
         self.__scrape_modules()
         print("Successully written to table <ModuleData> (db: {0})".format(self.database))

@@ -1,10 +1,11 @@
 import sys
 import pymongo
 import ssl
+from main.CONFIG_READER.read import get_details
 
 class MongoDbPusher():
     def __init__(self):
-        self.host = "mongodb+srv://admin:admin@cluster0.hw8fo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+        self.host = get_details("MONGO_DB", "client")
 
     def progress(self, count: int, total: int, custom_text: str, suffix='') -> None:
         """

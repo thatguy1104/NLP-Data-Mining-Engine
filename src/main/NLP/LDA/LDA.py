@@ -34,6 +34,7 @@ class Lda():
         self.data = None # dataframe with columns {ID, Description}
         self.keywords = None # list of topic keywords.
         self.num_topics = 0
+        self.stop_words = None
         self.vectorizer = self.get_vectorizer(1, 1, 1, 1)
         self.model = None
 

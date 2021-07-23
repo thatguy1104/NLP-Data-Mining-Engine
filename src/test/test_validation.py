@@ -1,6 +1,6 @@
 import unittest
 import numpy as np
-from src.main.NLP.VALIDATION.validate_sdg_svm import ValidateSdgSvm
+from main.NLP.VALIDATION.validate_sdg_svm import ValidateSdgSvm
 
 class ValidationTest(unittest.TestCase):
 

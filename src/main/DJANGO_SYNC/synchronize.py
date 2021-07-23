@@ -141,7 +141,7 @@ class Synchronizer():
                 validPerc.append(str(i + 1))
         return validPerc
 
-    def __getIHE_predictions(self, data_: dict, publication: dict) -> Tuple[list, str]:
+    def __getIHE_predictions(self, data_: dict, publication: str) -> Tuple[list, str]:
         lst = data_['Document Topics'][publication]
         result = [0] * len(lst)
         
@@ -175,7 +175,7 @@ class Synchronizer():
             validPerc = ",".join(validPerc)
         return result_array, validPerc
 
-    def __thresholdAnalyse(self, lst, threshold):
+    def __thresholdAnalyse(self, lst, threshold) -> list:
         validWeights = []
         p = sorted(lst, key=lambda x: x[1])
         for sdg, weight in p:
@@ -183,7 +183,7 @@ class Synchronizer():
                 validWeights.append(sdg)
         return validWeights
 
-    def __getPostgres_modules(self, title:str):
+    def __getPostgres_publications(self, title: str):
         con = psycopg2.connect(database='summermiemiepostgre', user='miemie_admin@summermiemie', host='summermiemie.postgres.database.azure.com', password='e_Paswrd?!', port='5432')
         cur = con.cursor()
         cur.execute("""select id, title, data, "assignedSDG" from public."app_publication" where title = '""" + title.replace("'", "''") + "'")
@@ -207,8 +207,8 @@ class Synchronizer():
         )
         result = cur.fetchall()
         cur.close()
-
-        return json.loads(json.dumps(result))
+        # return json.loads(json.dumps(result))
+        return result
 
     def __update_postgres_data_publications(self, data_sdg:dict, title:str) -> None:
         con = psycopg2.connect(database='summermiemiepostgre', user='miemie_admin@summermiemie', host='summermiemie.postgres.database.azure.com', password='e_Paswrd?!', port='5432')
@@ -263,16 +263,14 @@ class Synchronizer():
             if publication_data["Validation"]['SDG_Keyword_Counts']:
                 normalised = self.__normalise(publication_data["Validation"]['SDG_Keyword_Counts'])
                 publication_data['StringResult'] = ",".join(self.__thresholdAnalyse(normalised, threshold=lda_threshold))
-                postgre_publication = self.__getPostgres_modules(title=data_[i]['Title'])
+                postgre_publication = self.__getPostgres_publications(title=data_[i]['Title'])
                 if len(postgre_publication) < 4:
                     self.__create_column_postgres_table()
 
                 self.__update_postgres_data_publications(publication_data, data_[i]['Title'])
         print()
     
-    def __stringmatch_approach(self, title: str, keywords) -> None:
-        paper = self.__retrieve_postgres_data_publications_ihe(title)[0][0]
-
+    def __stringmatch_approach(self, title: str, keywords, paper) -> None:
         # Concat publication text-based data
         text_data = paper['Title']
 
@@ -296,21 +294,81 @@ class Synchronizer():
         result = ','.join(result_string_list)
         return result
 
+    def __ihe_svm_prediction(self, doi):
+        with open("main/NLP/SVM/IHE_RESULTS/training_results.json") as f:
+            svm_ihe_classifications = json.load(f)
+            if "Publication" in svm_ihe_classifications:
+                svm_ihe_classifications = svm_ihe_classifications['Publication'][doi]
+            else:
+                svm_ihe_classifications = svm_ihe_classifications[doi]
+            
+            for i, val in enumerate(svm_ihe_classifications):
+                svm_ihe_classifications[i] = self.__truncate(val * 100, decimals=1)
+            predicted = ','.join(self.__getThreshold(svm_ihe_classifications, svm_threshold))
+            # print(svm_ihe_classifications, predicted)
+            return svm_ihe_classifications, predicted
+    
+    def __retrieve_all_pubs(self) -> list:
+        con = psycopg2.connect(database='summermiemiepostgre', user='miemie_admin@summermiemie', host='summermiemie.postgres.database.azure.com', password='e_Paswrd?!', port='5432')
+        cur = con.cursor()
+        cur.execute('SELECT "data", "assignedSDG" FROM public.app_publication')
+        result = cur.fetchall()
+        cur.close()
+
+        r = {}
+        for i in result:
+            doi = i[0]['DOI']
+            r[doi] = i
+        return r
+
+    def __update_postgre_many(self, data: list, titles: list) -> None:
+        con = psycopg2.connect(database='summermiemiepostgre', user='miemie_admin@summermiemie', host='summermiemie.postgres.database.azure.com', password='e_Paswrd?!', port='5432')
+        cur = con.cursor()
+        
+        for i, row in enumerate(data):
+            cur.execute(
+                'UPDATE public.app_publication SET \"assignedSDG\" = \'{}\' WHERE title = \'{}\''.format(
+                    json.dumps(row).replace("'", "''"), titles[i].replace("'", "''"))
+            )
+
+        con.commit()
+        cur.close()
+
     def __load_IHE_Data(self, limit) -> None:
-        data_, svm_predictions, scopusValidation, ihePrediction, module_predictions, module_validation = self.__acquireData(True, False, False, True, False, False, limit)
+        data_, svm_predictions_SDG, scopusValidation, ihePrediction, module_predictions, module_validation = self.__acquireData(False, False, False, True, False, False, limit)
         ihe_approach_keywords = pd.read_csv("main/IHE_KEYWORDS/approaches.csv")
         ihe_approach_keywords = ihe_approach_keywords.dropna()
         ihe_approach_keywords = self.preprocessor.preprocess_keywords("main/IHE_KEYWORDS/approaches.csv")
-        
+        all_publications = self.__retrieve_all_pubs()
+
         count, l = 1, len(data_)
         print()
-        for i in data_:
-            self.__progress(count, l, "syncing IHE with Django")
+        publication_data_list = []
+        publication_data_titles = []
+        for doi in ihePrediction['Document Topics']:
+            # self.__progress(count, l, "syncing IHE with Django")
+            # if doi in all_publications:
+                # publication_data = self.__retrieve_postgres_data_publications_ihe(data_[i]['Title'])[0][1]
+            
+            title = all_publications[doi][0]['Title']
+            print(doi, "  ", title)
+            publication_data = all_publications[doi][1]
+            
+            publication_data['IHE'], publication_data['IHE_Prediction'] = self.__getIHE_predictions(ihePrediction, doi)
+            publication_data['IHE_Approach_String'] = self.__stringmatch_approach(title, ihe_approach_keywords, all_publications[doi][0])
+            publication_data['IHE_SVM_Assignments'], publication_data['IHE_SVM_Prediction'] = self.__ihe_svm_prediction(doi)
+            
+            publication_data_list.append(publication_data)
+            publication_data_titles.append(title)
+
+            if count % 100 == 0:
+                self.__update_postgre_many(publication_data_list, publication_data_titles)
+                publication_data_list = []
+                publication_data_titles = []
+
             count += 1
-            publication_data = self.__retrieve_postgres_data_publications_ihe(data_[i]['Title'])[0][1]
-            # publication_data['IHE'], publication_data['IHE_Prediction'] = self.__getIHE_predictions(ihePrediction, i)
-            # publication_data['IHE_Approach_String'] = self.__stringmatch_approach(data_[i]['Title'], ihe_approach_keywords)
-            self.__update_postgres_data_publications(publication_data, data_[i]['Title'])
+        if publication_data:
+            self.__update_postgre_many(publication_data_list, publication_data_titles)
         print()
 
     def __loadSDG_Data_MODULES(self, limit) -> None:
@@ -348,8 +406,9 @@ class Synchronizer():
         print()
 
     def __update_columns(self) -> None:
-        approach_headers = pd.read_csv('main/IHE_KEYWORDS/updated_approaches.csv', nrows=0).columns.tolist()
-        speciality_headers = pd.read_csv('main/IHE_KEYWORDS/ihe_keywords2.csv', nrows=0).columns.tolist()
+        approach_headers = pd.read_csv('main/IHE_KEYWORDS/approaches.csv', nrows=0).columns.tolist()
+        speciality_headers = pd.read_csv(
+            'main/IHE_KEYWORDS/ihe_keywords_regmed_tisseng.csv', nrows=0).columns.tolist()
         color_id = 1
 
         con = psycopg2.connect(database='summermiemiepostgre', user='miemie_admin@summermiemie', host='summermiemie.postgres.database.azure.com', password='e_Paswrd?!', port='5432')
@@ -369,9 +428,12 @@ class Synchronizer():
     def run(self, limit):
         limit = 0
         # self.__update_columns()
-        # self.__clear_approach_spec(limit)
 
         # self.__loadSDG_Data_PUBLICATION(limit)
         # self.__loadSDG_Data_MODULES(limit)
         self.__load_IHE_Data(limit)
         self.client.close()
+
+"""
+
+"""

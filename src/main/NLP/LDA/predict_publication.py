@@ -6,9 +6,9 @@ import gensim
 import pymongo
 from bson import json_util
 from main.LOADERS.publication_loader import PublicationLoader
+from main.CONFIG_READER.read import get_details
 
-
-client = pymongo.MongoClient("mongodb+srv://admin:admin@cluster0.hw8fo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+client = pymongo.MongoClient(get_details("MONGO_DB", "client"))
 db = client.Scopus
 col = db.PublicationPrediction
 class ScopusPrediction():

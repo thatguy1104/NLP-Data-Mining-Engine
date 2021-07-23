@@ -1,6 +1,6 @@
 import unittest
 import socket
-from src.main.SCOPUS.scrape import GetScopusData
+from main.SCOPUS.scrape import GetScopusData
 class ScopusTest(unittest.TestCase):
 
     def test_invalid_scopus_api(self):

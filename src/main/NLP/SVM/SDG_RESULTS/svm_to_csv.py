@@ -1,10 +1,17 @@
 import psycopg2
 import csv
 import json
+from main.CONFIG_READER.read import get_details
 
 def getPostgres():
-    con = psycopg2.connect(database='django_db_miemie_ucl', user='miemie_admin@miemiedjangoapp',
-                           host='miemiedjangoapp.postgres.database.azure.com', password='e_Paswrd?!', port='5432')
+    postgre_database = get_details("POSTGRESQL", "database")
+    postgre_user = get_details("POSTGRESQL", "username")
+    postgre_host = get_details("POSTGRESQL", "host")
+    postgre_password = get_details("POSTGRESQL", "password")
+    postgre_port = get_details("POSTGRESQL", "port")
+    con = psycopg2.connect(database=postgre_database, user=postgre_user,
+                           host=postgre_host, password=postgre_password, port=postgre_port)
+
     cur = con.cursor()
     cur.execute("""
         select 

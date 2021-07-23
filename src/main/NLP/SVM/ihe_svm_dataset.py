@@ -23,7 +23,7 @@ class IheSvmDataset():
         """
             Initializes the threshold for tagging a document with an SDG, module loader, publication loader and output pickle file.
         """
-        self.threshold = 20  # threshold value for tagging a document with an SDG, for a probability greater than this value.
+        self.threshold = 30  # threshold value for tagging a document with an SDG, for a probability greater than this value.
         self.publication_loader = PublicationLoader()
         self.publication_preprocessor = Preprocessor()
         self.svm_dataset = "main/NLP/SVM/SVM_dataset_ihe.csv"
@@ -55,7 +55,7 @@ class IheSvmDataset():
         df = self.df_publications.loc[self.df_publications["DOI"] == doi]
         return None if len(df) == 0 else df["Description"].values[0]
 
-    def tag_publications(self):
+    def tag_publications(self) -> pd.DataFrame:
         """
             Returns a dataframe with columns {ID, Description, SDG} for each publication, where SDG is a class tag for training the SVM.
         """

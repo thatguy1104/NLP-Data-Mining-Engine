@@ -1,7 +1,7 @@
 import unittest
 import requests
-from src.main.MODULE_CATALOGUE.INITIALISER.initialise_files import Initialiser
-from src.main.MODULE_CATALOGUE.scrape import UCL_Module_Catalogue
+from main.MODULE_CATALOGUE.INITIALISER.initialise_files import Initialiser
+from main.MODULE_CATALOGUE.scrape import UCL_Module_Catalogue
 
 class ModuleTest(unittest.TestCase):
 

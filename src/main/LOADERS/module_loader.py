@@ -7,6 +7,7 @@ import pickle
 import pyodbc
 from typing import Optional, Union
 
+from main.CONFIG_READER.read import get_details
 from main.LOADERS.loader import Loader
 from bson import json_util
 
@@ -22,20 +23,19 @@ class ModuleLoader(Loader):
         super().__init__()
         self.data_file = "main/LOADERS/modules.pkl"
         self.string_matches_path = "main/NLP/STRING_MATCH/SDG_RESULTS/module_matches.json"
+        self.server = get_details("SQL_SERVER", "server")
+        self.database = get_details("SQL_SERVER", "database")
+        self.username = get_details("SQL_SERVER", "username")
+        self.password = get_details("SQL_SERVER", "password")
+        self.driver = get_details("SQL_SERVER", "driver")
 
     def get_modules_db(self, num_modules: Union[int, str]) -> pd.DataFrame:
         """
             Returns either all modules, or if specified, a number of modules
         """
-        # SERVER LOGIN DETAILS
-        server = 'summermiemieservver.database.windows.net'
-        database = 'summermiemiedb'
-        username = 'miemie_login'
-        password = 'e_Paswrd?!'
-        driver = '{ODBC Driver 17 for SQL Server}'
-        
         # CONNECT TO THE DATABASE
-        myConnection = pyodbc.connect('DRIVER=' + driver + ';SERVER=' + server + ';PORT=1433;DATABASE=' + database + ';UID=' + username + ';PWD=' + password)
+        myConnection = pyodbc.connect('DRIVER=' + self.driver + ';SERVER=' + self.server +
+                                      ';PORT=1433;DATABASE=' + self.database + ';UID=' + self.username + ';PWD=' + self.password)
 
         if num_modules == "MAX":
             # Load all modules.

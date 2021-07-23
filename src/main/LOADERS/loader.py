@@ -3,6 +3,7 @@ import json
 import pymongo
 import ssl
 from bson import json_util
+from main.CONFIG_READER.read import get_details
 
 class Loader(): 
     """
@@ -14,7 +15,7 @@ class Loader():
             Initializes connection host and JSON file paths for LDA and SVM prediction results, each containing data for both UCL modules 
             and scopus research publications.
         """
-        self.host = "mongodb+srv://admin:admin@cluster0.hw8fo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+        self.host = self.database = get_details("MONGO_DB", "client")
         self.lda_prediction_path = "main/NLP/LDA/SDG_RESULTS/training_results.json"
         self.svm_prediction_path = "main/NLP/SVM/SDG_RESULTS/training_results.json"
 
