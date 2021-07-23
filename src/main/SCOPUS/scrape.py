@@ -1,3 +1,4 @@
+from main.CONFIG_READER.read import get_details
 import glob, os, sys
 import pybliometrics.scopus as ok
 import pandas as pd
@@ -10,12 +11,13 @@ import os
 import pymongo
 from typing import Optional, Union
 
-client = pymongo.MongoClient("mongodb+srv://admin:admin@cluster0.hw8fo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
-db = client.Scopus
-
 class GetScopusData():
 
     def __init__(self):
+        self.host = get_details("MONGO_DB", "client")
+        self.client = pymongo.MongoClient(self.host)
+        self.db = client.Scopus
+
         self.__rps_data_file = "main/SCOPUS/GIVEN_DATA_FILES/cleaned_RPS_export_2015.csv"
         self.f = open("main/SCOPUS/log.txt", "a")
 
@@ -146,7 +148,7 @@ class GetScopusData():
                 result.add(i)
 
         already_scraped_DOI = []   
-        col = db.Data
+        col = self.db.Data
         data = col.find()
         # Accumulate existing DOIs from MongoDB
         for i in data:
@@ -204,7 +206,7 @@ class GetScopusData():
         """
         
         if data:
-            col = db.Data
+            col = self.db.Data
             col.update({'DOI': data['DOI']}, data, upsert=True)
 
     def createAllFiles(self, limit: int) -> None:
@@ -233,4 +235,4 @@ class GetScopusData():
         print()
         self.f.write("\nDONE")
         self.f.close()
-        client.close()
+        self.client.close()

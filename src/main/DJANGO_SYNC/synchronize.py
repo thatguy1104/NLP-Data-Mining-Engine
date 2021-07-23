@@ -1,4 +1,5 @@
 from main.NLP.PREPROCESSING.preprocessor import Preprocessor
+from main.CONFIG_READER.read import get_details
 
 import sys
 import json
@@ -15,9 +16,15 @@ lda_threshold = svm_threshold = 30
 class Synchronizer():
     
     def __init__(self):
-        self.host = "mongodb+srv://admin:admin@cluster0.hw8fo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+        self.host = get_details("MONGO_DB", "client")
         self.client = pymongo.MongoClient(self.host)
         self.preprocessor = Preprocessor()
+
+        self.postgre_database = get_details("POSTGRESQL", "database")
+        self.postgre_user = get_details("POSTGRESQL", "username")
+        self.postgre_host = get_details("POSTGRESQL", "host")
+        self.postgre_password = get_details("POSTGRESQL", "password")
+        self.postgre_port = get_details("POSTGRESQL", "port")
 
     def __progress(self, count: int, total: int, custom_text: str, suffix='') -> None:
         """
@@ -183,8 +190,8 @@ class Synchronizer():
                 validWeights.append(sdg)
         return validWeights
 
-    def __getPostgres_publications(self, title: str):
-        con = psycopg2.connect(database='summermiemiepostgre', user='miemie_admin@summermiemie', host='summermiemie.postgres.database.azure.com', password='e_Paswrd?!', port='5432')
+    def __getPostgres_modules(self, title:str):
+        con = psycopg2.connect(database=self.postgre_database, user=self.postgre_user, host=self.postgre_host, password=self.postgre_password, port=self.postgre_port)
         cur = con.cursor()
         cur.execute("""select id, title, data, "assignedSDG" from public."app_publication" where title = '""" + title.replace("'", "''") + "'")
         result = cur.fetchall()
@@ -192,14 +199,14 @@ class Synchronizer():
         return result[0]
 
     def __create_column_postgres_table(self):
-        con = psycopg2.connect(database='summermiemiepostgre', user='miemie_admin@summermiemie', host='summermiemie.postgres.database.azure.com', password='e_Paswrd?!', port='5432')
+        con = psycopg2.connect(database=self.postgre_database, user=self.postgre_user, host=self.postgre_host, password=self.postgre_password, port=self.postgre_port)
         cur = con.cursor()
         cur.execute("""ALTER TABLE public."app_publication" ADD COLUMN IF NOT EXISTS assignedSDG jsonb;""")
         con.commit()
         con.close()
 
     def __retrieve_postgres_data_publications_ihe(self, title:str):
-        con = psycopg2.connect(database='summermiemiepostgre', user='miemie_admin@summermiemie', host='summermiemie.postgres.database.azure.com', password='e_Paswrd?!', port='5432')
+        con = psycopg2.connect(database=self.postgre_database, user=self.postgre_user, host=self.postgre_host, password=self.postgre_password, port=self.postgre_host)
         cur = con.cursor()
 
         cur.execute(
@@ -211,7 +218,7 @@ class Synchronizer():
         return result
 
     def __update_postgres_data_publications(self, data_sdg:dict, title:str) -> None:
-        con = psycopg2.connect(database='summermiemiepostgre', user='miemie_admin@summermiemie', host='summermiemie.postgres.database.azure.com', password='e_Paswrd?!', port='5432')
+        con = psycopg2.connect(database=self.postgre_database, user=self.postgre_user, host=self.postgre_host, password=self.postgre_password, port=self.postgre_host)
         cur = con.cursor()
         
         cur.execute(
@@ -221,8 +228,7 @@ class Synchronizer():
         cur.close()
 
     def __update_postgres_data_modules(self, data_sdg: dict, module_id: str) -> None:
-        con = psycopg2.connect(database='summermiemiepostgre', user='miemie_admin@summermiemie',
-                               host='summermiemie.postgres.database.azure.com', password='e_Paswrd?!', port='5432')
+        con = psycopg2.connect(database=self.postgre_database, user=self.postgre_user, host=self.postgre_host, password=self.postgre_password, port=self.postgre_port)
         cur = con.cursor()
         cur.execute(
             'UPDATE public.app_module SET "fullName" = \'{}\' WHERE "Module_ID" = \'{}\''.format(json.dumps(data_sdg), module_id)
@@ -411,7 +417,7 @@ class Synchronizer():
             'main/IHE_KEYWORDS/ihe_keywords_regmed_tisseng.csv', nrows=0).columns.tolist()
         color_id = 1
 
-        con = psycopg2.connect(database='summermiemiepostgre', user='miemie_admin@summermiemie', host='summermiemie.postgres.database.azure.com', password='e_Paswrd?!', port='5432')
+        con = psycopg2.connect(database=self.postgre_database, user=self.postgre_user, host=self.postgre_host, password=self.postgre_password, port=self.postgre_port)
         cur = con.cursor()
         cur.execute('TRUNCATE public.app_specialtyact, public.app_approachact RESTART IDENTITY CASCADE')
         con.commit()
@@ -432,8 +438,5 @@ class Synchronizer():
         # self.__loadSDG_Data_PUBLICATION(limit)
         # self.__loadSDG_Data_MODULES(limit)
         self.__load_IHE_Data(limit)
+
         self.client.close()
-
-"""
-
-"""
