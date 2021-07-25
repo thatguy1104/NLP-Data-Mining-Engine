@@ -20,6 +20,8 @@ class RawSynchronizer():
         self.postgre_password = get_details("POSTGRESQL", "password")
         self.postgre_port = get_details("POSTGRESQL", "port")
 
+        self.host = get_details("MONGO_DB", "client")
+
     def __progress(self, count: int, total: int, custom_text: str, suffix='') -> None:
         """
             Visualises progress for a process given a current count and a total count
@@ -54,12 +56,12 @@ class RawSynchronizer():
         print()
 
     def __update_publications_from_mongo(self) -> None:
-        client = pymongo.MongoClient("mongodb+srv://admin:admin@cluster0.hw8fo.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+        client = pymongo.MongoClient(self.host)
         db = client.Scopus
         col = db.Data
         data = col.find(batch_size=10)
 
-        con = psycopg2.connect(database='summermiemiepostgre', user='miemie_admin@summermiemie', host='summermiemie.postgres.database.azure.com', password='e_Paswrd?!', port='5432')
+        con = psycopg2.connect(database=self.postgre_database, user=self.postgre_user, host=self.postgre_host, password=self.postgre_password, port=self.postgre_port)
         cur = con.cursor()
 
         blank_dict = {

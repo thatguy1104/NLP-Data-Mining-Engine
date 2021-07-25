@@ -315,7 +315,8 @@ class Synchronizer():
             return svm_ihe_classifications, predicted
     
     def __retrieve_all_pubs(self) -> list:
-        con = psycopg2.connect(database='summermiemiepostgre', user='miemie_admin@summermiemie', host='summermiemie.postgres.database.azure.com', password='e_Paswrd?!', port='5432')
+        con = psycopg2.connect(database=self.postgre_database, user=self.postgre_user,
+                               host=self.postgre_host, password=self.postgre_password, port=self.postgre_port)
         cur = con.cursor()
         cur.execute('SELECT "data", "assignedSDG" FROM public.app_publication')
         result = cur.fetchall()
@@ -328,7 +329,7 @@ class Synchronizer():
         return r
 
     def __update_postgre_many(self, data: list, titles: list) -> None:
-        con = psycopg2.connect(database='summermiemiepostgre', user='miemie_admin@summermiemie', host='summermiemie.postgres.database.azure.com', password='e_Paswrd?!', port='5432')
+        con = psycopg2.connect(database=self.postgre_database, user=self.postgre_user, host=self.postgre_host, password=self.postgre_password, port=self.postgre_port)
         cur = con.cursor()
         
         for i, row in enumerate(data):
@@ -352,12 +353,12 @@ class Synchronizer():
         publication_data_list = []
         publication_data_titles = []
         for doi in ihePrediction['Document Topics']:
-            # self.__progress(count, l, "syncing IHE with Django")
+            self.__progress(count, l, "syncing IHE with Django")
             # if doi in all_publications:
                 # publication_data = self.__retrieve_postgres_data_publications_ihe(data_[i]['Title'])[0][1]
             
             title = all_publications[doi][0]['Title']
-            print(doi, "  ", title)
+            # print(doi, "  ", title)
             publication_data = all_publications[doi][1]
             
             publication_data['IHE'], publication_data['IHE_Prediction'] = self.__getIHE_predictions(ihePrediction, doi)
@@ -431,6 +432,19 @@ class Synchronizer():
         con.commit()
         cur.close()
 
+    def insert_dois(self) -> None:
+        con = psycopg2.connect(database=self.postgre_database, user=self.postgre_user, host=self.postgre_host, password=self.postgre_password, port=self.postgre_port)
+        cur = con.cursor()
+        cur.execute('SELECT title, "data", doi FROM public.app_publication WHERE doi = \'\'')
+        result = cur.fetchall()
+        count, l = 1, 90000
+        for title, data_dict, doi in result:
+            self.__progress(count, l, "updating DOIs")
+            cur.execute('UPDATE public.app_publication SET doi = \'{}\' WHERE title = \'{}\''.format(data_dict['DOI'], title.replace("'", "''")))
+            con.commit()
+            count += 1
+        cur.close()
+
     def run(self, limit):
         limit = 0
         # self.__update_columns()
@@ -438,5 +452,6 @@ class Synchronizer():
         # self.__loadSDG_Data_PUBLICATION(limit)
         # self.__loadSDG_Data_MODULES(limit)
         self.__load_IHE_Data(limit)
+        # self.insert_dois()
 
         self.client.close()

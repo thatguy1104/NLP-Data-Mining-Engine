@@ -175,14 +175,15 @@ class BubbleMongoSync():
                 x_y_coordinates = self.__convert_lists(approach, speciality)
 
                 for position in x_y_coordinates:
-                    for author_id, author_details in author_data.items():
-                        name = author_details['Name']
-                        new_bubble[str((int(position[0]), int(position[1])))]['list_of_people'].append(author_id)
+                    if int(position[1]) != 10:
+                        for author_id, author_details in author_data.items():
+                            name = author_details['Name']
+                            new_bubble[str((int(position[0]), int(position[1])))]['list_of_people'].append(author_id)
 
         self.__update_bubbles(new_bubble)
 
     def run(self) -> None:
-        data_publications  = self.__retrieve_publications(limit=0)
-        # self.__create_bubble_data(data_publications)
-        self.__update_userprofiles(data_publications)
+        data_publications = self.__retrieve_publications(limit=0)
+        self.__create_bubble_data(data_publications)
+        # self.__update_userprofiles(data_publications)
         self.con.close()
