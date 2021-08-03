@@ -12,11 +12,11 @@ def keywords_merger_manager(sdg_keywords: bool) -> None:
     if sdg_keywords:
         keywords_merger_actions.merge_sdg_keywords()
 
-def loader_manager(modules: bool, publications: bool) -> None:
+def loader_manager(load_dictionary: dict) -> None:
     loader_actions = LOADER_SECTION()
-    if modules:
+    if load_dictionary['modules']:
         loader_actions.load_modules()
-    if publications:
+    if load_dictionary['publications']:
         loader_actions.load_publications()
 
 def module_manager(initialise: bool, resetDB: bool, scrape: bool, updateStudentCount: bool) -> None:
@@ -93,7 +93,7 @@ def sync_manager(sync_dictionary: dict) -> None:
     if sync_dictionary["synchronize_bubble"]:
         sync_actions.synchronize_mongodb_BUBBLE()
 
-def main(nlp_dictionary: dict, sync_dictionary: dict) -> None:
+def main(nlp_dictionary: dict, sync_dictionary: dict, load_dictionary: dict) -> None:
     """
         Controller for keyword_merger_manager loader_manager, module_manager, scopus_manager, nlp_manager
         Specify boolean (true / false) to perform specified action
@@ -106,6 +106,7 @@ def main(nlp_dictionary: dict, sync_dictionary: dict) -> None:
 
     nlp_manager(nlp_dictionary)
     sync_manager(sync_dictionary)
+    loader_manager(load_dictionary)
 
 if __name__ == "__main__":
     args = sys.argv[1:]
@@ -128,11 +129,16 @@ if __name__ == "__main__":
         "synchronize_mongodb": False,
         "synchronize_bubble": False,
     }
+    load_dictionary = {
+        "publications": False,
+        "modules": False
+    }
 
     if args[0] == "NLP": nlp_dictionary[args[1]] = True
     elif args[0] == "SYNC": sync_dictionary[args[1]] = True
+    elif args[0] == "LOAD": load_dictionary[args[1]] = True
     else: sys.exit("Error: Invalid arguments")
-    main(nlp_dictionary, sync_dictionary)
+    main(nlp_dictionary, sync_dictionary, load_dictionary)
 
 """
     python3 global_controller.py NLP run_LDA_SDG
@@ -153,4 +159,9 @@ if __name__ == "__main__":
     python3 global_controller.py SYNC synchronize_bubble
 
     python3 src/main/NLP/LDA/IHE_RESULTS/analyse_results.py
+"""
+
+"""
+    python3 global_controller.py LOAD publications
+    python3 global_controller.py LOAD modules
 """
