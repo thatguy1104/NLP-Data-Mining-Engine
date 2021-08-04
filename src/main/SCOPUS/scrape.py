@@ -16,7 +16,7 @@ class GetScopusData():
     def __init__(self):
         self.host = get_details("MONGO_DB", "client")
         self.client = pymongo.MongoClient(self.host)
-        self.db = client.Scopus
+        self.db = self.client.Scopus
 
         self.__rps_data_file = "main/SCOPUS/GIVEN_DATA_FILES/cleaned_RPS_export_2015.csv"
         self.f = open("main/SCOPUS/log.txt", "a")
@@ -207,7 +207,7 @@ class GetScopusData():
         
         if data:
             col = self.db.Data
-            col.update({'DOI': data['DOI']}, data, upsert=True)
+            col.update_one({"DOI": data['DOI']}, {"$set": data}, upsert=True)
 
     def createAllFiles(self, limit: int) -> None:
         """
@@ -230,7 +230,6 @@ class GetScopusData():
                     self.f.write("Written " + str(counter) + "/" + str(l) + " files " + "DOI: " + i + "\n")
                     reformatted_data = self.__formatData(data_dict)
                     self.__pushToMongoDB(reformatted_data)
-                    break
                     counter += 1
         print()
         self.f.write("\nDONE")
