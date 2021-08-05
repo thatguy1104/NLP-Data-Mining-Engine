@@ -1,4 +1,3 @@
-from main.MANAGERS.keywords_merger_manager import KEYWORDS_MERGER_SECTION
 from main.MANAGERS.loader_manager import LOADER_SECTION
 from main.MANAGERS.module_manager import MODULE_SECTION
 from main.MANAGERS.scopus_manager import SCOPUS_SECTION

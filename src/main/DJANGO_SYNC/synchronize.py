@@ -160,15 +160,13 @@ class Synchronizer():
     def __normalise(self, lst: list) -> list:
         """
             Creates a normalised value based on SDG data
+            Value ranges from 0-100
         """
 
         result = [0]*18
         sum_ = sum(lst)
         for i in range(len(lst)):
-            if sum_ != 0:
-                result[i] = (str(i+1), (lst[i] / sum_) * 100)
-            else:
-                result[i] = (str(i+1), 0.0)
+            result[i] = (str(i+1), (lst[i] / sum_) * 100) if sum_ != 0 else (str(i+1), 0.0)
         return result
 
     def __getPublication_validation(self, data_: dict, publication: dict) -> dict:

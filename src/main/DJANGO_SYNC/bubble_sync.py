@@ -8,7 +8,7 @@ from itertools import permutations, chain
 
 
 class BubbleMongoSync():
-    
+
     def __init__(self):
         self.postgre_database = get_details("POSTGRESQL", "database")
         self.postgre_user = get_details("POSTGRESQL", "username")
@@ -16,7 +16,8 @@ class BubbleMongoSync():
         self.postgre_password = get_details("POSTGRESQL", "password")
         self.postgre_port = get_details("POSTGRESQL", "port")
 
-        self.con = psycopg2.connect(database=self.postgre_database, user=self.postgre_user, host=self.postgre_host, password=self.postgre_password, port=self.postgre_port)
+        self.con = psycopg2.connect(database=self.postgre_database, user=self.postgre_user,
+                                    host=self.postgre_host, password=self.postgre_password, port=self.postgre_port)
 
     def __progress(self, count: int, total: int, custom_text: str, suffix='') -> None:
         """
@@ -27,7 +28,8 @@ class BubbleMongoSync():
         filled_len = int(round(bar_len * count / float(total)))
         percents = round(100.0 * count / float(total), 1)
         bar = '*' * filled_len + '-' * (bar_len - filled_len)
-        sys.stdout.write('[%s] %s%s %s %s\r' % (bar, percents, '%', custom_text, suffix))
+        sys.stdout.write('[%s] %s%s %s %s\r' %
+                         (bar, percents, '%', custom_text, suffix))
         sys.stdout.flush()
 
     def __retrieve_publications(self, limit: int) -> list:
@@ -37,9 +39,11 @@ class BubbleMongoSync():
 
         cur = self.con.cursor()
         if limit:
-            cur.execute('SELECT data, "assignedSDG" FROM public.app_publication LIMIT {}'.format(limit))
+            cur.execute(
+                'SELECT data, "assignedSDG" FROM public.app_publication LIMIT {}'.format(limit))
         else:
-            cur.execute('SELECT data, "assignedSDG" FROM public.app_publication')
+            cur.execute(
+                'SELECT data, "assignedSDG" FROM public.app_publication')
         result = cur.fetchall()
         return result
 
@@ -72,14 +76,15 @@ class BubbleMongoSync():
         cur.execute('SELECT id, color FROM public.app_coloract')
         result = cur.fetchall()
         return result
-    
+
     def __bubble_exists(self, x: int, y: int) -> int:
         """
             Checks if a bubble for a given approach ID (x) and speciality ID (y) exists in the PostgreSQL database
         """
 
         cur = self.con.cursor()
-        query = """SELECT color_id from public.app_bubbleact WHERE coordinate_speciality_id = \'{0}\' AND coordinate_approach_id = \'{1}\'""".format(y, x)
+        query = """SELECT color_id from public.app_bubbleact WHERE coordinate_speciality_id = \'{0}\' AND coordinate_approach_id = \'{1}\'""".format(
+            y, x)
         cur.execute(query)
         return len(cur.fetchall()) != 0
 
@@ -100,7 +105,8 @@ class BubbleMongoSync():
                 elem = tuple(map(int, temp.split(', ')))
 
                 if not self.__bubble_exists(elem[0], elem[1]):
-                    query = "INSERT INTO public.app_bubbleact (coordinate_speciality_id, coordinate_approach_id, color_id, list_of_people) VALUES({0}, {1}, {2}, \'{3}\')".format(elem[1], elem[0], bubble_dict[i]['color'], list_of_ppl)
+                    query = "INSERT INTO public.app_bubbleact (coordinate_speciality_id, coordinate_approach_id, color_id, list_of_people) VALUES({0}, {1}, {2}, \'{3}\')".format(
+                        elem[1], elem[0], bubble_dict[i]['color'], list_of_ppl)
                 else:
                     query = """UPDATE public.app_bubbleact SET coordinate_speciality_id = \'{0}\', coordinate_approach_id = \'{1}\', color_id = \'{2}\', list_of_people = \'{3}\' WHERE coordinate_speciality_id = {0} AND coordinate_approach_id = {1}""".format(
                         elem[1], elem[0], bubble_dict[i]['color'], list_of_ppl)
@@ -116,7 +122,8 @@ class BubbleMongoSync():
         """
 
         cur = self.con.cursor()
-        query = """SELECT EXISTS (SELECT "scopusLink" from public.app_userprofileact WHERE "scopusLink" = \'{0}\')""".format(link)
+        query = """SELECT EXISTS (SELECT "scopusLink" from public.app_userprofileact WHERE "scopusLink" = \'{0}\')""".format(
+            link)
         cur.execute(query)
         return len(cur.fetchall()) != 0
 
@@ -139,37 +146,31 @@ class BubbleMongoSync():
         c = 0
         l = len(pubs)
 
-        identified_authors = self.__query_affiliated_authors()
-        identified_authors = [i[0] for i in identified_authors]
-
         for pub in pubs:
             link = pub[0]['Link']
 
             self.__progress(c, l, "Updating app_userprofileact")
 
-            # if not self.__userprofile_exists(link):
             author_data = pub[0]['AuthorData']
             if 'IHE_Prediction' in pub[1] and author_data:
                 ihe_prediction = pub[1]['IHE_Prediction']
                 for author_id, author_details in author_data.items():
-                    if author_id in identified_authors:
-                        name = author_details['Name']
-                        affiliation = author_details['AffiliationName']
-                        affiliation_id = ""
-                        if author_details['AffiliationID']:
-                            affiliation_id = author_details['AffiliationID'].replace(' ', '')
-                        
-                        if author_data is not None and author_id is not None and name is not None:
-                        #     if affiliation: affiliation = affiliation.replace("'", "''")
-                        #     if name: name = name.replace("'", "''")
-                            cur.execute("""
-                                UPDATE public.app_userprofileact SET "affiliationID" = \'{0}\' WHERE author_id = \'{1}\'
-                            """.format(affiliation_id, author_id))
-                        # cur.execute(
-                        # """
-                        #     INSERT INTO public.app_userprofileact (\"fullName\", \"scopusLink\", affiliation, "affiliationID", author_id) VALUES(\'{0}\', \'{1}\', \'{2}\', \'{3}\', {4})
-                        #     ON CONFLICT (author_id) DO UPDATE SET "fullName" = \'{5}\', "scopusLink" = \'{6}\', affiliation = \'{7}\', "affiliationID" = \'{8}\', author_id = \'{9}\'
-                        # """.format(name, link, affiliation, affiliation_id, author_id, name, link, affiliation, affiliation_id, author_id))
+                    # if author_id in identified_authors:
+                    name = author_details['Name']
+                    affiliation = author_details['AffiliationName']
+                    affiliation_id = ""
+                    if author_details['AffiliationID']:
+                        affiliation_id = author_details['AffiliationID'].replace(' ', '')
+
+                    if affiliation: affiliation = affiliation.replace("'", "''")
+                    if name: name = name.replace("'", "''")
+                    if author_id == "null" and author_id: continue
+
+                    cur.execute(
+                    """
+                        INSERT INTO public.app_userprofileact (\"fullName\", \"scopusLink\", affiliation, "affiliationID", author_id) VALUES(\'{0}\', \'{1}\', \'{2}\', \'{3}\', {4})
+                        ON CONFLICT (author_id) DO UPDATE SET "fullName" = \'{5}\', "scopusLink" = \'{6}\', affiliation = \'{7}\', "affiliationID" = \'{8}\', author_id = \'{9}\'
+                    """.format(name, link, affiliation, affiliation_id, author_id, name, link, affiliation, affiliation_id, author_id))
                 self.con.commit()
             c += 1
         print()
@@ -189,7 +190,7 @@ class BubbleMongoSync():
 
         r = list(chain.from_iterable(unique_combinations))
         return list(dict.fromkeys(r))
-        
+
     def __create_bubble_data(self, pubs: list) -> dict:
         """
             Creates the data for each bubble in preparation for updating the PostgreSQL database
@@ -200,7 +201,7 @@ class BubbleMongoSync():
         colors = self.__retrieve_colours()
 
         new_bubble = {}
-        
+
         for i in approach_list:
             for j in specialty_list:
                 new_bubble[str((i[0], j[0]))] = {}
@@ -212,7 +213,7 @@ class BubbleMongoSync():
             approach = '1'
             if 'IHE_Approach_String' in pub[1] and pub[1]['IHE_Approach_String'] != '':
                 approach = pub[1]['IHE_Approach_String']
-            
+
             speciality = pub[1]['IHE_Prediction']
 
             if speciality != '':
@@ -222,12 +223,13 @@ class BubbleMongoSync():
                     if int(position[1]) != 10:
                         for author_id, author_details in author_data.items():
                             name = author_details['Name']
-                            new_bubble[str((int(position[0]), int(position[1])))]['list_of_people'].append(author_id)
+                            new_bubble[str((int(position[0]), int(position[1])))]['list_of_people'].append(
+                                author_id)
 
         self.__update_bubbles(new_bubble)
 
     def run(self) -> None:
-        data_publications = self.__retrieve_publications(limit=0)
-        self.__create_bubble_data(data_publications)
-        # self.__update_userprofiles(data_publications)
+        data_publications = self.__retrieve_publications(limit=1000)
+        # self.__create_bubble_data(data_publications)
+        self.__update_userprofiles(data_publications)
         self.con.close()
