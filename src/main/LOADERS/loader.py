@@ -19,7 +19,7 @@ class Loader():
         self.lda_prediction_path = "main/NLP/LDA/SDG_RESULTS/training_results.json"
         self.svm_prediction_path = "main/NLP/SVM/SDG_RESULTS/training_results.json"
 
-    def load(self, count):
+    def load(self, count: int):
         """
             Loads data from pickled file.
             Returns Pandas DataFrame.
