@@ -3,15 +3,16 @@ import pyodbc
 import requests
 import sys, re, csv
 from typing import Tuple
+from main.CONFIG_READER.read import get_details
 
 class UpdateStudentsPerModule():
     def __init__(self):
         # SERVER LOGIN DETAILS
-        self.server = 'summermiemieservver.database.windows.net'
-        self.database = 'summermiemiedb'
-        self.username = 'miemie_login'
-        self.password = 'e_Paswrd?!'
-        self.driver = '{ODBC Driver 17 for SQL Server}'
+        self.server = get_details("SQL_SERVER", "client")
+        self.database = get_details("SQL_SERVER", "database")
+        self.username = get_details("SQL_SERVER", "username")
+        self.password = get_details("SQL_SERVER", "password")
+        self.driver = get_details("SQL_SERVER", "driver")
         self.curr_time = datetime.datetime.now()
 
         # CONNECT TO DATABASE

@@ -348,7 +348,7 @@ class Synchronizer():
         ihe_approach_keywords = self.preprocessor.preprocess_keywords("main/IHE_KEYWORDS/approaches.csv")
         all_publications = self.__retrieve_all_pubs()
 
-        count, l = 1, len(data_)
+        count, l = 1, len(ihePrediction['Document Topics'])
         print()
         publication_data_list = []
         publication_data_titles = []
@@ -431,7 +431,7 @@ class Synchronizer():
         
         con.commit()
         cur.close()
-
+    
     def insert_dois(self) -> None:
         con = psycopg2.connect(database=self.postgre_database, user=self.postgre_user, host=self.postgre_host, password=self.postgre_password, port=self.postgre_port)
         cur = con.cursor()

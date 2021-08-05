@@ -1,12 +1,13 @@
 import requests
 import json
 import sys
+from main.CONFIG_READER.read import get_details
 
 class Initialiser():
 
     def __init__(self):
-        self.__initial_link = "https://www.ucl.ac.uk/module-catalogue/modules/" # UCL Module catalogue link
-        self.token = "uclapi-1e6c06cea59cf57-a6c4f5e96678dc2-4548665203179d6-765442292e213d7" # UCL API token
+        self.__initial_link = get_details("UCL_API", "catalogue_link")
+        self.token = get_details("UCL_API", "token")
 
     def __init_Departments(self) -> None:
         """

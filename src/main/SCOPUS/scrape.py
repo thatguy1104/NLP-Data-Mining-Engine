@@ -208,7 +208,7 @@ class GetScopusData():
         if data:
             col = self.db.Data
             col.update_one({"DOI": data['DOI']}, {"$set": data}, upsert=True)
-
+            
     def createAllFiles(self, limit: int) -> None:
         """
             Controller method for self.
@@ -220,7 +220,7 @@ class GetScopusData():
         data = self.__cleanerFileReadings(limit=limit)
         l = len(data)
         scraping_limit_API = 9000
-        
+
         counter = 1
         for i in data:
             if counter < scraping_limit_API:

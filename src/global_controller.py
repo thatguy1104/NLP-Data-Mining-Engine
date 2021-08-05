@@ -94,7 +94,10 @@ def main(nlp_dictionary: dict, sync_dictionary: dict, load_dictionary: dict, scr
         Specify boolean (true / false) to perform specified action
     """
 
-    scopus_manager(scrape_pub)
+    keywords_merger_manager(sdg_keywords=False)
+    module_manager(initialise=False, resetDB=False, scrape=False, updateStudentCount=False)
+    scopus_manager(scrape=False)
+
     nlp_manager(nlp_dictionary)
     sync_manager(sync_dictionary)
     loader_manager(load_dictionary)
@@ -102,6 +105,7 @@ def main(nlp_dictionary: dict, sync_dictionary: dict, load_dictionary: dict, scr
     
 
 if __name__ == "__main__":
+
     args = sys.argv[1:]
     if len(args) > 3: sys.exit("Error: Too many arguments")
 
@@ -133,6 +137,7 @@ if __name__ == "__main__":
         "scrape": False,
         "updateStudentCount": False
     }
+
 
     if args[0] == "NLP": nlp_dictionary[args[1]] = True
     elif args[0] == "SYNC": sync_dictionary[args[1]] = True

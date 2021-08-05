@@ -9,16 +9,17 @@ import pyodbc
 import datetime
 import smtplib
 from typing import Tuple, Optional
+from main.CONFIG_READER.read import get_details
 
 class UCL_Module_Catalogue():
 
     def __initialise_db_connection(self):
         # SERVER LOGIN DETAILS
-        self.server = 'summermiemieservver.database.windows.net'
-        self.database = 'summermiemiedb'
-        self.username = 'miemie_login'
-        self.password = 'e_Paswrd?!'
-        self.driver = '{ODBC Driver 17 for SQL Server}'
+        self.server = get_details("SQL_SERVER", "client")
+        self.database = get_details("SQL_SERVER", "database")
+        self.username = get_details("SQL_SERVER", "username")
+        self.password = get_details("SQL_SERVER", "password")
+        self.driver = get_details("SQL_SERVER", "driver")
 
         # CONNECT TO DATABASE
         return pyodbc.connect('DRIVER=' + self.driver + ';SERVER=' + self.server + ';PORT=1433;DATABASE=' + self.database + ';UID=' + self.username + ';PWD=' + self.password)
