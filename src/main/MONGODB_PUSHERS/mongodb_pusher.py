@@ -4,6 +4,7 @@ import ssl
 from main.CONFIG_READER.read import get_details
 
 class MongoDbPusher():
+    
     def __init__(self):
         self.host = get_details("MONGO_DB", "client")
 
@@ -24,8 +25,7 @@ class MongoDbPusher():
             MongoDB cluster - IHEPrediction
         """
         client = pymongo.MongoClient(self.host, ssl_cert_reqs=ssl.CERT_NONE)
-        db = client.Scopus
-        col = db.IHEPrediction
+        col = client.Scopus.IHEPrediction
         col.drop()
         key = value = data
         col.update_one(data, {"$set": value}, upsert=True)
@@ -37,8 +37,7 @@ class MongoDbPusher():
             MongoDB cluster - ModulePrediction
         """
         client = pymongo.MongoClient(self.host, ssl_cert_reqs=ssl.CERT_NONE)
-        db = client.Scopus
-        col = db.ModulePrediction
+        col = client.Scopus.ModulePrediction
         col.drop()
         key = value = data
         col.update_one(data, {"$set": value}, upsert=True)
@@ -50,8 +49,7 @@ class MongoDbPusher():
             MongoDB cluster - MatchedModules
         """
         client = pymongo.MongoClient(self.host, ssl_cert_reqs=ssl.CERT_NONE)
-        db = client.Scopus
-        col = db.MatchedModules
+        col = client.Scopus.MatchedModules
         col.drop()
         data_len = len(data)
         counter = 1
@@ -68,8 +66,7 @@ class MongoDbPusher():
             MongoDB cluster - 
         """
         client = pymongo.MongoClient(self.host, ssl_cert_reqs=ssl.CERT_NONE)
-        db = client.Scopus
-        col = db.MatchedScopus
+        col = client.Scopus.MatchedScopus
         col.drop()
         data_len = len(data)
         counter = 1
@@ -87,8 +84,7 @@ class MongoDbPusher():
             MongoDB cluster - ModuleValidation
         """
         client = pymongo.MongoClient(self.host, ssl_cert_reqs=ssl.CERT_NONE)
-        db = client.Scopus
-        col = db.ModuleValidation
+        col = client.Scopus.ModuleValidation
         key = value = data
         col.update(key, value, upsert=True)
         client.close()
@@ -99,8 +95,7 @@ class MongoDbPusher():
             MongoDB cluster - ScopusValidation
         """
         client = pymongo.MongoClient(self.host, ssl_cert_reqs=ssl.CERT_NONE)
-        db = client.Scopus
-        col = db.ScopusValidation
+        col = client.Scopus.ScopusValidation
         key = value = data
         col.update(key, value, upsert=True)
         client.close()
@@ -111,8 +106,7 @@ class MongoDbPusher():
             MongoDB cluster - SvmSdgPredictions
         """
         client = pymongo.MongoClient(self.host, ssl_cert_reqs=ssl.CERT_NONE)
-        db = client.Scopus
-        col = db.SvmSdgPredictions
+        col = client.Scopus.SvmSdgPredictions
         key = value = data
         col.update(key, value, upsert=True)
         client.close()

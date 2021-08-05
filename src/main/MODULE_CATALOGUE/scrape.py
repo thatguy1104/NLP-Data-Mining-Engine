@@ -14,17 +14,13 @@ from main.CONFIG_READER.read import get_details
 class UCL_Module_Catalogue():
 
     def __initialise_db_connection(self):
-        # SERVER LOGIN DETAILS
         self.server = get_details("SQL_SERVER", "client")
         self.database = get_details("SQL_SERVER", "database")
         self.username = get_details("SQL_SERVER", "username")
         self.password = get_details("SQL_SERVER", "password")
         self.driver = get_details("SQL_SERVER", "driver")
-
-        # CONNECT TO DATABASE
         return pyodbc.connect('DRIVER=' + self.driver + ';SERVER=' + self.server + ';PORT=1433;DATABASE=' + self.database + ';UID=' + self.username + ';PWD=' + self.password)
         
-    
     def __progress(self, count: int, total: int, custom_text: str, suffix='') -> None:
         """
             Visualises progress for a process given a current count and a total count

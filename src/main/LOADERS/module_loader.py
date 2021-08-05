@@ -34,17 +34,14 @@ class ModuleLoader(Loader):
             Returns either all modules, or if specified, a number of modules
         """
         # CONNECT TO THE DATABASE
-        myConnection = pyodbc.connect('DRIVER=' + self.driver + ';SERVER=' + self.server +
-                                      ';PORT=1433;DATABASE=' + self.database + ';UID=' + self.username + ';PWD=' + self.password)
+        myConnection = pyodbc.connect('DRIVER=' + self.driver + ';SERVER=' + self.server + ';PORT=1433;DATABASE=' + self.database + ';UID=' + self.username + ';PWD=' + self.password)
 
         if num_modules == "MAX":
             # Load all modules.
-            df = pd.read_sql_query(
-                "SELECT Module_Name, Module_ID, Module_Description FROM [dbo].[ModuleData]", myConnection)
+            df = pd.read_sql_query( "SELECT Module_Name, Module_ID, Module_Description FROM [dbo].[ModuleData]", myConnection)
         else:
             # Load given number of modules.
-            df = pd.read_sql_query("SELECT TOP (%d) Module_Name, Module_ID, Module_Description FROM [dbo].[ModuleData]" % int(
-                num_modules), myConnection)
+            df = pd.read_sql_query("SELECT TOP (%d) Module_Name, Module_ID, Module_Description FROM [dbo].[ModuleData]" % int(num_modules), myConnection)
 
         myConnection.commit()
         return df
@@ -70,8 +67,7 @@ class ModuleLoader(Loader):
                 data = json.load(json_file)
         else:
             client = pymongo.MongoClient(self.host, ssl_cert_reqs=ssl.CERT_NONE)
-            db = client.Scopus
-            col = db.ModulePrediction
+            col = client.Scopus.ModulePrediction
             data = col.find()
             data = json.loads(json_util.dumps(data)) # process mongodb response to a workable dictionary format.
             client.close()
@@ -87,8 +83,7 @@ class ModuleLoader(Loader):
                 data = json.load(json_file)
         else:
             client = pymongo.MongoClient(self.host, ssl_cert_reqs=ssl.CERT_NONE)
-            db = client.Scopus
-            col = db.MatchedModules
+            col = client.Scopus.MatchedModules
             data = col.find(batch_size=10)
             client.close()
 

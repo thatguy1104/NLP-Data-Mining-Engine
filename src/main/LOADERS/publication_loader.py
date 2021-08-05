@@ -77,8 +77,7 @@ class PublicationLoader(Loader):
                 data = json.load(json_file)
         else:
             client = pymongo.MongoClient(self.host, ssl_cert_reqs=ssl.CERT_NONE)
-            db = client.Scopus
-            col = db.PublicationPrediction
+            col = client.Scopus.PublicationPrediction
             data = col.find(batch_size=10)
             data = json.loads(json_util.dumps(data)) # process mongodb response to a workable dictionary format. 
             client.close()
@@ -94,21 +93,19 @@ class PublicationLoader(Loader):
                 data = json.load(json_file)
         else:
             client = pymongo.MongoClient(self.host, ssl_cert_reqs=ssl.CERT_NONE)
-            db = client.Scopus
-            col = db.MatchedScopus
+            col = client.Scopus.MatchedScopus
             data = col.find(batch_size=10)
             client.close()
 
         return data
 
-    def load_pymongo_db(self):
+    def load_pymongo_db(self) -> None:
         """
             Download publication data from MongoDB and serialises it to <publications.pkl>
         """
         print("Loading publications from pymongo database...")
         client = pymongo.MongoClient(self.host, ssl_cert_reqs=ssl.CERT_NONE)
-        db = client.Scopus
-        col = db.Data
+        col = client.Scopus.Data
         data = col.find(batch_size=10)
         client.close()
 
