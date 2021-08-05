@@ -93,11 +93,8 @@ def main(nlp_dictionary: dict, sync_dictionary: dict, load_dictionary: dict, scr
         Controller for keyword_merger_manager loader_manager, module_manager, scopus_manager, nlp_manager
         Specify boolean (true / false) to perform specified action
     """
-
-    keywords_merger_manager(sdg_keywords=False)
-    module_manager(initialise=False, resetDB=False, scrape=False, updateStudentCount=False)
-    scopus_manager(scrape=False)
-
+    
+    scopus_manager(scrape_pub)
     nlp_manager(nlp_dictionary)
     sync_manager(sync_dictionary)
     loader_manager(load_dictionary)
