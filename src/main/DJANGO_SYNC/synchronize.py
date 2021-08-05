@@ -39,6 +39,10 @@ class Synchronizer():
         sys.stdout.flush()
 
     def __getPublicationPrediction(self, limit:int = None) -> dict:
+        """
+            Gets the predictions of publications from MongoDB
+        """
+
         db = self.client.Scopus
         col = db.PublicationPrediction
         data = col.find().limit(limit)
@@ -50,6 +54,10 @@ class Synchronizer():
         return result
     
     def __getSvmSdgPredictions(self, limit: int = None) -> dict:
+        """
+            Gets SVM SDG predictions from MongoDB
+        """
+
         db = self.client.Scopus
         col = db.SvmSdgPredictions
         data = col.find().limit(limit)
@@ -60,6 +68,10 @@ class Synchronizer():
         return data[0]
 
     def __getScopusValidation(self, limit: int = None) -> dict:
+        """
+            Gets Scopus validation data from MongoDB
+        """
+
         db = self.client.Scopus
         col = db.ScopusValidation
         data = col.find().limit(limit)
@@ -67,6 +79,10 @@ class Synchronizer():
         return data[0]
 
     def __getIHEPrediction(self, limit: int = None) -> dict:
+        """
+            Gets IHE predictions from MongoDB
+        """
+
         db = self.client.Scopus
         col = db.IHEPrediction
         data = col.find().limit(limit)
@@ -74,6 +90,10 @@ class Synchronizer():
         return data[0]
 
     def __getModulePrediction(self, limit: int = None) -> dict:
+        """
+            Gets module predictions from MongoDB
+        """
+
         db = self.client.Scopus
         col = db.ModulePrediction
         data = col.find().limit(limit)
@@ -81,13 +101,21 @@ class Synchronizer():
         return data[0]
 
     def __getModuleValidation(self, limit: int = None) -> dict:
+        """
+            Gets module validation data from MongoDB
+        """
+
         db = self.client.Scopus
         col = db.ModuleValidation
         data = col.find().limit(limit)
         del data[0]['_id']
         return data[0]
 
-    def __acquireData(self, pubPred, svmSdgPred, scopVal, ihePred, modPred, modVal, limit: int) -> Tuple[dict, dict, dict, dict]:
+    def __acquireData(self, pubPred: bool, svmSdgPred: bool, scopVal: bool, ihePred: bool, modPred: bool, modVal: bool, limit: int) -> Tuple[dict, dict, dict, dict, dict, dict]:
+        """
+            Controller for getting and returning required data for a synchronisation
+        """
+        
         scopusPrediction_path = "PublicationPrediction"
         svm_sdg_predictions_path = "SvmSdgPredictions"
         scopusValidationSDG_path = "ScopusValidation"
@@ -116,6 +144,10 @@ class Synchronizer():
         return data_, svm_predictions, scopusValidation, ihePrediction, module_predictions, module_val
 
     def __pseudocolor(self, val: float, minval: int, maxval: int) -> Tuple[int, int, int]:
+        """
+            Creates the colour for validation similarity to display on the web application
+        """
+        
         h = (float(val-minval) / (maxval-minval)) * 120
         r, g, b = hsv_to_rgb(h/360, 1., 1.)
         oldRange = 1
@@ -126,6 +158,10 @@ class Synchronizer():
         return r, g, b
     
     def __normalise(self, lst: list) -> list:
+        """
+            Creates a normalised value based on SDG data
+        """
+
         result = [0]*18
         sum_ = sum(lst)
         for i in range(len(lst)):
@@ -136,12 +172,20 @@ class Synchronizer():
         return result
 
     def __getPublication_validation(self, data_: dict, publication: dict) -> dict:
+        """
+            Gets the validation similarity data for a publication
+        """
+
         similarityRGB = data_[publication]['Similarity']
         data_[publication]['ColorRed'], data_[publication]['ColorGreen'], data_[publication]['ColorBlue'] = self.__pseudocolor(similarityRGB*100, 0, 100)
         data_[publication]['StringCount'] = self.__normalise(data_[publication]['SDG_Keyword_Counts'])
         return data_[publication]
 
     def __getThreshold(self, result: list, threshold: int) -> list:
+        """
+            Gets a list of the classifications that have a percentage confidence higher than the threshold
+        """
+
         validPerc = []
         for i in range(len(result)):
             if result[i] >= threshold:
@@ -149,6 +193,10 @@ class Synchronizer():
         return validPerc
 
     def __getIHE_predictions(self, data_: dict, publication: str) -> Tuple[list, str]:
+        """
+            Gets the IHE predictions with data of which classifications the publication belongs to
+        """
+
         lst = data_['Document Topics'][publication]
         result = [0] * len(lst)
         
@@ -163,10 +211,18 @@ class Synchronizer():
         return result, validPerc
 
     def __truncate(self, n:float, decimals:int =0) -> float:
+        """
+            Truncates numbers to display on the web application
+        """
+
         multiplier = 10 ** decimals
         return int(n * multiplier) / multiplier
 
-    def __getSVM_predictions(self, data, element) -> Tuple[list, str]:
+    def __getSVM_predictions(self, data: dict, element: str) -> Tuple[list, str]:
+        """
+            Gets SVM predictions with data of which classifications the element belongs to
+        """
+
         result_array = [0] * 18
         validPerc = ""
 
@@ -182,7 +238,11 @@ class Synchronizer():
             validPerc = ",".join(validPerc)
         return result_array, validPerc
 
-    def __thresholdAnalyse(self, lst, threshold) -> list:
+    def __thresholdAnalyse(self, lst: list, threshold: int) -> list:
+        """
+            Checks which items are above the threshold by weight
+        """
+
         validWeights = []
         p = sorted(lst, key=lambda x: x[1])
         for sdg, weight in p:
@@ -190,7 +250,11 @@ class Synchronizer():
                 validWeights.append(sdg)
         return validWeights
 
-    def __getPostgres_modules(self, title:str):
+    def __getPostgres_modules(self, title: str) -> list:
+        """
+            Gets all data about a module from the PostrgeSQL database
+        """
+
         con = psycopg2.connect(database=self.postgre_database, user=self.postgre_user, host=self.postgre_host, password=self.postgre_password, port=self.postgre_port)
         cur = con.cursor()
         cur.execute("""select id, title, data, "assignedSDG" from public."app_publication" where title = '""" + title.replace("'", "''") + "'")
@@ -198,14 +262,11 @@ class Synchronizer():
         con.close()
         return result[0]
 
-    def __create_column_postgres_table(self):
-        con = psycopg2.connect(database=self.postgre_database, user=self.postgre_user, host=self.postgre_host, password=self.postgre_password, port=self.postgre_port)
-        cur = con.cursor()
-        cur.execute("""ALTER TABLE public."app_publication" ADD COLUMN IF NOT EXISTS assignedSDG jsonb;""")
-        con.commit()
-        con.close()
+    def __retrieve_postgres_data_publications(self, title: str) -> list:
+        """
+            Gets all data about a publication from the PostrgeSQL database
+        """
 
-    def __retrieve_postgres_data_publications_ihe(self, title:str):
         con = psycopg2.connect(database=self.postgre_database, user=self.postgre_user, host=self.postgre_host, password=self.postgre_password, port=self.postgre_host)
         cur = con.cursor()
 
@@ -214,10 +275,13 @@ class Synchronizer():
         )
         result = cur.fetchall()
         cur.close()
-        # return json.loads(json.dumps(result))
         return result
 
-    def __update_postgres_data_publications(self, data_sdg:dict, title:str) -> None:
+    def __update_postgres_data_publications(self, data_sdg: dict, title: str) -> None:
+        """
+            Updates assignedSDG column for a given publication in the PostgreSQL database
+        """
+
         con = psycopg2.connect(database=self.postgre_database, user=self.postgre_user, host=self.postgre_host, password=self.postgre_password, port=self.postgre_host)
         cur = con.cursor()
         
@@ -228,6 +292,10 @@ class Synchronizer():
         cur.close()
 
     def __update_postgres_data_modules(self, data_sdg: dict, module_id: str) -> None:
+        """
+            Updates fullName column for a given module in the PostgreSQL database
+        """
+
         con = psycopg2.connect(database=self.postgre_database, user=self.postgre_user, host=self.postgre_host, password=self.postgre_password, port=self.postgre_port)
         cur = con.cursor()
         cur.execute(
@@ -236,7 +304,11 @@ class Synchronizer():
         con.commit()
         cur.close()
 
-    def __loadSDG_Data_PUBLICATION(self, limit) -> None:
+    def __loadSDG_Data_PUBLICATION(self, limit: int) -> None:
+        """
+            Gets all the necessary SDG data about publications and their predictions to process for updating the PostgreSQL database
+        """
+
         data_, svm_predictions, scopusValidation, ihePrediction, module_predictions, module_validation = self.__acquireData(True, True, True, True, False, False, limit)
         count = 1
         l = len(data_)
@@ -245,7 +317,7 @@ class Synchronizer():
         for i in data_:
             self.__progress(count, l, "syncing Publications SDG with Django")
             count += 1
-            publication_data = self.__retrieve_postgres_data_publications_ihe(data_[i]['Title'])[0][1]
+            publication_data = self.__retrieve_postgres_data_publications(data_[i]['Title'])[0][1]
             calc_highest = []
             for j in range(18):
                 try:
@@ -270,13 +342,15 @@ class Synchronizer():
                 normalised = self.__normalise(publication_data["Validation"]['SDG_Keyword_Counts'])
                 publication_data['StringResult'] = ",".join(self.__thresholdAnalyse(normalised, threshold=lda_threshold))
                 postgre_publication = self.__getPostgres_publications(title=data_[i]['Title'])
-                if len(postgre_publication) < 4:
-                    self.__create_column_postgres_table()
 
                 self.__update_postgres_data_publications(publication_data, data_[i]['Title'])
         print()
     
-    def __stringmatch_approach(self, title: str, keywords, paper) -> None:
+    def __stringmatch_approach(self, title: str, keywords: list, paper: dict) -> str:
+        """
+            Runs a string match for the IHE approaches
+        """
+
         # Concat publication text-based data
         text_data = paper['Title']
 
@@ -300,7 +374,11 @@ class Synchronizer():
         result = ','.join(result_string_list)
         return result
 
-    def __ihe_svm_prediction(self, doi):
+    def __ihe_svm_prediction(self, doi: str) -> Tuple[list, str]:
+        """
+            Runs the SVM prediction for IHE and returns the results for a specified publication
+        """
+
         with open("main/NLP/SVM/IHE_RESULTS/training_results.json") as f:
             svm_ihe_classifications = json.load(f)
             if "Publication" in svm_ihe_classifications:
@@ -314,7 +392,11 @@ class Synchronizer():
             # print(svm_ihe_classifications, predicted)
             return svm_ihe_classifications, predicted
     
-    def __retrieve_all_pubs(self) -> list:
+    def __retrieve_all_pubs(self) -> dict:
+        """
+            Gets all publications from the PostgreSQL database and creates a dictionary with keys of DOIs and values of all gathered data
+        """
+
         con = psycopg2.connect(database=self.postgre_database, user=self.postgre_user,
                                host=self.postgre_host, password=self.postgre_password, port=self.postgre_port)
         cur = con.cursor()
@@ -329,6 +411,10 @@ class Synchronizer():
         return r
 
     def __update_postgre_many(self, data: list, titles: list) -> None:
+        """
+            Updates assignedSDG for many publications to the PostgreSQL database
+        """
+
         con = psycopg2.connect(database=self.postgre_database, user=self.postgre_user, host=self.postgre_host, password=self.postgre_password, port=self.postgre_port)
         cur = con.cursor()
         
@@ -341,7 +427,11 @@ class Synchronizer():
         con.commit()
         cur.close()
 
-    def __load_IHE_Data(self, limit) -> None:
+    def __load_IHE_Data(self, limit: int) -> None:
+        """
+            Gets all the necessary IHE data about publications and their predictions to process for updating the PostgreSQL database
+        """
+
         data_, svm_predictions_SDG, scopusValidation, ihePrediction, module_predictions, module_validation = self.__acquireData(False, False, False, True, False, False, limit)
         ihe_approach_keywords = pd.read_csv("main/IHE_KEYWORDS/approaches.csv")
         ihe_approach_keywords = ihe_approach_keywords.dropna()
@@ -355,7 +445,7 @@ class Synchronizer():
         for doi in ihePrediction['Document Topics']:
             self.__progress(count, l, "syncing IHE with Django")
             # if doi in all_publications:
-                # publication_data = self.__retrieve_postgres_data_publications_ihe(data_[i]['Title'])[0][1]
+                # publication_data = self.__retrieve_postgres_data_publications(data_[i]['Title'])[0][1]
             
             title = all_publications[doi][0]['Title']
             # print(doi, "  ", title)
@@ -378,7 +468,11 @@ class Synchronizer():
             self.__update_postgre_many(publication_data_list, publication_data_titles)
         print()
 
-    def __loadSDG_Data_MODULES(self, limit) -> None:
+    def __loadSDG_Data_MODULES(self, limit: int) -> None:
+        """
+            Gets all the necessary SDG data about modules and their predictions to process for updating the PostgreSQL database
+        """
+
         data_, svm_predictions, scopusValidation, ihePrediction, module_predictions, module_validation = self.__acquireData(False, True, False, False, True, True, limit)
         count, l = 1, len(module_predictions['Document Topics'])
         print()
@@ -413,6 +507,10 @@ class Synchronizer():
         print()
 
     def __update_columns(self) -> None:
+        """
+            Updates the PostgreSQL database with updated approaches and specialities
+        """
+
         approach_headers = pd.read_csv('main/IHE_KEYWORDS/approaches.csv', nrows=0).columns.tolist()
         speciality_headers = pd.read_csv(
             'main/IHE_KEYWORDS/ihe_keywords_regmed_tisseng.csv', nrows=0).columns.tolist()
@@ -431,19 +529,6 @@ class Synchronizer():
         
         con.commit()
         cur.close()
-    
-    def insert_dois(self) -> None:
-        con = psycopg2.connect(database=self.postgre_database, user=self.postgre_user, host=self.postgre_host, password=self.postgre_password, port=self.postgre_port)
-        cur = con.cursor()
-        cur.execute('SELECT title, "data", doi FROM public.app_publication WHERE doi = \'\'')
-        result = cur.fetchall()
-        count, l = 1, 90000
-        for title, data_dict, doi in result:
-            self.__progress(count, l, "updating DOIs")
-            cur.execute('UPDATE public.app_publication SET doi = \'{}\' WHERE title = \'{}\''.format(data_dict['DOI'], title.replace("'", "''")))
-            con.commit()
-            count += 1
-        cur.close()
 
     def run(self, limit):
         limit = 0
@@ -452,6 +537,5 @@ class Synchronizer():
         # self.__loadSDG_Data_PUBLICATION(limit)
         # self.__loadSDG_Data_MODULES(limit)
         self.__load_IHE_Data(limit)
-        # self.insert_dois()
 
         self.client.close()

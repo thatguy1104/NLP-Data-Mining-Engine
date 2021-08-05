@@ -36,12 +36,20 @@ class RawSynchronizer():
         sys.stdout.flush()
 
     def __get_mysql_module_data(self) -> list:
+        """
+            Gets the list of all modules and their data from the MySQL database
+        """
+
         myConnection = pyodbc.connect('DRIVER=' + self.driver + ';SERVER=' + self.server + ';PORT=1433;DATABASE=' + self.database + ';UID=' + self.username + ';PWD=' + self.password)
         curr = myConnection.cursor()
         curr.execute("SELECT * FROM [dbo].[ModuleData]")
         return curr.fetchall()
 
     def __update_module_from_mysql(self) -> None:
+        """
+            Updates the PostgreSQL database with module data from the MySQL database
+        """
+
         data = self.__get_mysql_module_data()
         con = psycopg2.connect(database=self.postgre_database, user=self.postgre_user, host=self.postgre_host, password=self.postgre_password, port=self.postgre_port)
         cur = con.cursor()
@@ -56,6 +64,10 @@ class RawSynchronizer():
         print()
 
     def __update_publications_from_mongo(self) -> None:
+        """
+            Updates PostgreSQL with publication data from MongoDB
+        """
+
         client = pymongo.MongoClient(self.host)
         db = client.Scopus
         col = db.Data
@@ -89,9 +101,10 @@ class RawSynchronizer():
         for i in data:
             self.__progress(c, l, "Syncing scraped publications to Django")
             del i['_id']
+            doi = i['DOI'].replace("\'", "\'\'")
             title = i['Title'] = i['Title'].replace("\'", "\'\'")
 
-            cur.execute("SELECT exists (SELECT 1 FROM public.app_publication WHERE title = \'{}\')".format(title))
+            cur.execute("SELECT exists (SELECT 1 FROM public.app_publication WHERE doi = \'{}\')".format(doi))
             existing_pub = cur.fetchone()[0]
 
             if not existing_pub:
@@ -112,8 +125,7 @@ class RawSynchronizer():
                     for index, val in enumerate(i['AuthorKeywords']):
                         i['AuthorKeywords'][index] = val.replace("\'", "\'\'")
 
-
-                query = """INSERT INTO public.app_publication (title, data, \"assignedSDG\") VALUES ('{0}', '{1}', '{2}') ON CONFLICT (title) DO NOTHING""".format(title, json.dumps(i), json.dumps(blank_dict))
+                query = """INSERT INTO public.app_publication (title, data, \"assignedSDG\", doi) VALUES ('{0}', '{1}', '{2}', '{3}') ON CONFLICT (doi) DO NOTHING""".format(title, json.dumps(i), json.dumps(blank_dict), doi)
                 cur.execute(query)
                 con.commit()
             c += 1
@@ -122,5 +134,5 @@ class RawSynchronizer():
         con.close()
 
     def run(self):
-        self.__update_module_from_mysql()
+        # self.__update_module_from_mysql()
         self.__update_publications_from_mongo()
