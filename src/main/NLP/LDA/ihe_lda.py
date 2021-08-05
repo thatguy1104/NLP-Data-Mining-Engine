@@ -29,11 +29,12 @@ class IheLda(Lda):
         self.vectorizer = self.get_vectorizer(1, 3, 1, 0.2)
         self.model = None
 
-    def create_eta(self, priors: dict, eta_dictionary: dict):
+    def create_eta(self, priors: dict, eta_dictionary: dict) -> np.ndarray:
         """
             Sets the eta hyperparameter as a skewed prior distribution over word weights in each topic.
             IHE-specific keywords are given a greater value, aimed at guiding the topic convergence.
         """
+
         eta = np.full(shape=(self.num_topics, len(eta_dictionary)), fill_value=1) # topic-term matrix filled with the value 1.
         for keyword, topics in priors.items():
             keyindex = [index for index, term in eta_dictionary.items() if term == keyword]
@@ -44,7 +45,7 @@ class IheLda(Lda):
         # eta = np.divide(eta, eta.sum(axis=0))
         return eta
 
-    def write_results(self, corpus, num_top_words: int, results_file: str):
+    def write_results(self, corpus, num_top_words: int, results_file: str) -> None:
         """
             Serializes the perplexity, topic-word and document-topic distributions as a JSON file and pushes the data to MongoDB.
         """
@@ -71,14 +72,14 @@ class IheLda(Lda):
         # Push data to MongoDB and serialize as JSON file.
         # MongoDbPusher().ihe_prediction(data)        
 
-    def display_topic_words(self, num_top_words: int):
+    def display_topic_words(self, num_top_words: int) -> None:
         """
             Prints the topic-word distribution with num_top_words words for each IHE area of expertise.
         """
         for n in range(self.num_topics):
             print('IHE {}: {}'.format(n + 1, [self.model.id2word[w] for w, p in self.model.get_topic_terms(n, topn=num_top_words)]))
 
-    def display_document_topics(self, corpus):
+    def display_document_topics(self, corpus) -> None:
         """
             Prints the document-topic distribution for each research publication in the corpus.
         """
@@ -90,7 +91,7 @@ class IheLda(Lda):
                 print('{} {}'.format(d, doc_topics))
             count += 1
     
-    def run(self):
+    def run(self) -> None:
         """
             Initializes IheLda parameters, trains the model and saves the results.
         """

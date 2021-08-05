@@ -17,7 +17,6 @@ class GetScopusData():
         self.host = get_details("MONGO_DB", "client")
         self.client = pymongo.MongoClient(self.host)
         self.db = self.client.Scopus
-
         self.__rps_data_file = "main/SCOPUS/GIVEN_DATA_FILES/cleaned_RPS_export_2015.csv"
         self.f = open("main/SCOPUS/log.txt", "a")
 
@@ -137,8 +136,7 @@ class GetScopusData():
 
         for i in doi:
             # Skip if DOI field is blank
-            if i is np.nan:
-                continue
+            if i is np.nan: continue
             # If multiple DOIs are provided in a single data field
             if ',' in i:
                 temp = i.split(',')
@@ -196,8 +194,7 @@ class GetScopusData():
         """
 
         files = glob.glob('src/main/SCOPUS/GENERATED_FILES/*')
-        for f in files:
-            os.remove(f)
+        for f in files: os.remove(f)
 
     def __pushToMongoDB(self, data: dict) -> None:
         """

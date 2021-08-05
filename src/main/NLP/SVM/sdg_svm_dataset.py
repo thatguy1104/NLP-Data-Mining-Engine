@@ -61,7 +61,7 @@ class SdgSvmDataset():
         df = self.df_publications.loc[self.df_publications["DOI"] == doi]
         return None if len(df) == 0 else df["Description"].values[0]
     
-    def tag_modules(self):
+    def tag_modules(self) -> pd.DataFrame:
         """
             Returns a dataframe with columns {ID, Description, SDG} for each module, where SDG is a class tag for training the SVM.
         """
@@ -105,7 +105,7 @@ class SdgSvmDataset():
                 
         return results
 
-    def tag_publications(self):
+    def tag_publications(self) -> pd.DataFrame:
         """
             Returns a dataframe with columns {ID, Description, SDG} for each publication, where SDG is a class tag for training the SVM.
         """

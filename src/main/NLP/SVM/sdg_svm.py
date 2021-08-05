@@ -15,7 +15,7 @@ class SdgSvm(Svm):
     def __init__(self):
         super().__init__()
 
-    def write_results(self, X_test, y_test, results_file: str):
+    def write_results(self, X_test, y_test, results_file: str) -> None:
         """
             Serializes the prediction results as a JSON file and pushes the data to MongoDB.
         """
@@ -52,7 +52,7 @@ class SdgSvm(Svm):
         with open(results_file, 'w') as outfile:
             json.dump(data, outfile)
 
-    def print_predictions(self):
+    def print_predictions(self) -> None:
         """
             Predicts SDG for each document description in the dataset, including those in the training set, test set
             and those not in either (because the SDG tag is None).
@@ -65,7 +65,7 @@ class SdgSvm(Svm):
             if i % 100 == 0:
                 print('{}: SDG probabilities = {}'.format(X_id[i], y_pred[i]))
 
-    def print_prediction_report(self, X_test, y_test):
+    def print_prediction_report(self, X_test, y_test) -> None:
         '''
             Builds a full prediction report including the accuracy, confusion matrix and other classification 
             metrics, printing these results to the terminal.
@@ -75,7 +75,7 @@ class SdgSvm(Svm):
         print(cm)
         print(classification_metrics)
 
-    def print_text_prediction(self, text):
+    def print_text_prediction(self, text) -> None:
         """
             Predicts probabilities of SDGs given any random text input.
         """
@@ -85,7 +85,7 @@ class SdgSvm(Svm):
             print('SDG probabilities = {}'.format(y_pred[i]))
             print('SDG = {}'.format(np.argmax(y_pred) + 1))
 
-    def run(self):
+    def run(self) -> None:
         """
             Trains the SVM model for clasifying SDGs using stochastic gradient descent.
         """

@@ -1,13 +1,15 @@
 import pandas as pd
 
 class SDGKeywordsMerger():
-    def merge(self):
+
+    def merge(self) -> None:
         """
             Merge SDG-specific keywords compiled from 3 different sources:
                 - SDG_Keywords_Australasia.csv stores the keywords compiled by a number of universities in Australia and New Zealand.
                 - SDG_Keywords_Leicester.csv stores the keywords compiled by Leicester University.
                 - SDG_Keywords_Students.csv stores the keywords compiled by the students working on the UCL5 MieMie v3 project.
         """
+        
         sdg_keywords_australasia = "src/main/SDG_KEYWORDS/SDG_Keywords_Australasia.csv"
         sdg_keywords_leicester = "src/main/SDG_KEYWORDS/SDG_Keywords_Leicester.csv"
         sdg_keywords_students = "src/main/SDG_KEYWORDS/SDG_Keywords_Students.csv"

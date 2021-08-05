@@ -18,15 +18,19 @@ postgre_password = get_details("POSTGRESQL", "password")
 postgre_port = get_details("POSTGRESQL", "port")
 
 def getMySQL():
-    # CONNECT TO DATABASE
-    myConnection = pyodbc.connect('DRIVER=' + driver + ';SERVER=' + server +
-                                  ';PORT=1433;DATABASE=' + database + ';UID=' + username + ';PWD=' + password)
+    """
+        Returns connection object for MySQL database
+    """
+
+    myConnection = pyodbc.connect('DRIVER=' + driver + ';SERVER=' + server + ';PORT=1433;DATABASE=' + database + ';UID=' + username + ';PWD=' + password)
     return myConnection
 
-def getPostgres_modules():
-    con = psycopg2.connect(database=postgre_database, user=postgre_user,
-                           host=postgre_host, password=postgre_password, port=postgre_port)
+def getPostgres_modules() -> list:
+    """
+        Returns list of PostgreSQL module data (all fields)
+    """
 
+    con = psycopg2.connect(database=postgre_database, user=postgre_user, host=postgre_host, password=postgre_password, port=postgre_port)
     cur = con.cursor()
     cur.execute("""
         select  id
@@ -46,6 +50,10 @@ def getPostgres_modules():
     return result
 
 def pushToSQL(module_id: str, data: list) -> None:
+    """
+        Updates TestModAssign table on MySQL database
+    """
+
     if len(data) != 0:
         connection = getMySQL()
         cur = connection.cursor()
@@ -56,6 +64,10 @@ def pushToSQL(module_id: str, data: list) -> None:
         connection.close()
 
 def clearTable() -> None:
+    """
+        Truncates TestModAssign table on MySQL database
+    """
+
     connection = getMySQL()
     cur = connection.cursor()
 
@@ -77,6 +89,10 @@ def progress(count: int, total: int, custom_text: str, suffix='') -> None:
     sys.stdout.flush()
 
 def process_module_LDA_visualisation() -> None:
+    """
+        Processes module assignments for TestModAssign
+    """
+
     clearTable()
     data = getPostgres_modules()
     counter = 1
@@ -92,7 +108,6 @@ def process_module_LDA_visualisation() -> None:
             
             if mod[len(mod) - 1]:
                 mod_prediction = mod[len(mod) - 1]['ModelResult'] # str with potential CSV
-
                 if mod_prediction is not None and mod_prediction != None and len(mod_prediction) != 0:
                     if ',' in mod_prediction:
                         temp = mod_prediction.split(',')

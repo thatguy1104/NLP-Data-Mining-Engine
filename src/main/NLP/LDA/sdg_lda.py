@@ -27,7 +27,7 @@ class SdgLda(Lda):
         self.vectorizer = self.get_vectorizer(1, 3, 1, 0.03)
         self.model = None
 
-    def create_eta(self, priors: dict, eta_dictionary: dict):
+    def create_eta(self, priors: dict, eta_dictionary: dict) -> np.ndarray:
         """
             Sets the eta hyperparameter as a skewed prior distribution over word weights in each topic.
             SDG-specific keywords are given a greater value, aimed at guiding the topic convergence.
@@ -41,7 +41,7 @@ class SdgLda(Lda):
                 
         return eta
 
-    def write_results(self, corpus, num_top_words: int, results_file: str):
+    def write_results(self, corpus, num_top_words: int, results_file: str) -> None:
         """
             Serializes the perplexity, topic-word and document-topic distributions as a JSON file and pushes the data to MongoDB.
         """
@@ -67,14 +67,14 @@ class SdgLda(Lda):
         with open(results_file, 'w') as outfile:
             json.dump(data, outfile)
 
-    def display_topic_words(self, num_top_words: int):
+    def display_topic_words(self, num_top_words: int) -> None:
         """
             Prints the topic-word distribution with num_top_words words for each SDG.
         """
         for n in range(self.num_topics):
             print('SDG {}: {}'.format(n + 1, [self.model.id2word[w] for w, p in self.model.get_topic_terms(n, topn=num_top_words)]))
 
-    def display_document_topics(self, corpus):
+    def display_document_topics(self, corpus) -> None:
         """
             Prints the document-topic distribution for each module in the corpus.
         """
@@ -86,7 +86,7 @@ class SdgLda(Lda):
                 print('{} {}'.format(d, doc_topics))
             count += 1
     
-    def run(self):
+    def run(self) -> None:
         """
             Initializes SdgLda parameters, trains the model and saves the results.
         """

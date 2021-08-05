@@ -22,7 +22,7 @@ class Svm():
         self.tags = None # all possible tags for a document.
         self.sgd_pipeline = self.create_sgd_pipeline()
 
-    def load_dataset(self, dataset):
+    def load_dataset(self, dataset) -> None:
         """
             Load the svm dataset with columns {ID, Description, Tag}.
         """
@@ -31,9 +31,7 @@ class Svm():
         df = df.drop(['index'], axis=1)
         self.dataset = df
 
-        # print(df)
-
-    def load_tags(self, tags):
+    def load_tags(self, tags) -> None:
         """
             Load the possible tags for classifying a particular document.
         """

@@ -44,7 +44,7 @@ class Lda():
         """
         raise NotImplementedError
 
-    def push_html_postgre(self, pylda_path, tsne_path, choice):
+    def push_html_postgre(self, pylda_path, tsne_path, choice) -> None:
         with open(pylda_path, "r", encoding='utf-8') as f:
             pylda_html_contents = f.read()
         with open(tsne_path, "r", encoding='utf-8') as f:
@@ -62,21 +62,21 @@ class Lda():
         }
         col.update_one(data, {'$set': data}, upsert=True)
 
-    def serialize(self, model_pkl_file: str):
+    def serialize(self, model_pkl_file: str) -> None:
         """
             Serializes the Lda object as a pickle file.
         """
         with open(model_pkl_file, 'wb') as f:
             pickle.dump(self, f)
 
-    def load_keywords(self, keywords: str):
+    def load_keywords(self, keywords: str) -> None:
         """
             Preprocess the list of topic keywords from the csv file path.
         """
         print("Loading keywords...")
         self.keywords = self.preprocessor.preprocess_keywords(keywords)
 
-    def load_dataset(self, count: int):
+    def load_dataset(self, count: int) -> None:
         """
             Loads a fixed number of rows from the database as a dataframe object.
         """
@@ -100,7 +100,7 @@ class Lda():
         return gensim.models.LdaMulticore(corpus=corpus, num_topics=self.num_topics, id2word=id2word, random_state=42, chunksize=chunksize, eta=eta,
                 eval_every=None, passes=passes, iterations=iterations, workers=3, alpha="symmetric", minimum_probability=0, per_word_topics=True)
 
-    def topic_seeds(self):
+    def topic_seeds(self) -> dict:
         """
             Returns the topic seeds as a dictionary with the keyword as keys and a list of topic numbers as values.
         """
@@ -113,7 +113,7 @@ class Lda():
         print(seed_topics, "\n")
         return seed_topics
 
-    def create_eta(self, priors: dict, eta_dictionary: dict):
+    def create_eta(self, priors: dict, eta_dictionary: dict) -> np.ndarray:
         """
             Sets the eta hyperparameter as a symmetric prior distribution over word weights in each topic.
         """
@@ -156,7 +156,7 @@ class Lda():
         """
         raise NotImplementedError
 
-    def pyldavis(self, corpus, output_file: str):
+    def pyldavis(self, corpus, output_file: str) -> None:
         """
             Runs the pyLDAvis package which help interpet the topics in a topic model that has been fit to the corpus of text data. 
             The visualization is saved to a stand-alone HTML file.
@@ -168,7 +168,7 @@ class Lda():
         visualization = pyLDAvis.gensim.prepare(self.model, corpus, dictionary=dictionary, sort_topics=False)
         pyLDAvis.save_html(visualization, output_file)
 
-    def t_sne_cluster(self, corpus, output_file: str):
+    def t_sne_cluster(self, corpus, output_file: str) -> None:
         """
             Runs the t-distributed Stochastic Neighbor Embedding (t-SNE) tool to visualize high-dimensional data.
             Uses the PCA (Principal Component Analysis) dimensionality reduction method.
@@ -198,6 +198,7 @@ class Lda():
         """
             Display perplexity, topic-word distribution, document-topic distribution, Lda visualization and t-SNE clustering.
         """
+
         self.display_perplexity(corpus)
         self.display_topic_words(num_top_words) # topic-word distribution.
         self.display_document_topics(corpus) # document-topic distribution.
@@ -205,8 +206,9 @@ class Lda():
         self.pyldavis(corpus, pyldavis_html)
         self.t_sne_cluster(corpus, t_sne_cluster_html)
 
-    def run(self):
+    def run(self) -> None:
         """
             Initializes Lda parameters, trains the model and saves the results.
         """
+
         raise NotImplementedError

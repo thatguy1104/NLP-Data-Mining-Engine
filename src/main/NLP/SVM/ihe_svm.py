@@ -29,16 +29,14 @@ class IheSvm(Svm):
         sys.stdout.write('[%s] %s%s %s %s\r' % (bar, percents, '%', custom_text, suffix))
         sys.stdout.flush()
 
-    def write_results(self, X_test, y_test, results_file: str):
+    def write_results(self, X_test, y_test, results_file: str) -> None:
         """
             Serializes the prediction results as a JSON file and pushes the data to MongoDB.
         """
         X_description = self.dataset['Description']  # includes modules and publications that may contain a None tag.
         X_id = self.dataset['ID']
 
-        accuracy, cm, classification_metrics = self.prediction_report(
-            X_test, y_test)
-
+        accuracy, cm, classification_metrics = self.prediction_report(X_test, y_test)
         data = {}
 
         # Save prediction report metrics.
@@ -62,7 +60,7 @@ class IheSvm(Svm):
         with open(results_file, 'w') as outfile:
             json.dump(data, outfile)
 
-    def print_predictions(self):
+    def print_predictions(self) -> None:
         """
             Predicts SDG for each document description in the dataset, including those in the training set, test set
             and those not in either (because the SDG tag is None).
@@ -75,7 +73,7 @@ class IheSvm(Svm):
             if i % 100 == 0:
                 print('{}: IHE probabilities = {}'.format(X_id[i], y_pred[i]))
 
-    def print_prediction_report(self, X_test, y_test):
+    def print_prediction_report(self, X_test, y_test) -> None:
         '''
             Builds a full prediction report including the accuracy, confusion matrix and other classification 
             metrics, printing these results to the terminal.
@@ -85,7 +83,7 @@ class IheSvm(Svm):
         print(cm)
         print(classification_metrics)
 
-    def print_text_prediction(self, text):
+    def print_text_prediction(self, text: str) -> None:
         """
             Predicts probabilities of SDGs given any random text input.
         """

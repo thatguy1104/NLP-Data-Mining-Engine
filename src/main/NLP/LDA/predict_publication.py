@@ -9,8 +9,8 @@ from main.LOADERS.publication_loader import PublicationLoader
 from main.CONFIG_READER.read import get_details
 
 client = pymongo.MongoClient(get_details("MONGO_DB", "client"))
-db = client.Scopus
-col = db.PublicationPrediction
+col = client.Scopus.PublicationPrediction
+
 class ScopusPrediction():
     
     def __init__(self):
@@ -18,7 +18,11 @@ class ScopusPrediction():
         self.model_name = "main/NLP/LDA/SDG_RESULTS/model.pkl"
         self.loader = PublicationLoader()
 
-    def __progress(self, count, total, custom_text, suffix=''):
+    def __progress(self, count: int, total: int, custom_text: str, suffix='') -> None:
+        """
+            Visualises progress for a process given a current count and a total count
+        """
+
         bar_len = 60
         filled_len = int(round(bar_len * count / float(total)))
         percents = round(100.0 * count / float(total), 1)
@@ -26,15 +30,22 @@ class ScopusPrediction():
         sys.stdout.write('[%s] %s%s %s %s\r' % (bar, percents, '%', custom_text, suffix))
         sys.stdout.flush()
 
-    def __writeToDB_Scopus(self, data):
+    def __writeToDB_Scopus(self, data: dict) -> None:
+        """
+            Writes to MongoDB's PublicationPrediction cluster
+        """
+
         value = data
         col.update_one({"DOI": data["DOI"]}, {"$set": value}, upsert=True)
 
-    def make_predictions(self, limit):
+    def make_predictions(self, limit) -> None:
+        """
+            Uses LDA trained on modules to classify publications in accordance with SDG's
+        """
+
         results = {}
-        counter = 1
         papers = self.publiction_data.head(limit) if limit else self.publiction_data
-        num_papers = len(papers)
+        num_papers, counter = len(papers), 1
 
         with open(self.model_name, 'rb') as f:
             lda = pickle.load(f)
@@ -62,7 +73,11 @@ class ScopusPrediction():
             json.dump(results, f)
         client.close()
 
-    def load_publications(self):
+    def load_publications(self) -> None:
+        """
+            Forms self.publiction_data (publication dataset)
+        """
+
         data = self.loader.load_all()
         for i in data:
             i = json.loads(json_util.dumps(i))
@@ -86,6 +101,9 @@ class ScopusPrediction():
                 row_df = pd.DataFrame([[doi, title, concat_data_fields]], columns=self.publiction_data.columns)
                 self.publiction_data = self.publiction_data.append(row_df, verify_integrity=True, ignore_index=True)
 
-    def predict(self):
+    def predict(self) -> None:
+        """
+            Controller function for this class
+        """
         self.load_publications()
         self.make_predictions(limit=None)
