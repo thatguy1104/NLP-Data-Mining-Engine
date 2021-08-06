@@ -446,7 +446,6 @@ class Synchronizer():
                 # publication_data = self.__retrieve_postgres_data_publications(data_[i]['Title'])[0][1]
             
             title = all_publications[doi][0]['Title']
-            # print(doi, "  ", title)
             publication_data = all_publications[doi][1]
             
             publication_data['IHE'], publication_data['IHE_Prediction'] = self.__getIHE_predictions(ihePrediction, doi)
