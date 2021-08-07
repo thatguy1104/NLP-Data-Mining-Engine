@@ -2,7 +2,8 @@ from main.NLP.LDA.sdg_lda import SdgLda
 from main.NLP.LDA.ihe_lda import IheLda
 
 from main.NLP.STRING_MATCH.module_match import ModuleStringMatch
-from main.NLP.STRING_MATCH.scopus_match import ScopusStringMatch
+from main.NLP.STRING_MATCH.scopus_match import ScopusStringMatch_SDG
+from main.NLP.STRING_MATCH.scopus_ihe_match import ScopusStringMatch_IHE
 
 from main.NLP.LDA.predict_publication import ScopusPrediction
 from main.NLP.VALIDATION.validate_sdg_svm import ValidateSdgSvm
@@ -33,11 +34,17 @@ class NLP_SECTION():
         """
         ModuleStringMatch().run()
     
-    def scopus_string_match(self) -> None:
+    def scopus_string_match_SDG(self) -> None:
         """
             Perform SDG string matching (keyword occurences) for publications
         """
-        ScopusStringMatch().run()
+        ScopusStringMatch_SDG().run()
+
+    def scopus_string_match_IHE(self) -> None:
+        """
+            Perform IHE string matching (keyword occurences) for publications
+        """
+        ScopusStringMatch_IHE().run()
 
     def predictScopus(self) -> None:
         """

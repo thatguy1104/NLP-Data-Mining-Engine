@@ -7,7 +7,8 @@ from main.LOADERS.publication_loader import PublicationLoader
 from main.MONGODB_PUSHERS.mongodb_pusher import MongoDbPusher
 from main.NLP.PREPROCESSING.preprocessor import Preprocessor
 
-class ScopusStringMatch():
+
+class ScopusStringMatch_SDG():
     
     def __init__(self):
         self.loader = PublicationLoader()
@@ -40,9 +41,10 @@ class ScopusStringMatch():
         num_keywords = len(keywords)
 
         for doi, publication in data.items():
+            # visualise the progress on a commandline
             self.__progress(counter, num_publications, "processing scopus_matches.json")
             counter += 1
-            description = self.preprocessor.tokenize(publication["Description"]) # visualise the progress on a commandline
+            description = self.preprocessor.tokenize(publication["Description"]) 
             sdg_occurences = {} # accumulator for SDG Keywords found in a given document
             for n in range(num_keywords):
                 sdg_num = n + 1

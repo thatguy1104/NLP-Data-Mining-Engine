@@ -58,8 +58,10 @@ def nlp_manager(nlp_dictionary: dict) -> None:
         nlp_actions.run_LDA_IHE()
     if nlp_dictionary["module_string_match"]:
         nlp_actions.module_string_match()
-    if nlp_dictionary["scopus_string_match"]:
-        nlp_actions.scopus_string_match()
+    if nlp_dictionary["scopus_string_match_SDG"]:
+        nlp_actions.scopus_string_match_SDG()
+    if nlp_dictionary["scopus_string_match_IHE"]:
+        nlp_actions.scopus_string_match_IHE()
     if nlp_dictionary["predict_scopus_data"]:
         nlp_actions.predictScopus()
     if nlp_dictionary["create_SDG_SVM_dataset"]:
@@ -109,7 +111,8 @@ if __name__ == "__main__":
         "run_LDA_SDG": False,
         "run_LDA_IHE": False,
         "module_string_match": False,
-        "scopus_string_match": False,
+        "scopus_string_match_SDG": False,
+        "scopus_string_match_IHE": False,
         "predict_scopus_data": False,
         "create_SDG_SVM_dataset": False,
         "create_IHE_SVM_dataset": False,
@@ -147,7 +150,8 @@ if __name__ == "__main__":
     python3 global_controller.py NLP run_LDA_SDG
     python3 global_controller.py NLP run_LDA_IHE
     python3 global_controller.py NLP module_string_match
-    python3 global_controller.py NLP scopus_string_match
+    python3 global_controller.py NLP scopus_string_match_SDG
+    python3 global_controller.py NLP scopus_string_match_IHE
     python3 global_controller.py NLP predict_scopus_data
     python3 global_controller.py NLP create_SDG_SVM_dataset
     python3 global_controller.py NLP create_IHE_SVM_dataset

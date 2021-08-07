@@ -48,6 +48,25 @@ class PublicationLoader(Loader):
             resulting_data[publication["DOI"]] = publication
 
         return resulting_data
+    
+    # def load_all_limit(self, limit = None) -> dict:
+    #     """
+    #         Load publication data from serialised file.
+    #         Restructures data into dictionary data structure.
+    #     """
+    #     counter = 1
+    #     with open(self.data_file, "rb") as input_file:
+    #         data = pickle.load(input_file)
+        
+    #     resulting_data = {}
+    #     for publication in data:
+    #         if counter > limit: return resulting_data
+    #         publication["Description"] = self.combine_text_fields(publication)
+    #         publication.pop("_id", None)
+    #         resulting_data[publication["DOI"]] = publication
+    #         counter += 1
+
+    #     return resulting_data
 
     def load(self, count: int) -> pd.DataFrame:
         """

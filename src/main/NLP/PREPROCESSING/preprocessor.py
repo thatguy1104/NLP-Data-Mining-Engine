@@ -52,6 +52,17 @@ class Preprocessor():
         tokens = [self.lemmatize(token) for token in tokens]
         return tokens
 
+    def tokenize_not_lemmatize(self, text: str) -> list:
+        """
+            Normalize text, convert to list of lowercase tokens and lemmatize tokens.
+        """
+        text = re.sub(r'[^\w]', " ", text)  # remove punctuation.
+        text = re.sub(r'[\s]\d+(\.\d+)?[\s]', " ", text) # remove numerical values.
+        # tokens = simple_preprocess(text, deacc=True, min_len=3, max_len=20)  # lowercase and remove accents.
+        text = text.lower()
+        text = re.sub(r'\d+', '', text)
+        return text
+
     def preprocess(self, text: str) -> str:
         """
             Helper function for preprocessing text by tokenizing and removing stopwords.

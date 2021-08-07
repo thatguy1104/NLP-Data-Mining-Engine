@@ -339,7 +339,6 @@ class Synchronizer():
             if publication_data["Validation"]['SDG_Keyword_Counts']:
                 normalised = self.__normalise(publication_data["Validation"]['SDG_Keyword_Counts'])
                 publication_data['StringResult'] = ",".join(self.__thresholdAnalyse(normalised, threshold=lda_threshold))
-                postgre_publication = self.__getPostgres_publications(title=data_[i]['Title'])
 
                 self.__update_postgres_data_publications(publication_data, data_[i]['Title'])
         print()
