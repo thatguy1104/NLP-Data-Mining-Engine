@@ -36,9 +36,11 @@ class ScopusStringMatch_IHE():
             Results are pushed to MongoDB (backed-up in JSON file - scopus_ihe_matches.json).
         """
 
+        results_file_name = "main/NLP/STRING_MATCH/IHE_RESULTS/scopus_ihe_matches.json"
+
         resulting_data = {}
         counter = 0
-        keywords = self.preprocessor.preprocess_keywords("main/IHE_KEYWORDS/stringmatch_specialities.csv")
+        keywords = self.preprocessor.preprocess_keywords("main/IHE_KEYWORDS/stringmatch_specialities_3.csv")
         num_publications, num_keywords = len(data), len(keywords)
     
         for doi, publication in data.items():
@@ -59,13 +61,14 @@ class ScopusStringMatch_IHE():
                     ihe_occurences.pop(ihe, None)  # clear out empty occurences
 
                 resulting_data[doi] = ihe_occurences
+
             counter += 1
         print()
         # push the processed data to MongoDB
         # self.mongodb_pusher.matched_scopus(resulting_data)
         print()
         # Record the same data locally, acts as a backup
-        with open('main/NLP/STRING_MATCH/IHE_RESULTS/scopus_ihe_matches.json', 'w') as outfile:
+        with open(results_file_name, 'w') as outfile:
             json.dump(resulting_data, outfile)
 
     def run(self):

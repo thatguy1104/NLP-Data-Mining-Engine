@@ -28,8 +28,7 @@ class BubbleMongoSync():
         filled_len = int(round(bar_len * count / float(total)))
         percents = round(100.0 * count / float(total), 1)
         bar = '*' * filled_len + '-' * (bar_len - filled_len)
-        sys.stdout.write('[%s] %s%s %s %s\r' %
-                         (bar, percents, '%', custom_text, suffix))
+        sys.stdout.write('[%s] %s%s %s %s\r' % (bar, percents, '%', custom_text, suffix))
         sys.stdout.flush()
 
     def __retrieve_publications(self, limit: int) -> list:
@@ -39,11 +38,9 @@ class BubbleMongoSync():
 
         cur = self.con.cursor()
         if limit:
-            cur.execute(
-                'SELECT data, "assignedSDG" FROM public.app_publication LIMIT {}'.format(limit))
+            cur.execute('SELECT data, "assignedSDG" FROM public.app_publication LIMIT {}'.format(limit))
         else:
-            cur.execute(
-                'SELECT data, "assignedSDG" FROM public.app_publication')
+            cur.execute('SELECT data, "assignedSDG" FROM public.app_publication')
         result = cur.fetchall()
         return result
 
@@ -67,6 +64,16 @@ class BubbleMongoSync():
         result = cur.fetchall()
         return result
 
+    def __retrieve_string_specialities(self) -> list:
+        """
+            Retrieves string specialities and their correlating IDs from PostgreSQL database
+        """
+
+        cur = self.con.cursor()
+        cur.execute('SELECT id, name, color_id FROM public.app_string_specialtyact')
+        result = cur.fetchall()
+        return result
+
     def __retrieve_colours(self) -> list:
         """
             Retrieves bubble colours and their correlating IDs from PostgreSQL database
@@ -83,8 +90,7 @@ class BubbleMongoSync():
         """
 
         cur = self.con.cursor()
-        query = """SELECT color_id from public.app_bubbleact WHERE coordinate_speciality_id = \'{0}\' AND coordinate_approach_id = \'{1}\'""".format(
-            y, x)
+        query = """SELECT color_id from public.app_bubbleact WHERE coordinate_speciality_id = \'{0}\' AND coordinate_approach_id = \'{1}\'""".format(y, x)
         cur.execute(query)
         return len(cur.fetchall()) != 0
 
@@ -94,8 +100,7 @@ class BubbleMongoSync():
         """
 
         cur = self.con.cursor()
-        c = 1
-        l = len(bubble_dict)
+        c, l = 1, len(bubble_dict)
         print()
         for i in bubble_dict:
             self.__progress(c, l, "Updating Bubble Chart objects to Postgres")
@@ -199,7 +204,7 @@ class BubbleMongoSync():
         approach_list = self.__retrieve_approaches()
         specialty_list = self.__retrieve_specialities()
         colors = self.__retrieve_colours()
-
+        
         new_bubble = {}
 
         for i in approach_list:
@@ -216,20 +221,22 @@ class BubbleMongoSync():
 
             speciality = pub[1]['IHE_Prediction']
 
-            if speciality != '':
-                x_y_coordinates = self.__convert_lists(approach, speciality)
+            if 'IHE_String_Speciality_Prediction' in pub[1] and pub[1]['IHE_String_Speciality_Prediction'] != '':
+                speciality += ',' + pub[1]['IHE_String_Speciality_Prediction']
+                if speciality[0] == ',': speciality = speciality[1:]
 
+            if speciality != '' and approach != '':
+                x_y_coordinates = self.__convert_lists(approach, speciality)
                 for position in x_y_coordinates:
                     if int(position[1]) != 10:
                         for author_id, author_details in author_data.items():
                             name = author_details['Name']
-                            new_bubble[str((int(position[0]), int(position[1])))]['list_of_people'].append(
-                                author_id)
-
+                            new_bubble[str((int(position[0]), int(position[1])))]['list_of_people'].append(author_id)
+            
         self.__update_bubbles(new_bubble)
 
     def run(self) -> None:
-        data_publications = self.__retrieve_publications(limit=1000)
-        # self.__create_bubble_data(data_publications)
-        self.__update_userprofiles(data_publications)
+        data_publications = self.__retrieve_publications(limit=None)
+        self.__create_bubble_data(data_publications)
+        # self.__update_userprofiles(data_publications)
         self.con.close()

@@ -1,7 +1,7 @@
 from main.NLP.PREPROCESSING.preprocessor import Preprocessor
 from main.CONFIG_READER.read import get_details
 
-import sys
+import sys, re
 import json
 import psycopg2
 import pymongo
@@ -343,7 +343,7 @@ class Synchronizer():
                 self.__update_postgres_data_publications(publication_data, data_[i]['Title'])
         print()
     
-    def __stringmatch_approach(self, title: str, keywords: list, paper: dict) -> str:
+    def __stringmatch_approach(self, keywords: list, paper: dict) -> str:
         """
             Runs a string match for the IHE approaches
         """
@@ -367,8 +367,32 @@ class Synchronizer():
             for word in words:
                 if word in text_data and topic not in result_string_list:
                     result_string_list.append((str(topic+1)))
-        
+
         result = ','.join(result_string_list)
+        return result
+
+    def __string_match_speciality(self, keywords: list, paper: dict, maxi_spec: int) -> str:
+        # Concat publication text-based data
+        text_data = paper['Title']
+        if paper['Abstract']:
+            text_data += " " + paper['Abstract']
+        if paper['AuthorKeywords']:
+            for word in paper['AuthorKeywords']:
+                text_data += " " + word
+        if paper['IndexKeywords']:
+            for word in paper['IndexKeywords']:
+                text_data += " " + word
+
+        description = ' '.join(self.preprocessor.tokenize(text_data))
+        ihe_occurences = []  # accumulator for IHE Keywords found in a given document
+        for n in range(len(keywords)):
+            ihe_num = n + 1
+            for keyword in keywords[n]:
+                if re.search(r'\b{0}\b'.format(keyword), description):
+                    if str(ihe_num + maxi_spec) not in ihe_occurences:
+                        ihe_occurences.append(str(ihe_num + maxi_spec))
+        # print(paper['DOI'], ihe_occurences)
+        result = ','.join(ihe_occurences)
         return result
 
     def __ihe_svm_prediction(self, doi: str) -> Tuple[list, str]:
@@ -402,9 +426,14 @@ class Synchronizer():
         cur.close()
 
         r = {}
+        counter = 1
+        size = len(result)
         for i in result:
+            self.__progress(counter, size, "processing publication retrieval")
             doi = i[0]['DOI']
             r[doi] = i
+            counter += 1
+        print()
         return r
 
     def __update_postgre_many(self, data: list, titles: list) -> None:
@@ -433,6 +462,11 @@ class Synchronizer():
         ihe_approach_keywords = pd.read_csv("main/IHE_KEYWORDS/approaches.csv")
         ihe_approach_keywords = ihe_approach_keywords.dropna()
         ihe_approach_keywords = self.preprocessor.preprocess_keywords("main/IHE_KEYWORDS/approaches.csv")
+        ihe_speciality_max = len(pd.read_csv('main/IHE_KEYWORDS/ihe_keywords_regmed_tisseng.csv', nrows=0).columns.tolist())
+
+        ihe_string_speciality_keywords = pd.read_csv("main/IHE_KEYWORDS/stringmatch_specialities.csv")
+        ihe_string_speciality_keywords = self.preprocessor.preprocess_keywords("main/IHE_KEYWORDS/stringmatch_specialities.csv")
+
         all_publications = self.__retrieve_all_pubs()
 
         count, l = 1, len(ihePrediction['Document Topics'])
@@ -441,23 +475,31 @@ class Synchronizer():
         publication_data_titles = []
         for doi in ihePrediction['Document Topics']:
             self.__progress(count, l, "syncing IHE with Django")
-            # if doi in all_publications:
-                # publication_data = self.__retrieve_postgres_data_publications(data_[i]['Title'])[0][1]
             
-            title = all_publications[doi][0]['Title']
-            publication_data = all_publications[doi][1]
+            if doi == '10.1007/978-3-319-49655-9_46':
+                print("ANALYSING MISSING DOI")
+
+            if doi in all_publications:
+                title = all_publications[doi][0]['Title']
+                publication_data = all_publications[doi][1]
+                
+                # publication_data['IHE'], publication_data['IHE_Prediction'] = self.__getIHE_predictions(ihePrediction, doi)
+                publication_data['IHE_String_Speciality_Prediction'] = self.__string_match_speciality(ihe_string_speciality_keywords, all_publications[doi][0], ihe_speciality_max)
+                # print(doi, publication_data['IHE_String_Speciality_Prediction'])
+                # publication_data['IHE_Approach_String'] = self.__stringmatch_approach(ihe_approach_keywords, all_publications[doi][0])
+                # publication_data['IHE_SVM_Assignments'], publication_data['IHE_SVM_Prediction'] = self.__ihe_svm_prediction(doi)
+                
+                publication_data_list.append(publication_data)
+                publication_data_titles.append(title)
+            else:
+                print("DOI", doi, "does not exist")
             
-            publication_data['IHE'], publication_data['IHE_Prediction'] = self.__getIHE_predictions(ihePrediction, doi)
-            publication_data['IHE_Approach_String'] = self.__stringmatch_approach(title, ihe_approach_keywords, all_publications[doi][0])
-            publication_data['IHE_SVM_Assignments'], publication_data['IHE_SVM_Prediction'] = self.__ihe_svm_prediction(doi)
-            
-            publication_data_list.append(publication_data)
-            publication_data_titles.append(title)
 
             if count % 100 == 0:
                 self.__update_postgre_many(publication_data_list, publication_data_titles)
                 publication_data_list = []
                 publication_data_titles = []
+            
 
             count += 1
         if publication_data:
@@ -508,9 +550,11 @@ class Synchronizer():
         """
 
         approach_headers = pd.read_csv('main/IHE_KEYWORDS/approaches.csv', nrows=0).columns.tolist()
-        speciality_headers = pd.read_csv(
-            'main/IHE_KEYWORDS/ihe_keywords_regmed_tisseng.csv', nrows=0).columns.tolist()
+        string_speciality_headers = pd.read_csv('main/IHE_KEYWORDS/stringmatch_specialities.csv', nrows=0).columns.tolist()
+        speciality_headers = pd.read_csv('main/IHE_KEYWORDS/ihe_keywords_regmed_tisseng.csv', nrows=0).columns.tolist()
+        
         color_id = 1
+        color_id_string = 2
 
         con = psycopg2.connect(database=self.postgre_database, user=self.postgre_user, host=self.postgre_host, password=self.postgre_password, port=self.postgre_port)
         cur = con.cursor()
@@ -518,8 +562,11 @@ class Synchronizer():
         con.commit()
 
         for speciality in speciality_headers:
-            cur.execute("INSERT INTO public.app_specialtyact(name, color_id) VALUES(\'{0}\', {1})".format(speciality, color_id))
-        
+            cur.execute("INSERT INTO public.app_specialtyact(name, color_id, methodology) VALUES(\'{0}\', {1}, \'{2}\')".format(speciality, color_id, "LDA"))
+
+        for speciality in string_speciality_headers:
+            cur.execute("INSERT INTO public.app_specialtyact(name, color_id, methodology) VALUES(\'{0}\', {1}, \'{2}\')".format(speciality, color_id_string, "String"))
+
         for approach in approach_headers:
             cur.execute("INSERT INTO public.app_approachact(name) VALUES(\'{0}\')".format(approach))
         

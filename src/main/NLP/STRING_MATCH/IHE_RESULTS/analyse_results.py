@@ -35,7 +35,7 @@ def analyse(data: dict, titles: list) -> None:
 def run():
     print("Reading data...")
     data = open_file("main/NLP/STRING_MATCH/IHE_RESULTS/scopus_ihe_matches.json")
-    titles = pd.read_csv("main/IHE_KEYWORDS/stringmatch_specialities.csv")
+    titles = pd.read_csv("main/IHE_KEYWORDS/stringmatch_specialities_3.csv")
     print("Analysing...")
     occurences = analyse(data, list(titles.columns))
     print("Saving...")
