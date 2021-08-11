@@ -418,8 +418,7 @@ class Synchronizer():
             Gets all publications from the PostgreSQL database and creates a dictionary with keys of DOIs and values of all gathered data
         """
 
-        con = psycopg2.connect(database=self.postgre_database, user=self.postgre_user,
-                               host=self.postgre_host, password=self.postgre_password, port=self.postgre_port)
+        con = psycopg2.connect(database=self.postgre_database, user=self.postgre_user, host=self.postgre_host, password=self.postgre_password, port=self.postgre_port)
         cur = con.cursor()
         cur.execute('SELECT "data", "assignedSDG" FROM public.app_publication')
         result = cur.fetchall()
@@ -453,12 +452,28 @@ class Synchronizer():
         con.commit()
         cur.close()
 
+    def __getAllPubs(self, limit: int = None) -> dict:
+        """
+            Gets the predictions of publications from MongoDB
+        """
+
+        db = self.client.Scopus
+        col = db.Data
+        data = col.find().limit(limit)
+        # Process mongodb response to a workable dictionary format.
+        result = {}
+        for publication in data:
+            del publication['_id']
+            result[publication['DOI']] = publication
+        return result
+
     def __load_IHE_Data(self, limit: int) -> None:
         """
             Gets all the necessary IHE data about publications and their predictions to process for updating the PostgreSQL database
         """
 
         data_, svm_predictions_SDG, scopusValidation, ihePrediction, module_predictions, module_validation = self.__acquireData(False, False, False, True, False, False, limit)
+        
         ihe_approach_keywords = pd.read_csv("main/IHE_KEYWORDS/approaches.csv")
         ihe_approach_keywords = ihe_approach_keywords.dropna()
         ihe_approach_keywords = self.preprocessor.preprocess_keywords("main/IHE_KEYWORDS/approaches.csv")
@@ -468,38 +483,38 @@ class Synchronizer():
         ihe_string_speciality_keywords = self.preprocessor.preprocess_keywords("main/IHE_KEYWORDS/stringmatch_specialities.csv")
 
         all_publications = self.__retrieve_all_pubs()
+        all_pubs = self.__getAllPubs(limit)
 
         count, l = 1, len(ihePrediction['Document Topics'])
         print()
         publication_data_list = []
         publication_data_titles = []
-        for doi in ihePrediction['Document Topics']:
+
+
+        # for doi in ihePrediction['Document Topics']:
+        for doi in all_pubs:
             self.__progress(count, l, "syncing IHE with Django")
             
-            if doi == '10.1007/978-3-319-49655-9_46':
-                print("ANALYSING MISSING DOI")
+            # if doi == '10.1007/978-3-319-49655-9_46':
+            #     print("ANALYSING MISSING DOI")
 
             if doi in all_publications:
                 title = all_publications[doi][0]['Title']
                 publication_data = all_publications[doi][1]
                 
-                # publication_data['IHE'], publication_data['IHE_Prediction'] = self.__getIHE_predictions(ihePrediction, doi)
+                publication_data['IHE'], publication_data['IHE_Prediction'] = self.__getIHE_predictions(ihePrediction, doi)
                 publication_data['IHE_String_Speciality_Prediction'] = self.__string_match_speciality(ihe_string_speciality_keywords, all_publications[doi][0], ihe_speciality_max)
                 # print(doi, publication_data['IHE_String_Speciality_Prediction'])
-                # publication_data['IHE_Approach_String'] = self.__stringmatch_approach(ihe_approach_keywords, all_publications[doi][0])
+                publication_data['IHE_Approach_String'] = self.__stringmatch_approach(ihe_approach_keywords, all_publications[doi][0])
                 # publication_data['IHE_SVM_Assignments'], publication_data['IHE_SVM_Prediction'] = self.__ihe_svm_prediction(doi)
                 
                 publication_data_list.append(publication_data)
                 publication_data_titles.append(title)
-            else:
-                print("DOI", doi, "does not exist")
-            
-
+    
             if count % 100 == 0:
                 self.__update_postgre_many(publication_data_list, publication_data_titles)
                 publication_data_list = []
-                publication_data_titles = []
-            
+                publication_data_titles = []        
 
             count += 1
         if publication_data:
