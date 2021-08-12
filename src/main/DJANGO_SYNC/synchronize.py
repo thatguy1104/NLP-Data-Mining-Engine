@@ -372,6 +372,10 @@ class Synchronizer():
         return result
 
     def __string_match_speciality(self, keywords: list, paper: dict, maxi_spec: int) -> str:
+        """
+            Runs a string match for the IHE specialities (the ones that are not good enough for LDA)
+        """
+
         # Concat publication text-based data
         text_data = paper['Title']
         if paper['Abstract']:
