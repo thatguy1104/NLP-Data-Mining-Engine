@@ -125,7 +125,7 @@ class IheLda(Lda):
         
         print("Saving results...")
         self.write_results(corpus, num_top_words, results)
-        # self.push_html_postgre("main/NLP/LDA/IHE_RESULTS/pyldavis.html", "main/NLP/LDA/IHE_RESULTS/tsne_clusters.html", "ihe")
-        # self.serialize(model)
+        self.push_html_postgre("main/NLP/LDA/IHE_RESULTS/pyldavis.html", "main/NLP/LDA/IHE_RESULTS/tsne_clusters.html", "ihe")
+        self.serialize(model)
 
         print("Done.")

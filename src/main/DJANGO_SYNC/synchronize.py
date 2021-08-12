@@ -86,8 +86,12 @@ class Synchronizer():
         db = self.client.Scopus
         col = db.IHEPrediction
         data = col.find().limit(limit)
-        del data[0]['_id']
-        return data[0]
+        
+        result = {}
+        for i in data:
+            del i['_id']
+            result[i['DOI']] = i
+        return result
 
     def __getModulePrediction(self, limit: int = None) -> dict:
         """
@@ -195,14 +199,13 @@ class Synchronizer():
             Gets the IHE predictions with data of which classifications the publication belongs to
         """
 
-        lst = data_['Document Topics'][publication]
-        result = [0] * len(lst)
+        lst = data_[publication]
+        result = [0] * (len(lst) - 1)
         
-        for i in lst:
-            cleaner = i.replace("(", "").replace(")", "").replace("%", "").split(',')
-            topic_num = int(cleaner[0])
-            percentage = float(cleaner[1])
-            result[topic_num - 1] = percentage
+        for topic_num in lst:
+            if topic_num != 'DOI':
+                percentage = lst[str(topic_num)]
+                result[int(topic_num) - 1] = percentage
 
         validPerc = self.__getThreshold(result, lda_threshold)
         validPerc = ",".join(validPerc)
@@ -495,28 +498,28 @@ class Synchronizer():
         publication_data_titles = []
 
         for doi in all_pubs:
-            self.__progress(count, l, "syncing IHE with Django")
+            # self.__progress(count, l, "syncing IHE with Django")
             
             if doi in all_publications:
                 title = all_publications[doi][0]['Title']
                 publication_data = all_publications[doi][1]
                 
-                # publication_data['IHE'], publication_data['IHE_Prediction'] = self.__getIHE_predictions(ihePrediction, doi)
-                publication_data['IHE_String_Speciality_Prediction'] = self.__string_match_speciality(ihe_string_speciality_keywords, all_publications[doi][0], ihe_speciality_max)
-                publication_data['IHE_Approach_String'] = self.__stringmatch_approach(ihe_approach_keywords, all_publications[doi][0])
+                publication_data['IHE'], publication_data['IHE_Prediction'] = self.__getIHE_predictions(ihePrediction, doi)
+                # publication_data['IHE_String_Speciality_Prediction'] = self.__string_match_speciality(ihe_string_speciality_keywords, all_publications[doi][0], ihe_speciality_max)
+                # publication_data['IHE_Approach_String'] = self.__stringmatch_approach(ihe_approach_keywords, all_publications[doi][0])
                 # publication_data['IHE_SVM_Assignments'], publication_data['IHE_SVM_Prediction'] = self.__ihe_svm_prediction(doi)
                 
-                publication_data_list.append(publication_data)
-                publication_data_titles.append(title)
+        #         publication_data_list.append(publication_data)
+        #         publication_data_titles.append(title)
     
-            if count % 100 == 0:
-                self.__update_postgre_many(publication_data_list, publication_data_titles)
-                publication_data_list = []
-                publication_data_titles = []        
+        #     if count % 100 == 0:
+        #         self.__update_postgre_many(publication_data_list, publication_data_titles)
+        #         publication_data_list = []
+        #         publication_data_titles = []        
 
-            count += 1
-        if publication_data:
-            self.__update_postgre_many(publication_data_list, publication_data_titles)
+        #     count += 1
+        # if publication_data:
+        #     self.__update_postgre_many(publication_data_list, publication_data_titles)
         print()
 
     def __loadSDG_Data_MODULES(self, limit: int) -> None:
