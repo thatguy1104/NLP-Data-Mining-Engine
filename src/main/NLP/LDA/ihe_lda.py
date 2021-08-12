@@ -100,10 +100,9 @@ class IheLda(Lda):
 
         # Training parameters.
         num_publications = 10000
+        
         # IHE-specific keywords.
-        # keywords = "main/IHE_KEYWORDS/ihe_keywords.csv"
-        keywords = "main/IHE_KEYWORDS/ihe_keywords_extended.csv"
-        # keywords = "main/IHE_KEYWORDS/ihe_keywords2_combined.csv"
+        keywords = "main/IHE_KEYWORDS/lda_speciality_keywords.csv"
 
         passes = 10
         iterations = 400
@@ -114,7 +113,7 @@ class IheLda(Lda):
         pyldavis_html = "main/NLP/LDA/IHE_RESULTS/pyldavis.html"
         tsne_clusters_html = "main/NLP/LDA/IHE_RESULTS/tsne_clusters.html"
         model = "main/NLP/LDA/IHE_RESULTS/model.pkl"
-        results = "main/NLP/LDA/IHE_RESULTS/training_results_extended.json"
+        results = "main/NLP/LDA/IHE_RESULTS/training_results.json"
         
         self.load_dataset(num_publications)
         self.load_keywords(keywords)

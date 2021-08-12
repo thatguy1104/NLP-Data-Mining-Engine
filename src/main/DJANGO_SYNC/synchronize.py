@@ -477,7 +477,7 @@ class Synchronizer():
         ihe_approach_keywords = pd.read_csv("main/IHE_KEYWORDS/approaches.csv")
         ihe_approach_keywords = ihe_approach_keywords.dropna()
         ihe_approach_keywords = self.preprocessor.preprocess_keywords("main/IHE_KEYWORDS/approaches.csv")
-        ihe_speciality_max = len(pd.read_csv('main/IHE_KEYWORDS/ihe_keywords_regmed_tisseng.csv', nrows=0).columns.tolist())
+        ihe_speciality_max = len(pd.read_csv('main/IHE_KEYWORDS/lda_speciality_keywords.csv', nrows=0).columns.tolist())
 
         ihe_string_speciality_keywords = pd.read_csv("main/IHE_KEYWORDS/stringmatch_specialities.csv")
         ihe_string_speciality_keywords = self.preprocessor.preprocess_keywords("main/IHE_KEYWORDS/stringmatch_specialities.csv")
@@ -485,26 +485,20 @@ class Synchronizer():
         all_publications = self.__retrieve_all_pubs()
         all_pubs = self.__getAllPubs(limit)
 
-        count, l = 1, len(ihePrediction['Document Topics'])
+        count, l = 1, 98600
         print()
         publication_data_list = []
         publication_data_titles = []
 
-
-        # for doi in ihePrediction['Document Topics']:
         for doi in all_pubs:
             self.__progress(count, l, "syncing IHE with Django")
             
-            # if doi == '10.1007/978-3-319-49655-9_46':
-            #     print("ANALYSING MISSING DOI")
-
             if doi in all_publications:
                 title = all_publications[doi][0]['Title']
                 publication_data = all_publications[doi][1]
                 
-                publication_data['IHE'], publication_data['IHE_Prediction'] = self.__getIHE_predictions(ihePrediction, doi)
+                # publication_data['IHE'], publication_data['IHE_Prediction'] = self.__getIHE_predictions(ihePrediction, doi)
                 publication_data['IHE_String_Speciality_Prediction'] = self.__string_match_speciality(ihe_string_speciality_keywords, all_publications[doi][0], ihe_speciality_max)
-                # print(doi, publication_data['IHE_String_Speciality_Prediction'])
                 publication_data['IHE_Approach_String'] = self.__stringmatch_approach(ihe_approach_keywords, all_publications[doi][0])
                 # publication_data['IHE_SVM_Assignments'], publication_data['IHE_SVM_Prediction'] = self.__ihe_svm_prediction(doi)
                 
@@ -566,7 +560,7 @@ class Synchronizer():
 
         approach_headers = pd.read_csv('main/IHE_KEYWORDS/approaches.csv', nrows=0).columns.tolist()
         string_speciality_headers = pd.read_csv('main/IHE_KEYWORDS/stringmatch_specialities.csv', nrows=0).columns.tolist()
-        speciality_headers = pd.read_csv('main/IHE_KEYWORDS/ihe_keywords_regmed_tisseng.csv', nrows=0).columns.tolist()
+        speciality_headers = pd.read_csv('main/IHE_KEYWORDS/lda_speciality_keywords.csv', nrows=0).columns.tolist()
         
         color_id = 1
         color_id_string = 2
