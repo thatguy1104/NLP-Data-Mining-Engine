@@ -117,7 +117,7 @@ def main() -> None:
         Main controller function
         Produces IHE_Case_Study_regmed_tisseng_RENAL.csv file for LDA results analysis
     """
-
+    
     input_file = "src/main/NLP/LDA/IHE_RESULTS/training_results_regmed_tisseng.json"
     output_file = "IHE_Case_Study_regmed_tisseng_RENAL.csv"
     num_publications, ucl_only, approach = get_args()

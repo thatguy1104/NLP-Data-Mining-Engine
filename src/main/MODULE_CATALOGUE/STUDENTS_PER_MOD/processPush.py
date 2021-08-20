@@ -8,7 +8,7 @@ from main.CONFIG_READER.read import get_details
 class UpdateStudentsPerModule():
     def __init__(self):
         # SERVER LOGIN DETAILS
-        self.server = get_details("SQL_SERVER", "client")
+        self.server = get_details("SQL_SERVER", "server")
         self.database = get_details("SQL_SERVER", "database")
         self.username = get_details("SQL_SERVER", "username")
         self.password = get_details("SQL_SERVER", "password")
@@ -111,7 +111,7 @@ class UpdateStudentsPerModule():
 
         counter = 0
         timestamp = datetime.datetime.now()
-        with open("src/main/MODULE_CATALOGUE/STUDENTS_PER_MOD/studentsPerModule.csv", encoding='utf-16') as f:
+        with open("main/MODULE_CATALOGUE/STUDENTS_PER_MOD/studentsPerModule.csv", encoding='utf-16') as f:
             for i in f:
                 data = [] # accumulator to store a tuple for pushing purposes
                 counter += 1

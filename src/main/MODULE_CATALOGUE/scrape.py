@@ -14,7 +14,7 @@ from main.CONFIG_READER.read import get_details
 class UCL_Module_Catalogue():
 
     def __initialise_db_connection(self):
-        self.server = get_details("SQL_SERVER", "client")
+        self.server = get_details("SQL_SERVER", "server")
         self.database = get_details("SQL_SERVER", "database")
         self.username = get_details("SQL_SERVER", "username")
         self.password = get_details("SQL_SERVER", "password")
@@ -56,12 +56,12 @@ class UCL_Module_Catalogue():
 
         module_data = []
         curr_time = datetime.datetime.now()
-        with open('src/main/MODULE_CATALOGUE/INITIALISER/all_module_links.json') as json_file:
+        with open('main/MODULE_CATALOGUE/INITIALISER/all_module_links.json') as json_file:
             data = json.load(json_file)
             lim = 0
             l = len(data)
             for i in data:
-                self.progress(lim, l, "Scraping for ModuleData") # visualise progress bar in the commandline
+                self.__progress(lim, l, "Scraping for ModuleData") # visualise progress bar in the commandline
                 module_data = []
                 depName = data[i]['Department_Name']
                 depID = data[i]['Department_ID']

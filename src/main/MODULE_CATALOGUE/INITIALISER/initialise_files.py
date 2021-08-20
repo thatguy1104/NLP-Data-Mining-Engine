@@ -17,7 +17,7 @@ class Initialiser():
 
         params = {"token": self.token}
         data = requests.get("https://uclapi.com/timetable/data/departments", params=params).json()
-        with open('src/main/MODULE_CATALOGUE/INITIALISER/departments.json', 'w') as outfile:
+        with open('main/MODULE_CATALOGUE/INITIALISER/departments.json', 'w') as outfile:
             json.dump(data, outfile)
         print("Departments initialised")
 
@@ -41,7 +41,7 @@ class Initialiser():
         """
 
         module_data = {}
-        with open('src/main/MODULE_CATALOGUE/INITIALISER/departments.json') as json_file:
+        with open('main/MODULE_CATALOGUE/INITIALISER/departments.json') as json_file:
             data = json.load(json_file)['departments']
 
             for i in range(len(data)):
@@ -76,7 +76,7 @@ class Initialiser():
                         module_data[moduleID]['Link'] = link
 
                         # Record the data in a JSON file
-                        with open('src/main/MODULE_CATALOGUE/INITIALISER/all_module_links.json', 'w') as outfile:
+                        with open('main/MODULE_CATALOGUE/INITIALISER/all_module_links.json', 'w') as outfile:
                             json.dump(module_data, outfile)
         print()
 

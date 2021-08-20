@@ -26,7 +26,7 @@ class Create_ModuleData():
                         Credit_Value         FLOAT,
                         Module_Lead          VARCHAR(100),
                         Catalogue_Link       VARCHAR(MAX),
-                        Description          VARCHAR(MAX),
+                        Module_Description          VARCHAR(MAX),
                         Last_Updated         DATETIME DEFAULT CURRENT_TIMESTAMP
                     );"""
 
