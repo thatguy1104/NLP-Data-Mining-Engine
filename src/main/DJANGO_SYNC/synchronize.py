@@ -496,7 +496,7 @@ class Synchronizer():
         print()
         publication_data_list = []
         publication_data_titles = []
-
+        
         for doi in all_pubs:
             self.__progress(count, l, "syncing IHE with Django")
             
@@ -516,7 +516,7 @@ class Synchronizer():
                 self.__update_postgre_many(publication_data_list, publication_data_titles)
                 publication_data_list = []
                 publication_data_titles = []        
-
+        
             count += 1
         if publication_data:
             self.__update_postgre_many(publication_data_list, publication_data_titles)
@@ -568,20 +568,33 @@ class Synchronizer():
         approach_headers = pd.read_csv('main/IHE_KEYWORDS/approaches.csv', nrows=0).columns.tolist()
         string_speciality_headers = pd.read_csv('main/IHE_KEYWORDS/stringmatch_specialities.csv', nrows=0).columns.tolist()
         speciality_headers = pd.read_csv('main/IHE_KEYWORDS/lda_speciality_keywords.csv', nrows=0).columns.tolist()
+        speciality_colours = pd.read_csv('main/IHE_KEYWORDS/speciality_colours.csv')
         
-        color_id = 1
-        color_id_string = 2
-
+        colors = {
+            1: "#E6676C", # red-ish
+            2: "#FF4DC4", # pink (string-match)
+            3: "#FFFF00",  # yellow
+            4: "#0008FF", # blue
+            5: "#9933FF",  # purple
+            6: "#00CC00",  # green
+        }
+        
         con = psycopg2.connect(database=self.postgre_database, user=self.postgre_user, host=self.postgre_host, password=self.postgre_password, port=self.postgre_port)
         cur = con.cursor()
-        cur.execute('TRUNCATE public.app_specialtyact, public.app_approachact RESTART IDENTITY CASCADE')
+        cur.execute('TRUNCATE public.app_specialtyact, public.app_approachact, public.app_coloract RESTART IDENTITY CASCADE')
         con.commit()
+
+        for id_, color in colors.items():
+            cur.execute(
+                "INSERT INTO public.app_coloract(id, color) VALUES({0}, \'{1}\')".format(id_, color))
         
         for speciality in speciality_headers:
-            cur.execute("INSERT INTO public.app_specialtyact(name, color_id, methodology) VALUES(\'{0}\', {1}, \'{2}\')".format(speciality, color_id, "LDA"))
+            cur.execute("INSERT INTO public.app_specialtyact(name, color_id, methodology) VALUES(\'{0}\', {1}, \'{2}\')".format(
+                speciality, int(speciality_colours[speciality]), "LDA"))
 
         for speciality in string_speciality_headers:
-            cur.execute("INSERT INTO public.app_specialtyact(name, color_id, methodology) VALUES(\'{0}\', {1}, \'{2}\')".format(speciality, color_id_string, "String"))
+            cur.execute("INSERT INTO public.app_specialtyact(name, color_id, methodology) VALUES(\'{0}\', {1}, \'{2}\')".format(
+                speciality, int(speciality_colours[speciality]), "String"))
 
         for approach in approach_headers:
             cur.execute("INSERT INTO public.app_approachact(name) VALUES(\'{0}\')".format(approach))
@@ -591,10 +604,10 @@ class Synchronizer():
 
     def run(self, limit):
         limit = 0
-        # self.__update_columns()
+        self.__update_columns()
 
         # self.__loadSDG_Data_PUBLICATION(limit)
         # self.__loadSDG_Data_MODULES(limit)
-        self.__load_IHE_Data(limit)
+        # self.__load_IHE_Data(limit)
 
         self.client.close()

@@ -2,20 +2,34 @@ import psycopg2
 import pyodbc
 import sys
 import pandas as pd
-from main.CONFIG_READER.read import get_details
+# from main.CONFIG_READER.read import get_details
 
 
-server = get_details("SQL_SERVER", "server")
-database = get_details("SQL_SERVER", "database")
-username = get_details("SQL_SERVER", "username")
-password = get_details("SQL_SERVER", "password")
-driver = get_details("SQL_SERVER", "driver")
+# server = get_details("SQL_SERVER", "server")
+# database = get_details("SQL_SERVER", "database")
+# username = get_details("SQL_SERVER", "username")
+# password = get_details("SQL_SERVER", "password")
+# driver = get_details("SQL_SERVER", "driver")
 
-postgre_database = get_details("POSTGRESQL", "database")
-postgre_user = get_details("POSTGRESQL", "username")
-postgre_host = get_details("POSTGRESQL", "host")
-postgre_password = get_details("POSTGRESQL", "password")
-postgre_port = get_details("POSTGRESQL", "port")
+server = "summermiemieserver.database.windows.net"
+database = "summermiemiesqldb"
+username = "miemie_login"
+password = "e_Paswrd?!"
+driver = "{ODBC Driver 17 for SQL Server}"
+
+# postgre_database = get_details("POSTGRESQL", "database")
+# postgre_user = get_details("POSTGRESQL", "username")
+# postgre_host = get_details("POSTGRESQL", "host")
+# postgre_password = get_details("POSTGRESQL", "password")
+# postgre_port = get_details("POSTGRESQL", "port")
+
+postgre_host = "summermiemiepostgreserver.postgres.database.azure.com"
+postgre_database = "summermiemiepostgreserver"
+postgre_port = "5432"
+postgre_user = "miemie_admin@summermiemiepostgreserver"
+postgre_password = "e_Paswrd?!"
+
+
 
 def getMySQL():
     """
@@ -48,6 +62,17 @@ def getPostgres_modules() -> list:
     """)
     result = cur.fetchall()
     return result
+
+def create_table() -> None:
+    connection = getMySQL()
+    cur = connection.cursor()
+    cur.execute("""
+       CREATE TABLE TestModAssign(
+            Module_ID      VARCHAR(150),
+            SDG            VARCHAR(150))
+    """)
+    connection.commit()
+    connection.close()
 
 def pushToSQL(module_id: str, data: list) -> None:
     """
@@ -120,4 +145,5 @@ def process_module_LDA_visualisation() -> None:
 
 
 if __name__ == "__main__":
+    # create_table()
     process_module_LDA_visualisation()

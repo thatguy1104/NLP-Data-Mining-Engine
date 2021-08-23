@@ -236,7 +236,7 @@ class BubbleMongoSync():
         self.__update_bubbles(new_bubble)
 
     def run(self) -> None:
-        data_publications = self.__retrieve_publications(limit=None)
+        data_publications = self.__retrieve_publications(limit=1000)
         self.__create_bubble_data(data_publications)
         # self.__update_userprofiles(data_publications)
         self.con.close()
