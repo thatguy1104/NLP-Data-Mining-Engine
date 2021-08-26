@@ -28,7 +28,7 @@ class ScopusPrediction():
         filled_len = int(round(bar_len * count / float(total)))
         percents = round(100.0 * count / float(total), 1)
         bar = '*' * filled_len + '-' * (bar_len - filled_len)
-        sys.stdout.write('[%s] %s%s %s %s\r' % (bar, percents, '%', custom_text, suffix))
+        sys.stdout.write('[%s] %s%s %s %s\r' %(bar, percents, '%', custom_text, suffix))
         sys.stdout.flush()
 
     def __writeToDB_Scopus(self, data: dict) -> None:
@@ -83,7 +83,7 @@ class ScopusPrediction():
             data[key] = contents
         return data
 
-    def __writeToDB_Scopus_IHE(self, data: dict) -> None:
+    def __writeToDB_Scopus_IHE(self, data: dict, existing: dict) -> None:
         """
             Writes to MongoDB's IHEPRediction cluster
         """
@@ -92,7 +92,9 @@ class ScopusPrediction():
         c, l = 1, len(data)
         for i, val in data.items():
             self.__progress(c, l, "Pushing to Mongo IHE Predictions")
-            col_ihe_pred.update_one({"DOI": i}, {"$set": val}, upsert=True)
+            if i not in existing:
+                col_ihe_pred.update_one({"DOI": i}, {"$set": val}, upsert=True)
+            c += 1
         print()
 
     def make_predictions_IHE(self) -> None:
@@ -101,7 +103,7 @@ class ScopusPrediction():
         """
         papers = self.loader.load_all()
 
-        with open("main/NLP/LDA/IHE_RESULTS/training_results.json") as f:
+        with open("main/NLP/LDA/IHE_RESULTS/training_results_all.json") as f:
             existing_papers = json.load(f)['Document Topics']
         existing_papers = self.__clean_training_results(existing_papers)
 
@@ -135,8 +137,8 @@ class ScopusPrediction():
         print()
         with open("main/NLP/LDA/IHE_RESULTS/scopus_prediction_results.json", "w") as f:
             json.dump(existing_papers, f)
-        
-        self.__writeToDB_Scopus_IHE(existing_papers)
+
+        self.__writeToDB_Scopus_IHE(existing_papers, {})
         client.close()
 
     def load_publications(self) -> None:
@@ -172,5 +174,5 @@ class ScopusPrediction():
             Controller function for this class
         """
         
-        # self.make_predictions_SDG(limit=None)
+        self.make_predictions_SDG(limit=None)
         self.make_predictions_IHE()

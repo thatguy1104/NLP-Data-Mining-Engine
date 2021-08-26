@@ -41,15 +41,11 @@ class PublicationLoader(Loader):
         with open(self.data_file, "rb") as input_file:
             data = pickle.load(input_file)
         
-        c = 0
         resulting_data = {}
         for publication in data:
-            c += 1
-            if c < 10:
                 publication["Description"] = self.combine_text_fields(publication)
                 publication.pop("_id", None)
                 resulting_data[publication["DOI"]] = publication
-            else: break
             
         return resulting_data
 

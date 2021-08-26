@@ -70,7 +70,7 @@ class IheLda(Lda):
             json.dump(data, outfile)
 
         # Push data to MongoDB and serialize as JSON file.
-        # MongoDbPusher().ihe_prediction(data)        
+        MongoDbPusher().ihe_prediction(data)        
 
     def display_topic_words(self, num_top_words: int) -> None:
         """
@@ -99,21 +99,21 @@ class IheLda(Lda):
         startTime = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
 
         # Training parameters.
-        num_publications = 10000
+        num_publications = 30000
         
         # IHE-specific keywords.
         keywords = "main/IHE_KEYWORDS/lda_speciality_keywords.csv"
 
         passes = 10
         iterations = 400
-        chunksize = 10000
+        chunksize = 5000
         num_top_words = 20
 
         # IHE results files.
         pyldavis_html = "main/NLP/LDA/IHE_RESULTS/pyldavis.html"
         tsne_clusters_html = "main/NLP/LDA/IHE_RESULTS/tsne_clusters.html"
         model = "main/NLP/LDA/IHE_RESULTS/model.pkl"
-        results = "main/NLP/LDA/IHE_RESULTS/training_results.json"
+        results = "main/NLP/LDA/IHE_RESULTS/training_results_all.json"
         
         self.load_dataset(num_publications)
         self.load_keywords(keywords)

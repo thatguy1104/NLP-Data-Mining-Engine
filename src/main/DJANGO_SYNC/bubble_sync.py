@@ -174,7 +174,8 @@ class BubbleMongoSync():
                     """
                         INSERT INTO public.app_userprofileact (\"fullName\", \"scopusLink\", affiliation, "affiliationID", author_id) VALUES(\'{0}\', \'{1}\', \'{2}\', \'{3}\', {4})
                         ON CONFLICT (author_id) DO UPDATE SET "fullName" = \'{5}\', "scopusLink" = \'{6}\', affiliation = \'{7}\', "affiliationID" = \'{8}\', author_id = \'{9}\'
-                    """.format(name, link, affiliation, affiliation_id, author_id, name, link, affiliation, affiliation_id, author_id))
+                    """.format(name, link, affiliation, affiliation_id, author_id, name, link, affiliation, affiliation_id, author_id)
+                    )
                 self.con.commit()
             c += 1
         print()
@@ -227,10 +228,9 @@ class BubbleMongoSync():
             if speciality != '' and approach != '':
                 x_y_coordinates = self.__convert_lists(approach, speciality)
                 for position in x_y_coordinates:
-                    if int(position[1]) != 10:
-                        for author_id, author_details in author_data.items():
-                            name = author_details['Name']
-                            new_bubble[str((int(position[0]), int(position[1])))]['list_of_people'].append(author_id)
+                    for author_id, author_details in author_data.items():
+                        name = author_details['Name']
+                        new_bubble[str((int(position[0]), int(position[1])))]['list_of_people'].append(author_id)
             
         self.__update_bubbles(new_bubble)
 

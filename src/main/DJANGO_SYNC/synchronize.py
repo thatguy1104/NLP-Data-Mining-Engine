@@ -343,7 +343,7 @@ class Synchronizer():
 
             if publication_data["Validation"]['SDG_Keyword_Counts']:
                 normalised = self.__normalise(publication_data["Validation"]['SDG_Keyword_Counts'])
-                publication_data['StringResult'] = ",".join(self.__thresholdAnalyse(normalised, threshold=lda_threshold))
+                publication_data['StringResult'] = ",".join(self.__thresholdAnalyse(normalised, threshold=lda_sdg_threshold))
 
                 self.__update_postgres_data_publications(publication_data, data_[i]['Title'])
         print()
@@ -402,7 +402,6 @@ class Synchronizer():
                 if re.search(r'\b{0}\b'.format(keyword), description):
                     if str(ihe_num + maxi_spec) not in ihe_occurences:
                         ihe_occurences.append(str(ihe_num + maxi_spec))
-        # print(paper['DOI'], ihe_occurences)
         result = ','.join(ihe_occurences)
         return result
 
@@ -421,7 +420,6 @@ class Synchronizer():
             for i, val in enumerate(svm_ihe_classifications):
                 svm_ihe_classifications[i] = self.__truncate(val * 100, decimals=1)
             predicted = ','.join(self.__getThreshold(svm_ihe_classifications, svm_threshold))
-            # print(svm_ihe_classifications, predicted)
             return svm_ihe_classifications, predicted
     
     def __retrieve_all_pubs(self) -> dict:
@@ -608,7 +606,6 @@ class Synchronizer():
     def run(self, limit):
         limit = 0
         self.__update_columns()
-
         self.__loadSDG_Data_PUBLICATION(limit)
         self.__loadSDG_Data_MODULES(limit)
         self.__load_IHE_Data(limit)
