@@ -160,7 +160,6 @@ class BubbleMongoSync():
             if 'IHE_Prediction' in pub[1] and author_data:
                 ihe_prediction = pub[1]['IHE_Prediction']
                 for author_id, author_details in author_data.items():
-                    # if author_id in identified_authors:
                     name = author_details['Name']
                     affiliation = author_details['AffiliationName']
                     affiliation_id = ""
@@ -236,7 +235,7 @@ class BubbleMongoSync():
         self.__update_bubbles(new_bubble)
 
     def run(self) -> None:
-        data_publications = self.__retrieve_publications(limit=1000)
+        data_publications = self.__retrieve_publications(limit=None)
         self.__create_bubble_data(data_publications)
         # self.__update_userprofiles(data_publications)
         self.con.close()

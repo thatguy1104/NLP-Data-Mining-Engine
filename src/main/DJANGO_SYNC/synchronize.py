@@ -11,7 +11,10 @@ from bson import json_util
 from colorsys import hsv_to_rgb
 from typing import Tuple
 
-lda_threshold = svm_threshold = 30
+lda_sdg_threshold = 30
+lda_sdg_threshold_modules = 25
+svm_threshold = 30
+lda_ihe_threshold = 20
 
 class Synchronizer():
     
@@ -205,9 +208,9 @@ class Synchronizer():
         for topic_num in lst:
             if topic_num != 'DOI':
                 percentage = lst[str(topic_num)]
-                result[int(topic_num) - 1] = percentage
+                result[int(topic_num)] = percentage
 
-        validPerc = self.__getThreshold(result, lda_threshold)
+        validPerc = self.__getThreshold(result, lda_ihe_threshold)
         validPerc = ",".join(validPerc)
         return result, validPerc
 
@@ -300,8 +303,7 @@ class Synchronizer():
         con = psycopg2.connect(database=self.postgre_database, user=self.postgre_user, host=self.postgre_host, password=self.postgre_password, port=self.postgre_port)
         cur = con.cursor()
         cur.execute(
-            'UPDATE public.app_module SET "fullName" = \'{}\' WHERE "Module_ID" = \'{}\''.format(json.dumps(data_sdg), module_id)
-        )
+            'UPDATE public.app_module SET "assignedSDG" = \'{}\' WHERE "Module_ID" = \'{}\''.format(json.dumps(data_sdg), module_id))
         con.commit()
         cur.close()
 
@@ -331,7 +333,7 @@ class Synchronizer():
             p = sorted(calc_highest, key=lambda x: x[1])
             validWeights = []
             for sdg, weight in p:
-                if weight >= lda_threshold:
+                if weight >= lda_sdg_threshold:
                     validWeights.append(sdg)
 
             publication_data['DOI'] = i
@@ -368,9 +370,11 @@ class Synchronizer():
         result_string_list = []
         for topic, words in enumerate(keywords):
             for word in words:
-                if word in text_data and topic not in result_string_list:
+                if not pd.isna(word) and word in text_data and topic not in result_string_list:
+                    # if topic == 10:
+                        # print(paper['DOI'], word)
                     result_string_list.append((str(topic+1)))
-
+        
         result = ','.join(result_string_list)
         return result
 
@@ -482,20 +486,18 @@ class Synchronizer():
         data_, svm_predictions_SDG, scopusValidation, ihePrediction, module_predictions, module_validation = self.__acquireData(False, False, False, True, False, False, limit)
         
         ihe_approach_keywords = pd.read_csv("main/IHE_KEYWORDS/approaches.csv")
-        ihe_approach_keywords = ihe_approach_keywords.dropna()
         ihe_approach_keywords = self.preprocessor.preprocess_keywords("main/IHE_KEYWORDS/approaches.csv")
         ihe_speciality_max = len(pd.read_csv('main/IHE_KEYWORDS/lda_speciality_keywords.csv', nrows=0).columns.tolist())
 
         ihe_string_speciality_keywords = pd.read_csv("main/IHE_KEYWORDS/stringmatch_specialities.csv")
         ihe_string_speciality_keywords = self.preprocessor.preprocess_keywords("main/IHE_KEYWORDS/stringmatch_specialities.csv")
-
+        
         all_publications = self.__retrieve_all_pubs()
         all_pubs = self.__getAllPubs(limit)
 
         count, l = 1, 98600
         print()
-        publication_data_list = []
-        publication_data_titles = []
+        publication_data_list, publication_data_titles = [], []
         
         for doi in all_pubs:
             self.__progress(count, l, "syncing IHE with Django")
@@ -507,7 +509,7 @@ class Synchronizer():
                 publication_data['IHE'], publication_data['IHE_Prediction'] = self.__getIHE_predictions(ihePrediction, doi)
                 publication_data['IHE_String_Speciality_Prediction'] = self.__string_match_speciality(ihe_string_speciality_keywords, all_publications[doi][0], ihe_speciality_max)
                 publication_data['IHE_Approach_String'] = self.__stringmatch_approach(ihe_approach_keywords, all_publications[doi][0])
-                # publication_data['IHE_SVM_Assignments'], publication_data['IHE_SVM_Prediction'] = self.__ihe_svm_prediction(doi)
+                publication_data['IHE_SVM_Assignments'], publication_data['IHE_SVM_Prediction'] = self.__ihe_svm_prediction(doi)
                 
                 publication_data_list.append(publication_data)
                 publication_data_titles.append(title)
@@ -532,32 +534,33 @@ class Synchronizer():
         print()
 
         for module in module_predictions['Document Topics']:
-            self.__progress(count, l, "syncing Module SDG with Django")
-            weights = module_predictions['Document Topics'][module]
-            module_SDG_assignments = {}
-            module_SDG_assignments["Module_ID"] = module
+            if module in module_validation:
+                self.__progress(count, l, "syncing Module SDG with Django")
+                weights = module_predictions['Document Topics'][module]
+                module_SDG_assignments = {}
+                module_SDG_assignments["Module_ID"] = module
 
-            similarityRGB = module_validation[module]['Similarity']
-            module_validation[module]['ColorRed'], module_validation[module]['ColorGreen'], module_validation[module]['ColorBlue'] = self.__pseudocolor(similarityRGB*100, 0, 100)
-            module_validation[module]['StringCount'] = self.__normalise(module_validation[module]['SDG_Keyword_Counts'])
+                similarityRGB = module_validation[module]['Similarity']
+                module_validation[module]['ColorRed'], module_validation[module]['ColorGreen'], module_validation[module]['ColorBlue'] = self.__pseudocolor(similarityRGB*100, 0, 100)
+                module_validation[module]['StringCount'] = self.__normalise(module_validation[module]['SDG_Keyword_Counts'])
 
-            module_SDG_assignments["Validation"] = module_validation[module]
-            
-            w = []
-            for i in range(len(weights)):
-                weights[i] = weights[i].replace('(', '').replace(')', '').replace('%', '').replace(' ', '').split(',')
-                sdgNum = weights[i][0]
-                module_SDG_assignments[sdgNum] = float(weights[i][1])
-                w.append((sdgNum, float(weights[i][1])))
+                module_SDG_assignments["Validation"] = module_validation[module]
+                
+                w = []
+                for i in range(len(weights)):
+                    weights[i] = weights[i].replace('(', '').replace(')', '').replace('%', '').replace(' ', '').split(',')
+                    sdgNum = weights[i][0]
+                    module_SDG_assignments[sdgNum] = float(weights[i][1])
+                    w.append((sdgNum, float(weights[i][1])))
 
-            if module_SDG_assignments["Validation"]:
-                module_SDG_assignments['ModelResult'] = ",".join(self.__thresholdAnalyse(w, threshold=lda_threshold))
-                normalised = self.__normalise(module_SDG_assignments["Validation"]['SDG_Keyword_Counts'])
-                module_SDG_assignments['StringResult'] = ",".join(self.__thresholdAnalyse(normalised, threshold=lda_threshold))
-                module_SDG_assignments['SVM'], module_SDG_assignments['SVM_Prediction'] = self.__getSVM_predictions(svm_predictions['Module'], module)
+                if module_SDG_assignments["Validation"]:
+                    module_SDG_assignments['ModelResult'] = ",".join(self.__thresholdAnalyse(w, threshold=lda_sdg_threshold_modules))
+                    normalised = self.__normalise(module_SDG_assignments["Validation"]['SDG_Keyword_Counts'])
+                    module_SDG_assignments['StringResult'] = ",".join(self.__thresholdAnalyse(normalised, threshold=lda_sdg_threshold_modules))
+                    module_SDG_assignments['SVM'], module_SDG_assignments['SVM_Prediction'] = self.__getSVM_predictions(svm_predictions['Module'], module)
 
-                self.__update_postgres_data_modules(module_SDG_assignments, module)
-            count += 1
+                    self.__update_postgres_data_modules(module_SDG_assignments, module)
+                count += 1
         print()
 
     def __update_columns(self) -> None:
@@ -606,8 +609,8 @@ class Synchronizer():
         limit = 0
         self.__update_columns()
 
-        # self.__loadSDG_Data_PUBLICATION(limit)
-        # self.__loadSDG_Data_MODULES(limit)
-        # self.__load_IHE_Data(limit)
+        self.__loadSDG_Data_PUBLICATION(limit)
+        self.__loadSDG_Data_MODULES(limit)
+        self.__load_IHE_Data(limit)
 
         self.client.close()
