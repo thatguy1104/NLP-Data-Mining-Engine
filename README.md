@@ -92,7 +92,8 @@ $ python3 global_controller.py NLP run_LDA_IHE
 ### Perform string-matching for SDGs (skip if only focusing on IHEs)
 ```bash
 $ python3 global_controller.py NLP module_string_match
-$ python3 global_controller.py NLP scopus_string_match
+$ python3 global_controller.py NLP scopus_string_match_SDG
+$ python3 global_controller.py NLP scopus_string_match_IHE
 ```
 ### Use SDG LDA results to classify publications (skip if only focusing on IHEs)
 ```bash
