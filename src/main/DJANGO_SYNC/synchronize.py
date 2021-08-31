@@ -365,14 +365,12 @@ class Synchronizer():
             for word in paper['IndexKeywords']:
                 text_data += " " + word
 
-        text_data = self.preprocessor.tokenize(text_data)
+        text_data = ' '.join(self.preprocessor.tokenize(text_data))
         
         result_string_list = []
         for topic, words in enumerate(keywords):
             for word in words:
                 if not pd.isna(word) and word in text_data and topic not in result_string_list:
-                    # if topic == 10:
-                        # print(paper['DOI'], word)
                     result_string_list.append((str(topic+1)))
         
         result = ','.join(result_string_list)
@@ -483,11 +481,9 @@ class Synchronizer():
 
         data_, svm_predictions_SDG, scopusValidation, ihePrediction, module_predictions, module_validation = self.__acquireData(False, False, False, True, False, False, limit)
         
-        ihe_approach_keywords = pd.read_csv("main/IHE_KEYWORDS/approaches.csv")
         ihe_approach_keywords = self.preprocessor.preprocess_keywords("main/IHE_KEYWORDS/approaches.csv")
         ihe_speciality_max = len(pd.read_csv('main/IHE_KEYWORDS/lda_speciality_keywords.csv', nrows=0).columns.tolist())
 
-        ihe_string_speciality_keywords = pd.read_csv("main/IHE_KEYWORDS/stringmatch_specialities.csv")
         ihe_string_speciality_keywords = self.preprocessor.preprocess_keywords("main/IHE_KEYWORDS/stringmatch_specialities.csv")
         
         all_publications = self.__retrieve_all_pubs()
@@ -504,10 +500,10 @@ class Synchronizer():
                 title = all_publications[doi][0]['Title']
                 publication_data = all_publications[doi][1]
                 
-                publication_data['IHE'], publication_data['IHE_Prediction'] = self.__getIHE_predictions(ihePrediction, doi)
-                publication_data['IHE_String_Speciality_Prediction'] = self.__string_match_speciality(ihe_string_speciality_keywords, all_publications[doi][0], ihe_speciality_max)
+                # publication_data['IHE'], publication_data['IHE_Prediction'] = self.__getIHE_predictions(ihePrediction, doi)
+                # publication_data['IHE_String_Speciality_Prediction'] = self.__string_match_speciality(ihe_string_speciality_keywords, all_publications[doi][0], ihe_speciality_max)
                 publication_data['IHE_Approach_String'] = self.__stringmatch_approach(ihe_approach_keywords, all_publications[doi][0])
-                publication_data['IHE_SVM_Assignments'], publication_data['IHE_SVM_Prediction'] = self.__ihe_svm_prediction(doi)
+                # publication_data['IHE_SVM_Assignments'], publication_data['IHE_SVM_Prediction'] = self.__ihe_svm_prediction(doi)
                 
                 publication_data_list.append(publication_data)
                 publication_data_titles.append(title)
@@ -605,9 +601,10 @@ class Synchronizer():
 
     def run(self, limit):
         limit = 0
-        self.__update_columns()
-        self.__loadSDG_Data_PUBLICATION(limit)
-        self.__loadSDG_Data_MODULES(limit)
+
+        # self.__update_columns()
+        # self.__loadSDG_Data_PUBLICATION(limit)
+        # self.__loadSDG_Data_MODULES(limit)
         self.__load_IHE_Data(limit)
 
         self.client.close()

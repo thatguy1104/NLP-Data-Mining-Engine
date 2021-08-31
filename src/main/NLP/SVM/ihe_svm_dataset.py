@@ -27,11 +27,12 @@ class IheSvmDataset():
         self.publication_loader = PublicationLoader()
         self.publication_preprocessor = Preprocessor()
         self.svm_dataset = "main/NLP/SVM/SVM_dataset_ihe.csv"
-        # dataframe with columns {DOI, Title, Description}.
-        self.df_publications = self.publication_loader.load("MAX")
 
         with open("main/NLP/LDA/IHE_RESULTS/training_results.json") as json_file:
            self.data = json.load(json_file)
+
+        # dataframe with columns {DOI, Title, Description}.
+        self.df_publications = self.publication_loader.load("MAX")
         self.num_ihes = len(self.data['Topic Words'])
 
     def __progress(self, count: int, total: int, custom_text: str, suffix: str = '') -> None:
