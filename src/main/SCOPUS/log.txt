@@ -1,0 +1,100 @@
+Invalid API Key--> Error occured. 10.1016/j.ejpn.2018.12.002
+Invalid API Key--> Error occured. 10.3390/genes10121050
+Invalid API Key--> Error occured. 10.1111/disa.12305
+Invalid API Key--> Error occured. 10.1111/aor.13148
+Invalid API Key--> Error occured. 10.1504/IJATM.2020.108586
+Invalid API Key--> Error occured. 10.1080/00751634.2019.1658917
+Invalid API Key--> Error occured. 10.1051/0004-6361/201424091
+Invalid API Key--> Error occured. 10.1080/15427609.2017.1305808
+Invalid API Key--> Error occured. 10.1002/ijgo.12370
+Invalid API Key--> Error occured. 10.17925/EOH.2019.15.1.29
+Invalid API Key--> Error occured. 10.1159/000444925
+Invalid API Key--> Error occured. 10.1080/14783363.2020.1812380
+Invalid API Key--> Error occured. 10.6017/ihe.2016.86.9367
+Invalid API Key--> Error occured. 10.1057/s41284-018-0153-2
+Invalid API Key--> Error occured. 10.1007/978-3-030-30179-8_2
+Invalid API Key--> Error occured. 10.1016/j.measurement.2018.03.082
+Invalid API Key--> Error occured. 10.1103/PhysRevA.100.052310
+Invalid API Key--> Error occured. 10.5255/UKDA-SN-8552-1
+Invalid API Key--> Error occured. 10.1109/JSEN.2018.2823588
+Invalid API Key--> Error occured. 10.1080/09273948.2020.1774905
+Invalid API Key--> Error occured. 10.1016/j.clinph.2019.09.007
+Invalid API Key--> Error occured. 10.1111/jasp.12443
+Invalid API Key--> Error occured. 10.1080/00914037.2016.1217530
+Invalid API Key--> Error occured. 10.1111/bjh.14161
+Invalid API Key--> Error occured. 10.1016/j.parkreldis.2020.05.003
+Invalid API Key--> Error occured. 10.1016/S1473-3099(19)30161-6
+Invalid API Key--> Error occured. 10.1387/ijdb.200173lv
+Invalid API Key--> Error occured. 10.1103/physrevd.92.059903
+Invalid API Key--> Error occured. 10.1136/bjophthalmol-2019-315152
+Invalid API Key--> Error occured. 10.1007/s10479-015-2033-z
+Written 1/114373 files DOI: 10.1073/pnas.1416000112
+Invalid API Key--> Error occured. 10.1177/0886260519853404
+Written 1/114373 files DOI: 10.1111/tops.12454
+Invalid API Key--> Error occured. 10.1177/0308575919867770
+Invalid API Key--> Error occured. 10.1177/1049732318801358
+Invalid API Key--> Error occured. 10.1002/ajpa.22881
+Written 1/114373 files DOI: 10.1097/QAD.0000000000001924
+Invalid API Key--> Error occured. 10.1109/aeroemc.2016.7504585
+Invalid API Key--> Error occured. 10.1145/2967934.2968102
+Invalid API Key--> Error occured. 10.1093/nutrit/nux079
+Written 1/114373 files DOI: 10.1038/eye.2014.296
+Invalid API Key--> Error occured. 10.1101/2020.02.12.946111
+Written 1/114373 files DOI: 10.1042/BST20150051
+Written 2/114373 files DOI: 10.1007/s12220-013-9434-5
+Written 3/114373 files DOI: 10.1007/s00222-018-0839-4
+Invalid API Key--> Error occured. 10.1016/j.clay.2015.08.014
+Invalid API Key--> Error occured. 10.1016/j.bbamcr.2017.01.015
+Invalid API Key--> Error occured. 10.1093/analys/anz090
+Written 4/114373 files DOI: 10.1257/mic.20170007
+Invalid API Key--> Error occured. 10.3389/fcell.2020.590094
+Invalid API Key--> Error occured. 10.3310/hta20840
+Written 5/114373 files DOI: 10.1136/bmjopen-2019-035884
+Invalid API Key--> Error occured. 10.1002/ange.202002240
+Invalid API Key--> Error occured. 10.1371/journal.pone.0202412
+Invalid API Key--> Error occured. 10.1016/S0168-8278(18)30334-9
+Invalid API Key--> Error occured. 10.1136/gutjnl-2015-309861.657
+Invalid API Key--> Error occured. 10.1007/s11207-015-0826-5
+Invalid API Key--> Error occured. 10.1111/inm.12727
+Written 6/114373 files DOI: 10.1111/inm.12658
+Invalid API Key--> Error occured. 10.1038/ncomms9111
+Invalid API Key--> Error occured. 10.1029/2018JA025837
+Invalid API Key--> Error occured. 10.1126/sciadv.aau1946
+Invalid API Key--> Error occured. 10.1007/s00701-015-2517-2
+Invalid API Key--> Error occured. 10.1007/s13253-018-00349-9
+Written 7/114373 files DOI: 10.1017/CBO9781139940948.023
+Invalid API Key--> Error occured. 10.1007/s00127-017-1360-6
+Invalid API Key--> Error occured. 10.12688/wellcomeopenres.15927.1
+Invalid API Key--> Error occured. 10.1002/14651858.CD013241
+Invalid API Key--> Error occured. 10.1534/g3.119.400617
+Written 8/114373 files DOI: 10.1007/s11896-014-9148-z
+Invalid API Key--> Error occured. 10.1093/mnras/stv1698
+Invalid API Key--> Error occured. 10.1007/s10982-018-9339-3
+Invalid API Key--> Error occured. 10.1109/TAP.2019.2934816
+Invalid API Key--> Error occured. 10.1111/j.1365-2702.2008.02530.x
+Invalid API Key--> Error occured. 10.1016/j.tra.2020.09.004
+Invalid API Key--> Error occured. 10.1136/jech-2015-206256.6
+Invalid API Key--> Error occured. 10.1016/j.ijid.2016.02.856
+Invalid API Key--> Error occured. 10.1515/hukin-2017-0187
+Invalid API Key--> Error occured. 10.1038/s41467-018-07345-0
+Invalid API Key--> Error occured. 10.1093/acrefore/9780190228637.013.553
+Invalid API Key--> Error occured. 10.1039/c8mh01640b
+Invalid API Key--> Error occured. 10.1136/bmjopen-2016-013523
+Invalid API Key--> Error occured. 10.1016/j.chemgeo.2019.04.020
+Invalid API Key--> Error occured. 10.1038/s41467-020-15800-0
+Invalid API Key--> Error occured. 10.1523/JNEUROSCI.0491-17.2017
+Written 9/114373 files DOI: 10.1186/s13059-019-1702-7
+Invalid API Key--> Error occured. 10.1080/01446193.2020.1817516
+Written 10/114373 files DOI: 10.1016/j.autneu.2019.01.001
+Invalid API Key--> Error occured. 10.1016/S1474-4422(18)30368-5
+Written 11/114373 files DOI: 10.1103/PhysRevLett.124.193604
+Written 12/114373 files DOI: 10.1177/0004867420950797
+Invalid API Key--> Error occured. 10.1016/j.neuroimage.2017.11.060
+Invalid API Key--> Error occured. 10.1016/j.puhe.2015.10.013
+Invalid API Key--> Error occured. 10.3233/KCA-180038
+Invalid API Key--> Error occured. 10.7554/eLife.50705
+Invalid API Key--> Error occured. 10.1136/bmjopen-2019-033435
+Invalid API Key--> Error occured. 10.1016/j.cherd.2018.09.042
+Written 13/114373 files DOI: 10.1016/S1474-4422(15)00226-4
+Invalid API Key--> Error occured. 10.1016/j.paed.2016.08.011
+Written 14/114373 files DOI: 10.1136/jmedgenet-2019-106561

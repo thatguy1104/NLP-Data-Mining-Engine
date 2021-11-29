@@ -1,7 +1,7 @@
 from main.MANAGERS.loader_manager import LOADER_SECTION
 from main.MANAGERS.module_manager import MODULE_SECTION
 from main.MANAGERS.scopus_manager import SCOPUS_SECTION
-from main.MANAGERS.nlp_manager import NLP_SECTION
+# from main.MANAGERS.nlp_manager import NLP_SECTION
 from main.MANAGERS.synchronizer_manager import SYNC_SECTION
 
 import sys
@@ -39,41 +39,41 @@ def scopus_manager(scrape_pub: bool) -> None:
     if scrape_pub:
         scopus_actions.scrapeAllPublications()
 
-def nlp_manager(nlp_dictionary: dict) -> None:
-    """
-        Manager for NLP
-        Actions: 
-            LDA - run it for SDG & IHE
-            Guided LDa - run it for SDG & IHE
-            String match - for modules & publications
-            Prediction for publication data (SDG classification)
-            SVM - initialise dataset, run it for SDG
-            Validate Svm model against SDG string matching assignment (for modules & publicatoins)
-    """
+# def nlp_manager(nlp_dictionary: dict) -> None:
+#     """
+#         Manager for NLP
+#         Actions: 
+#             LDA - run it for SDG & IHE
+#             Guided LDa - run it for SDG & IHE
+#             String match - for modules & publications
+#             Prediction for publication data (SDG classification)
+#             SVM - initialise dataset, run it for SDG
+#             Validate Svm model against SDG string matching assignment (for modules & publicatoins)
+#     """
 
-    nlp_actions = NLP_SECTION()
-    if nlp_dictionary["run_LDA_SDG"]:
-        nlp_actions.run_LDA_SDG()
-    if nlp_dictionary["run_LDA_IHE"]:
-        nlp_actions.run_LDA_IHE()
-    if nlp_dictionary["module_string_match"]:
-        nlp_actions.module_string_match()
-    if nlp_dictionary["scopus_string_match_SDG"]:
-        nlp_actions.scopus_string_match_SDG()
-    if nlp_dictionary["scopus_string_match_IHE"]:
-        nlp_actions.scopus_string_match_IHE()
-    if nlp_dictionary["predict_scopus_data"]:
-        nlp_actions.predictScopus()
-    if nlp_dictionary["create_SDG_SVM_dataset"]:
-        nlp_actions.create_SDG_SVM_dataset(True, True)
-    if nlp_dictionary["create_IHE_SVM_dataset"]:
-        nlp_actions.create_IHE_SVM_dataset()
-    if nlp_dictionary["run_SVM_SDG"]:
-        nlp_actions.run_SVM_SDG()
-    if nlp_dictionary["run_SVM_IHE"]:
-        nlp_actions.run_SVM_IHE()
-    if nlp_dictionary["validate_sdg_svm"]:
-        nlp_actions.validate_SDG_SVM()
+#     nlp_actions = NLP_SECTION()
+#     if nlp_dictionary["run_LDA_SDG"]:
+#         nlp_actions.run_LDA_SDG()
+#     if nlp_dictionary["run_LDA_IHE"]:
+#         nlp_actions.run_LDA_IHE()
+#     if nlp_dictionary["module_string_match"]:
+#         nlp_actions.module_string_match()
+#     if nlp_dictionary["scopus_string_match_SDG"]:
+#         nlp_actions.scopus_string_match_SDG()
+#     if nlp_dictionary["scopus_string_match_IHE"]:
+#         nlp_actions.scopus_string_match_IHE()
+#     if nlp_dictionary["predict_scopus_data"]:
+#         nlp_actions.predictScopus()
+#     if nlp_dictionary["create_SDG_SVM_dataset"]:
+#         nlp_actions.create_SDG_SVM_dataset(True, True)
+#     if nlp_dictionary["create_IHE_SVM_dataset"]:
+#         nlp_actions.create_IHE_SVM_dataset()
+#     if nlp_dictionary["run_SVM_SDG"]:
+#         nlp_actions.run_SVM_SDG()
+#     if nlp_dictionary["run_SVM_IHE"]:
+#         nlp_actions.run_SVM_IHE()
+#     if nlp_dictionary["validate_sdg_svm"]:
+#         nlp_actions.validate_SDG_SVM()
     
 def sync_manager(sync_dictionary: dict) -> None:
     """
@@ -108,17 +108,17 @@ if __name__ == "__main__":
     if len(args) > 3: sys.exit("Error: Too many arguments")
 
     nlp_dictionary = {
-        "run_LDA_SDG": False,
-        "run_LDA_IHE": False,
-        "module_string_match": False,
-        "scopus_string_match_SDG": False,
-        "scopus_string_match_IHE": False,
-        "predict_scopus_data": False,
-        "create_SDG_SVM_dataset": False,
-        "create_IHE_SVM_dataset": False,
-        "run_SVM_SDG": False,
-        "run_SVM_IHE": False,
-        "validate_sdg_svm": False,
+        # "run_LDA_SDG": False,
+        # "run_LDA_IHE": False,
+        # "module_string_match": False,
+        # "scopus_string_match_SDG": False,
+        # "scopus_string_match_IHE": False,
+        # "predict_scopus_data": False,
+        # "create_SDG_SVM_dataset": False,
+        # "create_IHE_SVM_dataset": False,
+        # "run_SVM_SDG": False,
+        # "run_SVM_IHE": False,
+        # "validate_sdg_svm": False,
     }
     sync_dictionary = {
         "synchronize_raw_mongodb": False,

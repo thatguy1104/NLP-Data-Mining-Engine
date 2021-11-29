@@ -113,7 +113,7 @@ class GetScopusData():
                 authorID = i[7]
                 authorName = i[8]
                 author = {"Name" : authorName, "AuthorID" : authorID, "AffiliationID" : affiliationID, "AffiliationName" : affiliationName}
-                authorData[authorID] = author
+                authorData[str(authorID)] = author
             
             # Clean up redundant fields
             del data['AuthorGroup']
